@@ -1,0 +1,940 @@
+<title>Kava Social Chess Club</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@400;700&display=swap">
+<style>
+/* ============ tokens ============ */
+:root{
+  --void:#0C0D0E; --panel:#141618; --panel-2:#1B1E21; --panel-3:#23272B;
+  --rule:#24282C; --rule-2:#343A40;
+  --cream:#FFF6E8; --ink:#E7DFD2; --ink-2:#BDB5A9; --ink-3:#A39B8E;
+  --scarlet:#FE273A; --scarlet-dim:#C41A2B;
+  --fd:"Archivo",system-ui,sans-serif;
+  --fb:"Archivo",system-ui,sans-serif;
+  --fm:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  --w:1160px; --gutter:24px;
+  --s1:8px; --s2:16px; --s3:24px; --s4:40px; --s5:64px; --s6:112px;
+  --r:4px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--void);color:var(--ink);font-family:var(--fb);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;font-variation-settings:"wdth" 100}
+body{background-image:linear-gradient(rgba(12,13,14,.93),rgba(12,13,14,.93)),url({{BG}});background-position:center top;background-size:cover;background-repeat:no-repeat;background-attachment:fixed}
+@media(max-width:760px){body{background-attachment:scroll;background-image:linear-gradient(rgba(12,13,14,.95),rgba(12,13,14,.95)),url({{BG}})}}
+img,video{display:block;max-width:100%}
+a{color:var(--cream)}
+h1,h2,h3,h4{font-family:var(--fd);margin:0;color:var(--cream);text-wrap:balance}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+.wrap{max-width:var(--w);margin:0 auto;padding:0 var(--gutter)}
+section{padding:var(--s6) 0}
+@media(max-width:760px){:root{--s6:72px;--s5:48px}}
+
+/* section header — one pattern, everywhere */
+.sh{max-width:44rem;margin-bottom:var(--s5)}
+.sh .lbl{font-family:var(--fm);font-weight:700;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--scarlet);margin-bottom:var(--s2);display:flex;align-items:center;gap:14px}
+.sh .lbl::after{content:"";height:1px;width:64px;background:var(--scarlet);opacity:.8}
+.sh h2{font-weight:900;font-variation-settings:"wdth" 110;font-size:clamp(1.75rem,3.3vw,2.5rem);line-height:1.02;letter-spacing:-.01em;text-transform:uppercase}
+.sh .dek{font-size:1.14rem;color:var(--ink-2);margin-top:var(--s2);max-width:36rem}
+.sh.center{margin-left:auto;margin-right:auto;text-align:center}
+.sh.center .dek{margin-left:auto;margin-right:auto}
+
+/* buttons — two kinds, never more */
+.btn{font-family:var(--fm);font-weight:700;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:14px 24px;border-radius:999px;text-decoration:none;display:inline-flex;align-items:center;gap:10px;border:1px solid transparent;cursor:pointer;transition:background .15s,border-color .15s,color .15s}
+.btn-p{background:var(--scarlet);color:#fff;border-color:var(--scarlet)}
+.btn-p:hover{background:var(--scarlet-dim);border-color:var(--scarlet-dim)}
+.btn-s{border-color:var(--rule-2);color:var(--cream);background:transparent}
+.btn-s:hover{border-color:var(--cream)}
+.link{font-family:var(--fm);font-weight:700;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);text-decoration:none;border-bottom:1px solid var(--rule-2);padding-bottom:3px}
+.link:hover{border-bottom-color:var(--scarlet)}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+
+/* card — one style */
+.card{background:rgba(27,30,33,.88);border:1px solid var(--rule);border-radius:var(--r);padding:28px}
+.card h3{font-weight:700;font-size:1.05rem;letter-spacing:-.005em;margin-bottom:8px}
+.card p{color:var(--ink-2);font-size:1rem;line-height:1.55}
+
+/* ============ masthead ============ */
+.topbar{height:3px;background:var(--scarlet)}
+.mast{position:sticky;top:0;z-index:50;background:rgba(12,13,14,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule)}
+.mast .wrap{display:flex;align-items:center;height:80px;gap:32px}
+.mark{display:flex;align-items:center;gap:14px;text-decoration:none;flex:1;min-width:0}
+.mark img{width:48px;height:48px;border-radius:50%;flex:none}
+.mark b{font-family:var(--fd);font-weight:900;font-variation-settings:"wdth" 112;font-size:.95rem;letter-spacing:.04em;text-transform:uppercase;color:var(--cream);display:block;line-height:1.1}
+.mark .sub{font-family:var(--fm);font-weight:600;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-3);display:block;margin-top:4px}
+nav{display:flex;gap:28px}
+nav a{font-family:var(--fm);font-weight:700;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);text-decoration:none;padding:29px 0;border-bottom:2px solid transparent}
+nav a:hover{color:var(--cream);border-bottom-color:var(--scarlet)}
+.mtools{display:flex;align-items:center;gap:8px}
+.ico{width:36px;height:36px;border:1px solid var(--rule-2);border-radius:var(--r);display:grid;place-items:center;text-decoration:none}
+.ico:hover{border-color:var(--scarlet)}
+.ico svg{width:17px;height:17px}
+.lang{font-family:var(--fm);font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);border:1px solid var(--rule-2);border-radius:var(--r);height:36px;padding:0 12px;display:inline-flex;align-items:center;text-decoration:none}
+.lang:hover{color:var(--cream);border-color:var(--scarlet)}
+.mast .btn{height:36px;padding:0 16px;font-size:.72rem}
+@media(max-width:1060px){nav{display:none}}
+@media(max-width:640px){.mast .wrap{height:68px}.mark img{width:40px;height:40px}.mark .sub{display:none}.mark b{font-size:.82rem}.mast .btn{padding:0 12px}.mast .lang{display:none}}
+
+/* ============ hero ============ */
+.hero{position:relative;isolation:isolate;min-height:640px;display:flex;align-items:flex-end;padding:0}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:68% 42%;z-index:-2}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(12,13,14,.96) 0%,rgba(12,13,14,.88) 34%,rgba(12,13,14,.42) 62%,rgba(12,13,14,.2) 100%),linear-gradient(180deg,rgba(12,13,14,.35) 0%,rgba(12,13,14,0) 40%,rgba(12,13,14,.97) 100%)}
+.hero .wrap{padding-bottom:var(--s5);padding-top:120px}
+.hero .lbl{font-family:var(--fm);font-weight:700;font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-2);margin-bottom:var(--s2)}
+.hero h1{font-weight:900;font-variation-settings:"wdth" 116;font-size:clamp(2.4rem,6.4vw,4.6rem);line-height:.96;letter-spacing:-.01em;text-transform:uppercase;max-width:13ch}
+.hero h1 em{font-style:normal;color:var(--scarlet)}
+.hero .dek{font-size:1.15rem;line-height:1.55;color:var(--ink);max-width:30rem;margin-top:var(--s3)}
+.hero .row{margin-top:var(--s4)}
+.facts{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);background:rgba(20,22,24,.9)}
+.facts .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.fact{padding:22px 0;border-left:1px solid var(--rule);padding-left:22px}
+.fact:first-child{border-left:0;padding-left:0}
+.fact .k{font-family:var(--fm);font-weight:700;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-3)}
+.fact .v{font-family:var(--fd);font-weight:800;font-variation-settings:"wdth" 108;font-size:1.02rem;color:var(--cream);margin-top:5px;letter-spacing:-.005em}
+@media(max-width:820px){.facts .wrap{grid-template-columns:1fr 1fr}.fact:nth-child(3){border-left:0;padding-left:0}.fact{padding:18px 0 18px 18px}.fact:first-child,.fact:nth-child(3){padding-left:0}}
+@media(max-width:640px){.hero{min-height:520px}}
+
+/* ============ split ============ */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:var(--s5);align-items:center}
+.split.rev > :first-child{order:2}
+.media{border-radius:var(--r);overflow:hidden;background:var(--panel-2)}
+.media img{width:100%;height:auto}
+@media(max-width:860px){.split{grid-template-columns:1fr;gap:var(--s4)}.split.rev > :first-child{order:0}}
+
+/* pillars */
+.pillars{display:flex;flex-direction:column;gap:0;margin-top:var(--s4);border-top:1px solid var(--rule)}
+.pillar{padding:24px 0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start}
+.pillar .n{font-family:var(--fm);font-weight:800;font-size:.78rem;letter-spacing:.1em;color:var(--scarlet);padding-top:4px}
+.pillar h3{font-weight:800;font-size:1.08rem;margin-bottom:6px;letter-spacing:-.005em}
+.pillar p{color:var(--ink-2);font-size:1rem}
+
+/* first-night list */
+.fn{display:block}
+.fn .media{position:relative;aspect-ratio:21/8;min-height:260px;margin-bottom:var(--s4)}
+.fn .media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 55%}
+.steps{display:grid;grid-template-columns:1fr 1fr;column-gap:var(--s5);border-top:1px solid var(--rule-2)}
+.step{display:grid;grid-template-columns:64px 1fr;gap:20px;padding:22px 0;border-bottom:1px solid var(--rule);align-items:start}
+.step .n{font-family:var(--fd);font-weight:900;font-variation-settings:"wdth" 112;font-size:1.9rem;line-height:1;letter-spacing:-.03em;color:var(--scarlet);font-variant-numeric:tabular-nums}
+.step h3{font-weight:800;font-size:1.06rem;letter-spacing:-.005em;margin-bottom:6px}
+.step p{color:var(--ink-2);font-size:.98rem;line-height:1.55}
+@media(max-width:860px){.steps{grid-template-columns:1fr}.fn .media{aspect-ratio:16/9;min-height:200px}}
+
+/* nights as photo cards */
+.nights{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:var(--s5)}
+.nc{position:relative;isolation:isolate;min-height:300px;border-radius:var(--r);overflow:hidden;border:1px solid var(--rule);display:flex;align-items:flex-end;padding:28px;text-decoration:none}
+.nc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.nc::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(12,13,14,.2) 0%,rgba(12,13,14,.7) 45%,rgba(12,13,14,.97) 100%)}
+.nc.first{border-color:var(--scarlet)}
+.nc .day{font-family:var(--fd);font-weight:900;font-variation-settings:"wdth" 116;font-size:2.4rem;line-height:.95;letter-spacing:-.02em;text-transform:uppercase;color:var(--cream)}
+.nc .time{font-family:var(--fm);font-weight:700;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--scarlet);margin:10px 0 10px}
+.nc p{color:var(--cream);font-size:1.02rem;max-width:30rem;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.nc .tag{display:inline-block;margin-top:14px;font-family:var(--fm);font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--cream);border:1px solid var(--cream);border-radius:999px;padding:5px 10px}
+@media(max-width:700px){.nights{grid-template-columns:1fr}.nc{min-height:240px;padding:22px}}
+
+/* ============ grids ============ */
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:900px){.g3{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.g3,.g2{grid-template-columns:1fr}}
+.card .n{font-family:var(--fm);font-weight:800;font-size:.74rem;letter-spacing:.12em;color:var(--scarlet);margin-bottom:14px}
+.night .day{font-family:var(--fd);font-weight:900;font-variation-settings:"wdth" 112;font-size:1.5rem;letter-spacing:-.015em;text-transform:uppercase;color:var(--cream)}
+.night .time{font-family:var(--fm);font-weight:700;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);margin:6px 0 16px}
+.night.first{border-color:var(--scarlet)}
+.night .tag{display:inline-block;font-family:var(--fm);font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--scarlet);border:1px solid var(--scarlet);border-radius:2px;padding:4px 8px;margin-top:16px}
+
+
+/* ============ events ============ */
+.events{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ev{display:grid;grid-template-columns:72px 1fr;gap:20px;align-items:start}
+.ev .date{border-right:1px solid var(--rule-2);padding-right:18px;text-align:center}
+.ev .date .d{font-family:var(--fd);font-weight:900;font-variation-settings:"wdth" 112;font-size:2.2rem;line-height:1;letter-spacing:-.03em;color:var(--cream);font-variant-numeric:tabular-nums}
+.ev .date .m{font-family:var(--fm);font-weight:700;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--scarlet);margin-top:6px}
+.ev .date .w{font-family:var(--fm);font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-top:3px}
+.ev h3{margin-bottom:6px}
+.ev .meta{font-family:var(--fm);font-weight:600;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);line-height:1.8}
+.ev p{margin-top:10px}
+.ev .tag{display:inline-block;margin-top:14px;font-family:var(--fm);font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--scarlet);border:1px solid var(--scarlet);border-radius:2px;padding:4px 8px}
+.ev.tba .date .d{color:var(--ink-3);font-size:1.4rem;padding-top:8px}
+@media(max-width:900px){.events{grid-template-columns:1fr}}
+
+
+/* ============ calendar ============ */
+.upnext{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:var(--s5)}
+@media(max-width:900px){.upnext{grid-template-columns:1fr}}
+.cal{display:grid;grid-template-columns:1fr 340px;gap:var(--s4);align-items:start}
+@media(max-width:960px){.cal{grid-template-columns:1fr}}
+.calhead{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:16px}
+.calhead h3{font-family:var(--fd);font-weight:900;font-variation-settings:"wdth" 112;font-size:1.6rem;text-transform:uppercase;letter-spacing:-.01em}
+.calnav{display:flex;gap:8px}
+.calnav button{width:40px;height:40px;border:1px solid var(--rule-2);border-radius:999px;background:transparent;color:var(--cream);font-family:var(--fm);font-size:1rem;cursor:pointer}
+.calnav button:hover{border-color:var(--scarlet)}
+.calnav .today{width:auto;padding:0 14px;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+.grid7{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.dow{font-family:var(--fm);font-weight:700;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);text-align:center;padding:6px 0 10px}
+.cday{min-height:96px;border:1px solid var(--rule);border-radius:var(--r);background:rgba(27,30,33,.75);padding:8px;cursor:pointer;display:flex;flex-direction:column;gap:5px;transition:border-color .12s}
+.cday:hover{border-color:var(--rule-2)}
+.cday.out{opacity:.35}
+.cday.sel{border-color:var(--scarlet)}
+.cday.now .num{color:var(--scarlet)}
+.cday .num{font-family:var(--fm);font-weight:700;font-size:.82rem;color:var(--ink-2)}
+.chip{font-family:var(--fm);font-weight:700;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;padding:4px 7px;border-radius:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border:1px solid transparent}
+.t-social{color:#0C0D0E;background:#3BC79A}
+.t-league{color:#fff;background:var(--scarlet-dim)}
+.t-study{color:#fff;background:#4F86E8}
+.t-tournament{color:#fff;background:var(--scarlet)}
+.t-lecture,.t-simul{color:#0C0D0E;background:var(--cream)}
+.t-special{color:#0C0D0E;background:#A78BFA}
+.t-adobe{color:#0C0D0E;background:#F0883E}
+@media(max-width:700px){.cday{min-height:64px;padding:5px}.chip{font-size:0;padding:0;height:6px;width:100%;border-radius:1px}}
+.legend{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:14px}
+.legend span{display:inline-flex;align-items:center;gap:7px;font-family:var(--fm);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
+.side{position:sticky;top:96px}
+.side .card{padding:22px}
+.side h4{font-family:var(--fd);font-weight:900;font-variation-settings:"wdth" 110;font-size:1.05rem;text-transform:uppercase;margin-bottom:14px;letter-spacing:-.005em}
+.evl{display:flex;flex-direction:column;gap:12px}
+.evi{border-top:1px solid var(--rule);padding-top:12px}
+.evi .t{font-family:var(--fm);font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--scarlet)}
+.evi b{display:block;font-family:var(--fd);font-weight:800;font-size:1rem;margin:4px 0 2px}
+.evi .m{font-family:var(--fm);font-size:.72rem;letter-spacing:.06em;color:var(--ink-3)}
+.evi p{color:var(--ink-2);font-size:.92rem;margin-top:6px}
+.evi .acts{display:flex;gap:12px;margin-top:8px}
+.evi .acts a,.evi .acts button{font-family:var(--fm);font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);background:none;border:0;border-bottom:1px solid var(--rule-2);padding:0 0 2px;cursor:pointer;text-decoration:none}
+.evi .acts a:hover,.evi .acts button:hover{border-bottom-color:var(--scarlet)}
+.empty{color:var(--ink-3);font-size:.92rem}
+.addf{display:grid;gap:10px;margin-top:16px;padding-top:16px;border-top:1px solid var(--rule)}
+.addf label{font-family:var(--fm);font-weight:700;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:4px}
+.addf input,.addf select,.addf textarea{width:100%;background:var(--void);border:1px solid var(--rule-2);color:var(--cream);font-family:var(--fb);font-size:.94rem;padding:9px 10px;border-radius:var(--r)}
+.addf input:focus,.addf select:focus,.addf textarea:focus{outline:2px solid var(--scarlet);outline-offset:1px}
+.addf .two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.addf .msg{font-family:var(--fm);font-size:.74rem;letter-spacing:.06em;color:var(--ink-3);min-height:1em}
+.addf .msg.err{color:var(--scarlet)}
+.addf .msg.ok{color:#3BC79A}
+
+/* ============ video ============ */
+.player{border-radius:var(--r);overflow:hidden;border:1px solid var(--rule-2);background:#000;max-width:520px}
+.player video{width:100%;aspect-ratio:1/1}
+.checks{margin-top:var(--s3);display:flex;flex-direction:column;gap:12px}
+.checks li{display:flex;gap:14px;align-items:baseline;color:var(--ink-2);font-size:1.02rem;line-height:1.5}
+.checks li::before{content:"";width:6px;height:6px;background:var(--scarlet);flex:none;transform:translateY(-2px)}
+
+/* ============ proof band ============ */
+.proof{background:rgba(20,22,24,.86);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.proof .wrap{display:block}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-left:1px solid var(--rule);align-self:center}
+.stat{padding:8px 0 8px 24px;margin:14px 0}
+.stat .v{font-family:var(--fd);font-weight:900;font-variation-settings:"wdth" 112;font-size:2.1rem;line-height:1;letter-spacing:-.025em;color:var(--cream);font-variant-numeric:tabular-nums}
+.stat .k{font-family:var(--fm);font-weight:700;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);margin-top:8px}
+.uscard{background:var(--cream);border-radius:var(--r);padding:26px;display:grid;grid-template-columns:120px 1fr;gap:22px;align-items:center;color:#0C0D0E}
+.uscard.big{grid-template-columns:1fr;text-align:center;padding:44px 36px;gap:22px}
+.uscard.big img{max-width:220px;margin:0 auto}
+.uscard.big b{font-size:1.15rem}
+.uscard img{width:100%;height:auto}
+.uscard b{font-family:var(--fd);font-weight:900;font-variation-settings:"wdth" 108;font-size:.95rem;display:block;letter-spacing:-.005em}
+.uscard span{font-family:var(--fm);font-weight:600;font-size:.76rem;letter-spacing:.06em;color:#4A4640;display:block;margin-top:4px}
+.uscard a{font-family:var(--fm);font-weight:700;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:#0C0D0E;display:inline-block;margin-top:10px;border-bottom:1px solid #0C0D0E;text-decoration:none}
+@media(max-width:900px){.proof .wrap{grid-template-columns:1fr;gap:var(--s4)}}
+@media(max-width:480px){.uscard{grid-template-columns:1fr}.uscard img{max-width:150px}}
+
+/* bracket art */
+.brackets{margin-top:var(--s5);display:grid;grid-template-columns:repeat(2,1fr);gap:28px 40px}
+.bk{display:block;text-decoration:none;text-align:center}
+.bk img{width:100%;height:auto;filter:drop-shadow(0 6px 18px rgba(0,0,0,.55));transition:transform .18s}
+.bk:hover img{transform:translateY(-3px)}
+.bk span{display:block;font-family:var(--fm);font-weight:700;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);margin-top:8px}
+@media(max-width:640px){.brackets{grid-template-columns:1fr;gap:20px}}
+
+/* ============ lessons ============ */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}
+.duo img{width:100%;height:auto;border-radius:var(--r)}
+.creds{margin-top:var(--s3);display:grid;grid-template-columns:1fr 1fr;gap:12px 28px}
+.creds li{font-family:var(--fm);font-weight:600;font-size:.86rem;color:var(--ink-2);padding-left:14px;position:relative;line-height:1.4}
+.creds li::before{content:"";position:absolute;left:0;top:.5em;width:5px;height:5px;background:var(--scarlet)}
+@media(max-width:520px){.creds{grid-template-columns:1fr}}
+.price{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding-bottom:14px;margin-bottom:14px;border-bottom:1px solid var(--rule-2)}
+.price h3{margin:0;text-transform:uppercase;font-weight:800}
+.price b{font-family:var(--fd);font-weight:900;font-variation-settings:"wdth" 112;font-size:1.5rem;color:var(--scarlet);letter-spacing:-.02em;white-space:nowrap}
+.price b span{font-family:var(--fm);font-size:.74rem;letter-spacing:.1em;color:var(--ink-3);font-weight:700;margin-left:2px}
+.note{margin-top:var(--s3);padding:16px 18px;border-left:2px solid var(--scarlet);background:var(--panel);color:var(--ink-2);font-size:.98rem}
+.note b{color:var(--cream);font-weight:500}
+
+/* ============ gallery ============ */
+.gal{display:flex;flex-wrap:wrap;gap:4px;align-items:flex-start}
+.gal img{flex:none;display:block;object-fit:cover;cursor:zoom-in;background:var(--panel-2);transition:opacity .15s;border-radius:0}
+.gal img:hover{opacity:.82}
+.lb{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.94);display:none;align-items:center;justify-content:center;padding:64px 24px 56px}
+.lb.open{display:flex}
+.lb img{max-width:min(1400px,96vw);max-height:calc(100vh - 120px);width:auto;height:auto;object-fit:contain;border-radius:0}
+.lb button{position:absolute;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);color:#fff;width:44px;height:44px;border-radius:999px;font-size:1.25rem;line-height:1;cursor:pointer;display:grid;place-items:center;transition:background .15s}
+.lb button:hover{background:rgba(255,255,255,.18)}
+.lb .close{top:16px;left:50%;transform:translateX(-50%)}
+.lb .prev{left:16px;top:50%;transform:translateY(-50%);opacity:.7}
+.lb .next{right:16px;top:50%;transform:translateY(-50%);opacity:.7}
+.lb .cap{position:absolute;right:24px;bottom:20px;font-family:var(--fm);font-size:.74rem;letter-spacing:.14em;color:rgba(255,255,255,.75);font-variant-numeric:tabular-nums}
+.lb .cap b{color:#fff;font-weight:700}
+@media(max-width:700px){.lb{padding:56px 8px 48px}.lb .prev,.lb .next{width:38px;height:38px}}
+
+/* ============ partners ============ */
+.sponsor{display:grid;grid-template-columns:1fr 1fr;align-items:center;background:var(--panel-2);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden}
+.sponsor > img{width:100%;height:auto;object-fit:contain;display:block}
+.sponsor .body{padding:36px}
+.sponsor .body img{width:84px;height:auto;margin-bottom:18px}
+.sponsor .tag{font-family:var(--fm);font-weight:700;font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:var(--scarlet);margin-bottom:12px}
+.sponsor h3{font-weight:900;font-variation-settings:"wdth" 112;font-size:1.7rem;letter-spacing:-.02em;text-transform:uppercase}
+.sponsor p{color:var(--ink-2);margin-top:12px;max-width:34rem}
+.sponsor .meta{font-family:var(--fm);font-weight:600;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-top:16px;line-height:1.8}
+.sponsor .row{margin-top:var(--s3)}
+@media(max-width:760px){.sponsor{grid-template-columns:1fr}.sponsor .body{padding:26px}}
+.logos{margin-top:var(--s5);display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.logo{background:var(--panel-2);border:1px solid var(--rule);border-radius:var(--r);padding:22px 16px 18px;text-decoration:none;display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;transition:border-color .15s}
+.logo:hover{border-color:var(--scarlet)}
+.logo .lg{height:84px;width:100%;display:grid;place-items:center}
+.logo .lg img{max-height:84px;max-width:82%;width:auto;height:auto}
+.logo b{font-family:var(--fd);font-weight:700;font-size:.84rem;line-height:1.3;color:var(--cream)}
+.logo span{font-family:var(--fm);font-weight:700;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3)}
+@media(max-width:960px){.logos{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.logos{grid-template-columns:repeat(2,1fr)}}
+.logos-head{margin-top:var(--s5);display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+.logos-head h3{font-weight:900;font-variation-settings:"wdth" 110;text-transform:uppercase;font-size:1.25rem;letter-spacing:-.01em}
+.logos-head p{color:var(--ink-3);font-family:var(--fm);font-size:.76rem;letter-spacing:.06em}
+
+
+.tools{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.tool{display:grid;grid-template-columns:96px 1fr;gap:22px;align-items:start;text-decoration:none}
+.tool .lg{height:64px;display:grid;place-items:center;background:var(--panel);border-radius:var(--r);padding:12px}
+.tool .lg img{max-height:40px;max-width:100%;width:auto;height:auto}
+.tool b{font-family:var(--fd);font-weight:800;font-size:1rem;color:var(--cream);display:block}
+.tool .k{font-family:var(--fm);font-weight:700;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--scarlet);margin:4px 0 10px}
+.tool p{color:var(--ink-2);font-size:.98rem;line-height:1.55}
+.tool .go{display:inline-block;margin-top:12px;font-family:var(--fm);font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);border-bottom:1px solid var(--rule-2);padding-bottom:2px}
+.tool:hover .go{border-bottom-color:var(--scarlet)}
+@media(max-width:820px){.tools{grid-template-columns:1fr}}
+@media(max-width:480px){.tool{grid-template-columns:1fr}.tool .lg{max-width:140px}}
+
+/* ============ contact ============ */
+.contact{background:rgba(20,22,24,.86);border-top:1px solid var(--rule)}
+.ways{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.way{background:var(--void);border:1px solid var(--rule-2);border-radius:var(--r);padding:22px 20px;text-decoration:none;display:flex;flex-direction:column;gap:12px}
+.way:hover{border-color:var(--scarlet)}
+.way svg{width:22px;height:22px}
+.way b{font-family:var(--fd);font-weight:700;font-size:.92rem;color:var(--cream)}
+.way span{font-family:var(--fm);font-weight:600;font-size:.76rem;letter-spacing:.04em;color:var(--ink-3);margin-top:-8px}
+@media(max-width:900px){.ways{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.ways{grid-template-columns:1fr}}
+.revrow{margin-top:var(--s5);padding-top:var(--s4);border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:var(--s4);align-items:center}
+.revrow .g{display:flex;align-items:center;gap:14px}
+.revrow .g svg{width:34px;height:34px}
+.revrow .stars{color:#FBBC05;letter-spacing:.12em;font-size:1rem}
+.revrow .t{font-family:var(--fd);font-weight:700;font-size:.9rem;color:var(--cream)}
+.revrow .s{font-family:var(--fm);font-weight:600;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-top:3px}
+@media(max-width:700px){.revrow{grid-template-columns:1fr}}
+.quote{margin:var(--s4) 0 0;background:var(--panel-2);border:1px solid var(--rule);border-left:3px solid var(--scarlet);border-radius:var(--r);padding:22px 24px;max-width:44rem}
+.quote blockquote{margin:0;font-size:1.08rem;color:var(--cream)}
+.quote figcaption{font-family:var(--fm);font-weight:700;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);margin-top:12px}
+
+/* ============ footer ============ */
+footer{padding:var(--s5) 0 var(--s4);border-top:1px solid var(--rule)}
+.fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:var(--s4)}
+footer h4{font-family:var(--fm);font-weight:700;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);margin-bottom:14px}
+footer p,footer a{font-size:.95rem;color:var(--ink-2);text-decoration:none;display:block;line-height:1.7}
+footer a:hover{color:var(--cream)}
+.fmark{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.fmark img{width:40px;height:40px;border-radius:50%}
+.fmark b{font-family:var(--fd);font-weight:800;font-size:.85rem;letter-spacing:.09em;text-transform:uppercase;color:var(--cream)}
+.legal{margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--rule);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--fm);font-size:.76rem;color:var(--ink-3);letter-spacing:.04em}
+@media(max-width:820px){.fgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.fgrid{grid-template-columns:1fr}}
+:focus-visible{outline:2px solid var(--scarlet);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+
+<div class="topbar"></div>
+<header class="mast">
+  <div class="wrap">
+    <a class="mark" href="#top">
+      <img src="{{LOGO}}" alt="Kava Social Chess Club">
+      <span><b>Kava Social Chess Club</b><span class="sub">Bradenton, Florida</span></span>
+    </a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#night">First night</a>
+      <a href="#events">Calendar</a>
+      <a href="#lessons">Lessons</a>
+      <a href="#gallery">Photos</a>
+      <a href="#partners">Partners</a>
+    </nav>
+    <div class="mtools">
+      <a class="ico" href="https://www.instagram.com/kavasocialchessclub/" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="igm" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FFD521"/><stop offset=".28" stop-color="#F50000"/><stop offset=".64" stop-color="#B900B4"/><stop offset="1" stop-color="#4E60D3"/></linearGradient></defs><path fill="url(#igm)" d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.05 1.8.25 2.2.42.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.17.4.37 1 .42 2.2.06 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.05 1.2-.25 1.8-.42 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.17-1 .37-2.2.42-1.3.06-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.05-1.8-.25-2.2-.42-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.17-.4-.37-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.05-1.2.25-1.8.42-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.17 1-.37 2.2-.42C8.4 2.2 8.8 2.2 12 2.2m0 2c-3.1 0-3.5 0-4.7.07-.9.04-1.4.2-1.7.32-.4.17-.7.36-1 .66-.3.3-.5.6-.66 1-.12.3-.28.8-.32 1.7C3.55 9.2 3.55 9.5 3.55 12s0 2.8.07 4c.04.9.2 1.4.32 1.7.17.4.36.7.66 1 .3.3.6.5 1 .66.3.12.8.28 1.7.32 1.2.06 1.6.07 4.7.07s3.5 0 4.7-.07c.9-.04 1.4-.2 1.7-.32.4-.17.7-.36 1-.66.3-.3.5-.6.66-1 .12-.3.28-.8.32-1.7.06-1.2.07-1.5.07-4s0-2.8-.07-4c-.04-.9-.2-1.4-.32-1.7-.17-.4-.36-.7-.66-1-.3-.3-.6-.5-1-.66-.3-.12-.8-.28-1.7-.32-1.2-.06-1.6-.07-4.7-.07m0 3.4a4.4 4.4 0 110 8.8 4.4 4.4 0 010-8.8m0 2a2.4 2.4 0 100 4.8 2.4 2.4 0 000-4.8m5.6-2.6a1 1 0 11-2 0 1 1 0 012 0"/></svg></a>
+      <a class="ico" href="https://www.facebook.com/KavaSocialChessClub" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#1877F2" d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0022 12"/></svg></a>
+      <a class="lang" href="#es">ES</a>
+      <a class="btn btn-p" href="#contact">Contact us</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <img src="{{HERO}}" alt="The club room at Kava Social in downtown Bradenton, full on a tournament day">
+  <div class="wrap">
+    <div class="lbl">Bradenton, Florida &middot; Est. 2021</div>
+    <h1>Bradenton's social <em>chess club</em></h1>
+    <p class="dek">We meet at Kava Social Club, Sundays and Tuesdays until midnight. Every level is welcome &mdash; most of us hadn't played in years either.</p>
+    <div class="row">
+      <a class="btn btn-p" href="#night">Your first night</a>
+      <a class="btn btn-s" href="https://maps.google.com/?q=540+13th+St+W+Bradenton+FL+34205">Get directions</a>
+    </div>
+  </div>
+</section>
+<div class="facts">
+  <div class="wrap">
+    <div class="fact"><div class="k">When</div><div class="v">Sun &amp; Tue &middot; 8PM&ndash;12AM</div></div>
+    <div class="fact"><div class="k">Where</div><div class="v">Kava Social Club &middot; 540 13th St W</div></div>
+    <div class="fact"><div class="k">Who</div><div class="v">21+ &middot; All levels &middot; EN / ES</div></div>
+    <div class="fact"><div class="k">Rated</div><div class="v">US Chess Federation affiliate</div></div>
+  </div>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="wrap">
+    <div class="split">
+      <div class="media"><img src="{{SOCIAL}}" alt="Three members laughing over a board on a club night"></div>
+      <div>
+        <div class="sh" style="margin-bottom:0">
+          <div class="lbl">About the club</div>
+          <h2>A social club that happens to play chess</h2>
+          <p class="dek">Most people who walk in are adults picking the game back up after years away. No rating, no recent practice, and nobody here is going to test them.</p>
+        </div>
+        <ul class="pillars">
+          <li class="pillar"><span class="n">01</span><div><h3>Social first</h3><p>Friendships and working relationships have started at these tables. Plenty of people come as much to talk as to play.</p></div></li>
+          <li class="pillar"><span class="n">02</span><div><h3>Every level, taught cooperatively</h3><p>Stronger players teach instead of dominate. A National Master plays here regularly and will sit down with a beginner.</p></div></li>
+          <li class="pillar"><span class="n">03</span><div><h3>Serious when you want it</h3><p>Study nights, lectures, simuls from FIDE Masters, and nationally rated US Chess tournaments several times a year.</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FIRST NIGHT ============ -->
+<section id="night" style="padding-top:0">
+  <div class="wrap">
+    <div class="sh">
+      <div class="lbl">Your first night</div>
+      <h2>You walk in. Four minutes later you're playing.</h2>
+      <p class="dek">Nothing to sign up for and nothing to bring.</p>
+    </div>
+    <div class="fn">
+      <div class="media"><img src="{{SETUP}}" alt="Boards set up and waiting under the string lights before a club night"></div>
+      <ol class="steps">
+        <li class="step"><span class="n">01</span><div><h3>Arrive whenever</h3><p>People drift in from 8PM and games run to midnight. Nobody signs in.</p></div></li>
+        <li class="step"><span class="n">02</span><div><h3>Order something</h3><p>The venue asks everyone to order one item. It doesn't have to be kava &mdash; coffee, tea, soda, lemonade and snacks are all there.</p></div></li>
+        <li class="step"><span class="n">03</span><div><h3>Get introduced</h3><p>Say it's your first time and someone will find you a game. You don't need to know anybody.</p></div></li>
+        <li class="step"><span class="n">04</span><div><h3>Sets are on the tables</h3><p>Boards, pieces and clocks are already out. Bring nothing.</p></div></li>
+        <li class="step"><span class="n">05</span><div><h3>Clocks are optional</h3><p>Only if both players want one. Most casual games are played without.</p></div></li>
+        <li class="step"><span class="n">06</span><div><h3>Leave whenever</h3><p>No membership, no dues. Come once a year or twice a week.</p></div></li>
+      </ol>
+    </div>
+    <div class="nights">
+      <a class="nc first" href="#events">
+        <img src="{{NIGHTPIC}}" alt="A full Sunday club night">
+        <div>
+          <div class="day">Sunday</div>
+          <div class="time">8PM &ndash; 12AM &middot; Alternating weeks</div>
+          <p>One Sunday is social: free play, hang out, talk. The next is league night, part of a three-month season. Either way, just walk in.</p>
+          <span class="tag">Start here</span>
+        </div>
+      </a>
+      <a class="nc" href="#events">
+        <img src="{{STUDY}}" alt="Study night: a member reading at the board">
+        <div>
+          <div class="day">Tuesday</div>
+          <div class="time">8PM &ndash; 12AM &middot; Study night</div>
+          <p>The room works through books, puzzles and grandmaster games together. Stronger players explain rather than lecture.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EVENTS ============ -->
+<section id="events" style="padding-top:0">
+  <div class="wrap">
+    <div class="sh">
+      <div class="lbl">Calendar</div>
+      <h2>What's on</h2>
+      <p class="dek">Sundays alternate between social and league. Tuesdays are study night. Thursdays are a harder study night at Adobe Kava, for intermediate players and up. Tournaments, lectures and simuls are added as they're booked.</p>
+    </div>
+
+    <div class="upnext" id="upnext"></div>
+
+    <div class="cal">
+      <div>
+        <div class="calhead">
+          <h3 id="calTitle">&nbsp;</h3>
+          <div class="calnav">
+            <button type="button" id="calPrev" aria-label="Previous month">&#8249;</button>
+            <button type="button" class="today" id="calToday">Today</button>
+            <button type="button" id="calNext" aria-label="Next month">&#8250;</button>
+          </div>
+        </div>
+        <div class="grid7" id="calDow"></div>
+        <div class="grid7" id="calGrid"></div>
+        <div class="legend">
+          <span><i style="background:#3BC79A"></i>Social Sunday</span>
+          <span><i style="background:var(--scarlet-dim)"></i>League night</span>
+          <span><i style="background:#4F86E8"></i>Study night &middot; Tuesday</span>
+          <span><i style="background:#F0883E"></i>Intermediate+ &middot; Thursday</span>
+          <span><i style="background:var(--scarlet)"></i>Tournament</span>
+          <span><i style="background:var(--cream)"></i>Lecture / simul</span>
+          <span><i style="background:#A78BFA"></i>Special</span>
+        </div>
+      </div>
+      <aside class="side">
+        <div class="card">
+          <h4 id="sideTitle">Pick a day</h4>
+          <div class="evl" id="sideList"><div class="empty">Click any date to see what's on.</div></div>
+          <form class="addf" id="addForm" hidden>
+            <div><label for="fTitle">Event</label><input id="fTitle" placeholder="e.g. Autumn Rapid — 5 rounds, G/15+2" required></div>
+            <div class="two">
+              <div><label for="fDate">Date</label><input id="fDate" type="date" required></div>
+              <div><label for="fTime">Time</label><input id="fTime" placeholder="8:00 PM"></div>
+            </div>
+            <div class="two">
+              <div><label for="fType">Type</label><select id="fType"><option value="tournament">Tournament</option><option value="lecture">Lecture</option><option value="simul">Simul</option><option value="special">Special</option><option value="social">Social night</option><option value="league">League night</option><option value="study">Study night</option><option value="adobe">Adobe Kava night</option></select></div>
+              <div><label for="fAge">Age</label><select id="fAge"><option>21+</option><option>18+</option><option>All ages</option></select></div>
+            </div>
+            <div><label for="fNote">Details</label><textarea id="fNote" rows="2" placeholder="Entry fee, time control, who's giving the simul…"></textarea></div>
+            <div class="msg" id="fMsg"></div>
+            <div class="row"><button class="btn btn-p" type="submit">Add to calendar</button><button class="btn btn-s" type="button" id="fCancel">Cancel</button></div>
+          </form>
+          <div class="row" style="margin-top:14px"><button class="btn btn-s" type="button" id="addBtn" hidden>+ Add an event</button></div>
+          <div class="msg" id="dbNote" style="margin-top:12px;font-family:var(--fm);font-size:.62rem;letter-spacing:.06em;color:var(--ink-3)"></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+  <script>
+  (function(){
+    var MONTHS=["January","February","March","April","May","June","July","August","September","October","November","December"];
+    var MS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    var DOW=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+    var ANCHOR=new Date(2026,7,30); // a league Sunday; league every 14 days
+    var VENUE="Kava Social Club, 540 13th St W, Bradenton FL 34205";
+    var today=new Date(); today.setHours(0,0,0,0);
+    var view=new Date(today.getFullYear(),today.getMonth(),1);
+    var sel=null, stored={}, db=null, canWrite=false;
+
+    function iso(d){return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");}
+    function fromIso(s){var p=s.split("-");return new Date(+p[0],+p[1]-1,+p[2]);}
+    function recurring(d){
+      var dow=d.getDay(); var out=[];
+      if(dow===0){
+        var days=Math.round((d-ANCHOR)/86400000); var league=((Math.floor(days/7))%2)===0;
+        out.push(league?{type:"league",title:"League night",time:"8:00 PM – 12:00 AM",note:"Season games in your bracket, recorded for the standings.",age:"21+",auto:true}
+                       :{type:"social",title:"Social Sunday",time:"8:00 PM – 12:00 AM",note:"Free play. Come and play, hang out, talk.",age:"21+",auto:true});
+      }
+      if(dow===2){out.push({type:"study",title:"Study night",time:"8:00 PM – 12:00 AM",note:"The room works through books, puzzles and grandmaster games together.",age:"21+",auto:true});}
+      if(dow===4 && d>=new Date(2026,8,10)){out.push({type:"adobe",title:"Intermediate+ study night",time:"7:00 PM – 11:00 PM",note:"For intermediate players and up. Harder material than Tuesday: deeper study, tougher positions, less hand-holding.",age:"21+",venue:"Adobe Kava",auto:true});}
+      return out;
+    }
+    function eventsOn(d){
+      var k=iso(d); var list=recurring(d);
+      Object.keys(stored).forEach(function(id){var e=stored[id]; if(e.date===k) list.push(Object.assign({id:id},e));});
+      return list;
+    }
+    function gcal(e,d){
+      var ds=iso(d).replace(/-/g,"");
+      var hh=(e.venue==="Adobe Kava")?["T190000","T230000"]:["T200000","T235900"];
+      var u="https://calendar.google.com/calendar/render?action=TEMPLATE&text="+encodeURIComponent("Kava Social Chess Club: "+e.title)
+        +"&dates="+ds+hh[0]+"/"+ds+hh[1]+"&details="+encodeURIComponent((e.note||"")+"\n"+(e.time||""))+"&location="+encodeURIComponent(e.venue||VENUE);
+      return u;
+    }
+    function label(t){return {social:"Social",league:"League",study:"Study",adobe:"Adobe Kava",tournament:"Tournament",lecture:"Lecture",simul:"Simul",special:"Special"}[t]||t;}
+
+    function renderGrid(){
+      document.getElementById("calTitle").textContent=MONTHS[view.getMonth()]+" "+view.getFullYear();
+      var dow=document.getElementById("calDow"); dow.innerHTML=DOW.map(function(x){return '<div class="dow">'+x+'</div>';}).join("");
+      var g=document.getElementById("calGrid"); g.innerHTML="";
+      var first=new Date(view); var start=new Date(first); start.setDate(1-first.getDay());
+      for(var i=0;i<42;i++){
+        var d=new Date(start); d.setDate(start.getDate()+i);
+        var cell=document.createElement("div"); cell.className="cday";
+        if(d.getMonth()!==view.getMonth()) cell.className+=" out";
+        if(d.getTime()===today.getTime()) cell.className+=" now";
+        if(sel && d.getTime()===sel.getTime()) cell.className+=" sel";
+        var evs=eventsOn(d);
+        var html='<div class="num">'+d.getDate()+'</div>';
+        evs.slice(0,3).forEach(function(e){html+='<div class="chip t-'+e.type+'" title="'+e.title.replace(/"/g,"&quot;")+'">'+e.title+'</div>';});
+        if(evs.length>3) html+='<div class="chip t-study">+'+(evs.length-3)+' more</div>';
+        cell.innerHTML=html;
+        (function(dd){cell.addEventListener("click",function(){sel=dd; renderGrid(); renderSide();});})(d);
+        g.appendChild(cell);
+      }
+    }
+    function renderSide(){
+      var t=document.getElementById("sideTitle"), l=document.getElementById("sideList"), add=document.getElementById("addBtn");
+      if(!sel){t.textContent="Pick a day"; l.innerHTML='<div class="empty">Click any date to see what\'s on.</div>'; add.hidden=true; return;}
+      t.textContent=DOW[sel.getDay()]+", "+MS[sel.getMonth()]+" "+sel.getDate();
+      var evs=eventsOn(sel);
+      if(!evs.length){l.innerHTML='<div class="empty">Nothing scheduled. The club meets Sundays and Tuesdays.</div>';}
+      else{
+        l.innerHTML=evs.map(function(e){
+          return '<div class="evi"><div class="t">'+label(e.type)+(e.age?' · '+e.age:'')+'</div><b>'+e.title+'</b><div class="m">'+(e.time||"")+(e.venue?' · '+e.venue:'')+'</div>'+(e.note?'<p>'+e.note+'</p>':'')
+            +'<div class="acts"><a href="'+gcal(e,sel)+'" target="_blank" rel="noopener">Add to Google Calendar</a>'
+            +(e.id&&canWrite?'<button type="button" data-del="'+e.id+'">Remove</button>':'')+'</div></div>';
+        }).join("");
+        l.querySelectorAll("[data-del]").forEach(function(btn){btn.addEventListener("click",function(){
+          if(!db) return; if(!confirm("Remove this event?")) return;
+          db.doc("events/"+btn.getAttribute("data-del")).delete().catch(function(){});
+        });});
+      }
+      add.hidden=!canWrite; document.getElementById("fDate").value=iso(sel);
+    }
+    function renderUpNext(){
+      var box=document.getElementById("upnext"); var items=[];
+      for(var i=0;i<60&&items.length<3;i++){
+        var d=new Date(today); d.setDate(today.getDate()+i);
+        eventsOn(d).forEach(function(e){ if(items.length<3) items.push({d:d,e:e}); });
+      }
+      box.innerHTML=items.map(function(x){
+        var w=(x.d.getTime()===today.getTime())?"Tonight":DOW[x.d.getDay()];
+        return '<div class="card ev"><div class="date"><div class="d">'+x.d.getDate()+'</div><div class="m">'+MS[x.d.getMonth()]+'</div><div class="w">'+w+'</div></div>'
+          +'<div><h3>'+x.e.title+'</h3><div class="meta">'+(x.e.time||"")+'<br>'+(x.e.venue||"Kava Social Club, 540 13th St W")+'</div>'+(x.e.note?'<p>'+x.e.note+'</p>':'')
+          +'<span class="tag">'+label(x.e.type)+(x.e.age?' · '+x.e.age:'')+'</span></div></div>';
+      }).join("");
+    }
+    function renderAll(){renderGrid(); renderSide(); renderUpNext();}
+
+    document.getElementById("calPrev").addEventListener("click",function(){view=new Date(view.getFullYear(),view.getMonth()-1,1); renderGrid();});
+    document.getElementById("calNext").addEventListener("click",function(){view=new Date(view.getFullYear(),view.getMonth()+1,1); renderGrid();});
+    document.getElementById("calToday").addEventListener("click",function(){view=new Date(today.getFullYear(),today.getMonth(),1); sel=new Date(today); renderAll();});
+    document.getElementById("addBtn").addEventListener("click",function(){document.getElementById("addForm").hidden=false; this.hidden=true; document.getElementById("fTitle").focus();});
+    document.getElementById("fCancel").addEventListener("click",function(){document.getElementById("addForm").hidden=true; document.getElementById("addBtn").hidden=!canWrite;});
+    document.getElementById("addForm").addEventListener("submit",function(ev){
+      ev.preventDefault(); if(!db) return;
+      var msg=document.getElementById("fMsg"); msg.className="msg"; msg.textContent="Saving…";
+      var body={title:document.getElementById("fTitle").value.trim(),date:document.getElementById("fDate").value,time:document.getElementById("fTime").value.trim(),
+                type:document.getElementById("fType").value,age:document.getElementById("fAge").value,note:document.getElementById("fNote").value.trim(),createdAt:new Date().toISOString()};
+      if(!body.title||!body.date){msg.className="msg err"; msg.textContent="Title and date are required."; return;}
+      db.collection("events").add(body).then(function(){
+        msg.className="msg ok"; msg.textContent="Added."; document.getElementById("fTitle").value=""; document.getElementById("fNote").value=""; document.getElementById("fTime").value="";
+        sel=fromIso(body.date); view=new Date(sel.getFullYear(),sel.getMonth(),1);
+        setTimeout(function(){document.getElementById("addForm").hidden=true; document.getElementById("addBtn").hidden=!canWrite; msg.textContent="";},900);
+      }).catch(function(e){
+        msg.className="msg err";
+        msg.textContent=(e&&e.code==="invalid_argument")?"Only editors of this page can add events.":(e&&e.code==="quota_exceeded")?"Calendar is full — remove old events first.":"Couldn't save. Try again.";
+      });
+    });
+
+    sel=new Date(today); renderAll();
+
+    var note=document.getElementById("dbNote");
+    if(window.claude&&window.claude.use){
+      window.claude.use("db").then(function(d){
+        if(!d){note.textContent="Showing the regular schedule. Booked events load when this page is opened in Claude."; return;}
+        db=d; canWrite=true; renderSide();
+        db.collection("events").onSnapshot(function(snap){
+          stored={}; snap.docs.forEach(function(doc){ if(doc.exists) stored[doc.id]=doc.data(); });
+          renderAll();
+        },function(){note.textContent="Live events unavailable right now.";});
+      });
+    } else { note.textContent="Showing the regular schedule."; }
+  })();
+  </script>
+</section>
+
+<!-- ============ WATCH ============ -->
+<section id="watch" style="padding-top:0">
+  <div class="wrap">
+    <div class="split">
+      <div class="player"><video src="{{VIDEO}}" poster="{{VPOSTER}}" controls playsinline preload="metadata"></video></div>
+      <div>
+        <div class="sh" style="margin-bottom:0">
+          <div class="lbl">Sixty-eight seconds</div>
+          <h2>What a Sunday actually looks like</h2>
+          <p class="dek">Shot by members on an ordinary night. No script, no actors.</p>
+        </div>
+        <ul class="checks">
+          <li>Alcohol-free venue &mdash; kava, coffee, teas and soft drinks</li>
+          <li>Thatched-roof back room, string lights, boards on every table</li>
+          <li>Open until midnight, twice a week, since 2021</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STANDINGS ============ -->
+<div class="proof">
+  <section id="standings" style="padding:var(--s5) 0">
+  <div class="wrap">
+    <div class="split" style="align-items:start">
+      <div>
+        <div class="sh" style="margin-bottom:var(--s3)">
+          <div class="lbl">Club league</div>
+          <h2>Take it as seriously as you like</h2>
+          <p class="dek">Every other Sunday is league night, and a season runs three months. Players sit in brackets &mdash; over 1400, under 1400, under 1000 &mdash; so you're matched with people around your own strength. Plenty of people care about the standings, and that's welcome. What you won't find is a culture built around ratings or bragging. The standard here is respect and sportsmanship, and a handshake either way.</p>
+        </div>
+        <div class="stats" style="margin:0 0 var(--s3)">
+          <div class="stat"><div class="v">10</div><div class="k">Three-month seasons</div></div>
+          <div class="stat"><div class="v">2,800+</div><div class="k">Games recorded</div></div>
+        </div>
+        <a class="link" href="https://ladder.kavasocialchessclub.com">See this season's standings</a>
+      </div>
+      <div class="media"><img src="{{SEASON}}" alt="This season's players gathered behind the boards on league night"></div>
+    </div>
+    <div class="brackets">
+      <a class="bk" href="https://ladder.kavasocialchessclub.com"><img src="{{TAB_ALL}}" alt="Whole club bracket"><span>Whole club</span></a>
+      <a class="bk" href="https://ladder.kavasocialchessclub.com"><img src="{{TAB_O1400}}" alt="Over 1400 bracket"><span>Over 1400</span></a>
+      <a class="bk" href="https://ladder.kavasocialchessclub.com"><img src="{{TAB_U1400}}" alt="Under 1400 bracket"><span>Under 1400</span></a>
+      <a class="bk" href="https://ladder.kavasocialchessclub.com"><img src="{{TAB_U1000}}" alt="Under 1000 bracket"><span>Under 1000</span></a>
+    </div>
+  </div>
+  </section>
+</div>
+
+<!-- ============ US CHESS ============ -->
+<section id="uschess">
+  <div class="wrap">
+    <div class="split">
+      <div class="uscard big">
+        <img src="{{L_USCHESS}}" alt="US Chess Federation">
+        <div>
+          <b>Official US Chess Federation affiliate</b>
+          <span>Affiliate ID A8712949 &middot; Bradenton, Florida</span>
+          <a href="https://new.uschess.org/user/132555/affiliates/3151294">View our listing on uschess.org</a>
+        </div>
+      </div>
+      <div>
+        <div class="sh" style="margin-bottom:var(--s3)">
+          <div class="lbl">Accreditation</div>
+          <h2>Our tournaments are nationally rated</h2>
+          <p class="dek">We're a registered US Chess affiliate. The rated events we run at Kava Social count toward your official US Chess rating, exactly like a tournament anywhere else in the country.</p>
+        </div>
+        <ul class="checks">
+          <li>Rated tournaments several times a year, open to 18+</li>
+          <li>No membership needed for club nights &mdash; only for rated events</li>
+          <li>Results submitted to US Chess after every event</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LESSONS ============ -->
+<section id="lessons">
+  <div class="wrap">
+    <div class="split rev">
+      <div>
+        <div class="sh" style="margin-bottom:0">
+          <div class="lbl">Private lessons</div>
+          <h2>Structured coaching, if you want it</h2>
+          <p class="dek">Club nights are free coaching and always will be. Private lessons are a separate, optional thing for people who want structured work between nights.</p>
+        </div>
+        <ul class="creds">
+          <li>Harold Gonzalez, club director</li>
+          <li>2nd, U1600 &mdash; 2026 World Open</li>
+          <li>1st, U1400 &mdash; Southern Class</li>
+          <li>Math teacher; Data Science MSc student</li>
+          <li>Over the board in Bradenton &amp; Sarasota</li>
+          <li>Online elsewhere &middot; English &amp; Spanish</li>
+        </ul>
+      </div>
+      <div class="duo">
+        <img src="{{COACH}}" alt="Harold Gonzalez at the board">
+        <img src="{{COACH2}}" alt="Harold Gonzalez with a tournament trophy">
+      </div>
+    </div>
+    <div class="g2" style="margin-top:var(--s5)">
+      <div class="card">
+        <div class="price"><h3>Beginner</h3><b>$40<span>/hr</span></b></div>
+        <p>For new and casual players. How the pieces move, the rules that trip people up, basic tactics, opening principles, simple endgames. Practice games with feedback.</p>
+      </div>
+      <div class="card">
+        <div class="price"><h3>USCF Tournament</h3><b>$55<span>/hr</span></b></div>
+        <p>For rated and aspiring tournament players. Game review, classical training games, an opening repertoire that suits you, a study plan, and the psychology of time pressure.</p>
+      </div>
+    </div>
+    <div class="note"><b>All ages.</b> Club nights are 21+ because of the venue. Lessons are not.</div>
+    <div class="row" style="margin-top:var(--s3)"><a class="link" href="https://chess67.com/coach/harold-gonzalez-e6197f6a">Book a lesson on Chess67</a></div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section id="gallery" style="padding-top:0">
+  <div class="wrap">
+    <div class="sh">
+      <div class="lbl">Photos</div>
+      <h2>Five years of nights, tournaments and road trips</h2>
+    </div>
+    <div class="gal" id="gal">{{GALLERY}}</div>
+  </div>
+  <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <button type="button" class="close" id="lbClose" aria-label="Close">&#10005;</button>
+    <button type="button" class="prev" id="lbPrev" aria-label="Previous">&#8249;</button>
+    <img id="lbImg" alt="">
+    <button type="button" class="next" id="lbNext" aria-label="Next">&#8250;</button>
+    <div class="cap"><b id="lbCount"></b></div>
+  </div>
+  <script>
+  (function(){
+    var gal=document.getElementById("gal"), imgs=[].slice.call(gal.querySelectorAll("img"));
+    // justified rows: one height per row, widths follow aspect ratio
+    function layout(){
+      var W=gal.clientWidth, G=4, target=window.innerWidth<700?130:(window.innerWidth<1000?180:230);
+      var row=[], sum=0;
+      function flush(h,last){
+        var used=0;
+        row.forEach(function(im,i){
+          var ar=parseFloat(im.getAttribute("data-ar"))||1.5;
+          var w=(i===row.length-1&&!last)?(W-G*(row.length-1)-used):Math.floor(ar*h);
+          used+=w; im.style.width=w+"px"; im.style.height=Math.round(h)+"px";
+        });
+        row=[]; sum=0;
+      }
+      imgs.forEach(function(im,idx){
+        var ar=parseFloat(im.getAttribute("data-ar"))||1.5;
+        row.push(im); sum+=ar;
+        var h=(W-G*(row.length-1))/sum;
+        if(h<=target){ flush(h,false); }
+        else if(idx===imgs.length-1){ flush(Math.min(h,target*1.15),true); }
+      });
+    }
+    var raf=null; window.addEventListener("resize",function(){cancelAnimationFrame(raf); raf=requestAnimationFrame(layout);});
+    layout();
+    // viewer
+    var lb=document.getElementById("lb"), lbImg=document.getElementById("lbImg"), lbCount=document.getElementById("lbCount"), at=0;
+    function show(i){ at=(i+imgs.length)%imgs.length; lbImg.src=imgs[at].src; lbImg.alt=imgs[at].alt; lbCount.textContent=(at+1)+" / "+imgs.length; }
+    function open(i){ show(i); lb.classList.add("open"); document.body.style.overflow="hidden"; }
+    function close(){ lb.classList.remove("open"); document.body.style.overflow=""; }
+    gal.addEventListener("click",function(e){ var im=e.target.closest("img"); if(im) open(imgs.indexOf(im)); });
+    document.getElementById("lbClose").addEventListener("click",close);
+    document.getElementById("lbPrev").addEventListener("click",function(){show(at-1);});
+    document.getElementById("lbNext").addEventListener("click",function(){show(at+1);});
+    lb.addEventListener("click",function(e){ if(e.target===lb) close(); });
+    document.addEventListener("keydown",function(e){ if(!lb.classList.contains("open")) return; if(e.key==="Escape") close(); else if(e.key==="ArrowLeft") show(at-1); else if(e.key==="ArrowRight") show(at+1); });
+    var tx=null;
+    lb.addEventListener("touchstart",function(e){tx=e.touches[0].clientX;},{passive:true});
+    lb.addEventListener("touchend",function(e){ if(tx===null) return; var dx=e.changedTouches[0].clientX-tx; tx=null; if(Math.abs(dx)>40) show(dx<0?at+1:at-1); },{passive:true});
+  })();
+  </script>
+</section>
+
+<!-- ============ PARTNERS ============ -->
+<section id="partners" style="padding-top:0">
+  <div class="wrap">
+    <div class="sh">
+      <div class="lbl">Our home</div>
+      <h2>Proudly hosted by Kava Social Club</h2>
+    </div>
+    <div class="sponsor">
+      <img src="{{VENUE}}" alt="Kava Social Club on the corner of 13th Street West, downtown Bradenton">
+      <div class="body">
+        <img src="{{L_KSC}}" alt="Kava Social Club">
+        <div class="tag">Proud sponsor since 2021</div>
+        <h3>Kava Social Club</h3>
+        <p>Downtown Bradenton's 24-hour kava bar. Traditional noble kava, specialty K-Teas and slow-steeped cold brew, in a room built for unwinding and talking to people &mdash; calm, social, and alcohol-free. Day or night, rain or shine, good vibes never close.</p>
+        <p>They have given us their thatched-roof back room every Sunday and Tuesday since 2021. There is no chess club without them.</p>
+        <div class="meta">540 13th St W, Bradenton FL &middot; Open 24/7<br>Kava &middot; K-Teas &middot; Cold brew &middot; Soft drinks &middot; Second location opening in Pinellas Park</div>
+        <div class="row"><a class="btn btn-s" href="https://www.thekavasocialclub.com/">Visit Kava Social Club</a></div>
+      </div>
+    </div>
+    <div class="logos-head">
+      <h3>Clubs we play with</h3>
+      <p>Members travel to tournaments around the state</p>
+    </div>
+    <div class="logos">
+      <a class="logo" href="https://www.manasotachess.org/"><div class="lg"><img src="{{L_MANASOTA}}" alt="Manasota Chess Center"></div><b>Manasota Chess Center</b><span>Sarasota</span></a>
+      <a class="logo" href="https://chess67.com/club/tampa-knights-chess-club"><div class="lg"><img src="{{L_TAMPA}}" alt="Tampa Knights Chess Club"></div><b>Tampa Knights Chess Club</b><span>Tampa</span></a>
+      <a class="logo" href="https://www.orcachess.com/club-meetups/"><div class="lg"><img src="{{L_ORCA}}" alt="Orlando Regional Chess Alliance"></div><b>Orlando Regional Chess Alliance</b><span>Orlando</span></a>
+      <a class="logo" href="https://www.orlandochessclub.org/"><div class="lg"><img src="{{L_ORLANDO}}" alt="Orlando Chess Club"></div><b>Orlando Chess Club</b><span>Orlando</span></a>
+      <a class="logo" href="https://saintpetersburgchessclub.com/"><div class="lg"><img src="{{L_STPETE}}" alt="Saint Petersburg Chess Club"></div><b>Saint Petersburg Chess Club</b><span>St. Petersburg</span></a>
+    </div>
+    <div class="logos-head">
+      <h3>Platforms that support us</h3>
+      <p>People who have helped the club, and the tools they build</p>
+    </div>
+    <div class="tools">
+      <a class="tool card" href="https://chess67.com/club/kava-social-chess-club">
+        <div class="lg"><img src="{{L_C67}}" alt="Chess67"></div>
+        <div>
+          <b>Chess67</b>
+          <div class="k">Clubs &middot; Tournaments &middot; Coaching</div>
+          <p>Chess software for clubs, tournaments and coaching &mdash; registration, pairings, payments, members and events in one place. Our club listing, event sign-ups and lesson bookings all run through it.</p>
+          <span class="go">Our page on Chess67</span>
+        </div>
+      </a>
+      <a class="tool card" href="https://www.chesslinebook.com/">
+        <div class="lg"><img src="{{L_CLB}}" alt="Chesslinebook"></div>
+        <div>
+          <b>Chesslinebook</b>
+          <div class="k">Opening notebook &middot; Trainer</div>
+          <p>A free chess opening notebook and trainer. Import your Lichess studies or Chess.com games, drill your lines with spaced repetition, and see exactly where your games go wrong. Works offline, built for players and coaches.</p>
+          <span class="go">chesslinebook.com</span>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="sh">
+      <div class="lbl">Contact</div>
+      <h2>Ask us anything. Then come Sunday.</h2>
+      <p class="dek">Never played, or haven't since school? Ask. Somebody answers, usually the same day.</p>
+    </div>
+    <div class="ways">
+      <a class="way" href="mailto:kavasocialchess@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FE273A" d="M3 5h18a1 1 0 011 1v12a1 1 0 01-1 1H3a1 1 0 01-1-1V6a1 1 0 011-1m1.6 2L12 12.3 19.4 7zM4 17h16V8.5l-7.4 5.3a1 1 0 01-1.2 0L4 8.5z"/></svg><b>Email</b><span>kavasocialchess@gmail.com</span></a>
+      <a class="way" href="sms:+17862508993"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FE273A" d="M12 2a9 9 0 00-9 9c0 1.6.4 3.1 1.2 4.4L3 22l6.8-1.1A9 9 0 1012 2m0 2a7 7 0 11-3.6 13l-.4-.2-3.3.5.6-3.2-.2-.4A7 7 0 0112 4M8.5 9.5h7v1.6h-7zm0 3h4.8v1.6H8.5z"/></svg><b>Text</b><span>(786) 250-8993</span></a>
+      <a class="way" href="https://www.instagram.com/kavasocialchessclub/"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="ig2" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FFD521"/><stop offset=".28" stop-color="#F50000"/><stop offset=".64" stop-color="#B900B4"/><stop offset="1" stop-color="#4E60D3"/></linearGradient></defs><path fill="url(#ig2)" d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.05 1.8.25 2.2.42.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.17.4.37 1 .42 2.2.06 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.05 1.2-.25 1.8-.42 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.17-1 .37-2.2.42-1.3.06-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.05-1.8-.25-2.2-.42-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.17-.4-.37-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.05-1.2.25-1.8.42-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.17 1-.37 2.2-.42C8.4 2.2 8.8 2.2 12 2.2m0 2c-3.1 0-3.5 0-4.7.07-.9.04-1.4.2-1.7.32-.4.17-.7.36-1 .66-.3.3-.5.6-.66 1-.12.3-.28.8-.32 1.7C3.55 9.2 3.55 9.5 3.55 12s0 2.8.07 4c.04.9.2 1.4.32 1.7.17.4.36.7.66 1 .3.3.6.5 1 .66.3.12.8.28 1.7.32 1.2.06 1.6.07 4.7.07s3.5 0 4.7-.07c.9-.04 1.4-.2 1.7-.32.4-.17.7-.36 1-.66.3-.3.5-.6.66-1 .12-.3.28-.8.32-1.7.06-1.2.07-1.5.07-4s0-2.8-.07-4c-.04-.9-.2-1.4-.32-1.7-.17-.4-.36-.7-.66-1-.3-.3-.6-.5-1-.66-.3-.12-.8-.28-1.7-.32-1.2-.06-1.6-.07-4.7-.07m0 3.4a4.4 4.4 0 110 8.8 4.4 4.4 0 010-8.8m0 2a2.4 2.4 0 100 4.8 2.4 2.4 0 000-4.8m5.6-2.6a1 1 0 11-2 0 1 1 0 012 0"/></svg><b>Instagram</b><span>@kavasocialchessclub</span></a>
+      <a class="way" href="https://www.facebook.com/KavaSocialChessClub"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#1877F2" d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0022 12"/></svg><b>Facebook</b><span>Kava Social Chess Club</span></a>
+    </div>
+    <div class="revrow">
+      <div class="g">
+        <svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.2-.4-4.7H24v8.9h11.8a10 10 0 01-4.4 6.6v5.5h7.1c4.2-3.8 6.6-9.5 6.6-16.3"/><path fill="#34A853" d="M24 46c6 0 11-2 14.5-5.4l-7.1-5.5A13 13 0 0124 37c-5.8 0-10.7-3.9-12.5-9.1H4.2v5.7A22 22 0 0024 46"/><path fill="#FBBC05" d="M11.5 27.9a13 13 0 010-8.4v-5.7H4.2a22 22 0 000 19.8z"/><path fill="#EA4335" d="M24 11c3.3 0 6.2 1.1 8.5 3.3l6.3-6.3A22 22 0 004.2 13.8l7.3 5.7C13.3 14.3 18.2 11 24 11"/></svg>
+        <div><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="t">Rated on Google</div><div class="s">Honest reviews help the next person decide to walk in</div></div>
+      </div>
+      <div class="row">
+        <a class="btn btn-p" href="https://search.google.com/local/writereview?placeid=REPLACE_WITH_PLACE_ID">Leave a review</a>
+        <a class="btn btn-s" href="https://www.google.com/search?q=Kava+Social+Chess+Club+Bradenton">Read reviews</a>
+      </div>
+    </div>
+    <figure class="quote">
+      <blockquote>Had a great time playing a Kava chess club tournament here.</blockquote>
+      <figcaption>Google review &middot; Kava Social Club</figcaption>
+    </figure>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="fmark"><img src="{{LOGO}}" alt=""><b>Kava Social Chess Club</b></div>
+        <p>540 13th St W<br>Bradenton, FL 34205</p>
+        <p style="margin-top:10px">Sundays &amp; Tuesdays, 8PM&ndash;12AM<br>21+ &middot; Se habla espa&ntilde;ol</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="mailto:kavasocialchess@gmail.com">kavasocialchess@gmail.com</a>
+        <a href="tel:+17862508993">(786) 250-8993</a>
+        <a href="https://maps.google.com/?q=540+13th+St+W+Bradenton+FL+34205">Directions</a>
+      </div>
+      <div>
+        <h4>Club</h4>
+        <a href="https://ladder.kavasocialchessclub.com">Season standings</a>
+        <a href="https://new.uschess.org/user/132555/affiliates/3151294">US Chess affiliate</a>
+        <a href="https://chess67.com/club/kava-social-chess-club">Chess67 listing</a>
+        <a href="https://www.thekavasocialclub.com/">Kava Social Club</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="https://www.instagram.com/kavasocialchessclub/">Instagram</a>
+        <a href="https://www.facebook.com/KavaSocialChessClub">Facebook</a>
+        <a href="#yelp">Yelp</a>
+      </div>
+    </div>
+    <div class="legal"><span>&copy; Kava Social Chess Club &middot; Established 2021</span><span>US Chess affiliate A8712949</span></div>
+  </div>
+</footer>
