@@ -113,6 +113,14 @@ def build_page(lang):
     h = h.replace('} else { note.textContent="Showing the regular schedule."; }', '}')
     h = h.replace('href="https://search.google.com/local/writereview?placeid=REPLACE_WITH_PLACE_ID"', 'href="https://www.google.com/search?q=Kava+Social+Chess+Club+Bradenton+reviews"')
     h = h.replace('        <a href="#yelp">Yelp</a>\n', '')
+    # public site: no event-entry UI at all (booked events will come from a data file written by the admin console)
+    h = re.sub(r'\s*<form class="addf" id="addForm" hidden>.*?</form>', '', h, flags=re.S)
+    h = re.sub(r'\s*<div class="row" style="margin-top:14px"><button class="btn btn-s" type="button" id="addBtn" hidden>[^<]*</button></div>', '', h)
+    h = re.sub(r'\s*<div class="msg" id="dbNote"[^>]*></div>', '', h)
+    stub = '({hidden:true,addEventListener:function(){},value:"",textContent:""})'
+    for ident in ('addBtn', 'addForm', 'fCancel', 'fTitle', 'fDate', 'fTime', 'fType', 'fAge', 'fNote', 'fMsg', 'dbNote'):
+        h = h.replace('document.getElementById("%s")' % ident, stub)
+    h = h.replace('if(window.claude&&window.claude.use){', 'if(false){')
     # language switch: EN page -> /es/, ES page -> /
     h = h.replace('<a class="lang" href="#es">ES</a>', '<a class="lang" href="/es/">ES</a>')
     h = h.replace('<a class="btn btn-s" href="#es">Espa&ntilde;ol</a>', '<a class="btn btn-s" href="/es/">Espa&ntilde;ol</a>')

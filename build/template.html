@@ -681,7 +681,9 @@ footer a:hover{color:var(--cream)}
     if(window.claude&&window.claude.use){
       window.claude.use("db").then(function(d){
         if(!d){note.textContent="Showing the regular schedule. Booked events load when this page is opened in Claude."; return;}
-        db=d; canWrite=true; renderSide();
+        db=d; canWrite=false; renderSide();
+        // only the page's editor can add events: probe a write lease, which the access rules refuse to anyone else
+        db.doc("meta/write-probe").acquire({holder:"probe",ttlMs:1000}).then(function(r){canWrite=!!r.acquired; renderSide();}).catch(function(){canWrite=false; renderSide();});
         db.collection("events").onSnapshot(function(snap){
           stored={}; snap.docs.forEach(function(doc){ if(doc.exists) stored[doc.id]=doc.data(); });
           renderAll();

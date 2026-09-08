@@ -566,22 +566,6 @@ footer a:hover{color:var(--cream)}
         <div class="card">
           <h4 id="sideTitle">Elige un día</h4>
           <div class="evl" id="sideList"><div class="empty">Toca cualquier fecha para ver qué hay.</div></div>
-          <form class="addf" id="addForm" hidden>
-            <div><label for="fTitle">Evento</label><input id="fTitle" placeholder="p. ej. Rápidas de otoño — 5 rondas, G/15+2" required></div>
-            <div class="two">
-              <div><label for="fDate">Fecha</label><input id="fDate" type="date" required></div>
-              <div><label for="fTime">Hora</label><input id="fTime" placeholder="8:00 PM"></div>
-            </div>
-            <div class="two">
-              <div><label for="fType">Tipo</label><select id="fType"><option value="tournament">Torneo</option><option value="lecture">Charla</option><option value="simul">Simultánea</option><option value="special">Especial</option><option value="social">Noche social</option><option value="league">Noche de liga</option><option value="study">Noche de estudio</option><option value="adobe">Noche en Adobe Kava</option></select></div>
-              <div><label for="fAge">Edad</label><select id="fAge"><option>21+</option><option>18+</option><option>Todas las edades</option></select></div>
-            </div>
-            <div><label for="fNote">Detalles</label><textarea id="fNote" rows="2" placeholder="Cuota, control de tiempo, quién da la simultánea…"></textarea></div>
-            <div class="msg" id="fMsg"></div>
-            <div class="row"><button class="btn btn-p" type="submit">Agregar al calendario</button><button class="btn btn-s" type="button" id="fCancel">Cancelar</button></div>
-          </form>
-          <div class="row" style="margin-top:14px"><button class="btn btn-s" type="button" id="addBtn" hidden>+ Agregar un evento</button></div>
-          <div class="msg" id="dbNote" style="margin-top:12px;font-family:var(--fm);font-size:.62rem;letter-spacing:.06em;color:var(--ink-3)"></div>
         </div>
       </aside>
     </div>
@@ -645,7 +629,7 @@ footer a:hover{color:var(--cream)}
       }
     }
     function renderSide(){
-      var t=document.getElementById("sideTitle"), l=document.getElementById("sideList"), add=document.getElementById("addBtn");
+      var t=document.getElementById("sideTitle"), l=document.getElementById("sideList"), add=({hidden:true,addEventListener:function(){},value:"",textContent:""});
       if(!sel){t.textContent="Elige un día"; l.innerHTML='<div class="empty">Toca cualquier fecha para ver qué hay.</div>'; add.hidden=true; return;}
       t.textContent=DOW[sel.getDay()]+", "+MS[sel.getMonth()]+" "+sel.getDate();
       var evs=eventsOn(sel);
@@ -661,7 +645,7 @@ footer a:hover{color:var(--cream)}
           db.doc("events/"+btn.getAttribute("data-del")).delete().catch(function(){});
         });});
       }
-      add.hidden=!canWrite; document.getElementById("fDate").value=iso(sel);
+      add.hidden=!canWrite; ({hidden:true,addEventListener:function(){},value:"",textContent:""}).value=iso(sel);
     }
     function renderUpNext(){
       var box=document.getElementById("upnext"); var items=[];
@@ -681,18 +665,18 @@ footer a:hover{color:var(--cream)}
     document.getElementById("calPrev").addEventListener("click",function(){view=new Date(view.getFullYear(),view.getMonth()-1,1); renderGrid();});
     document.getElementById("calNext").addEventListener("click",function(){view=new Date(view.getFullYear(),view.getMonth()+1,1); renderGrid();});
     document.getElementById("calToday").addEventListener("click",function(){view=new Date(today.getFullYear(),today.getMonth(),1); sel=new Date(today); renderAll();});
-    document.getElementById("addBtn").addEventListener("click",function(){document.getElementById("addForm").hidden=false; this.hidden=true; document.getElementById("fTitle").focus();});
-    document.getElementById("fCancel").addEventListener("click",function(){document.getElementById("addForm").hidden=true; document.getElementById("addBtn").hidden=!canWrite;});
-    document.getElementById("addForm").addEventListener("submit",function(ev){
+    ({hidden:true,addEventListener:function(){},value:"",textContent:""}).addEventListener("click",function(){({hidden:true,addEventListener:function(){},value:"",textContent:""}).hidden=false; this.hidden=true; ({hidden:true,addEventListener:function(){},value:"",textContent:""}).focus();});
+    ({hidden:true,addEventListener:function(){},value:"",textContent:""}).addEventListener("click",function(){({hidden:true,addEventListener:function(){},value:"",textContent:""}).hidden=true; ({hidden:true,addEventListener:function(){},value:"",textContent:""}).hidden=!canWrite;});
+    ({hidden:true,addEventListener:function(){},value:"",textContent:""}).addEventListener("submit",function(ev){
       ev.preventDefault(); if(!db) return;
-      var msg=document.getElementById("fMsg"); msg.className="msg"; msg.textContent="Guardando…";
-      var body={title:document.getElementById("fTitle").value.trim(),date:document.getElementById("fDate").value,time:document.getElementById("fTime").value.trim(),
-                type:document.getElementById("fType").value,age:document.getElementById("fAge").value,note:document.getElementById("fNote").value.trim(),createdAt:new Date().toISOString()};
+      var msg=({hidden:true,addEventListener:function(){},value:"",textContent:""}); msg.className="msg"; msg.textContent="Guardando…";
+      var body={title:({hidden:true,addEventListener:function(){},value:"",textContent:""}).value.trim(),date:({hidden:true,addEventListener:function(){},value:"",textContent:""}).value,time:({hidden:true,addEventListener:function(){},value:"",textContent:""}).value.trim(),
+                type:({hidden:true,addEventListener:function(){},value:"",textContent:""}).value,age:({hidden:true,addEventListener:function(){},value:"",textContent:""}).value,note:({hidden:true,addEventListener:function(){},value:"",textContent:""}).value.trim(),createdAt:new Date().toISOString()};
       if(!body.title||!body.date){msg.className="msg err"; msg.textContent="Faltan el título y la fecha."; return;}
       db.collection("events").add(body).then(function(){
-        msg.className="msg ok"; msg.textContent="Agregado."; document.getElementById("fTitle").value=""; document.getElementById("fNote").value=""; document.getElementById("fTime").value="";
+        msg.className="msg ok"; msg.textContent="Agregado."; ({hidden:true,addEventListener:function(){},value:"",textContent:""}).value=""; ({hidden:true,addEventListener:function(){},value:"",textContent:""}).value=""; ({hidden:true,addEventListener:function(){},value:"",textContent:""}).value="";
         sel=fromIso(body.date); view=new Date(sel.getFullYear(),sel.getMonth(),1);
-        setTimeout(function(){document.getElementById("addForm").hidden=true; document.getElementById("addBtn").hidden=!canWrite; msg.textContent="";},900);
+        setTimeout(function(){({hidden:true,addEventListener:function(){},value:"",textContent:""}).hidden=true; ({hidden:true,addEventListener:function(){},value:"",textContent:""}).hidden=!canWrite; msg.textContent="";},900);
       }).catch(function(e){
         msg.className="msg err";
         msg.textContent=(e&&e.code==="invalid_argument")?"Solo quienes editan esta página pueden agregar eventos.":(e&&e.code==="quota_exceeded")?"El calendario está lleno — quita eventos viejos primero.":"No se pudo guardar. Inténtalo de nuevo.";
@@ -701,11 +685,13 @@ footer a:hover{color:var(--cream)}
 
     sel=new Date(today); renderAll();
 
-    var note=document.getElementById("dbNote");
-    if(window.claude&&window.claude.use){
+    var note=({hidden:true,addEventListener:function(){},value:"",textContent:""});
+    if(false){
       window.claude.use("db").then(function(d){
         if(!d){return;}
-        db=d; canWrite=true; renderSide();
+        db=d; canWrite=false; renderSide();
+        // only the page's editor can add events: probe a write lease, which the access rules refuse to anyone else
+        db.doc("meta/write-probe").acquire({holder:"probe",ttlMs:1000}).then(function(r){canWrite=!!r.acquired; renderSide();}).catch(function(){canWrite=false; renderSide();});
         db.collection("events").onSnapshot(function(snap){
           stored={}; snap.docs.forEach(function(doc){ if(doc.exists) stored[doc.id]=doc.data(); });
           renderAll();
