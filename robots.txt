@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kavasocialchessclub.com/sitemap.xml
