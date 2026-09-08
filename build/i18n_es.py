@@ -113,7 +113,10 @@ TEXT = {
     "Clubs &middot; Tournaments &middot; Coaching": "Clubes &middot; Torneos &middot; Entrenamiento",
     "Chess software for clubs, tournaments and coaching &mdash; registration, pairings, payments, members and events in one place. Our club listing, event sign-ups and lesson bookings all run through it.":
         "Software de ajedrez para clubes, torneos y entrenamiento &mdash; inscripciones, emparejamientos, pagos, miembros y eventos en un solo lugar. Nuestro perfil de club, las inscripciones a eventos y las reservas de clases pasan por ahí.",
-    "Our page on Chess67": "Nuestra página en Chess67", "Opening notebook &middot; Trainer": "Cuaderno de aperturas &middot; Entrenador",
+    "Our page on Chess67": "Nuestra página en Chess67",
+    "Club software &mdash; registration, pairings and payments. Our listing, event sign-ups and lesson bookings run through it.": "Software para clubes &mdash; inscripciones, emparejamientos y pagos. Nuestro perfil, las inscripciones a eventos y las reservas de clases pasan por ahí.",
+    "A free opening notebook and trainer. Import your games, drill your lines, see where they go wrong.": "Un cuaderno y entrenador de aperturas gratuito. Importa tus partidas, practica tus líneas y ve dónde se tuercen.",
+    "People who have helped the club": "Personas que han ayudado al club", "Opening notebook &middot; Trainer": "Cuaderno de aperturas &middot; Entrenador",
     "A free chess opening notebook and trainer. Import your Lichess studies or Chess.com games, drill your lines with spaced repetition, and see exactly where your games go wrong. Works offline, built for players and coaches.":
         "Un cuaderno y entrenador de aperturas gratuito. Importa tus estudios de Lichess o partidas de Chess.com, practica tus líneas con repetición espaciada y ve exactamente dónde se tuercen tus partidas. Funciona sin conexión, hecho para jugadores y entrenadores.",
     # contact
