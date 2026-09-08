@@ -296,16 +296,16 @@ nav a:hover{color:var(--cream);border-bottom-color:var(--scarlet)}
 @media(max-width:700px){.lb{padding:56px 8px 48px}.lb .prev,.lb .next{width:38px;height:38px}}
 
 /* ============ partners ============ */
-.sponsor{display:grid;grid-template-columns:1fr 1fr;align-items:center;background:var(--panel-2);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden}
-.sponsor > img{width:100%;height:auto;object-fit:contain;display:block}
-.sponsor .body{padding:36px}
-.sponsor .body img{width:84px;height:auto;margin-bottom:18px}
+.sponsor{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;background:var(--panel-2);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden}
+.sponsor > img{width:100%;height:100%;object-fit:cover;object-position:50% 58%;display:block}
+.sponsor .body{padding:28px 32px;display:flex;flex-direction:column;justify-content:center}
+.sponsor .body img{width:60px;height:auto;margin-bottom:12px}
 .sponsor .tag{font-family:var(--fm);font-weight:700;font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:var(--scarlet);margin-bottom:12px}
 .sponsor h3{font-weight:900;font-variation-settings:"wdth" 112;font-size:1.7rem;letter-spacing:-.02em;text-transform:uppercase}
-.sponsor p{color:var(--ink-2);margin-top:12px;max-width:34rem}
-.sponsor .meta{font-family:var(--fm);font-weight:600;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-top:16px;line-height:1.8}
-.sponsor .row{margin-top:var(--s3)}
-@media(max-width:760px){.sponsor{grid-template-columns:1fr}.sponsor .body{padding:26px}}
+.sponsor p{color:var(--ink-2);margin-top:10px;max-width:34rem;font-size:.98rem;line-height:1.55}
+.sponsor .meta{font-family:var(--fm);font-weight:600;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-top:12px;line-height:1.7}
+.sponsor .row{margin-top:18px}
+@media(max-width:760px){.sponsor{grid-template-columns:1fr}.sponsor > img{height:auto;aspect-ratio:4/3}.sponsor .body{padding:24px}}
 .logos{margin-top:var(--s5);display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
 .logo{background:var(--panel-2);border:1px solid var(--rule);border-radius:var(--r);padding:22px 16px 18px;text-decoration:none;display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;transition:border-color .15s}
 .logo:hover{border-color:var(--scarlet)}
