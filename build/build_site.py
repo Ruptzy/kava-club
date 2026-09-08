@@ -118,6 +118,7 @@ def build_page(lang):
     h = h.replace('<a class="btn btn-s" href="#es">Espa&ntilde;ol</a>', '<a class="btn btn-s" href="/es/">Espa&ntilde;ol</a>')
     if es:
         h = h.replace('<a class="btn btn-s" href="/es/">Espa&ntilde;ol</a>', '<a class="btn btn-s" href="/">English</a>')
+        h = h.replace('<a class="lang" href="#es">EN</a>', '<a class="lang" href="/">EN</a>')
 
     title = i18n_es.META['title'] if es else 'Kava Social Chess Club — Bradenton, FL'
     desc = i18n_es.META['desc'] if es else ("Bradenton's social chess club. Sundays and Tuesdays 8PM–midnight at Kava Social Club, 540 13th St W. "
