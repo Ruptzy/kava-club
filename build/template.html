@@ -56,11 +56,11 @@ section{padding:var(--s6) 0}
 .topbar{height:3px;background:var(--scarlet)}
 .mast{position:sticky;top:0;z-index:50;background:rgba(12,13,14,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule)}
 .mast .wrap{display:flex;align-items:center;height:80px;gap:32px}
-.mark{display:flex;align-items:center;gap:14px;text-decoration:none;flex:1;min-width:0}
+.mark{display:flex;align-items:center;gap:14px;text-decoration:none;flex:none;margin-right:auto}
 .mark img{width:48px;height:48px;border-radius:50%;flex:none}
-.mark b{font-family:var(--fd);font-weight:900;font-variation-settings:"wdth" 112;font-size:.95rem;letter-spacing:.04em;text-transform:uppercase;color:var(--cream);display:block;line-height:1.1}
+.mark b{font-family:var(--fd);font-weight:900;font-variation-settings:"wdth" 112;font-size:.95rem;letter-spacing:.04em;text-transform:uppercase;color:var(--cream);display:block;line-height:1.1;white-space:nowrap}
 .mark .sub{font-family:var(--fm);font-weight:600;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-3);display:block;margin-top:4px}
-nav{display:flex;gap:28px}
+nav{display:flex;gap:26px;flex-wrap:nowrap;min-width:0}
 nav a{font-family:var(--fm);font-weight:700;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);text-decoration:none;padding:29px 0;border-bottom:2px solid transparent}
 nav a:hover{color:var(--cream);border-bottom-color:var(--scarlet)}
 .mtools{display:flex;align-items:center;gap:8px}
@@ -70,18 +70,18 @@ nav a:hover{color:var(--cream);border-bottom-color:var(--scarlet)}
 .lang{font-family:var(--fm);font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);border:1px solid var(--rule-2);border-radius:var(--r);height:36px;padding:0 12px;display:inline-flex;align-items:center;text-decoration:none}
 .lang:hover{color:var(--cream);border-color:var(--scarlet)}
 .mast .btn{height:36px;padding:0 16px;font-size:.72rem}
-@media(max-width:1060px){nav{display:none}}
+@media(max-width:1180px){nav{display:none}}
 @media(max-width:640px){.mast .wrap{height:68px}.mark img{width:40px;height:40px}.mark .sub{display:none}.mark b{font-size:.82rem}.mast .btn{padding:0 12px}.mast .lang{display:none}}
 
 /* ============ hero ============ */
 .hero{position:relative;isolation:isolate;min-height:640px;display:flex;align-items:flex-end;padding:0}
-.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:68% 42%;z-index:-2}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:74% 42%;z-index:-2}
 .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(12,13,14,.96) 0%,rgba(12,13,14,.88) 34%,rgba(12,13,14,.42) 62%,rgba(12,13,14,.2) 100%),linear-gradient(180deg,rgba(12,13,14,.35) 0%,rgba(12,13,14,0) 40%,rgba(12,13,14,.97) 100%)}
 .hero .wrap{padding-bottom:var(--s5);padding-top:120px}
 .hero .lbl{font-family:var(--fm);font-weight:700;font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-2);margin-bottom:var(--s2)}
-.hero h1{font-weight:900;font-variation-settings:"wdth" 116;font-size:clamp(2.4rem,6.4vw,4.6rem);line-height:.96;letter-spacing:-.01em;text-transform:uppercase;max-width:13ch}
+.hero h1{font-weight:900;font-variation-settings:"wdth" 116;font-size:clamp(2.4rem,6vw,4.4rem);line-height:.96;letter-spacing:-.01em;text-transform:uppercase;max-width:12ch;text-shadow:0 2px 28px rgba(0,0,0,.75),0 0 2px rgba(0,0,0,.6)}
 .hero h1 em{font-style:normal;color:var(--scarlet)}
-.hero .dek{font-size:1.15rem;line-height:1.55;color:var(--ink);max-width:30rem;margin-top:var(--s3)}
+.hero .dek{font-size:1.15rem;line-height:1.55;color:var(--cream);max-width:30rem;margin-top:var(--s3);text-shadow:0 1px 14px rgba(0,0,0,.8)}
 .hero .row{margin-top:var(--s4)}
 .facts{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);background:rgba(20,22,24,.9)}
 .facts .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
@@ -386,9 +386,9 @@ footer a:hover{color:var(--cream)}
 <div class="facts">
   <div class="wrap">
     <div class="fact"><div class="k">When</div><div class="v">Sun &amp; Tue &middot; 8PM&ndash;12AM</div></div>
-    <div class="fact"><div class="k">Where</div><div class="v">Kava Social Club &middot; 540 13th St W</div></div>
+    <div class="fact"><div class="k">Where</div><div class="v">Kava Social Club, 540 13th St W</div></div>
     <div class="fact"><div class="k">Who</div><div class="v">21+ &middot; All levels &middot; EN / ES</div></div>
-    <div class="fact"><div class="k">Rated</div><div class="v">US Chess Federation affiliate</div></div>
+    <div class="fact"><div class="k">Rated</div><div class="v">US Chess affiliate</div></div>
   </div>
 </div>
 
