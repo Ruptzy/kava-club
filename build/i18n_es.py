@@ -196,6 +196,12 @@ RAW = [
     ('<li><b>Clocks are optional.</b> Only if both players want one.</li>', '<li><b>El reloj es opcional.</b> Solo si los dos jugadores lo quieren.</li>'),
     ('<li><b>No membership, no dues.</b> Scan the QR code at the door so we can keep count of who came.</li>',
      '<li><b>Sin membresía ni cuotas.</b> Escanea el código QR en la entrada para que llevemos la cuenta de quién vino.</li>'),
+    ("<p class=\"lead\">Come in after eight, order something, and head to the back room. Say it's your first night &mdash; someone will get you a game.</p>",
+     "<p class=\"lead\">Llega después de las ocho, pide algo y pasa al salón de atrás. Di que es tu primera noche &mdash; alguien te consigue una partida.</p>"),
+    ('<li><b>Sets and clocks are provided.</b></li>', '<li><b>Tableros y relojes incluidos.</b></li>'),
+    ("<li><b>Order one item.</b> It doesn't have to be kava.</li>", "<li><b>Pide algo.</b> No tiene que ser kava.</li>"),
+    ('<li><b>No membership, no dues.</b></li>', '<li><b>Sin membresía ni cuotas.</b></li>'),
+    ('<li><b>Scan the QR at the door.</b></li>', '<li><b>Escanea el QR en la entrada.</b></li>'),
     # language switch target
     ('<a class="lang" href="#es">ES</a>', '<a class="lang" href="/">EN</a>'),
 ]
