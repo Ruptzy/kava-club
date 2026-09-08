@@ -67,7 +67,7 @@ TEXT = {
     "Sixty-eight seconds": "Sesenta y ocho segundos", "What a Sunday actually looks like": "Así es un domingo de verdad",
     "Shot by members on an ordinary night. No script, no actors.": "Grabado por miembros en una noche cualquiera. Sin guion, sin actores.",
     "Alcohol-free venue &mdash; kava, coffee, teas and soft drinks": "Local sin alcohol &mdash; kava, café, tés y refrescos",
-    "Thatched-roof back room, string lights, boards on every table": "Salón de atrás con techo de palma, luces colgantes y tableros en cada mesa",
+    "Thatched-roof back patio, string lights, boards on every table": "Patio de atrás con techo de palma, luces colgantes y tableros en cada mesa",
     "Open until midnight, twice a week, since 2021": "Abierto hasta la medianoche, dos veces por semana, desde 2021",
     # league
     "Club league": "Liga del club", "Take it as seriously as you like": "Tómalo tan en serio como quieras",
@@ -104,8 +104,8 @@ TEXT = {
     "Our home": "Nuestra casa", "Proudly hosted by Kava Social Club": "Con orgullo, en Kava Social Club", "Proud sponsor since 2021": "Patrocinador orgulloso desde 2021",
     "Downtown Bradenton's 24-hour kava bar. Traditional noble kava, specialty K-Teas and slow-steeped cold brew, in a room built for unwinding and talking to people &mdash; calm, social, and alcohol-free. Day or night, rain or shine, good vibes never close.":
         "El kava bar 24 horas del centro de Bradenton. Kava noble tradicional, K-Teas especiales y cold brew de infusión lenta, en un lugar hecho para relajarse y conversar &mdash; tranquilo, social y sin alcohol. De día o de noche, llueva o truene, la buena vibra nunca cierra.",
-    "They have given us their thatched-roof back room every Sunday and Tuesday since 2021. There is no chess club without them.":
-        "Nos han prestado su salón de atrás con techo de palma todos los domingos y martes desde 2021. Sin ellos no hay club de ajedrez.",
+    "They have given us their thatched-roof back patio every Sunday and Tuesday since 2021. There is no chess club without them.":
+        "Nos han prestado su patio de atrás con techo de palma todos los domingos y martes desde 2021. Sin ellos no hay club de ajedrez.",
     "540 13th St W, Bradenton FL &middot; Open 24/7": "540 13th St W, Bradenton FL &middot; Abierto 24/7",
     "Kava &middot; K-Teas &middot; Cold brew &middot; Soft drinks &middot; Second location opening in Pinellas Park": "Kava &middot; K-Teas &middot; Cold brew &middot; Refrescos &middot; Pronto segunda sede en Pinellas Park",
     "Visit Kava Social Club": "Visita Kava Social Club", "Clubs we play with": "Clubes con los que jugamos", "Members travel to tournaments around the state": "Nuestros miembros viajan a torneos por todo el estado",
@@ -167,7 +167,7 @@ RAW = [
     ('aria-label="Photo viewer"', 'aria-label="Visor de fotos"'), ('aria-label="Close"', 'aria-label="Cerrar"'),
     ('aria-label="Previous"', 'aria-label="Anterior"'), ('aria-label="Next"', 'aria-label="Siguiente"'),
     # alt text
-    ('alt="The club room at Kava Social in downtown Bradenton, full on a tournament day"', 'alt="El salón del club en Kava Social, centro de Bradenton, lleno en un día de torneo"'),
+    ('alt="The club patio at Kava Social in downtown Bradenton, full on a tournament day"', 'alt="El patio del club en Kava Social, centro de Bradenton, lleno en un día de torneo"'),
     ('alt="Three members laughing over a board on a club night"', 'alt="Tres miembros riendo sobre un tablero en una noche de club"'),
     ('alt="Boards set up and waiting under the string lights before a club night"', 'alt="Tableros listos bajo las luces antes de una noche de club"'),
     ('alt="A full Sunday club night"', 'alt="Una noche de club de domingo llena"'),
@@ -181,11 +181,11 @@ RAW = [
     ('A club night at Kava Social Chess Club in Bradenton', 'Una noche de club en Kava Social Chess Club, Bradenton'),
     ('Kava Social Chess Club members at a club event', 'Miembros de Kava Social Chess Club en un evento del club'),
     ('Kava Social Chess Club members at a tournament', 'Miembros de Kava Social Chess Club en un torneo'),
-    ('The club room at Kava Social in downtown Bradenton', 'El salón del club en Kava Social, centro de Bradenton'),
+    ('The club patio at Kava Social in downtown Bradenton', 'El patio del club en Kava Social, centro de Bradenton'),
     ('Trophies won at Kava Social Chess Club events', 'Trofeos ganados en eventos de Kava Social Chess Club'),
     # first-night note (whole lines, because of inline <b>)
-    ("<p class=\"lead\">You don't need to know anyone. Come in any time after eight, order something at the bar, and head to the back room. Tell whoever's nearest that it's your first night &mdash; that's the whole procedure.</p>",
-     "<p class=\"lead\">No necesitas conocer a nadie. Entra a cualquier hora después de las ocho, pide algo en la barra y pasa al salón de atrás. Dile a quien tengas más cerca que es tu primera noche &mdash; ese es todo el trámite.</p>"),
+    ("<p class=\"lead\">You don't need to know anyone. Come in any time after eight, order something at the bar, and head to the back patio. Tell whoever's nearest that it's your first night &mdash; that's the whole procedure.</p>",
+     "<p class=\"lead\">No necesitas conocer a nadie. Entra a cualquier hora después de las ocho, pide algo en la barra y pasa al patio de atrás. Dile a quien tengas más cerca que es tu primera noche &mdash; ese es todo el trámite.</p>"),
     ("<p>Someone will get you a game. If you haven't played since school, someone will be glad to walk you through it, and nobody will care how it goes. Stay for one game or for four hours.</p>",
      "<p>Alguien te consigue una partida. Si no juegas desde la escuela, alguien te la explica con gusto, y a nadie le importa cómo salga. Quédate una partida o cuatro horas.</p>"),
     ('<p class="sig"><b>Harold Gonzalez</b><span>Club director</span></p>', '<p class="sig"><b>Harold Gonzalez</b><span>Director del club</span></p>'),
@@ -196,8 +196,8 @@ RAW = [
     ('<li><b>Clocks are optional.</b> Only if both players want one.</li>', '<li><b>El reloj es opcional.</b> Solo si los dos jugadores lo quieren.</li>'),
     ('<li><b>No membership, no dues.</b> Scan the QR code at the door so we can keep count of who came.</li>',
      '<li><b>Sin membresía ni cuotas.</b> Escanea el código QR en la entrada para que llevemos la cuenta de quién vino.</li>'),
-    ("<p class=\"lead\">Come in after eight, order something, and head to the back room. Say it's your first night &mdash; someone will get you a game.</p>",
-     "<p class=\"lead\">Llega después de las ocho, pide algo y pasa al salón de atrás. Di que es tu primera noche &mdash; alguien te consigue una partida.</p>"),
+    ("<p class=\"lead\">Come in after eight, order something, and head to the back patio. Say it's your first night &mdash; someone will get you a game.</p>",
+     "<p class=\"lead\">Llega después de las ocho, pide algo y pasa al patio de atrás. Di que es tu primera noche &mdash; alguien te consigue una partida.</p>"),
     ('<li><b>Sets and clocks are provided.</b></li>', '<li><b>Tableros y relojes incluidos.</b></li>'),
     ("<li><b>Order one item.</b> It doesn't have to be kava.</li>", "<li><b>Pide algo.</b> No tiene que ser kava.</li>"),
     ('<li><b>No membership, no dues.</b></li>', '<li><b>Sin membresía ni cuotas.</b></li>'),

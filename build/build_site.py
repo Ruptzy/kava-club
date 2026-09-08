@@ -68,7 +68,7 @@ BLOCK = {'20250318_210927.jpg', 'IMG_4350.jpg'}
 alts = {'01 Club nights': ('A club night at Kava Social Chess Club in Bradenton', 'nights'),
         '02 Club events and group photos': ('Kava Social Chess Club members at a club event', 'events'),
         '03 Tournaments and travel': ('Kava Social Chess Club members at a tournament', 'travel'),
-        '04 Venue': ('The club room at Kava Social in downtown Bradenton', 'venue'),
+        '04 Venue': ('The club patio at Kava Social in downtown Bradenton', 'venue'),
         '05 Trophies and awards': ('Trophies won at Kava Social Chess Club events', 'trophies')}
 used.discard('Tournament Harold.jpg')
 def rank(f): return (LEAD.index(f), '') if f in LEAD else (len(LEAD), f.lower())
