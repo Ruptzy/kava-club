@@ -169,6 +169,7 @@ RAW = [
     # alt text
     ('alt="The club patio at Kava Social in downtown Bradenton, full on a tournament day"', 'alt="El patio del club en Kava Social, centro de Bradenton, lleno en un día de torneo"'),
     ('alt="Three members laughing over a board on a club night"', 'alt="Tres miembros riendo sobre un tablero en una noche de club"'),
+    ('alt="Two members mid-game on a club night, one with his head in his hands, both grinning"', 'alt="Dos miembros en plena partida en una noche de club, uno con la cabeza entre las manos, los dos sonriendo"'),
     ('alt="Boards set up and waiting under the string lights before a club night"', 'alt="Tableros listos bajo las luces antes de una noche de club"'),
     ('alt="A full Sunday club night"', 'alt="Una noche de club de domingo llena"'),
     ('alt="Study night: a member reading at the board"', 'alt="Noche de estudio: un miembro leyendo junto al tablero"'),

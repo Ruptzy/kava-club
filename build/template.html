@@ -107,10 +107,14 @@ nav a:hover{color:var(--cream);border-bottom-color:var(--scarlet)}
 
 /* ============ split ============ */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:var(--s5);align-items:center}
+#about .split{align-items:stretch}
 .split.rev > :first-child{order:2}
 .media{border-radius:var(--r);overflow:hidden;background:var(--panel-2)}
 .media img{width:100%;height:auto}
 @media(max-width:860px){.split{grid-template-columns:1fr;gap:var(--s4)}.split.rev > :first-child{order:0}}
+
+.duo-v{display:grid;gap:12px;align-self:stretch;align-content:space-between}
+.duo-v img{width:100%;height:auto;border-radius:var(--r);display:block}
 
 /* pillars */
 .pillars{display:flex;flex-direction:column;gap:0;margin-top:var(--s4);border-top:1px solid var(--rule)}
@@ -433,7 +437,10 @@ footer a:hover{color:var(--cream)}
 <section id="about">
   <div class="wrap">
     <div class="split">
-      <div class="media"><img src="{{SOCIAL}}" alt="Three members laughing over a board on a club night"></div>
+      <div class="duo-v">
+        <img src="{{SOCIAL}}" alt="Three members laughing over a board on a club night">
+        <img src="{{SOCIAL2}}" alt="Two members mid-game on a club night, one with his head in his hands, both grinning">
+      </div>
       <div>
         <div class="sh" style="margin-bottom:0">
           <div class="lbl">About the club</div>

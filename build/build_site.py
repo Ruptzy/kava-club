@@ -38,7 +38,7 @@ def png(src, w, name, square=False):
 
 # ---------------- assets (written once, shared by both languages) ----------------
 M = {'LOGO': png(LOGO_SRC, 224, 'logo.png', square=True)}
-hero = [('HERO', os.path.join(LG, 'hero-crop.jpg'), 1800, 78, 'hero.jpg'), ('SOCIAL', 'Kava social chess girls.png', 1100, 80, 'social.jpg'),
+hero = [('HERO', os.path.join(LG, 'hero-crop.jpg'), 1800, 78, 'hero.jpg'), ('SOCIAL', 'Kava social chess girls.png', 1100, 80, 'social.jpg'), ('SOCIAL2', 'chrome_6xZgOTnRDj.png', 1100, 80, 'social2.jpg'),
         ('STUDY', 'chrome_GRnR26LSto.png', 1100, 80, 'study.jpg'), ('COACH', 'chrome_q4UzvZj71T.png', 1100, 80, 'coach.jpg'),
         ('COACH2', 'Tournament Harold.jpg', 1100, 80, 'coach2.jpg'), ('SEASON', 'IMG_8373.jpg', 1200, 78, 'season.jpg'),
         ('SETUP', 'Kava social venue.png', 1400, 78, 'setup.jpg'), ('NIGHTPIC', 'Kava social group 3.png', 1000, 78, 'sunday.jpg')]
