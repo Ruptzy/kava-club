@@ -21,6 +21,7 @@ TEXT = {
     "A group session guided by director Harold Gonzalez, Socratic style: he asks, the room works it out. Books, puzzles and grandmaster games.":
         "Una sesión en grupo guiada por el director Harold Gonzalez, al estilo socrático: él pregunta y el salón lo resuelve. Libros, problemas y partidas de grandes maestros.",
     "This month at the club": "Este mes en el club",
+    "Your name": "Tu nombre", "Your email": "Tu correo", "Message": "Mensaje", "Send": "Enviar",
     "People and platforms that support us": "Personas y plataformas que nos apoyan",
     "Coaches and tools that have helped the club": "Entrenadores y herramientas que han ayudado al club",
     "An affiliate coach of the club. Ten years playing and teaching, with training plans built around the player in front of him.":
@@ -184,6 +185,11 @@ RAW = [
     ("Click any date to see what\\'s on.", "Toca cualquier fecha para ver qué hay."),
     ('Nothing scheduled. The club meets Sundays and Tuesdays.', 'Nada programado. El club se reúne domingos y martes.'),
     ('>Add to Google Calendar<', '>Agregar a Google Calendar<'),
+    ('placeholder="Never played? Haven\'t in years? Ask away."', 'placeholder="\u00bfNunca has jugado? \u00bfNo juegas desde hace a\u00f1os? Preg\u00fantanos."'),
+    ('say("Sending\\u2026")', 'say("Enviando\\u2026")'),
+    ('"Fill in your name, a valid email and a message."', '"Escribe tu nombre, un correo v\u00e1lido y un mensaje."'),
+    ('"Thanks \\u2014 somebody answers, usually the same day."', '"Gracias \\u2014 alguien responde, casi siempre el mismo d\u00eda."'),
+    ('"That did not send. Email us at kavasocialchess@gmail.com."', '"No se pudo enviar. Escr\u00edbenos a kavasocialchess@gmail.com."'),
     ('>Event details<', '>Detalles del evento<'),
     ('" ratings on Google"', '" calificaciones en Google"'), ('b.textContent="Read more"', 'b.textContent="Leer más"'),
     ('>Remove</button>', '>Quitar</button>'),
