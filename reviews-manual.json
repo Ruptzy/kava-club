@@ -1,0 +1,4 @@
+{
+ "_comment": "Real Google reviews of the club, typed in from the Maps page because the Places API returns nothing for this listing. Copy the wording exactly; never invent one. When Google starts serving a review automatically, delete it here — the page skips a manual entry whose author already came from the API.",
+ "reviews": []
+}

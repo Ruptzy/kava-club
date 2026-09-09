@@ -602,12 +602,20 @@ footer{border-top:1px solid var(--rule-2);margin-top:120px;padding:56px 0 40px}.
   </div>
   <script>
   (function(){
-    var REVIEWS_URL="reviews.json";
+    var REVIEWS_URL="reviews.json", MANUAL_URL="reviews-manual.json";
     function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");}
     function stars(n){var s="";for(var i=0;i<5;i++)s+=i<Math.round(n)?"\u2605":"\u2606";return s;}
     if(!window.fetch) return;
-    fetch(REVIEWS_URL,{cache:"no-cache"}).then(function(r){return r.ok?r.json():null;}).then(function(j){
-      if(!j) return;
+    function grab(u){ return fetch(u,{cache:"no-cache"}).then(function(r){return r.ok?r.json():null;}).catch(function(){return null;}); }
+    Promise.all([grab(REVIEWS_URL),grab(MANUAL_URL)]).then(function(both){
+      var j=both[0], man=both[1];
+      if(!j && !man) return;
+      j=j||{reviews:[]};
+      if(man&&man.reviews&&man.reviews.length){
+        var have={};
+        (j.reviews||[]).forEach(function(r){ have[(r.author||"").toLowerCase()]=1; });
+        j.reviews=man.reviews.filter(function(r){ return !have[(r.author||"").toLowerCase()]; }).concat(j.reviews||[]);
+      }
       if(j.rating){ document.getElementById("revStars").textContent=stars(j.rating); document.getElementById("revMeta").textContent=j.rating.toFixed(1)+" \u00b7 "+j.count+" ratings on Google"; }
       if(j.url) document.getElementById("revRead").href=j.url;
       if(!j.reviews||!j.reviews.length) return;

@@ -116,7 +116,7 @@ def build_page(lang):
         # language switch: mark ES active, load booked events from the site root
         h = h.replace('<a class="on" href="/">EN</a><a href="/es/">ES</a>', '<a href="/">EN</a><a class="on" href="/es/">ES</a>')
         h = h.replace('var EVENTS_URL="events.json";', 'var EVENTS_URL="../events.json";')
-        h = h.replace('var REVIEWS_URL="reviews.json";', 'var REVIEWS_URL="../reviews.json";')
+        h = h.replace('var REVIEWS_URL="reviews.json", MANUAL_URL="reviews-manual.json";', 'var REVIEWS_URL="../reviews.json", MANUAL_URL="../reviews-manual.json";')
 
     title = i18n_es.META['title'] if es else 'Kava Social Chess Club — Bradenton, FL'
     desc = i18n_es.META['desc'] if es else ("Bradenton's social chess club. Sundays and Tuesdays 8PM–midnight at Kava Social Club, 540 13th St W. "
