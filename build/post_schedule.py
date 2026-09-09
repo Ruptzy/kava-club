@@ -8,7 +8,8 @@ Every date goes out as a Discord timestamp, so each member sees it in their own 
 and gets "in 3 days" on hover. The recurring nights are worked out the same way the website
 works them out, so the two can never drift.
 """
-import json, os, sys, calendar, urllib.request, urllib.error
+import json, os, sys, calendar, uuid, urllib.request, urllib.error
+import calendar_image
 from datetime import date, datetime, timedelta
 
 try:
@@ -40,6 +41,7 @@ if os.environ.get('CHECK'):
     sys.exit(0)
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
 ROOT = os.path.dirname(HERE)
 SITE = 'https://kavasocialchessclub.com/'
 ANCHOR = date(2026, 8, 30)          # a league Sunday; league every 14 days
@@ -97,12 +99,12 @@ if sundays:
 if tuesdays:
     fields.append({
         'name': 'Tuesdays · study night, 8PM to midnight',
-        'value': '\n'.join(stamp(d, 20) for d in tuesdays)[:1024],
+        'value': ', '.join(stamp(d, 20, style='d') for d in tuesdays)[:1024],
         'inline': False})
 if thursdays:
     fields.append({
         'name': 'Thursdays · Intermediate+ at Adobe Kava, 7–11PM',
-        'value': ('\n'.join(stamp(d, 19) for d in thursdays)
+        'value': (', '.join(stamp(d, 19, style='d') for d in thursdays)
                   + '\nMessage Harold first — this one is not a drop-in.')[:1024],
         'inline': False})
 for d, e in booked:
@@ -137,17 +139,33 @@ payload = {
                         '[Full calendar](%s#events) · [Season standings](https://ladder.kavasocialchessclub.com/)'
                         % SITE),
         'fields': fields[:25],
+        'image': {'url': 'attachment://calendar.png'},
         'footer': {'text': 'Kava Social Club · 540 13th St W, Bradenton · 21+ · every level welcome'},
     }],
 }
 
+png = os.path.join(ROOT, 'calendar-%04d-%02d.png' % (year, month))
+calendar_image.draw_month(year, month, ROOT, png)
+image = open(png, 'rb').read()
+os.remove(png)
+
+boundary = '----kava' + uuid.uuid4().hex
+parts = []
+parts.append(('--%s\r\nContent-Disposition: form-data; name="payload_json"\r\n'
+              'Content-Type: application/json\r\n\r\n%s\r\n' % (boundary, json.dumps(payload))).encode())
+parts.append(('--%s\r\nContent-Disposition: form-data; name="files[0]"; filename="calendar.png"\r\n'
+              'Content-Type: image/png\r\n\r\n' % boundary).encode())
+parts.append(image)
+parts.append(('\r\n--%s--\r\n' % boundary).encode())
+body = b''.join(parts)
+
 # Discord sits behind Cloudflare, which rejects the default urllib user agent outright
-req = urllib.request.Request(WEBHOOK, data=json.dumps(payload).encode(),
-                             headers={'Content-Type': 'application/json',
-                                      'User-Agent': 'KavaSocialChessClub/1.0 (+https://kavasocialchessclub.com)'})
+req = urllib.request.Request(WEBHOOK, data=body, headers={
+    'Content-Type': 'multipart/form-data; boundary=' + boundary,
+    'User-Agent': 'KavaSocialChessClub/1.0 (+https://kavasocialchessclub.com)'})
 try:
-    with urllib.request.urlopen(req, timeout=30) as r:
-        print('posted %s %d to Discord (%s) — %d recurring blocks, %d booked event(s)'
-              % (MONTHS[month - 1], year, r.status, len(fields) - len(booked), len(booked)))
+    with urllib.request.urlopen(req, timeout=60) as r:
+        print('posted %s %d to Discord (%s) — calendar image %d KB, %d booked event(s)'
+              % (MONTHS[month - 1], year, r.status, len(image) // 1024, len(booked)))
 except urllib.error.HTTPError as e:
     sys.exit('Discord refused the post (%s): %s' % (e.code, e.read().decode('utf-8', 'replace')[:300]))
