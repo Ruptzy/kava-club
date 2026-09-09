@@ -1,0 +1,25 @@
+name: Post the month's schedule to Discord
+
+on:
+  schedule:
+    - cron: "0 13 1 * *"   # the 1st of each month, 13:00 UTC (9am Bradenton)
+  workflow_dispatch:
+    inputs:
+      month:
+        description: "Month to post as YYYY-MM (leave blank for the current one)"
+        required: false
+        default: ""
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Post to #club-schedule
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          MONTH: ${{ inputs.month }}
+        run: python build/post_schedule.py
