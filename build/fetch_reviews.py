@@ -12,7 +12,10 @@ and the candidates are printed for a human to look at.
 import json, os, sys, urllib.request, urllib.error
 
 KEY = os.environ.get('GOOGLE_PLACES_KEY', '').strip()
-PLACE = os.environ.get('GOOGLE_PLACE_ID', '').strip()
+# the club's own listing, confirmed 2026-09-09. Pinning it means one API call a day
+# (a Place Details lookup) instead of four - no text search, nothing to pay for.
+DEFAULT_PLACE = 'ChIJ-bv_E6gXw4gREBFXmc5jeEY'
+PLACE = os.environ.get('GOOGLE_PLACE_ID', '').strip() or DEFAULT_PLACE
 QUERIES = ['Kava Social Chess Club Bradenton FL',
            'Kava Social Chess Club',
            'chess club Bradenton FL 34205']
