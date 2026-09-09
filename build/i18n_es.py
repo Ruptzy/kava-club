@@ -9,7 +9,7 @@ TEXT = {
     # editorial redesign (2026-09-09)
     "The club": "El club", "Nights": "Noches", " &middot; Est. 2021": " &middot; Desde 2021", "League": "Liga", "Menu": "Menú",
     "Bradenton's social chess club": "El club de ajedrez social de Bradenton",
-    "Come": "Vuelve", "back to": "al", "the board.": "tablero.",
+    "Come": "Vuelve", " back to": " al", " the board.": " tablero.",
     "Some of us walked in after years away from the game. Some of us play rated every month. There's a space here for every level &mdash; casual, intermediate, or full-on sweats.":
         "Algunos entramos después de años sin jugar. Otros jugamos torneos con rating cada mes. Aquí hay lugar para todos los niveles &mdash; casual, intermedio, o los que se lo toman muy en serio.",
     "Girls' night chess study.": "Noche de estudio de las chicas.", "Losing, and enjoying it.": "Perdiendo, y disfrutándolo.",
