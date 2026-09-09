@@ -66,7 +66,7 @@ shutil.copy(os.path.join(LG, 'c67-dark.svg'), os.path.join(OUT, 'img', 'logos', 
 shutil.copy(os.path.join(LG, 'promo-web.mp4'), os.path.join(OUT, 'media', 'promo.mp4')); M['VIDEO'] = 'media/promo.mp4'
 
 # gallery: curated lead order, then the rest alphabetically; duplicates and two weak shots dropped
-LEAD = ['Kava social tourney 1.jpg', 'Tournament Harold.jpg', 'kava vs orlando 4.png', 'vegas 2025.png', 'kava chess pic.png', 'kava chess night pic.png', 'chess pic 2.png', 'kava patio pic.png', 'kava patio pics.png', 'benji smile chess.png', 'that boi chess.png', 'chess kava cup.png', 'cade chess pic.png', 'stevo harold pics.png', 'bodie.png', 'chess club orlando.png', 'kava winners.png', 'stevo wham.png', 'chess girls.jpg', 'maddie chess.webp', '30 bday.jpg', 'chrome_6DdiixDQtF.png', 'kava social club.jpg', 'Kava social group 3.png', 'IMG_2081.jpg',
+LEAD = ['Kava social tourney 1.jpg', 'Tournament Harold.jpg', 'kava vs orlando 4.png', 'vegas 2025.png', 'kava chess pic.png', 'kava chess night pic.png', 'chess pic 2.png', 'kava patio pic.png', 'kava patio pics.png', 'benji smile chess.png', 'that boi chess.png', 'chess kava cup.png', 'cade chess pic.png', 'stevo harold pics.png', 'bodie.png', 'chess club orlando.png', 'kava winners.png', 'stevo wham.png', 'Taylor chess.jpg', 'chess girls.jpg', 'maddie chess.webp', '30 bday.jpg', 'chrome_6DdiixDQtF.png', 'kava social club.jpg', 'Kava social group 3.png', 'IMG_2081.jpg',
         'chrome_6xZgOTnRDj.png', 'Kava social venue.png', 'de584ff4-615b-411f-8875-7e090e25171d.jpg', 'IMG_1050.jpg', 'Kava social squad 2.png',
         'IMG_0754.jpg', 'IMG_9764.jpg', 'Kava social night 1.jpg']
 BLOCK = {'20250318_210927.jpg', 'IMG_4350.jpg', 'Kava social store front.webp'}  # storefront already leads chapter 09
