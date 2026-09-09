@@ -53,7 +53,7 @@ _band = _src.crop((0, _top, _src.width, _top + _bh)).resize((1600, round(1600 * 
 _band.save(os.path.join(OUT, 'img', 'hero-wide.jpg'), 'JPEG', quality=72, optimize=True, progressive=True); M['HEROWIDE'] = 'img/hero-wide.jpg'
 M['VENUE'], _ = jpg(os.path.join(LG, 'ksc-store.jpg'), 1400, 78, 'venue.jpg')
 M['BG'], _ = jpg(os.path.join(LG, 'bg.jpg'), 1086, 66, 'bg.jpg')
-M['VPOSTER'], _ = jpg(COVER, 720, 76, 'promo-poster.jpg')
+M['VPOSTER'], _ = jpg(COVER, 1080, 82, 'promo-poster.jpg')
 for key, fn, out in [('L_MANASOTA', 'manasota.png', 'manasota.png'), ('L_TAMPA', 'tampa.png', 'tampa.png'), ('L_ORCA', 'orca.png', 'orca.png'),
                      ('L_ORLANDO', 'orlandocc.png', 'orlando.png'), ('L_STPETE', 'stpete.png', 'stpete.png'), ('L_KSC', 'ksc1.png', 'kava-social-club.png'),
                      ('L_CLB', 'clb.png', 'chesslinebook.png'), ('L_BVILA', 'bvila.png', 'brandon-vila.png')]:
