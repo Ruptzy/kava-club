@@ -62,19 +62,35 @@ code{font-family:var(--fm);font-size:13px;color:var(--cream);background:var(--pa
 
 <section id="auth">
   <h2 class="d" style="font-size:20px">Access</h2>
-  <p class="sub" style="margin-bottom:18px">Paste a GitHub token with write access to <code>Ruptzy/kava-club</code>. It is stored only in this browser and never leaves it except to talk to GitHub.</p>
-  <label><span class="m">GitHub token</span><input id="tok" type="password" placeholder="github_pat_… or ghp_…" autocomplete="off" spellcheck="false"></label>
-  <div class="row"><button class="btn" id="connect">Connect</button><button class="btn s" id="forget" hidden>Forget token</button></div>
+
+  <div id="setup">
+    <p class="sub" style="margin-bottom:18px">Paste a GitHub token with write access to <code>Ruptzy/kava-club</code>, and choose a passphrase. The token is encrypted with that passphrase before it is stored, so it is useless to anyone who opens this page without it.</p>
+    <div class="grid">
+      <label class="full"><span class="m">GitHub token</span><input id="tok" type="password" placeholder="github_pat_… or ghp_…" autocomplete="off" spellcheck="false"></label>
+      <label><span class="m">Choose a passphrase</span><input id="pass1" type="password" autocomplete="new-password" placeholder="at least 8 characters"></label>
+      <label><span class="m">Again</span><input id="pass2" type="password" autocomplete="new-password"></label>
+    </div>
+    <div class="row"><button class="btn" id="connect">Connect and lock</button></div>
+  </div>
+
+  <div id="unlock" hidden>
+    <p class="sub" style="margin-bottom:18px">This device has a locked token saved. Enter the passphrase to use it.</p>
+    <label><span class="m">Passphrase</span><input id="passU" type="password" autocomplete="current-password"></label>
+    <div class="row"><button class="btn" id="unlockBtn">Unlock</button><button class="btn s" id="forget">Forget this token</button></div>
+  </div>
+
   <div class="msg" id="authMsg"></div>
+
   <div class="note" style="margin-top:22px" id="howto">
     <b>Making a token, once:</b>
     <ol>
       <li>Open <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">github.com/settings/personal-access-tokens/new</a></li>
-      <li>Token name: <code>kava-site</code> &middot; Expiration: whatever you like</li>
+      <li>Token name: <code>kava-site</code> &middot; Expiration: 90 days is sensible</li>
       <li>Repository access: <b>Only select repositories</b> &rarr; <code>Ruptzy/kava-club</code></li>
       <li>Permissions &rarr; Repository permissions &rarr; <b>Contents: Read and write</b></li>
-      <li>Generate, copy it, paste it above. Keep it to yourself &mdash; anyone with it can change the site.</li>
+      <li>Generate, copy it, paste it above with a passphrase you will remember.</li>
     </ol>
+    <p style="margin-top:14px">If the token is ever lost or shared, revoke it on that same GitHub page and make a new one &mdash; that instantly stops anyone using it.</p>
   </div>
 </section>
 
@@ -102,7 +118,7 @@ code{font-family:var(--fm);font-size:13px;color:var(--cream);background:var(--pa
       <label class="full"><span class="m">Title in Spanish (optional)</span><input id="f_title_es"></label>
       <label class="full"><span class="m">Details in Spanish (optional)</span><textarea id="f_note_es"></textarea></label>
     </div>
-    <div class="row"><button class="btn" type="submit" id="save">Add to the calendar</button><button class="btn s" type="reset">Clear</button></div>
+    <div class="row"><button class="btn" type="submit" id="save">Add to the calendar</button><button class="btn s" type="reset">Clear</button><button class="btn s" type="button" id="lock" style="margin-left:auto">Lock</button></div>
     <div class="msg" id="formMsg"></div>
   </form>
 
@@ -118,8 +134,9 @@ code{font-family:var(--fm);font-size:13px;color:var(--cream);background:var(--pa
 <script>
 (function(){
   var REPO="Ruptzy/kava-club", PATH="events.json", API="https://api.github.com/repos/"+REPO+"/contents/"+PATH;
-  var KEY="kava-admin-token";
-  var tok="", sha=null, doc={events:[]};
+  var KEY="kava-admin-token";           // holds ciphertext only, never the token itself
+  var IDLE_MS=15*60*1000;               // lock again after fifteen quiet minutes
+  var tok="", sha=null, doc={events:[]}, idleTimer=null;
   var $=function(id){return document.getElementById(id);};
   function msg(el,text,cls){ el.className="msg"+(cls?" "+cls:""); el.textContent=text; }
   function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
@@ -188,19 +205,21 @@ code{font-family:var(--fm);font-size:13px;color:var(--cream);background:var(--pa
   }
 
   $("connect").addEventListener("click",function(){
-    tok=$("tok").value.trim();
-    if(!tok){ msg($("authMsg"),"Paste a token first.","err"); return; }
-    msg($("authMsg"),"Checking…","busy");
-    load().then(function(){
-      localStorage.setItem(KEY,tok);
-      msg($("authMsg"),"Connected.","ok");
-      $("app").hidden=false; $("forget").hidden=false; $("howto").hidden=true; $("tok").value="";
-    }).catch(function(err){ msg($("authMsg"),err.message+" — check the token has Contents: Read and write on "+REPO+".","err"); });
+    var t=$("tok").value.trim(), p1=$("pass1").value, p2=$("pass2").value;
+    if(!t){ msg($("authMsg"),"Paste a token first.","err"); return; }
+    if(p1.length<8){ msg($("authMsg"),"Use a passphrase of at least eight characters.","err"); return; }
+    if(p1!==p2){ msg($("authMsg"),"The two passphrases do not match.","err"); return; }
+    tok=t; msg($("authMsg"),"Checking\u2026","busy");
+    load().then(function(){ return lockToken(t,p1); })
+      .then(function(){ $("tok").value=""; $("pass1").value=""; $("pass2").value=""; opened(); })
+      .catch(function(err){ tok=""; msg($("authMsg"),err.message+" \u2014 check the token has Contents: Read and write on "+REPO+".","err"); });
   });
 
   $("forget").addEventListener("click",function(){
-    localStorage.removeItem(KEY); tok=""; $("app").hidden=true; $("forget").hidden=true; $("howto").hidden=false;
-    msg($("authMsg"),"Token forgotten on this device.","ok");
+    if(!confirm("Forget the saved token on this device? You will need to paste it again.")) return;
+    localStorage.removeItem(KEY); tok="";
+    $("app").hidden=true; $("unlock").hidden=true; $("setup").hidden=false; $("howto").hidden=false;
+    msg($("authMsg"),"Forgotten on this device.","ok");
   });
 
   $("form").addEventListener("submit",function(ev){
@@ -221,12 +240,57 @@ code{font-family:var(--fm);font-size:13px;color:var(--cream);background:var(--pa
     });
   });
 
-  var stored=localStorage.getItem(KEY);
-  if(stored){
-    tok=stored; msg($("authMsg"),"Connecting…","busy");
-    load().then(function(){
-      msg($("authMsg"),"Connected.","ok"); $("app").hidden=false; $("forget").hidden=false; $("howto").hidden=true;
-    }).catch(function(err){ msg($("authMsg"),"Saved token did not work: "+err.message,"err"); });
+  // ---- passphrase locking: the stored blob is AES-GCM ciphertext, keyed by PBKDF2 ----
+  function bytes(b64s){ var bin=atob(b64s), a=new Uint8Array(bin.length); for(var i=0;i<bin.length;i++) a[i]=bin.charCodeAt(i); return a; }
+  function tob64(u8){ var bin=""; u8.forEach(function(b){bin+=String.fromCharCode(b);}); return btoa(bin); }
+  function keyFrom(pass,salt){
+    return crypto.subtle.importKey("raw",new TextEncoder().encode(pass),"PBKDF2",false,["deriveKey"])
+      .then(function(base){ return crypto.subtle.deriveKey({name:"PBKDF2",salt:salt,iterations:250000,hash:"SHA-256"},
+        base,{name:"AES-GCM",length:256},false,["encrypt","decrypt"]); });
+  }
+  function lockToken(t,pass){
+    var salt=crypto.getRandomValues(new Uint8Array(16)), iv=crypto.getRandomValues(new Uint8Array(12));
+    return keyFrom(pass,salt).then(function(k){ return crypto.subtle.encrypt({name:"AES-GCM",iv:iv},k,new TextEncoder().encode(t)); })
+      .then(function(ct){ localStorage.setItem(KEY,JSON.stringify({v:1,s:tob64(salt),i:tob64(iv),c:tob64(new Uint8Array(ct))})); });
+  }
+  function unlockToken(pass){
+    var rec; try{ rec=JSON.parse(localStorage.getItem(KEY)); }catch(e){ return Promise.reject(new Error("Nothing saved on this device.")); }
+    if(!rec||rec.v!==1) return Promise.reject(new Error("Nothing saved on this device."));
+    return keyFrom(pass,bytes(rec.s))
+      .then(function(k){ return crypto.subtle.decrypt({name:"AES-GCM",iv:bytes(rec.i)},k,bytes(rec.c)); })
+      .then(function(pt){ return new TextDecoder().decode(pt); })
+      .catch(function(){ throw new Error("That passphrase does not match."); });
+  }
+
+  function armIdle(){ clearTimeout(idleTimer); idleTimer=setTimeout(function(){ lockNow("Locked after fifteen quiet minutes."); }, IDLE_MS); }
+  function lockNow(why){
+    tok=""; sha=null; clearTimeout(idleTimer);
+    $("app").hidden=true; $("setup").hidden=true; $("unlock").hidden=false; $("howto").hidden=true;
+    $("passU").value=""; msg($("authMsg"),why||"Locked.","ok");
+  }
+  function opened(){
+    $("app").hidden=false; $("setup").hidden=true; $("unlock").hidden=true; $("howto").hidden=true;
+    msg($("authMsg"),"Connected.","ok"); armIdle();
+  }
+  ["click","keydown","scroll"].forEach(function(ev){ addEventListener(ev,function(){ if(tok) armIdle(); },{passive:true}); });
+
+  $("unlockBtn").addEventListener("click",function(){
+    var pass=$("passU").value;
+    if(!pass){ msg($("authMsg"),"Enter the passphrase.","err"); return; }
+    msg($("authMsg"),"Unlocking…","busy");
+    unlockToken(pass).then(function(t){ tok=t; return load(); })
+      .then(opened)
+      .catch(function(err){ tok=""; msg($("authMsg"),err.message,"err"); });
+  });
+  $("lock").addEventListener("click",function(){ lockNow("Locked."); scrollTo(0,0); });
+
+  // pick the right panel: locked blob present, legacy plain token, or nothing yet
+  var saved=localStorage.getItem(KEY);
+  if(saved && saved.charAt(0)==="{"){
+    $("setup").hidden=true; $("unlock").hidden=false; $("howto").hidden=true;
+  } else if(saved){
+    localStorage.removeItem(KEY);
+    msg($("authMsg"),"Your token was stored unencrypted by the older version. It has been cleared \u2014 paste it again with a passphrase.","err");
   }
 })();
 </script>
