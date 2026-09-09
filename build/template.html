@@ -101,7 +101,7 @@ a.tile{display:block;color:inherit;transition:transform .35s var(--ease)}a.tile:
 /* lessons */
 .price{display:flex;justify-content:space-between;align-items:baseline;padding:20px 0;border-top:1px solid var(--rule-2)}.price .n{font-size:22px}.price .a{font-size:30px;color:var(--scarlet)}.price .a .m{color:var(--ink-3)}.pdesc{font-size:18px;padding-bottom:20px}.pdesc.last{border-bottom:1px solid var(--rule-2)}
 /* gallery */
-.gal{display:flex;flex-wrap:wrap;gap:4px;margin-top:40px}.gal img{object-fit:cover;cursor:zoom-in;opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s var(--ease),filter .4s ease}.gal img.in{opacity:1;transform:none}.gal img:hover{filter:brightness(1.08)}
+.gal{display:flex;flex-wrap:wrap;gap:4px;margin-top:40px}.gal img{object-fit:cover;cursor:zoom-in;transition:filter .35s ease}.gal img:hover{filter:brightness(1.1)}
 .lb{position:fixed;inset:0;z-index:50;background:rgba(8,8,9,.97);display:none;align-items:center;justify-content:center}.lb.open{display:flex}.lb img{max-width:min(94vw,1400px);max-height:88vh;object-fit:contain}
 .lb button{position:absolute;background:none;border:1px solid var(--rule-3);color:var(--cream);width:48px;height:48px;border-radius:999px;font-size:22px;display:grid;place-items:center}.lb .close{top:20px;right:20px}.lb .prev{left:20px;top:50%;transform:translateY(-50%)}.lb .next{right:20px;top:50%;transform:translateY(-50%)}.lb .cap{position:absolute;bottom:20px;left:0;right:0;text-align:center;font-family:var(--fm);font-size:12px;letter-spacing:.18em;color:var(--ink-3)}
 /* home / partners */
@@ -148,7 +148,7 @@ footer{border-top:1px solid var(--rule-2);margin-top:120px;padding:56px 0 40px}.
   footer{margin-top:80px;padding:40px 0 32px}.fgrid{grid-template-columns:1fr;gap:32px}.fcols{gap:16px}.fcols ul{font-size:16px}
 }
 @media (max-width:720px){:root{--pad:20px}.est{display:none}#navbar .loc{display:none}#navbar .in{grid-template-columns:1fr}#navbar .end{justify-content:space-between}.btn{font-size:12px;letter-spacing:.12em;padding-left:20px;gap:12px}.fcols{grid-template-columns:1fr;gap:24px}.fcols ul{gap:8px}.hero .cta{flex-direction:column;align-items:stretch}.hero .cta .btn{justify-content:space-between}.cap{font-size:15px}}
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}.rv,.rv-num,.gal img,.hero .lbl,.hero .dek,.hero .cta,.mast .top,.ln>span{opacity:1 !important;transform:none !important}.cream{clip-path:none}.hero .px img{transform:none}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}.rv,.rv-num,.hero .lbl,.hero .dek,.hero .cta,.mast .top,.ln>span{opacity:1 !important;transform:none !important}.cream{clip-path:none}.hero .px img{transform:none}}
 </style>
 
 <!-- ============ MASTHEAD ============ -->
@@ -399,6 +399,7 @@ footer{border-top:1px solid var(--rule-2);margin-top:120px;padding:56px 0 40px}.
     // justified rows: one height per row, widths follow aspect ratio
     function layout(){
       var W=gal.clientWidth, G=4, target=W<600?130:(W<900?180:230);
+      if(!W) return;
       var row=[], sum=0;
       function flush(h,last){
         var used=0;
@@ -417,8 +418,15 @@ footer{border-top:1px solid var(--rule-2);margin-top:120px;padding:56px 0 40px}.
         else if(idx===imgs.length-1){ flush(Math.min(h,target*1.15),true); }
       });
     }
-    var raf=null; window.addEventListener("resize",function(){cancelAnimationFrame(raf); raf=requestAnimationFrame(layout);});
+    var raf=null;
+    function relayout(){ cancelAnimationFrame(raf); raf=requestAnimationFrame(layout); }
+    window.addEventListener("resize",relayout);
+    window.addEventListener("load",relayout);
+    if(document.fonts&&document.fonts.ready) document.fonts.ready.then(relayout);
+    if(window.ResizeObserver) new ResizeObserver(relayout).observe(gal);
     layout();
+    // widths settle late (fonts, lazy images, scrollbars), so measure again a few times
+    [60,250,800,2000].forEach(function(t){ setTimeout(relayout,t); });
     var lb=document.getElementById("lb"), lbImg=document.getElementById("lbImg"), lbCount=document.getElementById("lbCount"), at=0;
     function show(i){ at=(i+imgs.length)%imgs.length; lbImg.src=imgs[at].src; lbImg.alt=imgs[at].alt; lbCount.textContent=(at+1)+" / "+imgs.length; }
     function open(i){ show(i); lb.classList.add("open"); document.body.style.overflow="hidden"; }
@@ -536,7 +544,7 @@ footer{border-top:1px solid var(--rule-2);margin-top:120px;padding:56px 0 40px}.
 <script>
 (function(){
   var reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var pend=[].slice.call(document.querySelectorAll(".rv,.rv-num,.cream,.ch,.gal img"));
+  var pend=[].slice.call(document.querySelectorAll(".rv,.rv-num,.cream,.ch"));
   var cnts=[].slice.call(document.querySelectorAll(".cnt"));
   function countUp(el){ if(reduce) return; var to=+el.dataset.to, suf=el.dataset.suffix||"", t0=performance.now(), dur=1400; (function tick(now){ var p=Math.min(1,(now-t0)/dur); p=1-Math.pow(1-p,3); el.textContent=Math.round(to*p).toLocaleString("en-US")+suf; if(p<1) requestAnimationFrame(tick); })(t0); }
   var c5=document.getElementById("standings"), c6=document.getElementById("uschess"), bar=document.getElementById("navbar"), px=document.getElementById("pxi");
