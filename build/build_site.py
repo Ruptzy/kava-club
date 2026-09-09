@@ -56,7 +56,7 @@ M['BG'], _ = jpg(os.path.join(LG, 'bg.jpg'), 1086, 66, 'bg.jpg')
 M['VPOSTER'], _ = jpg(COVER, 720, 76, 'promo-poster.jpg')
 for key, fn, out in [('L_MANASOTA', 'manasota.png', 'manasota.png'), ('L_TAMPA', 'tampa.png', 'tampa.png'), ('L_ORCA', 'orca.png', 'orca.png'),
                      ('L_ORLANDO', 'orlandocc.png', 'orlando.png'), ('L_STPETE', 'stpete.png', 'stpete.png'), ('L_KSC', 'ksc1.png', 'kava-social-club.png'),
-                     ('L_CLB', 'clb.png', 'chesslinebook.png')]:
+                     ('L_CLB', 'clb.png', 'chesslinebook.png'), ('L_BVILA', 'bvila.png', 'brandon-vila.png')]:
     M[key] = png(os.path.join(LG, fn), 400, 'logos/' + out)
 for key, fn, out in [('TAB_ALL', 'all.png', 'bracket-all.png'), ('TAB_O1400', 'over-1400.png', 'bracket-over-1400.png'),
                      ('TAB_U1400', 'u1400.png', 'bracket-u1400.png'), ('TAB_U1000', 'u1000.png', 'bracket-u1000.png')]:

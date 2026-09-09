@@ -20,7 +20,11 @@ TEXT = {
     "No membership, no dues": "Sin membresía ni cuotas", "Scan the QR at the door": "Escanea el QR en la entrada",
     "A group session guided by director Harold Gonzalez, Socratic style: he asks, the room works it out. Books, puzzles and grandmaster games.":
         "Una sesión en grupo guiada por el director Harold Gonzalez, al estilo socrático: él pregunta y el salón lo resuelve. Libros, problemas y partidas de grandes maestros.",
-    "This month at the club": "Este mes en el club", "Watch": "Video", "The league": "La liga",
+    "This month at the club": "Este mes en el club",
+    "People and platforms that support us": "Personas y plataformas que nos apoyan",
+    "Coaches and tools that have helped the club": "Entrenadores y herramientas que han ayudado al club",
+    "An affiliate coach of the club. Ten years playing and teaching, with training plans built around the player in front of him.":
+        "Entrenador afiliado al club. Diez años jugando y enseñando, con planes de entrenamiento hechos a la medida de cada jugador.", "Watch": "Video", "The league": "La liga",
     " Club nights are 21+ because of the venue. Lessons are not.": " Las noches de club son 21+ por regla del local. Las clases no.",
     "Honest reviews help the next person decide to walk in.": "Las reseñas honestas ayudan a la siguiente persona a decidirse a entrar.",
     "League night. Same tables, one more reason to shake hands.": "Noche de liga. Las mismas mesas, una razón más para darse la mano.",
