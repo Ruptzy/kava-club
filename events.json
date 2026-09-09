@@ -1,0 +1,17 @@
+{
+ "_comment": "Booked one-off events: club battles, tournaments, lectures, simuls. The recurring club nights are generated in the page itself, not listed here. Types: tournament | lecture | simul | special | social | league | study | adobe.",
+ "updated": "2026-09-09",
+ "events": [
+  {
+   "date": "2026-10-03",
+   "type": "special",
+   "title": "Club battle: Tampa Knights vs Kava Social",
+   "title_es": "Batalla de clubes: Tampa Knights vs Kava Social",
+   "time": "",
+   "venue": "Tampa Knights Chess Club",
+   "addr": "Tampa Knights Chess Club, 1919 N Howard Ave, Tampa, FL 33607",
+   "note": "Club battle away at Tampa Knights in Tampa. Time and format to be confirmed.",
+   "note_es": "Batalla de clubes de visita en Tampa Knights, en Tampa. Hora y formato por confirmar."
+  }
+ ]
+}

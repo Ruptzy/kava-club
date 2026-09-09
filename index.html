@@ -282,9 +282,11 @@ footer{border-top:1px solid var(--rule-2);margin-top:120px;padding:56px 0 40px}.
     function eventsOn(d){var k=iso(d); return recurring(d).concat(stored.filter(function(e){return e.date===k;}));}
     function gcal(e,d){
       var ds=iso(d).replace(/-/g,""); var hh=(e.venue==="Adobe Kava")?["T190000","T230000"]:["T200000","T235900"];
-      return "https://calendar.google.com/calendar/render?action=TEMPLATE&text="+encodeURIComponent("Kava Social Chess Club: "+e.title)+"&dates="+ds+hh[0]+"/"+ds+hh[1]+"&details="+encodeURIComponent((e.note||"")+"\n"+(e.time||""))+"&location="+encodeURIComponent(e.addr||e.venue||VENUE);
+      return "https://calendar.google.com/calendar/render?action=TEMPLATE&text="+encodeURIComponent("Kava Social Chess Club: "+loc(e,"title"))+"&dates="+ds+hh[0]+"/"+ds+hh[1]+"&details="+encodeURIComponent(loc(e,"note")+"\n"+(e.time||""))+"&location="+encodeURIComponent(e.addr||e.venue||VENUE);
     }
     function label(t){return {social:"Social",league:"League",study:"Study",adobe:"Adobe Kava",tournament:"Tournament",lecture:"Lecture",simul:"Simul",special:"Special"}[t]||t;}
+    var ES=document.documentElement.lang==="es";
+    function loc(e,k){return (ES&&e[k+"_es"])||e[k]||"";}
     function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");}
     function renderGrid(){
       document.getElementById("calTitle").textContent=MONTHS[view.getMonth()]+" "+view.getFullYear();
@@ -298,7 +300,7 @@ footer{border-top:1px solid var(--rule-2);margin-top:120px;padding:56px 0 40px}.
         if(d.getTime()===today.getTime()) cell.className+=" now";
         if(sel && d.getTime()===sel.getTime()) cell.className+=" sel";
         var evs=eventsOn(d); var html='<div class="dn">'+d.getDate()+'</div>';
-        evs.slice(0,3).forEach(function(e){html+='<div class="chip t-'+e.type+'" title="'+esc(e.title)+'">'+esc(e.title)+'</div>';});
+        evs.slice(0,3).forEach(function(e){var t=loc(e,"title");html+='<div class="chip t-'+e.type+'" title="'+esc(t)+'">'+esc(t)+'</div>';});
         if(evs.length>3) html+='<div class="chip t-study">+'+(evs.length-3)+' more</div>';
         cell.innerHTML=html;
         (function(dd){cell.addEventListener("click",function(){sel=dd; renderGrid(); renderSide();});})(d);
@@ -312,7 +314,7 @@ footer{border-top:1px solid var(--rule-2);margin-top:120px;padding:56px 0 40px}.
       var evs=eventsOn(sel);
       if(!evs.length){l.innerHTML='<div class="empty">Nothing scheduled. The club meets Sundays and Tuesdays.</div>'; return;}
       l.innerHTML=evs.map(function(e){
-        return '<div class="evi"><div class="m t">'+label(e.type)+(e.age?' · '+e.age:'')+'</div><b>'+esc(e.title)+'</b><div class="m meta">'+esc(e.time||"")+(e.venue?' · '+esc(e.venue):'')+(e.addr?'<br>'+esc(e.addr.replace(/^Adobe Kava, /,""))    :'')+'</div>'+(e.note?'<p>'+esc(e.note)+'</p>':'')+'<div class="acts"><a href="'+gcal(e,sel)+'" target="_blank" rel="noopener">Add to Google Calendar</a></div></div>';
+        return '<div class="evi"><div class="m t">'+label(e.type)+(e.age?' · '+e.age:'')+'</div><b>'+esc(loc(e,"title"))+'</b><div class="m meta">'+esc(e.time||"")+(e.venue?' · '+esc(e.venue):'')+(e.addr?'<br>'+esc(e.addr.replace(/^Adobe Kava, /,""))    :'')+'</div>'+(loc(e,"note")?'<p>'+esc(loc(e,"note"))+'</p>':'')+'<div class="acts"><a href="'+gcal(e,sel)+'" target="_blank" rel="noopener">Add to Google Calendar</a></div></div>';
       }).join("");
     }
     function renderUpNext(){
@@ -320,7 +322,7 @@ footer{border-top:1px solid var(--rule-2);margin-top:120px;padding:56px 0 40px}.
       for(var i=0;i<60&&items.length<3;i++){var d=new Date(today); d.setDate(today.getDate()+i); eventsOn(d).forEach(function(e){ if(items.length<3) items.push({d:d,e:e}); });}
       box.innerHTML=items.map(function(x){
         var w=(x.d.getTime()===today.getTime())?"Tonight":DOW[x.d.getDay()]+" · "+MS[x.d.getMonth()];
-        return '<div><div><div class="d dd">'+x.d.getDate()+'</div><div class="m w">'+w+'</div></div><div><h3 class="d">'+esc(x.e.title)+'</h3><div class="m meta">'+esc(x.e.time||"")+' · '+esc(x.e.venue||"Kava Social Club")+'</div>'+(x.e.note?'<p>'+esc(x.e.note)+'</p>':'')+'</div></div>';
+        return '<div><div><div class="d dd">'+x.d.getDate()+'</div><div class="m w">'+w+'</div></div><div><h3 class="d">'+esc(loc(x.e,"title"))+'</h3><div class="m meta">'+esc(x.e.time||"")+' · '+esc(x.e.venue||"Kava Social Club")+'</div>'+(loc(x.e,"note")?'<p>'+esc(loc(x.e,"note"))+'</p>':'')+'</div></div>';
       }).join("");
     }
     function renderAll(){renderGrid(); renderSide(); renderUpNext();}
