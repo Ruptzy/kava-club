@@ -91,7 +91,6 @@ TEXT = {
     "Add to calendar": "Agregar al calendario", "Cancel": "Cancelar", "+ Add an event": "+ Agregar un evento",
     # video
     "Sixty-eight seconds": "Sesenta y ocho segundos", "What a Sunday actually looks like": "Así es un domingo de verdad",
-    "Shot by members on an ordinary night. No script, no actors.": "Grabado por miembros en una noche cualquiera. Sin guion, sin actores.",
     "Alcohol-free venue &mdash; kava, coffee, teas and soft drinks": "Local sin alcohol &mdash; kava, café, tés y refrescos",
     "Thatched-roof back patio, string lights, boards on every table": "Patio de atrás con techo de palma, luces colgantes y tableros en cada mesa",
     "Open until midnight, twice a week, since 2021": "Abierto hasta la medianoche, dos veces por semana, desde 2021",
