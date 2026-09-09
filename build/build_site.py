@@ -115,8 +115,6 @@ def build_page(lang):
         h = re.sub(r'(src|href|poster)="(img/|media/)', lambda m: '%s="%s%s' % (m.group(1), prefix, m.group(2)), h)
         h = h.replace('url(img/', 'url(../img/')
     # placeholders still pending from Harold: Google place ID (review link), Yelp URL
-    h = re.sub(r'\s*<li><a href="#yelp">.*?</a></li>', '', h, flags=re.S)
-    h = re.sub(r'<a href="#yelp"[^>]*>.*?</a>', '', h, flags=re.S)
     if es:
         # language switch: mark ES active, load booked events from the site root
         h = h.replace('<a class="on" href="/">EN</a><a href="/es/">ES</a>', '<a href="/">EN</a><a class="on" href="/es/">ES</a>')
@@ -135,7 +133,7 @@ def build_page(lang):
             {"@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "19:00", "closes": "23:00"}],
          "sameAs": ["https://www.instagram.com/kavasocialchessclub/", "https://www.facebook.com/KavaSocialChessClub",
                     "https://chess67.com/club/kava-social-chess-club", "https://new.uschess.org/user/132555/affiliates/3151294",
-                    "https://ladder.kavasocialchessclub.com/"],
+                    "https://ladder.kavasocialchessclub.com/", "https://www.yelp.com/biz/kava-social-chess-club-bradenton"],
          "location": {"@type": "Place", "name": "Kava Social Club", "url": "https://www.thekavasocialclub.com/", "address": addr},
          "knowsLanguage": ["en", "es"]},
         {"@type": "Event", "name": ("Kava Social Chess Club — noche de domingo" if es else "Kava Social Chess Club — Sunday night"),
