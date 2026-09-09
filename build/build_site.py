@@ -13,8 +13,8 @@ import os, re, shutil, hashlib, json, sys
 HERE  = os.path.dirname(os.path.abspath(__file__))
 OUT   = os.path.dirname(HERE)
 LG    = os.path.join(HERE, 'src-logos')
-SRC   = r'C:\Users\17862\Desktop\Kava social website pictures'
-LOGO_SRC = r'C:\Users\17862\Desktop\Kava logo.png'
+SRC   = r'D:\Pictures\Kava Social Chess picture stuff\Website photo sort'   # moved off the Desktop 2026-09-09
+LOGO_SRC = os.path.join(HERE, 'src-logos', 'club-logo.png')   # kept in the repo: the Desktop original is gone
 COVER = r'D:\Desktop_Moved\Chess\Video Project kava Social Chess club\Kava Social Chess club night out!\Kava Social Chess club night out!-Cover.jpg'
 DOMAIN = 'kavasocialchessclub.com'
 URL = 'https://' + DOMAIN + '/'
@@ -91,10 +91,7 @@ for i, (f, p, alt, cat) in enumerate(tiles):
     lazy = '' if i < 10 else ' loading="lazy"'
     gal += '\n      <img src="%s" alt="%s" data-cat="%s" data-ar="%s"%s>' % (path, alt, cat, round(ar, 4), lazy)
 
-# favicon: the knight only, cropped from the logo
-lg = Image.open(LOGO_SRC).convert('RGBA'); w, hh = lg.size
-fav = lg.crop((int(w*0.30), int(hh*0.17), int(w*0.70), int(hh*0.62))).resize((180, 180), Image.LANCZOS)
-bg = Image.new('RGBA', (180, 180), (12, 13, 14, 255)); bg.alpha_composite(fav); bg.save(os.path.join(OUT, 'img', 'favicon.png'))
+# favicon: cream knight on scarlet, built by hand for legibility at 16px (img/favicon*.png)
 
 # ---------------- page assembly ----------------
 TEMPLATE = open(os.path.join(HERE, 'template.html'), encoding='utf-8').read()
@@ -150,7 +147,7 @@ def build_page(lang):
             '<title>' + title + '</title>\n<meta name="description" content="' + q(desc) + '">\n'
             '<link rel="canonical" href="' + page_url + '">\n'
             '<link rel="alternate" hreflang="en" href="' + URL + '">\n<link rel="alternate" hreflang="es" href="' + URL + 'es/">\n<link rel="alternate" hreflang="x-default" href="' + URL + '">\n'
-            '<link rel="icon" href="' + prefix + 'img/favicon.png" type="image/png">\n<link rel="apple-touch-icon" href="' + prefix + 'img/favicon.png">\n'
+            '<link rel="icon" href="' + prefix + 'img/favicon-32.png" sizes="32x32" type="image/png">\n<link rel="icon" href="' + prefix + 'img/favicon.png" sizes="180x180" type="image/png">\n<link rel="apple-touch-icon" href="' + prefix + 'img/favicon.png">\n'
             '<meta property="og:type" content="website">\n<meta property="og:title" content="' + title + '">\n<meta property="og:description" content="' + q(desc) + '">\n'
             '<meta property="og:url" content="' + page_url + '">\n<meta property="og:image" content="' + URL + 'img/hero.jpg">\n<meta property="og:locale" content="' + ('es_US' if es else 'en_US') + '">\n'
             '<meta name="twitter:card" content="summary_large_image">\n<meta name="theme-color" content="#0C0D0E">\n<link rel="preload" as="image" href="' + prefix + 'img/hero-wide.jpg" media="(min-width:1101px)">\n<link rel="preload" as="image" href="' + prefix + 'img/hero.jpg" media="(max-width:1100px)">\n'

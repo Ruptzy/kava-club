@@ -205,6 +205,7 @@ RAW = [
     ('placeholder="e.g. Autumn Rapid — 5 rounds, G/15+2"', 'placeholder="p. ej. Rápidas de otoño — 5 rondas, G/15+2"'),
     ('placeholder="Entry fee, time control, who\'s giving the simul…"', 'placeholder="Cuota, control de tiempo, quién da la simultánea…"'),
     ('aria-label="Previous month"', 'aria-label="Mes anterior"'), ('aria-label="Next month"', 'aria-label="Mes siguiente"'),
+    ('aria-label="Leave a Google review" title="Leave a Google review"', 'aria-label="Deja una rese\u00f1a en Google" title="Deja una rese\u00f1a en Google"'),
     ('aria-label="Photo viewer"', 'aria-label="Visor de fotos"'), ('aria-label="Close"', 'aria-label="Cerrar"'),
     ('aria-label="Previous"', 'aria-label="Anterior"'), ('aria-label="Next"', 'aria-label="Siguiente"'),
     # alt text
