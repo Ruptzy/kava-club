@@ -123,8 +123,10 @@ payload = {
     }],
 }
 
+# Discord sits behind Cloudflare, which rejects the default urllib user agent outright
 req = urllib.request.Request(WEBHOOK, data=json.dumps(payload).encode(),
-                             headers={'Content-Type': 'application/json'})
+                             headers={'Content-Type': 'application/json',
+                                      'User-Agent': 'KavaSocialChessClub/1.0 (+https://kavasocialchessclub.com)'})
 try:
     with urllib.request.urlopen(req, timeout=30) as r:
         print('posted %s %d to Discord (%s) — %d recurring blocks, %d booked event(s)'
