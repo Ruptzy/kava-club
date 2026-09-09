@@ -55,7 +55,7 @@ M['VENUE'], _ = jpg(os.path.join(LG, 'ksc-store.jpg'), 1400, 78, 'venue.jpg')
 M['BG'], _ = jpg(os.path.join(LG, 'bg.jpg'), 1086, 66, 'bg.jpg')
 M['VPOSTER'], _ = jpg(COVER, 1080, 82, 'promo-poster.jpg')
 for key, fn, out in [('L_MANASOTA', 'manasota.png', 'manasota.png'), ('L_TAMPA', 'tampa.png', 'tampa.png'), ('L_ORCA', 'orca.png', 'orca.png'),
-                     ('L_ORLANDO', 'orlandocc.png', 'orlando.png'), ('L_STPETE', 'stpete.png', 'stpete.png'), ('L_KSC', 'ksc1.png', 'kava-social-club.png'),
+                     ('L_ORLANDO', 'orlandocc.png', 'orlando.png'), ('L_STPETE', 'stpete.png', 'stpete.png'), ('L_OCA', 'orlandoassoc.png', 'orlando-assoc.png'), ('L_KSC', 'ksc1.png', 'kava-social-club.png'),
                      ('L_CLB', 'clb.png', 'chesslinebook.png'), ('L_BVILA', 'bvila.png', 'brandon-vila.png')]:
     M[key] = png(os.path.join(LG, fn), 400, 'logos/' + out)
 for key, fn, out in [('TAB_ALL', 'all.png', 'bracket-all.png'), ('TAB_O1400', 'over-1400.png', 'bracket-over-1400.png'),
