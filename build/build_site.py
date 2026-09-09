@@ -147,7 +147,7 @@ def build_page(lang):
             '<title>' + title + '</title>\n<meta name="description" content="' + q(desc) + '">\n'
             '<link rel="canonical" href="' + page_url + '">\n'
             '<link rel="alternate" hreflang="en" href="' + URL + '">\n<link rel="alternate" hreflang="es" href="' + URL + 'es/">\n<link rel="alternate" hreflang="x-default" href="' + URL + '">\n'
-            '<link rel="icon" href="' + prefix + 'img/favicon-32.png" sizes="32x32" type="image/png">\n<link rel="icon" href="' + prefix + 'img/favicon.png" sizes="180x180" type="image/png">\n<link rel="apple-touch-icon" href="' + prefix + 'img/favicon.png">\n'
+            '<link rel="icon" href="' + prefix + 'img/favicon-32-v2.png" sizes="32x32" type="image/png">\n<link rel="icon" href="' + prefix + 'img/favicon-v2.png" sizes="180x180" type="image/png">\n<link rel="apple-touch-icon" href="' + prefix + 'img/favicon-v2.png">\n'
             '<meta property="og:type" content="website">\n<meta property="og:title" content="' + title + '">\n<meta property="og:description" content="' + q(desc) + '">\n'
             '<meta property="og:url" content="' + page_url + '">\n<meta property="og:image" content="' + URL + 'img/hero.jpg">\n<meta property="og:locale" content="' + ('es_US' if es else 'en_US') + '">\n'
             '<meta name="twitter:card" content="summary_large_image">\n<meta name="theme-color" content="#0C0D0E">\n<link rel="preload" as="image" href="' + prefix + 'img/hero-wide.jpg" media="(min-width:1101px)">\n<link rel="preload" as="image" href="' + prefix + 'img/hero.jpg" media="(max-width:1100px)">\n'
