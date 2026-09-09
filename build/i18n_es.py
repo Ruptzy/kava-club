@@ -184,6 +184,7 @@ RAW = [
     ("Click any date to see what\\'s on.", "Toca cualquier fecha para ver qué hay."),
     ('Nothing scheduled. The club meets Sundays and Tuesdays.', 'Nada programado. El club se reúne domingos y martes.'),
     ('>Add to Google Calendar<', '>Agregar a Google Calendar<'),
+    ('>Event details<', '>Detalles del evento<'),
     ('" ratings on Google"', '" calificaciones en Google"'), ('b.textContent="Read more"', 'b.textContent="Leer más"'),
     ('>Remove</button>', '>Quitar</button>'),
     ('confirm("Remove this event?")', 'confirm("¿Quitar este evento?")'),
