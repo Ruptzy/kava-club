@@ -21,6 +21,24 @@ WEBHOOK = os.environ.get('DISCORD_WEBHOOK', '').strip()
 if not WEBHOOK:
     sys.exit('DISCORD_WEBHOOK is not set (add it as a GitHub Actions secret)')
 
+UA = {'User-Agent': 'KavaSocialChessClub/1.0 (+https://kavasocialchessclub.com)'}
+
+if os.environ.get('CHECK'):
+    # who is this webhook, and does a plain message land? prints no secrets
+    try:
+        with urllib.request.urlopen(urllib.request.Request(WEBHOOK, headers=UA), timeout=30) as r:
+            info = json.load(r)
+        print('webhook name : %s' % info.get('name'))
+        print('channel id   : %s' % info.get('channel_id'))
+        print('server id    : %s' % info.get('guild_id'))
+    except urllib.error.HTTPError as e:
+        sys.exit('Could not read the webhook (%s): %s' % (e.code, e.read().decode('utf-8', 'replace')[:200]))
+    body = json.dumps({'content': 'Plain test from the website build. If you can see this, the webhook points at the right channel.'}).encode()
+    hdr = dict(UA); hdr['Content-Type'] = 'application/json'
+    with urllib.request.urlopen(urllib.request.Request(WEBHOOK, data=body, headers=hdr), timeout=30) as r:
+        print('plain message posted, HTTP %s' % r.status)
+    sys.exit(0)
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 SITE = 'https://kavasocialchessclub.com/'

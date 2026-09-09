@@ -9,6 +9,10 @@ on:
         description: "Month to post as YYYY-MM (leave blank for the current one)"
         required: false
         default: ""
+      check:
+        description: "Set to 1 to report which channel the webhook points at"
+        required: false
+        default: ""
 
 jobs:
   post:
@@ -22,4 +26,5 @@ jobs:
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
           MONTH: ${{ inputs.month }}
+          CHECK: ${{ inputs.check }}
         run: python build/post_schedule.py
