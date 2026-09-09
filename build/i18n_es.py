@@ -5,7 +5,33 @@
 TEXT = {
     # nav / header
     "About": "Nosotros", "First night": "Primera noche", "Calendar": "Calendario", "Lessons": "Clases", "Photos": "Fotos",
-    "Partners": "Aliados", "ES": "EN", "Contact us": "Contáctanos", "Bradenton, Florida": "Bradenton, Florida",
+    "Partners": "Aliados", "Contact us": "Contáctanos", "Bradenton, Florida": "Bradenton, Florida",
+    # editorial redesign (2026-09-09)
+    "The club": "El club", "Nights": "Noches", " &middot; Est. 2021": " &middot; Desde 2021", "League": "Liga", "Menu": "Menú",
+    "Bradenton's social chess club": "El club de ajedrez social de Bradenton",
+    "Come": "Vuelve", "back to": "al", "the board.": "tablero.",
+    "Some of us walked in after years away from the game. Some of us play rated every month. There's a space here for every level &mdash; casual, intermediate, or full-on sweats.":
+        "Algunos entramos después de años sin jugar. Otros jugamos torneos con rating cada mes. Aquí hay lugar para todos los niveles &mdash; casual, intermedio, o los que se lo toman muy en serio.",
+    "Girls' night chess study.": "Noche de estudio de las chicas.", "Losing, and enjoying it.": "Perdiendo, y disfrutándolo.",
+    "&ldquo;Come in after eight, order something, and head to the back patio. Say it's your first night &mdash; someone will get you a game.&rdquo;":
+        "&ldquo;Llega después de las ocho, pide algo y pasa al patio de atrás. Di que es tu primera noche &mdash; alguien te consigue una partida.&rdquo;",
+    "Club director": "Director del club",
+    "Sets and clocks provided": "Tableros y relojes incluidos", "Order one item &mdash; not necessarily kava": "Pide algo &mdash; no tiene que ser kava",
+    "No membership, no dues": "Sin membresía ni cuotas", "Scan the QR at the door": "Escanea el QR en la entrada",
+    "A group session guided by director Harold Gonzalez, Socratic style: he asks, the room works it out. Books, puzzles and grandmaster games.":
+        "Una sesión en grupo guiada por el director Harold Gonzalez, al estilo socrático: él pregunta y el salón lo resuelve. Libros, problemas y partidas de grandes maestros.",
+    "This month at the club": "Este mes en el club", "Watch": "Video", "The league": "La liga",
+    " Club nights are 21+ because of the venue. Lessons are not.": " Las noches de club son 21+ por regla del local. Las clases no.",
+    "Honest reviews help the next person decide to walk in.": "Las reseñas honestas ayudan a la siguiente persona a decidirse a entrar.",
+    "League night. Same tables, one more reason to shake hands.": "Noche de liga. Las mismas mesas, una razón más para darse la mano.",
+    "View our listing on uschess.org &rarr;": "Ver nuestro registro en uschess.org &rarr;",
+    "Harold Gonzalez &mdash; club director. 2nd U1600 at the 2026 World Open; 1st U1400 Southern Class. Math teacher, Data Science MSc student. Over the board in Bradenton &amp; Sarasota, online elsewhere, in English or Spanish.":
+        "Harold Gonzalez &mdash; director del club. 2.º U1600 en el World Open 2026; 1.º U1400 Southern Class. Profesor de matemáticas, maestría en Ciencia de Datos. Presencial en Bradenton y Sarasota, en línea en otros lugares, en español o inglés.",
+    "Every photo is the club. Click any of them to see them all.": "Cada foto es el club. Toca cualquiera para verlas todas.",
+    "Kava Social Club, 540 13th St W. Open 24/7. There is no chess club without them.": "Kava Social Club, 540 13th St W. Abierto 24/7. Sin ellos no hay club de ajedrez.",
+    "Open 24/7 &middot; Kava &middot; K-Teas &middot; Cold brew &middot; Soft drinks &middot; Second location opening in Pinellas Park":
+        "Abierto 24/7 &middot; Kava &middot; K-Teas &middot; Cold brew &middot; Refrescos &middot; Pronto segunda sede en Pinellas Park",
+    "&copy; Kava Social Chess Club &middot; Established 2021 &middot; US Chess affiliate A8712949": "&copy; Kava Social Chess Club &middot; Desde 2021 &middot; Afiliado a US Chess A8712949",
     # hero
     "Bradenton, Florida &middot; Est. 2021": "Bradenton, Florida &middot; Desde 2021",
     "Bradenton's social": "El club de ajedrez",
@@ -55,8 +81,8 @@ TEXT = {
         "Todo el salón trabaja junto con libros, problemas y partidas de grandes maestros. Los jugadores fuertes explican, no dan cátedra.",
     # calendar
     "What's on": "Qué hay",
-    "Sundays alternate between social and league. Tuesdays are study night. Thursdays are a harder study night at Adobe Kava, for intermediate players and up. Tournaments, lectures and simuls are added as they're booked.":
-        "Los domingos alternan entre social y liga. Los martes son noche de estudio. Los jueves hay una noche de estudio más exigente en Adobe Kava, para nivel intermedio en adelante. Torneos, charlas y simultáneas se agregan a medida que se confirman.",
+    "Sundays alternate between social and league. Tuesdays are study night. Thursdays are a harder study night at Adobe Kava for intermediate players and up &mdash; message Harold first, it isn't a drop-in. Tournaments, lectures and simuls are added as they're booked.":
+        "Los domingos alternan entre social y liga. Los martes son noche de estudio. Los jueves hay una noche de estudio más exigente en Adobe Kava para nivel intermedio en adelante &mdash; escríbele a Harold antes, no es de entrada libre. Torneos, charlas y simultáneas se agregan a medida que se confirman.",
     "Today": "Hoy", "Social Sunday": "Domingo social", "League night": "Noche de liga", "Study night &middot; Tuesday": "Noche de estudio &middot; Martes",
     "Intermediate+ &middot; Thursday": "Intermedio+ &middot; Jueves", "Tournament": "Torneo", "Lecture / simul": "Charla / simultánea", "Special": "Especial",
     "Pick a day": "Elige un día", "Click any date to see what's on.": "Toca cualquier fecha para ver qué hay.",
@@ -145,8 +171,8 @@ RAW = [
      'title:"Domingo social",time:"8:00 PM – 12:00 AM",note:"Juego libre. Ven a jugar, convivir y conversar."'),
     ('title:"Study night",time:"8:00 PM – 12:00 AM",note:"The room works through books, puzzles and grandmaster games together."',
      'title:"Noche de estudio",time:"8:00 PM – 12:00 AM",note:"Todo el salón trabaja junto con libros, problemas y partidas de grandes maestros."'),
-    ('title:"Intermediate+ study night",time:"7:00 PM – 11:00 PM",note:"For intermediate players and up. Harder material than Tuesday: deeper study, tougher positions, less hand-holding."',
-     'title:"Noche de estudio intermedio+",time:"7:00 PM – 11:00 PM",note:"Para nivel intermedio en adelante. Material más exigente que el martes: estudio más profundo, posiciones más difíciles, menos ayuda."'),
+    ('title:"Intermediate+ study night",time:"7:00 PM – 11:00 PM",note:"For intermediate players and up. Harder material than Tuesday: deeper study, tougher positions, less hand-holding. Message Harold before you come — this is not a drop-in night."',
+     'title:"Noche de estudio intermedio+",time:"7:00 PM – 11:00 PM",note:"Para nivel intermedio en adelante. Material más exigente que el martes: estudio más profundo, posiciones más difíciles, menos ayuda. Escríbele a Harold antes de venir — esta no es de entrada libre."'),
     ('{social:"Social",league:"League",study:"Study",adobe:"Adobe Kava",tournament:"Tournament",lecture:"Lecture",simul:"Simul",special:"Special"}',
      '{social:"Social",league:"Liga",study:"Estudio",adobe:"Adobe Kava",tournament:"Torneo",lecture:"Charla",simul:"Simultánea",special:"Especial"}'),
     ('el.querySelector(".w").textContent="Tonight"', 'el.querySelector(".w").textContent="Hoy"'),
@@ -155,6 +181,7 @@ RAW = [
     ("Click any date to see what\\'s on.", "Toca cualquier fecha para ver qué hay."),
     ('Nothing scheduled. The club meets Sundays and Tuesdays.', 'Nada programado. El club se reúne domingos y martes.'),
     ('>Add to Google Calendar<', '>Agregar a Google Calendar<'),
+    ('" ratings on Google"', '" calificaciones en Google"'), ('b.textContent="Read more"', 'b.textContent="Leer más"'),
     ('>Remove</button>', '>Quitar</button>'),
     ('confirm("Remove this event?")', 'confirm("¿Quitar este evento?")'),
     ('msg.textContent="Saving…"', 'msg.textContent="Guardando…"'),
