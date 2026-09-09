@@ -21,6 +21,7 @@ TEXT = {
     "A group session guided by director Harold Gonzalez, Socratic style: he asks, the room works it out. Books, puzzles and grandmaster games.":
         "Una sesión en grupo guiada por el director Harold Gonzalez, al estilo socrático: él pregunta y el salón lo resuelve. Libros, problemas y partidas de grandes maestros.",
     "This month at the club": "Este mes en el club",
+    "(786) 250-8993 &middot; text or call": "(786) 250-8993 &middot; llama o escribe",
     "Your name": "Tu nombre", "Your email": "Tu correo", "Message": "Mensaje", "Send": "Enviar",
     "People and platforms that support us": "Personas y plataformas que nos apoyan",
     "Coaches and tools that have helped the club": "Entrenadores y herramientas que han ayudado al club",
@@ -152,7 +153,7 @@ TEXT = {
     # contact
     "Contact": "Contacto", "Ask us anything. Then come Sunday.": "Pregúntanos lo que sea. Y luego ven el domingo.",
     "Never played, or haven't since school? Ask. Somebody answers, usually the same day.": "¿Nunca has jugado, o no juegas desde la escuela? Pregunta. Alguien responde, casi siempre el mismo día.",
-    "Email": "Correo", "Text": "Mensaje de texto", "Rated on Google": "Calificados en Google",
+    "Email": "Correo", "Text or call": "Llama o escribe", "Rated on Google": "Calificados en Google",
     "Honest reviews help the next person decide to walk in": "Las reseñas honestas ayudan a la siguiente persona a decidirse a entrar",
     "Leave a review": "Deja una reseña", "Read reviews": "Leer reseñas",
     "Had a great time playing a Kava chess club tournament here.": "La pasé muy bien jugando un torneo del club de ajedrez de Kava aquí.",
