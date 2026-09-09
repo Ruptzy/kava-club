@@ -164,7 +164,7 @@ def build_page(lang):
 
 en_kb = build_page('en'); es_kb = build_page('es')
 open(os.path.join(OUT, 'CNAME'), 'w').write(DOMAIN + '\n')
-open(os.path.join(OUT, 'robots.txt'), 'w').write('User-agent: *\nAllow: /\nSitemap: ' + URL + 'sitemap.xml\n')
+open(os.path.join(OUT, 'robots.txt'), 'w').write('User-agent: *\nAllow: /\nDisallow: /admin/\nSitemap: ' + URL + 'sitemap.xml\n')
 open(os.path.join(OUT, 'sitemap.xml'), 'w').write(
     '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
     '<url><loc>' + URL + '</loc><xhtml:link rel="alternate" hreflang="en" href="' + URL + '"/><xhtml:link rel="alternate" hreflang="es" href="' + URL + 'es/"/><changefreq>weekly</changefreq><priority>1.0</priority></url>\n'
