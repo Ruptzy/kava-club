@@ -85,17 +85,33 @@ for folder in sorted(alts):
         if hsh in seen: continue
         seen.add(hsh); tiles.append((f, p, alts[folder][0], alts[folder][1]))
 tiles.sort(key=lambda t: rank(t[0]))
+GALLERY_OPEN = 18      # photos shown before the show-all button
 gal = ''
 for i, (f, p, alt, cat) in enumerate(tiles):
     path, ar = jpg(p, 720, 74, 'gallery/%02d.jpg' % (i + 1))
     lazy = '' if i < 10 else ' loading="lazy"'
-    gal += '\n      <img src="%s" alt="%s" data-cat="%s" data-ar="%s"%s>' % (path, alt, cat, round(ar, 4), lazy)
+    hide = ' hidden' if i >= GALLERY_OPEN else ''   # the rest appear behind the show-all button
+    gal += '\n      <img src="%s" alt="%s" data-cat="%s" data-ar="%s"%s%s>' % (path, alt, cat, round(ar, 4), lazy, hide)
 
 # favicon: cream knight on scarlet, built by hand for legibility at 16px (img/favicon*.png)
 
 # ---------------- page assembly ----------------
 TEMPLATE = open(os.path.join(HERE, 'template.html'), encoding='utf-8').read()
-CONDUCT = open(os.path.join(HERE, 'conduct.html'), encoding='utf-8').read()
+# the sub-pages: English slug -> (Spanish slug, body file)
+PAGES = {
+    'code-of-conduct': ('es/codigo-de-conducta', 'conduct.html'),
+    'beginners': ('es/principiantes', 'beginners.html'),
+    'lessons': ('es/clases', 'lessons.html'),
+}
+
+
+def es_links(html):
+    """Point the page links at their Spanish twins."""
+    for en, (es, _) in PAGES.items():
+        html = html.replace('href="/%s/"' % en, 'href="/%s/"' % es)
+    return html
+
+
 DISCORD = 'https://discord.gg/sYCb7RnTgZ'
 _head_end = TEMPLATE.index('</style>') + len('</style>')
 STYLE = TEMPLATE[:_head_end]
@@ -110,10 +126,11 @@ def build_page(lang):
     prefix = '../' if es else ''
     page_url = URL + ('es/' if es else '')
     h = TEMPLATE.replace('{{GALLERY}}', gal)
+    h = h.replace('{{GALLERY_MORE}}', ('Ver las %d fotos' if es else 'Show all %d photos') % len(tiles))
     for k, v in M.items(): h = h.replace('{{%s}}' % k, v)
     assert '{{' not in h, 'unreplaced placeholder'
     if es:
-        h = i18n_es.localize(h)
+        h = es_links(i18n_es.localize(h))
         # asset paths relative to /es/
         h = re.sub(r'(src|href|poster)="(img/|media/)', lambda m: '%s="%s%s' % (m.group(1), prefix, m.group(2)), h)
         h = h.replace('url(img/', 'url(../img/')
@@ -169,61 +186,60 @@ ARROW = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-widt
          'stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>')
 
 
-def build_conduct(lang):
-    """/code-of-conduct/ and its Spanish twin, sharing the site's masthead and footer."""
+def build_subpage(lang, slug_en, meta):
+    """One sub-page and its Spanish twin, sharing the site's masthead, styles and footer."""
     es = (lang == 'es')
-    slug = 'es/codigo-de-conducta' if es else 'code-of-conduct'
+    slug_es, body_file = PAGES[slug_en]
+    slug = slug_es if es else slug_en
     depth = '../../' if es else '../'
     page_url = URL + slug + '/'
     home = '/es/' if es else '/'
+    page = open(os.path.join(HERE, body_file), encoding='utf-8').read()
 
-    body = MAST + CONDUCT + FOOT
+    body = MAST + page + FOOT
     btn = ('<a class="btn btn-p" href="%s" target="_blank" rel="noopener">Join the Discord<i class="disc">%s</i></a>'
            % (DISCORD, ARROW)) if DISCORD else ''
-    body = body.replace('{{DISCORD_BTN}}', btn).replace('{{HOME}}', home)
+    body = body.replace('{{DISCORD_BTN}}', btn).replace('{{HOME}}', home).replace('{{ARROW}}', ARROW)
     for k, v in M.items():
         body = body.replace('{{%s}}' % k, v)
-    assert '{{' not in body, 'unreplaced placeholder on the conduct page'
+    assert '{{' not in body, 'unreplaced placeholder on ' + slug
+    switch = '<a class="on" href="/">EN</a><a href="/es/">ES</a>'
     if es:
-        body = i18n_es.localize(body)
-        body = body.replace('<a class="on" href="/">EN</a><a href="/es/">ES</a>',
-                            '<a href="/code-of-conduct/">EN</a><a class="on" href="/es/codigo-de-conducta/">ES</a>')
+        body = es_links(i18n_es.localize(body))
+        body = body.replace(switch, '<a href="/%s/">EN</a><a class="on" href="/%s/">ES</a>' % (slug_en, slug_es))
     else:
-        body = body.replace('<a class="on" href="/">EN</a><a href="/es/">ES</a>',
-                            '<a class="on" href="/code-of-conduct/">EN</a><a href="/es/codigo-de-conducta/">ES</a>')
+        body = body.replace(switch, '<a class="on" href="/%s/">EN</a><a href="/%s/">ES</a>' % (slug_en, slug_es))
     # the masthead's in-page anchors have to point back at the home page from here
     body = re.sub(r'href="#([a-z0-9]+)"', lambda m: 'href="%s#%s"' % (home, m.group(1)), body)
-    body = body.replace('href="/code-of-conduct/"', 'href="%scode-of-conduct/"' % ('/es/codigo-de-' if False else '/'))
     body = re.sub(r'(src|href|poster)="(img/|media/)', lambda m: '%s="%s%s' % (m.group(1), depth, m.group(2)), body)
     body = body.replace('url(img/', 'url(%simg/' % depth)
 
-    title = ('Código de conducta — Kava Social Chess Club' if es
-             else 'Code of conduct — Kava Social Chess Club')
-    desc = ('Las reglas del Kava Social Chess Club: todos los niveles son bienvenidos, nada de bullying '
-            'ajedrecístico, y las reglas Safe Play de US Chess aplican en nuestras noches de club.' if es
-            else 'The rules at Kava Social Chess Club: every level welcome, no chess bullying, and US Chess '
-                 'Safe Play and fair play rules respected at club nights and rated events.')
-    ld = {"@context": "https://schema.org", "@type": "WebPage", "name": title, "url": page_url,
-          "description": desc, "isPartOf": {"@type": "WebSite", "url": URL},
-          "publisher": {"@id": URL + "#club"}, "inLanguage": lang}
+    title = meta['title_es' if es else 'title']
+    desc = meta['desc_es' if es else 'desc']
+    ld = {"@context": "https://schema.org", "@graph": [
+        {"@type": "WebPage", "name": title, "url": page_url, "description": desc,
+         "isPartOf": {"@type": "WebSite", "url": URL}, "publisher": {"@id": URL + "#club"}, "inLanguage": lang}]}
+    extra = meta.get('ld_es' if es else 'ld')
+    if extra:
+        ld["@graph"].append(extra)
+    q = lambda t: t.replace('"', '&quot;')
     head = ('<!doctype html>\n<html lang="%s">\n<head>\n<meta charset="utf-8">\n'
             '<meta name="viewport" content="width=device-width,initial-scale=1">\n' % lang +
-            '<title>' + title + '</title>\n<meta name="description" content="' + desc.replace('"', '&quot;') + '">\n'
+            '<title>' + title + '</title>\n<meta name="description" content="' + q(desc) + '">\n'
             '<link rel="canonical" href="' + page_url + '">\n'
-            '<link rel="alternate" hreflang="en" href="' + URL + 'code-of-conduct/">\n'
-            '<link rel="alternate" hreflang="es" href="' + URL + 'es/codigo-de-conducta/">\n'
-            '<link rel="alternate" hreflang="x-default" href="' + URL + 'code-of-conduct/">\n'
+            '<link rel="alternate" hreflang="en" href="' + URL + slug_en + '/">\n'
+            '<link rel="alternate" hreflang="es" href="' + URL + slug_es + '/">\n'
+            '<link rel="alternate" hreflang="x-default" href="' + URL + slug_en + '/">\n'
             '<link rel="icon" href="' + depth + 'img/favicon-32-v2.png" sizes="32x32" type="image/png">\n'
             '<link rel="icon" href="' + depth + 'img/favicon-v2.png" sizes="180x180" type="image/png">\n'
             '<link rel="apple-touch-icon" href="' + depth + 'img/favicon-v2.png">\n'
             '<meta property="og:type" content="article">\n<meta property="og:title" content="' + title + '">\n'
-            '<meta property="og:description" content="' + desc.replace('"', '&quot;') + '">\n'
+            '<meta property="og:description" content="' + q(desc) + '">\n'
             '<meta property="og:url" content="' + page_url + '">\n'
-            '<meta property="og:image" content="' + URL + 'img/hero-wide.jpg">\n'
+            '<meta property="og:image" content="' + URL + meta.get('image', 'img/hero-wide.jpg') + '">\n'
             '<meta name="theme-color" content="#0C0D0E">\n'
             '<script type="application/ld+json">' + json.dumps(ld, ensure_ascii=False) + '</script>\n')
     style = re.sub(r'^<title>[^<]*</title>\n', '', STYLE)
-    style = style.replace('href="https://fonts', 'href="https://fonts')
     doc = head + style + '\n</head>\n<body>' + body + '\n</body>\n</html>\n'
     out_dir = os.path.join(OUT, *slug.split('/'))
     os.makedirs(out_dir, exist_ok=True)
@@ -231,17 +247,55 @@ def build_conduct(lang):
     return os.path.getsize(os.path.join(out_dir, 'index.html')) // 1024
 
 
+SUBPAGES = {
+    'code-of-conduct': {
+        'title': 'Code of conduct — Kava Social Chess Club',
+        'title_es': 'Código de conducta — Kava Social Chess Club',
+        'desc': ('The rules at Kava Social Chess Club: every level welcome, no chess bullying, and US Chess '
+                 'Safe Play and fair play rules respected at club nights and rated events.'),
+        'desc_es': ('Las reglas del Kava Social Chess Club: todos los niveles son bienvenidos, nada de bullying '
+                    'ajedrecístico, y las reglas Safe Play de US Chess aplican en nuestras noches de club.'),
+    },
+    'beginners': {
+        'title': 'Your first night — a beginner\'s guide to Kava Social Chess Club',
+        'title_es': 'Tu primera noche — guía para principiantes del Kava Social Chess Club',
+        'desc': ('Never played, or not since school? How a club night works in Bradenton: when to come, what to bring '
+                 '(nothing), who you\'ll play, and answers to the questions everyone asks first.'),
+        'desc_es': ('¿Nunca has jugado, o no desde la escuela? Cómo funciona una noche de club en Bradenton: cuándo venir, '
+                    'qué traer (nada), con quién jugarás y respuestas a las preguntas que todos hacen primero.'),
+        'image': 'img/sunday.jpg',
+    },
+    'lessons': {
+        'title': 'Private chess lessons in Bradenton & Sarasota — Kava Social Chess Club',
+        'title_es': 'Clases privadas de ajedrez en Bradenton y Sarasota — Kava Social Chess Club',
+        'desc': ('One-on-one chess coaching with club director Harold Gonzalez. Beginner lessons from $40/hr, tournament '
+                 'training from $55/hr. Over the board in Bradenton and Sarasota, online anywhere, in English or Spanish.'),
+        'desc_es': ('Clases de ajedrez uno a uno con el director del club, Harold Gonzalez. Nivel principiante desde $40/hr, '
+                    'entrenamiento de torneo desde $55/hr. Presencial en Bradenton y Sarasota, en línea en cualquier parte, '
+                    'en inglés o español.'),
+        'image': 'img/coach.jpg',
+    },
+}
+
+
 en_kb = build_page('en'); es_kb = build_page('es')
-c_en = build_conduct('en'); c_es = build_conduct('es')
+sub_kb = {slug: (build_subpage('en', slug, SUBPAGES[slug]), build_subpage('es', slug, SUBPAGES[slug])) for slug in PAGES}
 open(os.path.join(OUT, 'CNAME'), 'w').write(DOMAIN + '\n')
 open(os.path.join(OUT, 'robots.txt'), 'w').write('User-agent: *\nAllow: /\nDisallow: /admin/\nSitemap: ' + URL + 'sitemap.xml\n')
+def _url(loc, en, es, freq, pri):
+    return ('<url><loc>' + loc + '</loc><xhtml:link rel="alternate" hreflang="en" href="' + en + '"/>'
+            '<xhtml:link rel="alternate" hreflang="es" href="' + es + '"/><changefreq>' + freq + '</changefreq>'
+            '<priority>' + pri + '</priority></url>\n')
+
+
+_rows = [_url(URL, URL, URL + 'es/', 'weekly', '1.0'), _url(URL + 'es/', URL, URL + 'es/', 'weekly', '0.9')]
+for _en, (_es, _) in PAGES.items():
+    _freq, _pri = ('yearly', '0.5') if _en == 'code-of-conduct' else ('monthly', '0.8')
+    _rows.append(_url(URL + _en + '/', URL + _en + '/', URL + _es + '/', _freq, _pri))
+    _rows.append(_url(URL + _es + '/', URL + _en + '/', URL + _es + '/', _freq, str(float(_pri) - 0.1)))
 open(os.path.join(OUT, 'sitemap.xml'), 'w').write(
-    '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
-    '<url><loc>' + URL + '</loc><xhtml:link rel="alternate" hreflang="en" href="' + URL + '"/><xhtml:link rel="alternate" hreflang="es" href="' + URL + 'es/"/><changefreq>weekly</changefreq><priority>1.0</priority></url>\n'
-    '<url><loc>' + URL + 'es/</loc><xhtml:link rel="alternate" hreflang="en" href="' + URL + '"/><xhtml:link rel="alternate" hreflang="es" href="' + URL + 'es/"/><changefreq>weekly</changefreq><priority>0.9</priority></url>\n'
-    '<url><loc>' + URL + 'code-of-conduct/</loc><xhtml:link rel="alternate" hreflang="en" href="' + URL + 'code-of-conduct/"/><xhtml:link rel="alternate" hreflang="es" href="' + URL + 'es/codigo-de-conducta/"/><changefreq>yearly</changefreq><priority>0.5</priority></url>\n'
-    '<url><loc>' + URL + 'es/codigo-de-conducta/</loc><xhtml:link rel="alternate" hreflang="en" href="' + URL + 'code-of-conduct/"/><xhtml:link rel="alternate" hreflang="es" href="' + URL + 'es/codigo-de-conducta/"/><changefreq>yearly</changefreq><priority>0.4</priority></url>\n'
-    '</urlset>\n')
+    '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
+    'xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + ''.join(_rows) + '</urlset>\n')
 open(os.path.join(OUT, '.nojekyll'), 'w').write('')
-print('built index.html (%d KB), es/index.html (%d KB), code-of-conduct (%d KB), es/codigo-de-conducta (%d KB), %d gallery photos'
-      % (en_kb, es_kb, c_en, c_es, len(tiles)))
+print('built index.html (%d KB), es/index.html (%d KB), %s, %d gallery photos'
+      % (en_kb, es_kb, ', '.join('%s (%d/%d KB)' % (k, v[0], v[1]) for k, v in sub_kb.items()), len(tiles)))
