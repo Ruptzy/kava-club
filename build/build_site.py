@@ -96,7 +96,7 @@ for i, (f, p, alt, cat) in enumerate(tiles):
 # ---------------- page assembly ----------------
 TEMPLATE = open(os.path.join(HERE, 'template.html'), encoding='utf-8').read()
 CONDUCT = open(os.path.join(HERE, 'conduct.html'), encoding='utf-8').read()
-DISCORD = ''          # set to the invite URL to show a Join the Discord button
+DISCORD = 'https://discord.gg/sYCb7RnTgZ'
 _head_end = TEMPLATE.index('</style>') + len('</style>')
 STYLE = TEMPLATE[:_head_end]
 MAST = TEMPLATE[TEMPLATE.index('<!-- ============ MASTHEAD ============ -->'):TEMPLATE.index('<!-- ============ HERO ============ -->')]

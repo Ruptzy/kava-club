@@ -49,7 +49,7 @@ TEXT = {
     "Removed from the club for good.": "Expulsión definitiva del club.",
     "Harassment, cheating, or anything falling under US Chess Safe Play skips the scale entirely. The club captain has the final say.": "El acoso, las trampas o cualquier cosa que caiga bajo US Chess Safe Play se saltan la escala por completo. El capitán del club tiene la última palabra.",
     "The full rules, and the club chat, live on our Discord.": "Las reglas completas, y el chat del club, están en nuestro Discord.",
-    "Back to the club": "Volver al club",
+    "Back to the club": "Volver al club", "Discord": "Discord",
     "Join the Discord": "Únete al Discord",
     "Conduct": "Conducta",
     "This month at the club": "Este mes en el club",
