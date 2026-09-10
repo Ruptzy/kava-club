@@ -95,6 +95,12 @@ for i, (f, p, alt, cat) in enumerate(tiles):
 
 # ---------------- page assembly ----------------
 TEMPLATE = open(os.path.join(HERE, 'template.html'), encoding='utf-8').read()
+CONDUCT = open(os.path.join(HERE, 'conduct.html'), encoding='utf-8').read()
+DISCORD = ''          # set to the invite URL to show a Join the Discord button
+_head_end = TEMPLATE.index('</style>') + len('</style>')
+STYLE = TEMPLATE[:_head_end]
+MAST = TEMPLATE[TEMPLATE.index('<!-- ============ MASTHEAD ============ -->'):TEMPLATE.index('<!-- ============ HERO ============ -->')]
+FOOT = TEMPLATE[TEMPLATE.index('<!-- ============ FOOTER ============ -->'):]
 addr = {"@type": "PostalAddress", "streetAddress": "540 13th St W", "addressLocality": "Bradenton", "addressRegion": "FL", "postalCode": "34205", "addressCountry": "US"}
 place = {"@type": "Place", "name": "Kava Social Club", "address": "540 13th St W, Bradenton, FL 34205"}
 adobe = {"@type": "Place", "name": "Adobe Kava", "address": {"@type": "PostalAddress", "streetAddress": "1302 13th Ave W", "addressLocality": "Bradenton", "addressRegion": "FL", "postalCode": "34205", "addressCountry": "US"}}
@@ -159,13 +165,83 @@ def build_page(lang):
     open(out, 'w', encoding='utf-8').write(doc)
     return os.path.getsize(out) // 1024
 
+ARROW = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" '
+         'stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>')
+
+
+def build_conduct(lang):
+    """/code-of-conduct/ and its Spanish twin, sharing the site's masthead and footer."""
+    es = (lang == 'es')
+    slug = 'es/codigo-de-conducta' if es else 'code-of-conduct'
+    depth = '../../' if es else '../'
+    page_url = URL + slug + '/'
+    home = '/es/' if es else '/'
+
+    body = MAST + CONDUCT + FOOT
+    btn = ('<a class="btn btn-p" href="%s" target="_blank" rel="noopener">Join the Discord<i class="disc">%s</i></a>'
+           % (DISCORD, ARROW)) if DISCORD else ''
+    body = body.replace('{{DISCORD_BTN}}', btn).replace('{{HOME}}', home)
+    for k, v in M.items():
+        body = body.replace('{{%s}}' % k, v)
+    assert '{{' not in body, 'unreplaced placeholder on the conduct page'
+    if es:
+        body = i18n_es.localize(body)
+        body = body.replace('<a class="on" href="/">EN</a><a href="/es/">ES</a>',
+                            '<a href="/code-of-conduct/">EN</a><a class="on" href="/es/codigo-de-conducta/">ES</a>')
+    else:
+        body = body.replace('<a class="on" href="/">EN</a><a href="/es/">ES</a>',
+                            '<a class="on" href="/code-of-conduct/">EN</a><a href="/es/codigo-de-conducta/">ES</a>')
+    # the masthead's in-page anchors have to point back at the home page from here
+    body = re.sub(r'href="#([a-z0-9]+)"', lambda m: 'href="%s#%s"' % (home, m.group(1)), body)
+    body = body.replace('href="/code-of-conduct/"', 'href="%scode-of-conduct/"' % ('/es/codigo-de-' if False else '/'))
+    body = re.sub(r'(src|href|poster)="(img/|media/)', lambda m: '%s="%s%s' % (m.group(1), depth, m.group(2)), body)
+    body = body.replace('url(img/', 'url(%simg/' % depth)
+
+    title = ('Código de conducta — Kava Social Chess Club' if es
+             else 'Code of conduct — Kava Social Chess Club')
+    desc = ('Las reglas del Kava Social Chess Club: todos los niveles son bienvenidos, nada de bullying '
+            'ajedrecístico, y las reglas Safe Play de US Chess aplican en nuestras noches de club.' if es
+            else 'The rules at Kava Social Chess Club: every level welcome, no chess bullying, and US Chess '
+                 'Safe Play and fair play rules respected at club nights and rated events.')
+    ld = {"@context": "https://schema.org", "@type": "WebPage", "name": title, "url": page_url,
+          "description": desc, "isPartOf": {"@type": "WebSite", "url": URL},
+          "publisher": {"@id": URL + "#club"}, "inLanguage": lang}
+    head = ('<!doctype html>\n<html lang="%s">\n<head>\n<meta charset="utf-8">\n'
+            '<meta name="viewport" content="width=device-width,initial-scale=1">\n' % lang +
+            '<title>' + title + '</title>\n<meta name="description" content="' + desc.replace('"', '&quot;') + '">\n'
+            '<link rel="canonical" href="' + page_url + '">\n'
+            '<link rel="alternate" hreflang="en" href="' + URL + 'code-of-conduct/">\n'
+            '<link rel="alternate" hreflang="es" href="' + URL + 'es/codigo-de-conducta/">\n'
+            '<link rel="alternate" hreflang="x-default" href="' + URL + 'code-of-conduct/">\n'
+            '<link rel="icon" href="' + depth + 'img/favicon-32-v2.png" sizes="32x32" type="image/png">\n'
+            '<link rel="icon" href="' + depth + 'img/favicon-v2.png" sizes="180x180" type="image/png">\n'
+            '<link rel="apple-touch-icon" href="' + depth + 'img/favicon-v2.png">\n'
+            '<meta property="og:type" content="article">\n<meta property="og:title" content="' + title + '">\n'
+            '<meta property="og:description" content="' + desc.replace('"', '&quot;') + '">\n'
+            '<meta property="og:url" content="' + page_url + '">\n'
+            '<meta property="og:image" content="' + URL + 'img/hero-wide.jpg">\n'
+            '<meta name="theme-color" content="#0C0D0E">\n'
+            '<script type="application/ld+json">' + json.dumps(ld, ensure_ascii=False) + '</script>\n')
+    style = re.sub(r'^<title>[^<]*</title>\n', '', STYLE)
+    style = style.replace('href="https://fonts', 'href="https://fonts')
+    doc = head + style + '\n</head>\n<body>' + body + '\n</body>\n</html>\n'
+    out_dir = os.path.join(OUT, *slug.split('/'))
+    os.makedirs(out_dir, exist_ok=True)
+    open(os.path.join(out_dir, 'index.html'), 'w', encoding='utf-8').write(doc)
+    return os.path.getsize(os.path.join(out_dir, 'index.html')) // 1024
+
+
 en_kb = build_page('en'); es_kb = build_page('es')
+c_en = build_conduct('en'); c_es = build_conduct('es')
 open(os.path.join(OUT, 'CNAME'), 'w').write(DOMAIN + '\n')
 open(os.path.join(OUT, 'robots.txt'), 'w').write('User-agent: *\nAllow: /\nDisallow: /admin/\nSitemap: ' + URL + 'sitemap.xml\n')
 open(os.path.join(OUT, 'sitemap.xml'), 'w').write(
     '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
     '<url><loc>' + URL + '</loc><xhtml:link rel="alternate" hreflang="en" href="' + URL + '"/><xhtml:link rel="alternate" hreflang="es" href="' + URL + 'es/"/><changefreq>weekly</changefreq><priority>1.0</priority></url>\n'
     '<url><loc>' + URL + 'es/</loc><xhtml:link rel="alternate" hreflang="en" href="' + URL + '"/><xhtml:link rel="alternate" hreflang="es" href="' + URL + 'es/"/><changefreq>weekly</changefreq><priority>0.9</priority></url>\n'
+    '<url><loc>' + URL + 'code-of-conduct/</loc><xhtml:link rel="alternate" hreflang="en" href="' + URL + 'code-of-conduct/"/><xhtml:link rel="alternate" hreflang="es" href="' + URL + 'es/codigo-de-conducta/"/><changefreq>yearly</changefreq><priority>0.5</priority></url>\n'
+    '<url><loc>' + URL + 'es/codigo-de-conducta/</loc><xhtml:link rel="alternate" hreflang="en" href="' + URL + 'code-of-conduct/"/><xhtml:link rel="alternate" hreflang="es" href="' + URL + 'es/codigo-de-conducta/"/><changefreq>yearly</changefreq><priority>0.4</priority></url>\n'
     '</urlset>\n')
 open(os.path.join(OUT, '.nojekyll'), 'w').write('')
-print('built index.html (%d KB) and es/index.html (%d KB), %d gallery photos' % (en_kb, es_kb, len(tiles)))
+print('built index.html (%d KB), es/index.html (%d KB), code-of-conduct (%d KB), es/codigo-de-conducta (%d KB), %d gallery photos'
+      % (en_kb, es_kb, c_en, c_es, len(tiles)))
