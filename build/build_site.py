@@ -64,6 +64,10 @@ for key, fn, out in [('TAB_ALL', 'all.png', 'bracket-all.png'), ('TAB_O1400', 'o
 shutil.copy(os.path.join(LG, 'uschess.svg'), os.path.join(OUT, 'img', 'logos', 'uschess.svg')); M['L_USCHESS'] = 'img/logos/uschess.svg'
 shutil.copy(os.path.join(LG, 'c67-dark.svg'), os.path.join(OUT, 'img', 'logos', 'chess67.svg')); M['L_C67'] = 'img/logos/chess67.svg'
 shutil.copy(os.path.join(LG, 'promo-web.mp4'), os.path.join(OUT, 'media', 'promo.mp4')); M['VIDEO'] = 'media/promo.mp4'
+if os.path.exists(os.path.join(LG, 'promo-720.mp4')):
+    shutil.copy(os.path.join(LG, 'promo-720.mp4'), os.path.join(OUT, 'media', 'promo-720.mp4')); M['VIDEO_SMALL'] = 'media/promo-720.mp4'
+else:
+    M['VIDEO_SMALL'] = 'media/promo.mp4'
 
 # gallery: curated lead order, then the rest alphabetically; duplicates and two weak shots dropped
 LEAD = ['Kava social tourney 1.jpg', 'Tournament Harold.jpg', 'kava vs orlando 4.png', 'vegas 2025.png', 'kava chess pic.png', 'kava chess night pic.png', 'chess pic 2.png', 'kava patio pic.png', 'kava patio pics.png', 'benji smile chess.png', 'that boi chess.png', 'chess kava cup.png', 'cade chess pic.png', 'stevo harold pics.png', 'bodie.png', 'chess club orlando.png', 'kava winners.png', 'stevo wham.png', 'Taylor chess.jpg', 'chess girls.jpg', 'maddie chess.webp', '30 bday.jpg', 'chrome_6DdiixDQtF.png', 'kava social club.jpg', 'Kava social group 3.png', 'IMG_2081.jpg',
@@ -102,6 +106,7 @@ PAGES = {
     'code-of-conduct': ('es/codigo-de-conducta', 'conduct.html'),
     'beginners': ('es/principiantes', 'beginners.html'),
     'lessons': ('es/clases', 'lessons.html'),
+    'calendar': ('es/calendario', None),   # assembled from the home page's calendar chapter
 }
 
 
@@ -117,6 +122,11 @@ _head_end = TEMPLATE.index('</style>') + len('</style>')
 STYLE = TEMPLATE[:_head_end]
 MAST = TEMPLATE[TEMPLATE.index('<!-- ============ MASTHEAD ============ -->'):TEMPLATE.index('<!-- ============ HERO ============ -->')]
 FOOT = TEMPLATE[TEMPLATE.index('<!-- ============ FOOTER ============ -->'):]
+CAL = TEMPLATE[TEMPLATE.index('<!-- ============ 03 WHAT\'S ON'):TEMPLATE.index('<!-- ============ 04 WATCH')]
+CAL = re.sub(r'<div class="chhead">.*?</div>\s*', '', CAL, count=1, flags=re.S)
+CAL = CAL.replace('class="ch" id="events"', 'class="ch cal" id="events"').replace('<h2 class="d h2 rv">This month at the club</h2>', '<h1 class="d h2 rv">This month at the club</h1>')
+CAL = '<main class="wrap page">' + CAL + '</main>'
+BOOKED = json.load(open(os.path.join(OUT, 'events.json'), encoding='utf-8')).get('events', [])
 addr = {"@type": "PostalAddress", "streetAddress": "540 13th St W", "addressLocality": "Bradenton", "addressRegion": "FL", "postalCode": "34205", "addressCountry": "US"}
 place = {"@type": "Place", "name": "Kava Social Club", "address": "540 13th St W, Bradenton, FL 34205"}
 adobe = {"@type": "Place", "name": "Adobe Kava", "address": {"@type": "PostalAddress", "streetAddress": "1302 13th Ave W", "addressLocality": "Bradenton", "addressRegion": "FL", "postalCode": "34205", "addressCountry": "US"}}
@@ -165,6 +175,8 @@ def build_page(lang):
         {"@type": "Event", "name": ("Kava Social Chess Club — noche de estudio intermedio+ (jueves)" if es else "Kava Social Chess Club — Intermediate+ study night (Thursday)"),
          "eventSchedule": {"@type": "Schedule", "byDay": "https://schema.org/Thursday", "startTime": "19:00", "endTime": "23:00", "repeatFrequency": "P1W"},
          "location": adobe, "organizer": {"@id": URL + "#club"}, "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "typicalAgeRange": "21-"}]}
+    for ev in booked_ld(es):
+        ld['@graph'].append(ev)
     q = lambda s: s.replace('"', '&quot;')
     head = ('<!doctype html>\n<html lang="%s">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1">\n' % lang +
             '<title>' + title + '</title>\n<meta name="description" content="' + q(desc) + '">\n'
@@ -186,6 +198,28 @@ ARROW = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-widt
          'stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>')
 
 
+def booked_ld(es):
+    """Event entities for the booked one-offs that are still ahead."""
+    import datetime
+    today = datetime.date.today().isoformat()
+    out = []
+    for e in BOOKED:
+        if e.get('date', '') < today:
+            continue
+        name = (e.get('title_es') if es else None) or e.get('title', '')
+        note = (e.get('note_es') if es else None) or e.get('note', '')
+        loc = ({"@type": "Place", "name": e['venue'], "address": e.get('addr', e['venue'])} if e.get('venue') else place)
+        ev = {"@type": "Event", "name": "Kava Social Chess Club: " + name, "startDate": e['date'], "description": note,
+              "location": loc, "organizer": {"@id": URL + "#club"},
+              "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled"}
+        if e.get('url'):
+            ev['url'] = e['url']
+        if e.get('age'):
+            ev['typicalAgeRange'] = e['age'].replace('+', '-')
+        out.append(ev)
+    return out
+
+
 def build_subpage(lang, slug_en, meta):
     """One sub-page and its Spanish twin, sharing the site's masthead, styles and footer."""
     es = (lang == 'es')
@@ -194,12 +228,13 @@ def build_subpage(lang, slug_en, meta):
     depth = '../../' if es else '../'
     page_url = URL + slug + '/'
     home = '/es/' if es else '/'
-    page = open(os.path.join(HERE, body_file), encoding='utf-8').read()
+    page = open(os.path.join(HERE, body_file), encoding='utf-8').read() if body_file else CAL
 
     body = MAST + page + FOOT
     btn = ('<a class="btn btn-p" href="%s" target="_blank" rel="noopener">Join the Discord<i class="disc">%s</i></a>'
            % (DISCORD, ARROW)) if DISCORD else ''
     body = body.replace('{{DISCORD_BTN}}', btn).replace('{{HOME}}', home).replace('{{ARROW}}', ARROW)
+    body = body.replace('var EVENTS_URL="events.json";', 'var EVENTS_URL="%sevents.json";' % depth)
     for k, v in M.items():
         body = body.replace('{{%s}}' % k, v)
     assert '{{' not in body, 'unreplaced placeholder on ' + slug
@@ -219,6 +254,8 @@ def build_subpage(lang, slug_en, meta):
     ld = {"@context": "https://schema.org", "@graph": [
         {"@type": "WebPage", "name": title, "url": page_url, "description": desc,
          "isPartOf": {"@type": "WebSite", "url": URL}, "publisher": {"@id": URL + "#club"}, "inLanguage": lang}]}
+    for ev in booked_ld(es):
+        ld['@graph'].append(ev)
     faq = re.findall(r'<details><summary>(.*?)</summary><p class="body">(.*?)</p></details>', body)
     if faq:
         import html as _html
@@ -251,6 +288,14 @@ def build_subpage(lang, slug_en, meta):
 
 
 SUBPAGES = {
+    'calendar': {
+        'title': 'Calendar — Kava Social Chess Club, Bradenton',
+        'title_es': 'Calendario — Kava Social Chess Club, Bradenton',
+        'desc': ('What\'s on at Bradenton\'s social chess club: Sundays alternate social and league, Tuesdays are study '
+                 'night, plus tournaments, lectures and simuls as they are booked. Add the club to your calendar.'),
+        'desc_es': ('Qué hay en el club de ajedrez social de Bradenton: los domingos alternan social y liga, los martes son '
+                    'noche de estudio, más torneos, charlas y simultáneas según se programan. Agrega el club a tu calendario.'),
+    },
     'code-of-conduct': {
         'title': 'Code of conduct — Kava Social Chess Club',
         'title_es': 'Código de conducta — Kava Social Chess Club',
@@ -293,12 +338,55 @@ def _url(loc, en, es, freq, pri):
 
 _rows = [_url(URL, URL, URL + 'es/', 'weekly', '1.0'), _url(URL + 'es/', URL, URL + 'es/', 'weekly', '0.9')]
 for _en, (_es, _) in PAGES.items():
-    _freq, _pri = ('yearly', '0.5') if _en == 'code-of-conduct' else ('monthly', '0.8')
+    _freq, _pri = ('yearly', '0.5') if _en == 'code-of-conduct' else (('weekly', '0.9') if _en == 'calendar' else ('monthly', '0.8'))
     _rows.append(_url(URL + _en + '/', URL + _en + '/', URL + _es + '/', _freq, _pri))
     _rows.append(_url(URL + _es + '/', URL + _en + '/', URL + _es + '/', _freq, str(float(_pri) - 0.1)))
 open(os.path.join(OUT, 'sitemap.xml'), 'w').write(
     '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
     'xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + ''.join(_rows) + '</urlset>\n')
 open(os.path.join(OUT, '.nojekyll'), 'w').write('')
+
+
+def ics():
+    """calendar.ics: every club night as a repeating event, plus the booked one-offs."""
+    def esc(t):
+        return t.replace('\\', '\\\\').replace(';', '\\;').replace(',', '\\,').replace('\n', '\\n')
+    VENUE = 'Kava Social Club, 540 13th St W, Bradenton, FL 34205'
+    ADOBE = 'Adobe Kava, 1302 13th Ave W, Bradenton, FL 34205'
+    L = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Kava Social Chess Club//kavasocialchessclub.com//EN', 'CALSCALE:GREGORIAN',
+         'METHOD:PUBLISH', 'X-WR-CALNAME:Kava Social Chess Club', 'X-WR-TIMEZONE:America/New_York', 'REFRESH-INTERVAL;VALUE=DURATION:P1D',
+         'BEGIN:VTIMEZONE', 'TZID:America/New_York',
+         'BEGIN:DAYLIGHT', 'TZOFFSETFROM:-0500', 'TZOFFSETTO:-0400', 'TZNAME:EDT', 'DTSTART:19700308T020000', 'RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU', 'END:DAYLIGHT',
+         'BEGIN:STANDARD', 'TZOFFSETFROM:-0400', 'TZOFFSETTO:-0500', 'TZNAME:EST', 'DTSTART:19701101T020000', 'RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU', 'END:STANDARD',
+         'END:VTIMEZONE']
+    def vevent(uid, summary, start, end, where, desc, rrule=None):
+        L.extend(['BEGIN:VEVENT', 'UID:' + uid + '@kavasocialchessclub.com', 'DTSTAMP:20260910T000000Z',
+                  'DTSTART;TZID=America/New_York:' + start, 'DTEND;TZID=America/New_York:' + end,
+                  'SUMMARY:' + esc(summary), 'LOCATION:' + esc(where), 'DESCRIPTION:' + esc(desc), 'URL:' + URL + 'calendar/'])
+        if rrule:
+            L.append('RRULE:' + rrule)
+        L.append('END:VEVENT')
+    vevent('league', 'League night - Kava Social Chess Club', '20260830T200000', '20260830T235900', VENUE,
+           'Every other Sunday. Season games in your bracket. In-house ratings, only at the club, for fun. 21+.', 'FREQ=WEEKLY;INTERVAL=2;BYDAY=SU')
+    vevent('social', 'Social Sunday - Kava Social Chess Club', '20260906T200000', '20260906T235900', VENUE,
+           'Every other Sunday. Free play: come and play, hang out, talk. 21+.', 'FREQ=WEEKLY;INTERVAL=2;BYDAY=SU')
+    vevent('study', 'Study night - Kava Social Chess Club', '20260901T200000', '20260901T235900', VENUE,
+           'Every Tuesday. The room works through books, puzzles and grandmaster games together. 21+.', 'FREQ=WEEKLY;BYDAY=TU')
+    vevent('adobe', 'Intermediate+ study night - Kava Social Chess Club', '20260910T190000', '20260910T230000', ADOBE,
+           'Every Thursday. For intermediate players and up; message Harold first, it is not a drop-in night. 21+.', 'FREQ=WEEKLY;BYDAY=TH')
+    for e in BOOKED:
+        d = e['date'].replace('-', '')
+        m = re.match(r'(\d{1,2}):(\d{2}) ?(AM|PM)', e.get('time', '') or '')
+        hh = 20
+        if m:
+            hh = int(m.group(1)) % 12 + (12 if m.group(3) == 'PM' else 0)
+        vevent('booked-' + e['date'] + '-' + re.sub(r'[^a-z0-9]+', '-', e.get('title', '').lower())[:40],
+               e.get('title', 'Club event') + ' - Kava Social Chess Club', '%sT%02d0000' % (d, hh), '%sT%02d0000' % (d, min(hh + 4, 23)),
+               e.get('addr') or e.get('venue') or VENUE, e.get('note', ''))
+    L.append('END:VCALENDAR')
+    open(os.path.join(OUT, 'calendar.ics'), 'w', encoding='utf-8', newline='').write('\r\n'.join(L) + '\r\n')
+
+
+ics()
 print('built index.html (%d KB), es/index.html (%d KB), %s, %d gallery photos'
       % (en_kb, es_kb, ', '.join('%s (%d/%d KB)' % (k, v[0], v[1]) for k, v in sub_kb.items()), len(tiles)))

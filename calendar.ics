@@ -1,0 +1,80 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Kava Social Chess Club//kavasocialchessclub.com//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Kava Social Chess Club
+X-WR-TIMEZONE:America/New_York
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+BEGIN:VTIMEZONE
+TZID:America/New_York
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0400
+TZNAME:EDT
+DTSTART:19700308T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0400
+TZOFFSETTO:-0500
+TZNAME:EST
+DTSTART:19701101T020000
+RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:league@kavasocialchessclub.com
+DTSTAMP:20260910T000000Z
+DTSTART;TZID=America/New_York:20260830T200000
+DTEND;TZID=America/New_York:20260830T235900
+SUMMARY:League night - Kava Social Chess Club
+LOCATION:Kava Social Club\, 540 13th St W\, Bradenton\, FL 34205
+DESCRIPTION:Every other Sunday. Season games in your bracket. In-house ratings\, only at the club\, for fun. 21+.
+URL:https://kavasocialchessclub.com/calendar/
+RRULE:FREQ=WEEKLY;INTERVAL=2;BYDAY=SU
+END:VEVENT
+BEGIN:VEVENT
+UID:social@kavasocialchessclub.com
+DTSTAMP:20260910T000000Z
+DTSTART;TZID=America/New_York:20260906T200000
+DTEND;TZID=America/New_York:20260906T235900
+SUMMARY:Social Sunday - Kava Social Chess Club
+LOCATION:Kava Social Club\, 540 13th St W\, Bradenton\, FL 34205
+DESCRIPTION:Every other Sunday. Free play: come and play\, hang out\, talk. 21+.
+URL:https://kavasocialchessclub.com/calendar/
+RRULE:FREQ=WEEKLY;INTERVAL=2;BYDAY=SU
+END:VEVENT
+BEGIN:VEVENT
+UID:study@kavasocialchessclub.com
+DTSTAMP:20260910T000000Z
+DTSTART;TZID=America/New_York:20260901T200000
+DTEND;TZID=America/New_York:20260901T235900
+SUMMARY:Study night - Kava Social Chess Club
+LOCATION:Kava Social Club\, 540 13th St W\, Bradenton\, FL 34205
+DESCRIPTION:Every Tuesday. The room works through books\, puzzles and grandmaster games together. 21+.
+URL:https://kavasocialchessclub.com/calendar/
+RRULE:FREQ=WEEKLY;BYDAY=TU
+END:VEVENT
+BEGIN:VEVENT
+UID:adobe@kavasocialchessclub.com
+DTSTAMP:20260910T000000Z
+DTSTART;TZID=America/New_York:20260910T190000
+DTEND;TZID=America/New_York:20260910T230000
+SUMMARY:Intermediate+ study night - Kava Social Chess Club
+LOCATION:Adobe Kava\, 1302 13th Ave W\, Bradenton\, FL 34205
+DESCRIPTION:Every Thursday. For intermediate players and up\; message Harold first\, it is not a drop-in night. 21+.
+URL:https://kavasocialchessclub.com/calendar/
+RRULE:FREQ=WEEKLY;BYDAY=TH
+END:VEVENT
+BEGIN:VEVENT
+UID:booked-2026-10-03-battle-for-the-bay-tampa-vs-bradenton@kavasocialchessclub.com
+DTSTAMP:20260910T000000Z
+DTSTART;TZID=America/New_York:20261003T200000
+DTEND;TZID=America/New_York:20261003T230000
+SUMMARY:Battle for the Bay: Tampa vs Bradenton - Kava Social Chess Club
+LOCATION:Tampa Knights Chess Club\, 1919 N Howard Ave\, Tampa\, FL 33607
+DESCRIPTION:Tampa Knights against Kava Social\, away in Tampa. One open section\, Swiss format. $15 if you register on Chess67\, $20 at the door. Prizes for the winners.
+URL:https://kavasocialchessclub.com/calendar/
+END:VEVENT
+END:VCALENDAR
