@@ -261,6 +261,7 @@ RAW = [
     ('alt="A player behind a pawn shield, a knight and a crowned king shoulder to shoulder over one board - every level at the same tables"', 'alt="Una jugadora tras un escudo de peón, un caballero y un rey coronado hombro con hombro sobre un mismo tablero: todos los niveles en las mismas mesas"'),
     ('alt="A knight in heavy armour reaching down to pull a fallen player back to their feet beside the board"', 'alt="Un caballero con armadura pesada tendiendo la mano para levantar a una jugadora caída junto al tablero"'),
     ('alt="Two armoured knights clasping hands across the board at the end of a game"', 'alt="Dos caballeros con armadura estrechándose la mano sobre el tablero al terminar la partida"'),
+    ('alt="Two players thinking over a game while a hooded onlooker holds a finger to their lips under a crossed-out speech bubble"', 'alt="Dos jugadores pensando su partida mientras un observador encapuchado se lleva un dedo a los labios bajo un bocadillo tachado"'),
     ('>Add to Google Calendar<', '>Agregar a Google Calendar<'),
     ('placeholder="Never played? Haven\'t in years? Ask away."', 'placeholder="\u00bfNunca has jugado? \u00bfNo juegas desde hace a\u00f1os? Preg\u00fantanos."'),
     ('say("Sending\\u2026")', 'say("Enviando\\u2026")'),
