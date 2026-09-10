@@ -132,7 +132,7 @@ def build_page(lang):
     if es:
         h = es_links(i18n_es.localize(h))
         # asset paths relative to /es/
-        h = re.sub(r'(src|href|poster)="(img/|media/)', lambda m: '%s="%s%s' % (m.group(1), prefix, m.group(2)), h)
+        h = re.sub(r'(src|srcset|href|poster)="(img/|media/)', lambda m: '%s="%s%s' % (m.group(1), prefix, m.group(2)), h)
         h = h.replace('url(img/', 'url(../img/')
     # placeholders still pending from Harold: Google place ID (review link), Yelp URL
     if es:
@@ -211,7 +211,7 @@ def build_subpage(lang, slug_en, meta):
         body = body.replace(switch, '<a class="on" href="/%s/">EN</a><a href="/%s/">ES</a>' % (slug_en, slug_es))
     # the masthead's in-page anchors have to point back at the home page from here
     body = re.sub(r'href="#([a-z0-9]+)"', lambda m: 'href="%s#%s"' % (home, m.group(1)), body)
-    body = re.sub(r'(src|href|poster)="(img/|media/)', lambda m: '%s="%s%s' % (m.group(1), depth, m.group(2)), body)
+    body = re.sub(r'(src|srcset|href|poster)="(img/|media/)', lambda m: '%s="%s%s' % (m.group(1), depth, m.group(2)), body)
     body = body.replace('url(img/', 'url(%simg/' % depth)
 
     title = meta['title_es' if es else 'title']
