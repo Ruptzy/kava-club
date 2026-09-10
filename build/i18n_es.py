@@ -263,6 +263,7 @@ RAW = [
     ('alt="Two armoured knights clasping hands across the board at the end of a game"', 'alt="Dos caballeros con armadura estrechándose la mano sobre el tablero al terminar la partida"'),
     ('alt="Two players thinking over a game while a hooded onlooker holds a finger to their lips under a crossed-out speech bubble"', 'alt="Dos jugadores pensando su partida mientras un observador encapuchado se lleva un dedo a los labios bajo un bocadillo tachado"'),
     ('alt="An arbiter with scales above the board raising a hand between two seated players"', 'alt="Una árbitra con una balanza sobre el tablero levantando la mano entre dos jugadores sentados"'),
+    ('alt="Two knights arguing across the board, held apart by a glowing barrier that leaves the game between them"', 'alt="Dos caballeros discutiendo sobre el tablero, separados por una barrera luminosa que deja la partida entre ellos"'),
     ('>Add to Google Calendar<', '>Agregar a Google Calendar<'),
     ('placeholder="Never played? Haven\'t in years? Ask away."', 'placeholder="\u00bfNunca has jugado? \u00bfNo juegas desde hace a\u00f1os? Preg\u00fantanos."'),
     ('say("Sending\\u2026")', 'say("Enviando\\u2026")'),
