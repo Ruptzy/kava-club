@@ -246,6 +246,8 @@ def build_subpage(lang, slug_en, meta):
         body = body.replace(switch, '<a class="on" href="/%s/">EN</a><a href="/%s/">ES</a>' % (slug_en, slug_es))
     # the masthead's in-page anchors have to point back at the home page from here
     body = re.sub(r'href="#([a-z0-9]+)"', lambda m: 'href="%s#%s"' % (home, m.group(1)), body)
+    # away from the home page, the Calendar link is the calendar page
+    body = body.replace('href="%s#events"' % home, 'href="/%s/"' % ('es/calendario' if es else 'calendar'))
     body = re.sub(r'(src|srcset|href|poster)="(img/|media/)', lambda m: '%s="%s%s' % (m.group(1), depth, m.group(2)), body)
     body = body.replace('url(img/', 'url(%simg/' % depth)
 
