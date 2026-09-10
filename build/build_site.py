@@ -89,7 +89,7 @@ for folder in sorted(alts):
         if hsh in seen: continue
         seen.add(hsh); tiles.append((f, p, alts[folder][0], alts[folder][1]))
 tiles.sort(key=lambda t: rank(t[0]))
-GALLERY_OPEN = 18      # photos shown before the show-all button
+GALLERY_OPEN = 14      # photos shown before the show-all button
 gal = ''
 for i, (f, p, alt, cat) in enumerate(tiles):
     path, ar = jpg(p, 720, 74, 'gallery/%02d.jpg' % (i + 1))
