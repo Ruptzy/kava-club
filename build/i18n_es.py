@@ -266,6 +266,7 @@ RAW = [
     ('alt="Two knights arguing across the board, held apart by a glowing barrier that leaves the game between them"', 'alt="Dos caballeros discutiendo sobre el tablero, separados por una barrera luminosa que deja la partida entre ellos"'),
     ('alt="A player with a hot cup over the board while a knight waves off a goblet under a crossed-out sign"', 'alt="Una jugadora con una taza caliente sobre el tablero mientras un caballero rechaza una copa bajo una señal tachada"'),
     ('alt="An arbiter reading the US Chess Federation rulebook over a set board, scales and clocks behind her"', 'alt="Una árbitra leyendo el reglamento de la US Chess Federation sobre un tablero listo, con balanzas y relojes detrás"'),
+    ('alt="A herald pinning one Discord notice to the board, a bundle of unposted scrolls chained shut beside it"', 'alt="Un heraldo clavando un solo aviso de Discord en el tablón, con un fajo de pergaminos sin publicar encadenado al lado"'),
     ('>Add to Google Calendar<', '>Agregar a Google Calendar<'),
     ('placeholder="Never played? Haven\'t in years? Ask away."', 'placeholder="\u00bfNunca has jugado? \u00bfNo juegas desde hace a\u00f1os? Preg\u00fantanos."'),
     ('say("Sending\\u2026")', 'say("Enviando\\u2026")'),
