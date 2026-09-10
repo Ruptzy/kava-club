@@ -83,6 +83,9 @@ TEXT = {
     "Temporary suspension from club nights and the Discord.": "Suspensión temporal de las noches de club y del Discord.",
     "Permanent removal from the club.": "Expulsión definitiva del club.",
     "Harassment, cheating and Safe Play violations are not subject to this scale and may result in immediate suspension or removal.": "El acoso, las trampas y las faltas a Safe Play no se rigen por esta escala y pueden derivar en suspensión o expulsión inmediata.",
+    "Disputes": "Disputas",
+    "Serious disputes have never been part of this club, and the professionalism is something we are known for. Where a rated game is in question, the arbiter decides and the decision stands. Keep it friendly, respectful and classy.":
+        "Las disputas serias nunca han sido parte de este club, y ese profesionalismo es algo por lo que se nos conoce. Cuando hay duda en una partida con rating, el árbitro decide y su decisión es definitiva. Manténlo amistoso, respetuoso y con clase.",
     "This month at the club": "Este mes en el club",
     "(786) 250-8993 &middot; text or call": "(786) 250-8993 &middot; llama o escribe",
     "Your name": "Tu nombre", "Your email": "Tu correo", "Message": "Mensaje", "Send": "Enviar",
