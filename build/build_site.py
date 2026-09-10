@@ -85,15 +85,19 @@ for folder in sorted(alts):
         if f in used or f in BLOCK: continue
         p = os.path.join(SRC, folder, f); hsh = hashlib.md5(open(p, 'rb').read()).hexdigest()
         if hsh in seen: continue
-        seen.add(hsh); tiles.append((f, p, alts[folder][0], alts[folder][1]))
+        seen.add(hsh); tiles.append((f, p, alts[folder][0], alts[folder][1], hsh[:6]))
 tiles.sort(key=lambda t: rank(t[0]))
 GALLERY_OPEN = 14      # photos shown before the show-all button
 gal = ''
-for i, (f, p, alt, cat) in enumerate(tiles):
-    path, ar = jpg(p, 720, 74, 'gallery/%02d.jpg' % (i + 1))
+made = set()
+for i, (f, p, alt, cat, hsh) in enumerate(tiles):
+    # position + content hash: a reorder changes the name, so no browser keeps showing the old photo
+    path, ar = jpg(p, 720, 74, 'gallery/%02d-%s.jpg' % (i + 1, hsh)); made.add(os.path.basename(path))
     lazy = '' if i < 10 else ' loading="lazy"'
     hide = ' hidden' if i >= GALLERY_OPEN else ''   # the rest appear behind the show-all button
     gal += '\n      <img src="%s" alt="%s" data-cat="%s" data-ar="%s"%s%s>' % (path, alt, cat, round(ar, 4), lazy, hide)
+for _old in os.listdir(os.path.join(OUT, 'img', 'gallery')):
+    if _old not in made: os.remove(os.path.join(OUT, 'img', 'gallery', _old))
 
 # favicon: cream knight on scarlet, built by hand for legibility at 16px (img/favicon*.png)
 
