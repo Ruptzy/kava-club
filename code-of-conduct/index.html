@@ -44,7 +44,7 @@ a{color:var(--cream);text-decoration:none}img,video{max-width:100%;display:block
 .lang{display:inline-flex;align-items:center;border:1px solid var(--rule-3);border-radius:999px;padding:4px;font-family:var(--fm);font-weight:700;font-size:14px;letter-spacing:.12em;color:var(--ink-3)}
 .lang a{padding:9px 15px;border-radius:999px;color:var(--ink-3);transition:color .25s ease,background-color .25s ease}.lang a.on{background:var(--cream);color:var(--void)}.lang a:not(.on):hover{color:var(--cream)}
 .facts{display:flex;flex-direction:column}.facts .m{padding:12px 0;border-top:1px solid var(--rule);color:var(--ink-2);font-weight:400;letter-spacing:.1em}.facts .m:last-child{border-bottom:1px solid var(--rule)}
-.rows>div{padding:22px 0;border-top:1px solid var(--rule)}.page{padding-bottom:40px}.phead{padding:80px 0 0;max-width:52rem}.phead h1{font-size:clamp(38px,5.2vw,72px);font-variation-settings:"wdth" 116;margin-top:22px}.phead .lead{margin-top:28px;font-size:21px}.clauses{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 48px;margin-top:56px}.clauses>div:nth-last-child(2){border-bottom:1px solid var(--rule)}.clauses>div:last-child{border-bottom:1px solid var(--rule)}.sub{font-size:26px;margin-top:72px}.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;margin-top:28px}.step{padding-top:16px;border-top:2px solid var(--scarlet)}.step .m{color:var(--cream)}.step p{margin-top:10px}.note{margin-top:28px;max-width:48rem;color:var(--ink-3)}.pfoot{margin-top:72px;padding-top:32px;border-top:1px solid var(--rule-2)}.pfoot .cta{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}.body a{border-bottom:1px solid var(--rule-3)}.body a:hover{color:var(--scarlet);border-color:var(--scarlet)}.rows>div:last-child{border-bottom:1px solid var(--rule)}.rows .m{color:var(--scarlet);margin-bottom:8px}
+.rows>div{padding:22px 0;border-top:1px solid var(--rule)}.page{padding-bottom:40px}.phead{padding:80px 0 0;max-width:52rem}.phead h1{font-size:clamp(38px,5.2vw,72px);font-variation-settings:"wdth" 116;margin-top:22px}.phead .lead{margin-top:28px;font-size:22px;color:var(--ink);line-height:1.55}.page .body{color:var(--ink);font-size:19px;line-height:1.6}.clauses{list-style:none;padding:0;margin:56px 0 0;counter-reset:clause;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 64px}.clauses li{display:grid;grid-template-columns:46px 1fr;padding:26px 0;border-top:1px solid var(--rule)}.clauses li::before{counter-increment:clause;content:counter(clause,decimal-leading-zero);font-family:var(--fm);font-weight:700;font-size:15px;color:var(--scarlet);padding-top:5px}.cl{grid-column:2;font-size:20px;letter-spacing:-.005em}.clauses p{grid-column:2;margin-top:10px;max-width:34rem}.sub{font-size:26px;margin-top:80px;padding-top:32px;border-top:1px solid var(--rule-2)}.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;margin-top:28px}.step{padding-top:16px;border-top:2px solid var(--scarlet)}.step .m{color:var(--cream)}.step p{margin-top:10px;font-size:18px}.note{margin-top:32px;max-width:52rem;color:var(--ink-2)}.pfoot{margin-top:72px;padding-top:32px;border-top:1px solid var(--rule-2)}.pfoot .cta{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}.body a{border-bottom:1px solid var(--rule-3)}.body a:hover{color:var(--scarlet);border-color:var(--scarlet)}.rows>div:last-child{border-bottom:1px solid var(--rule)}.rows .m{color:var(--scarlet);margin-bottom:8px}
 a.tile{display:block;color:inherit;transition:transform .35s var(--ease)}a.tile:hover{transform:translateY(-4px)}a.tile:hover .nm{color:var(--scarlet)}
 .plate{transition:transform .5s var(--ease),filter .5s ease;filter:brightness(.94)}.plate:hover{transform:translateY(-3px);filter:brightness(1.06)}
 .pair{display:grid;gap:24px;align-items:start}
@@ -58,7 +58,7 @@ a.tile{display:block;color:inherit;transition:transform .35s var(--ease)}a.tile:
 #navbar{position:sticky;top:0;z-index:20;background:rgba(12,13,14,.94);border-top:3px solid var(--cream);border-bottom:1px solid var(--rule-2);transition:box-shadow .3s ease}
 #navbar.stuck{box-shadow:0 10px 30px rgba(0,0,0,.45)}
 #navbar .in{display:grid;grid-template-columns:auto 1fr auto;align-items:center;padding:18px var(--pad)}
-#navbar .loc{font-size:13px;letter-spacing:.12em;color:var(--ink-2);white-space:nowrap}@media (max-width:1500px){#navbar .loc{display:none}#navbar .in{grid-template-columns:auto auto;justify-content:space-between}#navbar nav{margin-left:0}}@media (max-width:1360px){.nv{font-size:12.5px;letter-spacing:.06em}.nv.boxed{padding:7px 9px}#navbar nav{gap:16px;margin:0 18px}.soc a{width:40px;height:40px}.soc svg{width:26px;height:26px}#navbar .btn{font-size:13px;padding:6px 6px 6px 20px}#navbar .btn .disc{width:38px;height:38px}.lang{font-size:13px}.lang a{padding:8px 13px}}
+#navbar .loc{display:none}@media (max-width:1500px){#navbar .in{grid-template-columns:auto auto;justify-content:space-between}#navbar nav{margin-left:0}}@media (max-width:1360px){.nv{font-size:12.5px;letter-spacing:.06em}.nv.boxed{padding:7px 9px}#navbar nav{gap:16px;margin:0 18px}.soc a{width:40px;height:40px}.soc svg{width:26px;height:26px}#navbar .btn{font-size:13px;padding:6px 6px 6px 20px}#navbar .btn .disc{width:38px;height:38px}.lang{font-size:13px}.lang a{padding:8px 13px}}
 #navbar nav{display:flex;gap:18px;white-space:nowrap;margin:0 24px 0 0;align-items:center}
 .nv{position:relative;color:var(--cream);font-size:14px;letter-spacing:.08em;padding-bottom:10px;transition:color .25s ease}.nv.boxed{border:2px solid var(--scarlet);border-radius:2px;padding:8px 12px;transition:background-color .25s ease,color .25s ease}.nv.boxed::after{display:none}.nv.boxed:hover,.nv.boxed.on{background:var(--scarlet);color:var(--void)}
 .nv::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--scarlet);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
@@ -154,7 +154,7 @@ footer{border-top:1px solid var(--rule-2);margin-top:120px;padding:56px 0 40px}.
   .ch{grid-template-columns:1fr;gap:28px;padding-top:96px}.chhead{display:flex;align-items:flex-end;gap:16px;padding-bottom:20px;border-bottom:1px solid var(--rule-2)}.chhead .lbl{margin-top:0;padding-bottom:6px}.chhead .lbl::after{display:none}
   .c2,.c2.eq{grid-template-columns:1fr;gap:28px}.photos{margin-top:0;gap:28px}.photos .ind{padding-left:48px}
   .quote{padding-left:20px;margin-top:28px}.mono4{grid-template-columns:1fr;gap:0;margin-top:32px;padding-top:0;border-top:0}.mono4 .m{padding:14px 0;border-top:1px solid var(--rule)}.mono4 .m:last-child{border-bottom:1px solid var(--rule)}
-  .phead{padding-top:48px}.clauses{grid-template-columns:1fr;gap:0;margin-top:36px}.steps{grid-template-columns:1fr 1fr;gap:20px}.sub{margin-top:48px}.pfoot{margin-top:48px}.pfoot .cta{flex-direction:column}.pfoot .btn{justify-content:space-between}
+  .phead{padding-top:48px}.phead .lead{font-size:19px}.page .body{font-size:18px}.clauses{grid-template-columns:1fr;gap:0;margin-top:36px}.clauses li{grid-template-columns:38px 1fr;padding:22px 0}.cl{font-size:18px}.steps{grid-template-columns:1fr 1fr;gap:20px}.sub{margin-top:56px}.pfoot{margin-top:48px}.pfoot .cta{flex-direction:column}.pfoot .btn{justify-content:space-between}
   .pair{grid-template-columns:1fr !important}.night .nm{font-size:30px;margin-top:18px}
   .upnext{grid-template-columns:1fr;margin-top:28px}.upnext>div{display:grid;grid-template-columns:64px 1fr;gap:16px;padding:18px 0 !important;border-right:0;border-bottom:1px solid var(--rule);align-items:center}.upnext .dd{font-size:44px}.upnext .w{font-size:11px;margin-top:4px}.upnext h3{font-size:19px;margin-top:0}.upnext .meta{font-size:11.5px;letter-spacing:.06em}.upnext p{display:none}
   .calhead{margin-top:40px}.calhead h3{font-size:20px}.calnav{gap:18px}
@@ -190,28 +190,30 @@ footer{border-top:1px solid var(--rule-2);margin-top:120px;padding:56px 0 40px}.
   <div class="phead">
     <div class="m lbl">Code of conduct</div>
     <h1 class="d">Every level belongs at these tables</h1>
-    <p class="body lead">Turning up to a club night, an event or the Discord means you agree to the clauses below. They apply to everyone, officers included.</p>
+    <p class="body lead">Attending a club night, an event or the Discord constitutes agreement to the clauses below. They apply to all members, officers included.</p>
   </div>
 
-  <div class="rows clauses">
-    <div><div class="m">01 &middot; Casual and competitive both count</div><p class="body sm">Nobody is shamed for not playing rated, and nobody is shamed for taking it seriously. Everyone has a rank. Nobody uses theirs as a weapon.</p></div>
-    <div><div class="m">02 &middot; No chess bullying</div><p class="body sm">Hunting beginners to pad a rating is not a game. Stronger players are here to teach &mdash; raise people up, don't shoot them down.</p></div>
-    <div><div class="m">03 &middot; Win and lose the same way</div><p class="body sm">Celebrate your wins, we want to hear about them. Just don't build them out of someone else's loss. Humility isn't thinking less of yourself, it's thinking of yourself less.</p></div>
-    <div><div class="m">04 &middot; Let people play their own game</div><p class="body sm">No commentary on someone else's board unless both players invite it &mdash; no suggesting moves, no reading the position out loud. Unasked-for advice sets people back further than losing does.</p></div>
-    <div><div class="m">05 &middot; Keep it kind</div><p class="body sm">Harassment of any kind, in person or in messages, ends your place here. Politics, religion and jokes about self-harm stay off the table. If you'd have to think twice before posting it, don't.</p></div>
-    <div><div class="m">06 &middot; US Chess rules apply</div><p class="body sm">We are a US Chess affiliate, so the federation's <a href="https://new.uschess.org/us-chess-safe-play-hub" target="_blank" rel="noopener">Safe Play policy</a> covers our club nights as well as our rated events, and their fair play rules govern every game we run.</p></div>
-    <div><div class="m">07 &middot; One promotion a day</div><p class="body sm">On the Discord, every member gets one self-promotional post a day &mdash; streams, business, social media. Anything more, ask an admin first.</p></div>
-    <div><div class="m">08 &middot; Raise it with an officer</div><p class="body sm">If something is wrong, say so. The club captain has the final say. Suggestions are welcome too &mdash; that is how half of these clauses came to exist.</p></div>
-  </div>
+  <ol class="clauses">
+    <li><h2 class="d cl">Everyone is welcome</h2><p class="body">This club is open to all. Harassment or discrimination on the basis of race, sex, sexuality, gender identity, religion, disability or age is prohibited, in person and online.</p></li>
+    <li><h2 class="d cl">All levels welcome</h2><p class="body">Casual and competitive play are equally welcome. No member is judged for their rating or their style of play.</p></li>
+    <li><h2 class="d cl">No chess bullying</h2><p class="body">Targeting weaker players to inflate a rating is prohibited. Stronger players are here to teach.</p></li>
+    <li><h2 class="d cl">Sportsmanship</h2><p class="body">Win and lose with respect. Boasting at another player's expense is not permitted.</p></li>
+    <li><h2 class="d cl">No unsolicited advice</h2><p class="body">Do not comment on a game in progress unless both players agree. This includes suggesting moves and discussing the position.</p></li>
+    <li><h2 class="d cl">Keep debate off the board</h2><p class="body">Politics, religion and self-harm are not topics for club spaces, in person or on the Discord.</p></li>
+    <li><h2 class="d cl">Alcohol-free</h2><p class="body">The venue is alcohol-free and so is the club. Anyone who appears intoxicated will be asked to leave. Repeated incidents result in removal from the club.</p></li>
+    <li><h2 class="d cl">US Chess rules</h2><p class="body">As a US Chess affiliate, the federation's <a href="https://new.uschess.org/us-chess-safe-play-hub" target="_blank" rel="noopener">Safe Play policy</a> and fair play rules apply at club nights and at rated events.</p></li>
+    <li><h2 class="d cl">Promotion on the Discord</h2><p class="body">One self-promotional post per member per day. Anything further requires an admin's approval.</p></li>
+    <li><h2 class="d cl">Reporting</h2><p class="body">Raise concerns with an officer. The club director has the final say.</p></li>
+  </ol>
 
-  <h2 class="d sub">How it is enforced</h2>
+  <h2 class="d sub">Enforcement</h2>
   <div class="steps">
-    <div class="step"><div class="m">First strike</div><p class="body sm">A word from an officer. Usually that is the end of it.</p></div>
-    <div class="step"><div class="m">Second strike</div><p class="body sm">You sit out the rest of the night, and an officer talks it through with you. On the Discord, a timeout.</p></div>
-    <div class="step"><div class="m">Third strike</div><p class="body sm">Suspended from club nights and the Discord for a set period.</p></div>
-    <div class="step"><div class="m">Fourth strike</div><p class="body sm">Removed from the club for good.</p></div>
+    <div class="step"><div class="m">First</div><p class="body">Verbal warning from an officer.</p></div>
+    <div class="step"><div class="m">Second</div><p class="body">Removed from play for the rest of the night. Timeout on the Discord.</p></div>
+    <div class="step"><div class="m">Third</div><p class="body">Temporary suspension from club nights and the Discord.</p></div>
+    <div class="step"><div class="m">Fourth</div><p class="body">Permanent removal from the club.</p></div>
   </div>
-  <p class="body sm note">Harassment, cheating, or anything falling under US Chess Safe Play skips the scale entirely. The club captain has the final say.</p>
+  <p class="body note">Harassment, cheating and Safe Play violations are not subject to this scale and may result in immediate suspension or removal.</p>
 
   <div class="pfoot">
     <p class="body">The full rules, and the club chat, live on our Discord.</p>
