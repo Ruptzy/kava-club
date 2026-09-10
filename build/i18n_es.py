@@ -171,6 +171,7 @@ TEXT = {
     "Event": "Evento",
     "Add the club to your calendar &rarr;": "Agrega el club a tu calendario &rarr;",
     "Tap a day for details": "Toca un día para ver los detalles",
+    "See the clubs and our partners": "Ver los clubes y nuestros aliados",
     "This month at the club": "Este mes en el club",
     "(786) 250-8993 &middot; text or call": "(786) 250-8993 &middot; llama o escribe",
     "Your name": "Tu nombre", "Your email": "Tu correo", "Message": "Mensaje", "Send": "Enviar",
