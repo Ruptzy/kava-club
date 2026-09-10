@@ -219,9 +219,12 @@ def build_subpage(lang, slug_en, meta):
     ld = {"@context": "https://schema.org", "@graph": [
         {"@type": "WebPage", "name": title, "url": page_url, "description": desc,
          "isPartOf": {"@type": "WebSite", "url": URL}, "publisher": {"@id": URL + "#club"}, "inLanguage": lang}]}
-    extra = meta.get('ld_es' if es else 'ld')
-    if extra:
-        ld["@graph"].append(extra)
+    faq = re.findall(r'<details><summary>(.*?)</summary><p class="body">(.*?)</p></details>', body)
+    if faq:
+        import html as _html
+        plain = lambda t: _html.unescape(re.sub(r'<[^>]+>', '', t))
+        ld["@graph"].append({"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": plain(q), "acceptedAnswer": {"@type": "Answer", "text": plain(ans)}} for q, ans in faq]})
     q = lambda t: t.replace('"', '&quot;')
     head = ('<!doctype html>\n<html lang="%s">\n<head>\n<meta charset="utf-8">\n'
             '<meta name="viewport" content="width=device-width,initial-scale=1">\n' % lang +
