@@ -157,6 +157,7 @@ def build_page(lang):
     desc = i18n_es.META['desc'] if es else ("Bradenton's social chess club. Sundays and Tuesdays 8PM–midnight at Kava Social Club, 540 13th St W. "
                                             "Every level welcome, 21+, US Chess affiliate. Se habla español.")
     ld = {"@context": "https://schema.org", "@graph": [
+        {"@type": "WebSite", "@id": URL + "#site", "url": URL, "name": "Kava Social Chess Club", "alternateName": "Kava Social Chess", "inLanguage": ["en", "es"]},
         {"@type": "SportsClub", "@id": URL + "#club", "name": "Kava Social Chess Club", "url": page_url, "logo": URL + "img/logo.png", "image": URL + "img/hero.jpg",
          "description": desc, "foundingDate": "2021", "telephone": "+1-786-250-8993", "email": "kavasocialchess@gmail.com", "address": addr,
          "geo": {"@type": "GeoCoordinates", "latitude": 27.4958, "longitude": -82.5720},
@@ -184,8 +185,8 @@ def build_page(lang):
             '<title>' + title + '</title>\n<meta name="description" content="' + q(desc) + '">\n'
             '<link rel="canonical" href="' + page_url + '">\n'
             '<link rel="alternate" hreflang="en" href="' + URL + '">\n<link rel="alternate" hreflang="es" href="' + URL + 'es/">\n<link rel="alternate" hreflang="x-default" href="' + URL + '">\n'
-            '<link rel="icon" href="' + prefix + 'img/favicon-32-v2.png" sizes="32x32" type="image/png">\n<link rel="icon" href="' + prefix + 'img/favicon-v2.png" sizes="180x180" type="image/png">\n<link rel="apple-touch-icon" href="' + prefix + 'img/favicon-v2.png">\n'
-            '<meta property="og:type" content="website">\n<meta property="og:title" content="' + title + '">\n<meta property="og:description" content="' + q(desc) + '">\n'
+            '<link rel="icon" href="' + prefix + 'img/favicon-v3-32.png" sizes="32x32" type="image/png">\n<link rel="icon" href="' + prefix + 'img/favicon-v3-192.png" sizes="192x192" type="image/png">\n<link rel="apple-touch-icon" href="' + prefix + 'img/favicon-v3-180.png">\n'
+            '<meta property="og:site_name" content="Kava Social Chess Club">\n<meta property="og:type" content="website">\n<meta property="og:title" content="' + title + '">\n<meta property="og:description" content="' + q(desc) + '">\n'
             '<meta property="og:url" content="' + page_url + '">\n<meta property="og:image" content="' + URL + 'img/hero.jpg">\n<meta property="og:locale" content="' + ('es_US' if es else 'en_US') + '">\n'
             '<meta name="twitter:card" content="summary_large_image">\n<meta name="theme-color" content="#0C0D0E">\n<link rel="preload" as="image" href="' + prefix + 'img/hero-wide.jpg" media="(min-width:1101px)">\n<link rel="preload" as="image" href="' + prefix + 'img/hero.jpg" media="(max-width:1100px)">\n'
             '<script type="application/ld+json">' + json.dumps(ld, ensure_ascii=False) + '</script>\n')
@@ -274,10 +275,10 @@ def build_subpage(lang, slug_en, meta):
             '<link rel="alternate" hreflang="en" href="' + URL + slug_en + '/">\n'
             '<link rel="alternate" hreflang="es" href="' + URL + slug_es + '/">\n'
             '<link rel="alternate" hreflang="x-default" href="' + URL + slug_en + '/">\n'
-            '<link rel="icon" href="' + depth + 'img/favicon-32-v2.png" sizes="32x32" type="image/png">\n'
-            '<link rel="icon" href="' + depth + 'img/favicon-v2.png" sizes="180x180" type="image/png">\n'
-            '<link rel="apple-touch-icon" href="' + depth + 'img/favicon-v2.png">\n'
-            '<meta property="og:type" content="article">\n<meta property="og:title" content="' + title + '">\n'
+            '<link rel="icon" href="' + depth + 'img/favicon-v3-32.png" sizes="32x32" type="image/png">\n'
+            '<link rel="icon" href="' + depth + 'img/favicon-v3-192.png" sizes="192x192" type="image/png">\n'
+            '<link rel="apple-touch-icon" href="' + depth + 'img/favicon-v3-180.png">\n'
+            '<meta property="og:site_name" content="Kava Social Chess Club">\n<meta property="og:type" content="article">\n<meta property="og:title" content="' + title + '">\n'
             '<meta property="og:description" content="' + q(desc) + '">\n'
             '<meta property="og:url" content="' + page_url + '">\n'
             '<meta property="og:image" content="' + URL + meta.get('image', 'img/hero-wide.jpg') + '">\n'
