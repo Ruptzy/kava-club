@@ -134,6 +134,7 @@ CAL = '<main class="wrap page">' + CAL + '</main>'
 BOOKED = json.load(open(os.path.join(OUT, 'events.json'), encoding='utf-8')).get('events', [])
 addr = {"@type": "PostalAddress", "streetAddress": "540 13th St W", "addressLocality": "Bradenton", "addressRegion": "FL", "postalCode": "34205", "addressCountry": "US"}
 place = {"@type": "Place", "name": "Kava Social Club", "address": "540 13th St W, Bradenton, FL 34205"}
+FREE = {"@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://kavasocialchessclub.com/beginners/", "description": "No dues; order one item from the bar"}
 adobe = {"@type": "Place", "name": "Adobe Kava", "address": {"@type": "PostalAddress", "streetAddress": "1302 13th Ave W", "addressLocality": "Bradenton", "addressRegion": "FL", "postalCode": "34205", "addressCountry": "US"}}
 
 def build_page(lang):
@@ -173,13 +174,25 @@ def build_page(lang):
          "location": {"@type": "Place", "name": "Kava Social Club", "url": "https://www.thekavasocialclub.com/", "address": addr},
          "knowsLanguage": ["en", "es"]},
         {"@type": "Event", "name": ("Kava Social Chess Club — noche de domingo" if es else "Kava Social Chess Club — Sunday night"),
-         "eventSchedule": {"@type": "Schedule", "byDay": "https://schema.org/Sunday", "startTime": "20:00", "endTime": "23:59", "repeatFrequency": "P1W"},
+         "description": ("Cada domingo de 8PM a medianoche: un domingo es social y el siguiente es noche de liga. Todos los niveles, 21+." if es
+                         else "Every Sunday 8PM to midnight: one Sunday is social free play, the next is league night. Every level welcome, 21+."),
+         "startDate": "2026-08-30T20:00:00-04:00", "endDate": "2026-08-30T23:59:00-04:00",
+         "eventSchedule": {"@type": "Schedule", "byDay": "https://schema.org/Sunday", "startTime": "20:00", "endTime": "23:59", "repeatFrequency": "P1W", "startDate": "2026-08-30"},
+         "eventStatus": "https://schema.org/EventScheduled", "image": URL + "img/sunday.jpg", "offers": FREE,
          "location": place, "organizer": {"@id": URL + "#club"}, "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "typicalAgeRange": "21-"},
         {"@type": "Event", "name": ("Kava Social Chess Club — noche de estudio (martes)" if es else "Kava Social Chess Club — Tuesday study night"),
-         "eventSchedule": {"@type": "Schedule", "byDay": "https://schema.org/Tuesday", "startTime": "20:00", "endTime": "23:59", "repeatFrequency": "P1W"},
+         "description": ("Cada martes de 8PM a medianoche: la sala trabaja libros, problemas y partidas de grandes maestros en conjunto. 21+." if es
+                         else "Every Tuesday 8PM to midnight: the room works through books, puzzles and grandmaster games together. 21+."),
+         "startDate": "2026-09-01T20:00:00-04:00", "endDate": "2026-09-01T23:59:00-04:00",
+         "eventSchedule": {"@type": "Schedule", "byDay": "https://schema.org/Tuesday", "startTime": "20:00", "endTime": "23:59", "repeatFrequency": "P1W", "startDate": "2026-09-01"},
+         "eventStatus": "https://schema.org/EventScheduled", "image": URL + "img/study.jpg", "offers": FREE,
          "location": place, "organizer": {"@id": URL + "#club"}, "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "typicalAgeRange": "21-"},
         {"@type": "Event", "name": ("Kava Social Chess Club — noche de estudio intermedio+ (jueves)" if es else "Kava Social Chess Club — Intermediate+ study night (Thursday)"),
-         "eventSchedule": {"@type": "Schedule", "byDay": "https://schema.org/Thursday", "startTime": "19:00", "endTime": "23:00", "repeatFrequency": "P1W"},
+         "description": ("Jueves de 7 a 11PM en Adobe Kava, para jugadores intermedios en adelante. No es una noche abierta: escríbele a Harold primero. 21+." if es
+                         else "Thursdays 7 to 11PM at Adobe Kava, for intermediate players and up. Not a drop-in night: message Harold first. 21+."),
+         "startDate": "2026-09-10T19:00:00-04:00", "endDate": "2026-09-10T23:00:00-04:00",
+         "eventSchedule": {"@type": "Schedule", "byDay": "https://schema.org/Thursday", "startTime": "19:00", "endTime": "23:00", "repeatFrequency": "P1W", "startDate": "2026-09-10"},
+         "eventStatus": "https://schema.org/EventScheduled", "image": URL + "img/study.jpg", "offers": FREE,
          "location": adobe, "organizer": {"@id": URL + "#club"}, "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "typicalAgeRange": "21-"}]}
     for ev in booked_ld(es):
         ld['@graph'].append(ev)
@@ -215,7 +228,8 @@ def booked_ld(es):
         name = (e.get('title_es') if es else None) or e.get('title', '')
         note = (e.get('note_es') if es else None) or e.get('note', '')
         loc = ({"@type": "Place", "name": e['venue'], "address": e.get('addr', e['venue'])} if e.get('venue') else place)
-        ev = {"@type": "Event", "name": "Kava Social Chess Club: " + name, "startDate": e['date'], "description": note,
+        ev = {"@type": "Event", "name": "Kava Social Chess Club: " + name, "startDate": e['date'], "endDate": e['date'], "description": note,
+              "image": URL + "img/hero-wide.jpg",
               "location": loc, "organizer": {"@id": URL + "#club"},
               "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled"}
         if e.get('url'):
