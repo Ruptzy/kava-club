@@ -57,17 +57,6 @@ URL:https://kavasocialchessclub.com/calendar/
 RRULE:FREQ=WEEKLY;BYDAY=TU
 END:VEVENT
 BEGIN:VEVENT
-UID:adobe@kavasocialchessclub.com
-DTSTAMP:20260910T000000Z
-DTSTART;TZID=America/New_York:20260910T190000
-DTEND;TZID=America/New_York:20260910T230000
-SUMMARY:Intermediate+ study night - Kava Social Chess Club
-LOCATION:Adobe Kava\, 1302 13th Ave W\, Bradenton\, FL 34205
-DESCRIPTION:Every Thursday. For intermediate players and up\; message Harold first\, it is not a drop-in night. 21+.
-URL:https://kavasocialchessclub.com/calendar/
-RRULE:FREQ=WEEKLY;BYDAY=TH
-END:VEVENT
-BEGIN:VEVENT
 UID:booked-2026-10-03-battle-for-the-bay-tampa-vs-bradenton@kavasocialchessclub.com
 DTSTAMP:20260910T000000Z
 DTSTART;TZID=America/New_York:20261003T200000

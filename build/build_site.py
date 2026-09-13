@@ -376,8 +376,7 @@ def ics():
            'Every other Sunday. Free play: come and play, hang out, talk. 21+.', 'FREQ=WEEKLY;INTERVAL=2;BYDAY=SU')
     vevent('study', 'Study night - Kava Social Chess Club', '20260901T200000', '20260901T235900', VENUE,
            'Every Tuesday. The room works through books, puzzles and grandmaster games together. 21+.', 'FREQ=WEEKLY;BYDAY=TU')
-    vevent('adobe', 'Intermediate+ study night - Kava Social Chess Club', '20260910T190000', '20260910T230000', ADOBE,
-           'Every Thursday. For intermediate players and up; message Harold first, it is not a drop-in night. 21+.', 'FREQ=WEEKLY;BYDAY=TH')
+    # Thursday is not in the feed on purpose: it is not a drop-in night, people contact Harold first
     for e in BOOKED:
         d = e['date'].replace('-', '')
         m = re.match(r'(\d{1,2}):(\d{2}) ?(AM|PM)', e.get('time', '') or '')

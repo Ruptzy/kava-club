@@ -358,6 +358,7 @@ RAW = [
     ('alt="A full Sunday club night on the back patio at Kava Social Club"',
      'alt="Una noche de club de domingo a tope en el patio trasero de Kava Social Club"'),
     ('?"Tonight":DOW[r.d.getDay()]', '?"Esta noche":DOW[r.d.getDay()]'),
+    ('>Text or call Harold first \u00b7 (786) 250-8993<', '>Escríbele o llámale a Harold primero \u00b7 (786) 250-8993<'),
     ('>Add to Google Calendar<', '>Agregar a Google Calendar<'),
     ('placeholder="Never played? Haven\'t in years? Ask away."', 'placeholder="\u00bfNunca has jugado? \u00bfNo juegas desde hace a\u00f1os? Preg\u00fantanos."'),
     ('say("Sending\\u2026")', 'say("Enviando\\u2026")'),
