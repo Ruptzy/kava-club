@@ -352,7 +352,8 @@ html.js .ln>span{transform:translateY(110%);animation:rise 1s var(--ease) forwar
   var reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
   var pend=[].slice.call(document.querySelectorAll(".rv,.rv-num,.cream,.ch"));
   var cnts=[].slice.call(document.querySelectorAll(".cnt"));
-  function countUp(el){ if(reduce) return; var to=+el.dataset.to, suf=el.dataset.suffix||"", t0=performance.now(), dur=1400; (function tick(now){ var p=Math.min(1,(now-t0)/dur); p=1-Math.pow(1-p,3); el.textContent=Math.round(to*p).toLocaleString("en-US")+suf; if(p<1) requestAnimationFrame(tick); })(t0); }
+  var bot=navigator.webdriver||/bot|crawl|spider|slurp|googl|bing|duckduck|headless/i.test(navigator.userAgent);
+  function countUp(el){ if(reduce||bot) return; var to=+el.dataset.to, suf=el.dataset.suffix||"", t0=performance.now(), dur=1400; (function tick(now){ var p=Math.min(1,(now-t0)/dur); p=1-Math.pow(1-p,3); el.textContent=Math.round(to*p).toLocaleString("en-US")+suf; if(p<1) requestAnimationFrame(tick); })(t0); }
   var c5=document.getElementById("standings"), c6=document.getElementById("uschess");
   var bar=document.getElementById("navbar"), px=document.getElementById("pxi"), totop=document.getElementById("totop");
   if(totop) totop.addEventListener("click",function(){ window.scrollTo({top:0,behavior:reduce?"auto":"smooth"}); });
