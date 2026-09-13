@@ -120,7 +120,7 @@ def es_links(html):
 
 
 DISCORD = 'https://discord.gg/sYCb7RnTgZ'
-GOATCOUNTER = ''      # the site's code at goatcounter.com, e.g. 'kavachess'; empty = no counter
+GOATCOUNTER = 'kavasocialchessclub'      # the site's code at goatcounter.com, e.g. 'kavachess'; empty = no counter
 COUNTER = ('<script data-goatcounter="https://%s.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>' % GOATCOUNTER) if GOATCOUNTER else ''
 TEMPLATE = TEMPLATE.replace('{{COUNTER}}', COUNTER)   # before the shared blocks are cut out of it
 _head_end = TEMPLATE.index('</style>') + len('</style>')
