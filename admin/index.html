@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Club events — admin</title>
-<link rel="icon" href="../img/favicon.png" type="image/png">
+<title>Club admin — nights and events</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Newsreader:opsz,wght@6..72,300;6..72,400&family=JetBrains+Mono:wght@400;700&display=swap">
 <style>
@@ -56,9 +56,9 @@ code{font-family:var(--fm);font-size:13px;color:var(--cream);background:var(--pa
 
 <header>
   <img src="../img/logo.png" alt="">
-  <div><div class="d">Club events</div><div class="m" style="margin-top:8px">Kava Social Chess Club &middot; admin</div></div>
+  <div><div class="d">Club admin</div><div class="m" style="margin-top:8px">Kava Social Chess Club &middot; admin</div></div>
 </header>
-<p class="sub">Add tournaments, club battles, lectures and simuls. The recurring Sunday, Tuesday and Thursday nights are built into the site &mdash; they are not listed here. Anything you save appears on the site within a minute.</p>
+<p class="sub">Post a night after the club meets, or book an event. The recurring Sunday, Tuesday and Thursday nights are built into the site &mdash; they are not listed here. Anything you save is on the site within a couple of minutes.</p>
 
 <section id="auth">
   <h2 class="d" style="font-size:20px">Access</h2>
@@ -95,6 +95,33 @@ code{font-family:var(--fm);font-size:13px;color:var(--cream);background:var(--pa
 </section>
 
 <section id="app" hidden>
+  <h2 class="d" style="font-size:20px">Post a night</h2>
+  <p class="sub" style="margin-top:8px">One photo and one line. The scores are optional &mdash; paste them from the ladder when it is a league night. This becomes a page at <code>/nights/&lt;date&gt;/</code>, the newest one shows on the home page, and Google sees a club that met this week.</p>
+  <form id="nform" style="margin-top:20px">
+    <div class="grid">
+      <label><span class="m">Date</span><input id="n_date" type="date" required></label>
+      <label><span class="m">Night</span><select id="n_type">
+        <option value="league">League night</option>
+        <option value="social">Social Sunday</option>
+        <option value="study">Study night</option>
+        <option value="adobe">Intermediate+ study night</option>
+        <option value="special">Special event</option>
+        <option value="tournament">Tournament</option>
+      </select></label>
+      <label class="full"><span class="m">Photo</span><input id="n_photo" type="file" accept="image/*"></label>
+      <label class="full"><span class="m">Title (optional &mdash; the night type is used if blank)</span><input id="n_title" placeholder="e.g. Season 10 opens"></label>
+      <label class="full"><span class="m">Your line about the night &mdash; in your words</span><textarea id="n_line" placeholder="Slow start, then the patio filled up around ten. First night for three people."></textarea></label>
+      <label><span class="m">Players</span><input id="n_played" type="number" min="0" inputmode="numeric" placeholder="16"></label>
+      <label><span class="m">Rounds</span><input id="n_rounds" type="number" min="0" inputmode="numeric" placeholder="5"></label>
+      <label class="full"><span class="m">Scores (optional) &mdash; a bracket name on its own line, then one player per line: name, points, W-D-L</span><textarea id="n_stand" rows="8" placeholder="Over 1400&#10;Scott 5 5-0-0&#10;Alex 3 3-0-2&#10;Derek (left early) 2 2-0-0&#10;Under 1400&#10;Omar Cruz 4 4-0-1"></textarea></label>
+      <label class="full"><span class="m">Title in Spanish (optional)</span><input id="n_title_es"></label>
+      <label class="full"><span class="m">Your line in Spanish (optional)</span><textarea id="n_line_es"></textarea></label>
+    </div>
+    <div class="row"><button class="btn" type="submit" id="nsave">Post the night</button><button class="btn s" type="reset">Clear</button></div>
+    <div class="msg" id="nmsg"></div>
+  </form>
+
+  <section>
   <h2 class="d" style="font-size:20px">Add an event</h2>
   <form id="form" style="margin-top:20px">
     <div class="grid">
@@ -127,13 +154,14 @@ code{font-family:var(--fm);font-size:13px;color:var(--cream);background:var(--pa
     <div id="list" style="margin-top:8px"></div>
     <div class="msg" id="listMsg"></div>
   </section>
+  </section>
 </section>
 
 </div>
 
 <script>
 (function(){
-  var REPO="Ruptzy/kava-club", PATH="events.json", API="https://api.github.com/repos/"+REPO+"/contents/"+PATH;
+  var REPO="Ruptzy/kava-club", PATH="events.json", API="https://api.github.com/repos/"+REPO+"/contents/"+PATH, BASE="https://api.github.com/repos/"+REPO+"/contents/";
   var KEY="kava-admin-token";           // holds ciphertext only, never the token itself
   var IDLE_MS=15*60*1000;               // lock again after fifteen quiet minutes
   var tok="", sha=null, doc={events:[]}, idleTimer=null;
@@ -141,10 +169,12 @@ code{font-family:var(--fm);font-size:13px;color:var(--cream);background:var(--pa
   function msg(el,text,cls){ el.className="msg"+(cls?" "+cls:""); el.textContent=text; }
   function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
 
-  function api(method,body){
+  function api(method,body,path){
+    var url=path?BASE+path:API;
     var opt={method:method,headers:{"Authorization":"Bearer "+tok,"Accept":"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28"}};
     if(body){opt.headers["Content-Type"]="application/json"; opt.body=JSON.stringify(body);}
-    return fetch(method==="GET"?API+"?ref=main&t="+Date.now():API,opt).then(function(r){
+    return fetch(method==="GET"?url+"?ref=main&t="+Date.now():url,opt).then(function(r){
+      if(method==="GET"&&r.status===404) return null;
       return r.json().then(function(j){
         if(!r.ok) throw new Error(j.message||("GitHub said "+r.status));
         return j;
@@ -239,6 +269,80 @@ code{font-family:var(--fm);font-size:13px;color:var(--cream);background:var(--pa
       msg($("formMsg"),err.message,"err"); $("save").disabled=false; load();
     });
   });
+
+  // ---- post a night: the photo goes to img/nights/<date>.jpg, the record into nights.json ----
+  function shrink(file){
+    // a phone photo is 4-12 MB; the page needs 1600px on the long side and about 200 KB
+    return new Promise(function(res,rej){
+      var url=URL.createObjectURL(file), im=new Image();
+      im.onload=function(){
+        var w=im.naturalWidth,h=im.naturalHeight,s=Math.min(1,1600/Math.max(w,h));
+        var c=document.createElement("canvas"); c.width=Math.round(w*s); c.height=Math.round(h*s);
+        c.getContext("2d").drawImage(im,0,0,c.width,c.height);
+        URL.revokeObjectURL(url);
+        res(c.toDataURL("image/jpeg",0.84).split(",")[1]);
+      };
+      im.onerror=function(){ rej(new Error("That photo could not be read.")); };
+      im.src=url;
+    });
+  }
+  function parseStandings(text){
+    var out=[], cur=null;
+    text.split(/\r?\n/).forEach(function(raw){
+      var line=raw.trim(); if(!line) return;
+      var m=line.match(/^(.*?)\s+(\d+(?:\.\d+)?)\s+(\d+-\d+-\d+)$/);
+      if(!m){ cur={bracket:line,rows:[]}; out.push(cur); return; }
+      if(!cur){ cur={bracket:"Standings",rows:[]}; out.push(cur); }
+      var name=m[1], note=null, nm=name.match(/^(.*?)\s*\((.*?)\)\s*$/);
+      if(nm){ name=nm[1]; note=nm[2]; }
+      var row={name:name.trim(),pts:+m[2],rec:m[3]}; if(note) row.note=note.trim();
+      cur.rows.push(row);
+    });
+    return out;
+  }
+  $("nform").addEventListener("submit",function(ev){
+    ev.preventDefault();
+    var date=$("n_date").value; if(!date){ msg($("nmsg"),"Pick the date of the night.","err"); return; }
+    var n={date:date,type:$("n_type").value,title:$("n_title").value.trim(),title_es:$("n_title_es").value.trim(),
+           line:$("n_line").value.trim(),line_es:$("n_line_es").value.trim(),
+           played:+$("n_played").value||0,rounds:+$("n_rounds").value||0,updated:new Date().toISOString().slice(0,10)};
+    var st=$("n_stand").value.trim(); if(st) n.standings=parseStandings(st);
+    Object.keys(n).forEach(function(k){ if(n[k]===""||n[k]===0) delete n[k]; });
+    var file=$("n_photo").files[0];
+    $("nsave").disabled=true; msg($("nmsg"),file?"Shrinking the photo\u2026":"Saving\u2026","busy");
+    var photoPath="img/nights/"+date+".jpg";
+    (file?shrink(file):Promise.resolve(null)).then(function(b64){
+      if(!b64) return;
+      msg($("nmsg"),"Uploading the photo\u2026","busy");
+      return api("GET",null,photoPath).then(function(ex){
+        var body={message:"Photo for the night of "+date,content:b64,branch:"main"}; if(ex&&ex.sha) body.sha=ex.sha;
+        return api("PUT",body,photoPath);
+      }).then(function(){ n.photo=photoPath; });
+    }).then(function(){
+      msg($("nmsg"),"Saving the night\u2026","busy");
+      return api("GET",null,"nights.json");
+    }).then(function(j){
+      var doc={nights:[]}, sha=null;
+      if(j){ sha=j.sha; try{ doc=JSON.parse(unb64(j.content)); }catch(e){} if(!doc.nights) doc.nights=[]; }
+      var old=doc.nights.filter(function(x){return x.date===date;})[0];
+      if(old){ // keep what the form did not touch (commentary, photo when none was chosen)
+        Object.keys(old).forEach(function(k){ if(n[k]===undefined) n[k]=old[k]; });
+        doc.nights=doc.nights.filter(function(x){return x.date!==date;});
+      } else {
+        var max=doc.nights.reduce(function(a,x){return Math.max(a,x.no||0);},88);
+        n.no=max+1;
+      }
+      doc.nights.push(n); doc.nights.sort(function(a,b){return a.date<b.date?1:-1;});
+      doc.updated=new Date().toISOString().slice(0,10);
+      var body={message:"Post the night of "+date,content:b64(JSON.stringify(doc,null,1)+"\n"),branch:"main"}; if(sha) body.sha=sha;
+      return api("PUT",body,"nights.json");
+    }).then(function(){
+      msg($("nmsg"),"Posted. The page builds itself and is on the site in about two minutes.","ok");
+      $("nform").reset(); $("nsave").disabled=false;
+    }).catch(function(err){ msg($("nmsg"),err.message,"err"); $("nsave").disabled=false; });
+  });
+  // the date defaults to the most recent Sunday or Tuesday
+  (function(){ var d=new Date(); for(var i=0;i<7;i++){ var x=new Date(d); x.setDate(d.getDate()-i); if(x.getDay()===0||x.getDay()===2){ $("n_date").value=x.toISOString().slice(0,10); $("n_type").value=x.getDay()===2?"study":"league"; break; } } })();
 
   // ---- passphrase locking: the stored blob is AES-GCM ciphertext, keyed by PBKDF2 ----
   function bytes(b64s){ var bin=atob(b64s), a=new Uint8Array(bin.length); for(var i=0;i<bin.length;i++) a[i]=bin.charCodeAt(i); return a; }

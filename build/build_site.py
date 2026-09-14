@@ -110,11 +110,14 @@ PAGES = {
     'lessons': ('es/clases', 'lessons.html'),
     'calendar': ('es/calendario', None),   # assembled from the home page's calendar chapter
 }
+# /nights/ and /es/noches/ come from build_nights.py; they are listed here so the language switch and sitemap know them
+PAGES_ALL = dict(PAGES, nights='es/noches')
 
 
 def es_links(html):
     """Point the page links at their Spanish twins."""
-    for en, (es, _) in PAGES.items():
+    for en, es in PAGES_ALL.items():
+        es = es[0] if isinstance(es, tuple) else es
         html = html.replace('href="/%s/"' % en, 'href="/%s/"' % es)
     return html
 
@@ -143,6 +146,7 @@ def build_page(lang):
     page_url = URL + ('es/' if es else '')
     h = TEMPLATE.replace('{{GALLERY}}', gal)
     h = h.replace('{{GALLERY_MORE}}', ('Ver las %d fotos' if es else 'Show all %d photos') % len(tiles))
+    h = h.replace('{{NIGHTS_URL}}', '../nights.json' if es else 'nights.json').replace('{{DEPTH}}', '../' if es else '')
     for k, v in M.items(): h = h.replace('{{%s}}' % k, v)
     assert '{{' not in h, 'unreplaced placeholder'
     if es:
@@ -352,20 +356,8 @@ en_kb = build_page('en'); es_kb = build_page('es')
 sub_kb = {slug: (build_subpage('en', slug, SUBPAGES[slug]), build_subpage('es', slug, SUBPAGES[slug])) for slug in PAGES}
 open(os.path.join(OUT, 'CNAME'), 'w').write(DOMAIN + '\n')
 open(os.path.join(OUT, 'robots.txt'), 'w').write('User-agent: *\nAllow: /\nDisallow: /admin/\nSitemap: ' + URL + 'sitemap.xml\n')
-def _url(loc, en, es, freq, pri):
-    return ('<url><loc>' + loc + '</loc><xhtml:link rel="alternate" hreflang="en" href="' + en + '"/>'
-            '<xhtml:link rel="alternate" hreflang="es" href="' + es + '"/><changefreq>' + freq + '</changefreq>'
-            '<priority>' + pri + '</priority></url>\n')
-
-
-_rows = [_url(URL, URL, URL + 'es/', 'weekly', '1.0'), _url(URL + 'es/', URL, URL + 'es/', 'weekly', '0.9')]
-for _en, (_es, _) in PAGES.items():
-    _freq, _pri = ('yearly', '0.5') if _en == 'code-of-conduct' else (('weekly', '0.9') if _en == 'calendar' else ('monthly', '0.8'))
-    _rows.append(_url(URL + _en + '/', URL + _en + '/', URL + _es + '/', _freq, _pri))
-    _rows.append(_url(URL + _es + '/', URL + _en + '/', URL + _es + '/', _freq, str(float(_pri) - 0.1)))
-open(os.path.join(OUT, 'sitemap.xml'), 'w').write(
-    '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
-    'xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + ''.join(_rows) + '</urlset>\n')
+import build_nights
+build_nights.main()
 open(os.path.join(OUT, '.nojekyll'), 'w').write('')
 
 

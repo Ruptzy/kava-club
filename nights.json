@@ -1,0 +1,47 @@
+{
+ "_comment": "One entry per club night, newest first. Written by the admin console (Post a night) or by hand. build/build_nights.py turns these into /nights/<date>/ pages, the archive, the RSS feed and the sitemap. 'line' is Harold's own sentence about the night; 'commentary' is the write-up of the numbers.",
+ "updated": "2026-09-14",
+ "nights": [
+  {
+   "date": "2026-09-13",
+   "no": 89,
+   "type": "league",
+   "season": 10,
+   "title": "Season 10 opens",
+   "title_es": "Arranca la temporada 10",
+   "photo": "img/nights/2026-09-13.jpg",
+   "photo_alt": "The first league night of season 10: three long tables of boards on the patio at Kava Social Club, sixteen players under the string lights",
+   "photo_alt_es": "La primera noche de liga de la temporada 10: tres mesas largas de tableros en el patio de Kava Social Club, dieciséis jugadores bajo las luces",
+   "rounds": 5,
+   "played": 16,
+   "line": "",
+   "line_es": "",
+   "commentary": "Season 10 opened with sixteen players across three brackets and five rounds. Scott went through the over-1400s untouched at 5–0, with Alex, Harold and Mathew a full two points back on 3. In the under-1400s Omar Cruz dropped only one game for 4 of 5, a point clear of Josh, while Zack, Brian O and Mel finished level on 2. The under-1000s were the tightest bracket of the night: Sonny and Maddie shared first on 2 points. Derek, Thomas, Diego and Sam left before the last round; their scores stand as played.",
+   "commentary_es": "La temporada 10 abrió con dieciséis jugadores en tres grupos y cinco rondas. Scott pasó por los más de 1400 sin perder, 5–0, con Alex, Harold y Mathew dos puntos atrás con 3. En los menos de 1400, Omar Cruz cedió una sola partida para sumar 4 de 5, un punto por delante de Josh, mientras Zack, Brian O y Mel terminaron empatados con 2. Los menos de 1000 fueron el grupo más apretado de la noche: Sonny y Maddie compartieron el primer puesto con 2 puntos. Derek, Thomas, Diego y Sam se fueron antes de la última ronda; sus puntajes quedan como se jugaron.",
+   "standings": [
+    {"bracket": "Over 1400", "bracket_es": "Más de 1400", "rows": [
+     {"name": "Scott", "pts": 5, "rec": "5-0-0"},
+     {"name": "Alex", "pts": 3, "rec": "3-0-2"},
+     {"name": "Harold", "pts": 3, "rec": "3-0-2"},
+     {"name": "Mathew", "pts": 3, "rec": "3-0-2"},
+     {"name": "Derek", "pts": 2, "rec": "2-0-0", "note": "left early"}
+    ]},
+    {"bracket": "Under 1400", "bracket_es": "Menos de 1400", "rows": [
+     {"name": "Omar Cruz", "pts": 4, "rec": "4-0-1"},
+     {"name": "Josh", "pts": 3, "rec": "3-0-2"},
+     {"name": "Zack", "pts": 2, "rec": "2-0-3"},
+     {"name": "Brian O", "pts": 2, "rec": "2-0-3"},
+     {"name": "Mel", "pts": 2, "rec": "2-0-3"},
+     {"name": "Thomas", "pts": 0, "rec": "0-0-2", "note": "left early"}
+    ]},
+    {"bracket": "Under 1000", "bracket_es": "Menos de 1000", "rows": [
+     {"name": "Sonny", "pts": 2, "rec": "2-0-3"},
+     {"name": "Maddie", "pts": 2, "rec": "1-0-3"},
+     {"name": "Diego", "pts": 1, "rec": "0-0-1", "note": "left early"},
+     {"name": "Sam", "pts": 0, "rec": "0-0-2", "note": "left early"},
+     {"name": "Vinny", "pts": 0, "rec": "0-0-3"}
+    ]}
+   ]
+  }
+ ]
+}
