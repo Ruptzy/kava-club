@@ -325,7 +325,7 @@ def archive_body(nights, es):
             '<div><div class="d v">2,800+</div><div class="m">%s</div></div><div><div class="d v">10</div><div class="m">%s</div></div></div>'
             '<div class="nlist">%s</div>'
             '<div class="pfoot"><p class="body">%s</p><div class="cta">'
-            '<a class="btn btn-p" href="%s#night">%s%s</a><a class="btn btn-s" href="/nights.xml">%s%s</a></div></div></main>') % (
+            '<a class="btn btn-p" href="%s#night">%s%s</a><a class="btn btn-s" href="/%s/">%s%s</a></div></div></main>') % (
         'Noches de club' if es else 'Club nights',
         'Cada noche de ajedrez en Bradenton, registrada' if es else 'Every chess night in Bradenton, on the record',
         ('Una foto, los números y una línea de cada noche del club de ajedrez de Bradenton, en Kava Social. Las más recientes primero.' if es
@@ -334,7 +334,7 @@ def archive_body(nights, es):
         'partidas registradas' if es else 'games recorded', 'temporadas de liga' if es else 'league seasons',
         ''.join(cards),
         ('Las noches siguen cada domingo y martes a las 8.' if es else 'The nights carry on every Sunday and Tuesday at eight.'),
-        '/es/' if es else '/', 'Tu primera noche' if es else 'Your first night', ARROW, 'RSS', ARROW)
+        '/es/' if es else '/', 'Tu primera noche' if es else 'Your first night', ARROW, 'es/calendario' if es else 'calendar', 'Ver el calendario' if es else 'See the calendar', ARROW)
 
 
 def build_archive(nights, es):
