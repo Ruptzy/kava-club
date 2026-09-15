@@ -39,6 +39,40 @@ TYPES = {'league': ('League night', 'Noche de liga'), 'social': ('Social Sunday'
          'special': ('Special event', 'Evento especial'), 'tournament': ('Tournament', 'Torneo')}
 VENUE = {'adobe': ('Adobe Kava, 1302 13th Ave W, Bradenton', 'Adobe Kava, 1302 13th Ave W, Bradenton')}
 VENUE_DEFAULT = ('Kava Social Club, 540 13th St W, Bradenton', 'Kava Social Club, 540 13th St W, Bradenton')
+KEYWORDS = ["chess club Bradenton", "chess in Bradenton", "chess near me", "chess club near me", "Bradenton chess club",
+            "Sarasota chess", "Manatee County chess", "where to play chess in Bradenton", "adult chess club Florida",
+            "casual chess Bradenton", "chess league Bradenton", "Kava Social Club chess", "chess night Bradenton"]
+KEYWORDS_ES = ["club de ajedrez en Bradenton", "ajedrez en Bradenton", "ajedrez cerca de mí", "club de ajedrez cerca de mí",
+               "ajedrez Sarasota", "ajedrez condado de Manatee", "dónde jugar ajedrez en Bradenton", "club de ajedrez Florida",
+               "noche de ajedrez Bradenton", "liga de ajedrez Bradenton"]
+
+
+def about_block(es, nights=None):
+    """The standing paragraph under every recap: what the club is, where it is, who it is for."""
+    no = max([n.get('no', 0) for n in nights] or [0]) if nights else 0
+    if es:
+        return ('<section class="about"><h2 class="d sub">Sobre el club</h2>'
+                '<p class="body"><a href="/es/">Kava Social Chess Club</a> es un club de ajedrez en Bradenton, Florida, que se reúne los domingos y martes '
+                'de 8PM a medianoche en el patio trasero de Kava Social Club, 540 13th St W, en el centro de Bradenton. Es el club de ajedrez '
+                'más activo del condado de Manatee y queda a media hora de Sarasota, Lakewood Ranch, Palmetto y Ellenton. Todos los niveles: '
+                'principiantes, jugadores casuales, gente que no ha jugado desde la escuela y jugadores con rating de US Chess. '
+                'Liga interna cada dos domingos, noche de estudio los martes, torneos con rating de US Chess varias veces al año. '
+                'Mayores de 21, sin cuotas, sin alcohol, en inglés y español. Desde 2021%s.</p>'
+                '<p class="body">Si buscas dónde jugar ajedrez en Bradenton o un club de ajedrez cerca de ti en la costa del golfo de Florida, '
+                '<a href="/es/principiantes/">esta es tu primera noche</a>.</p></section>'
+                % ((', %d noches de club registradas' % no) if no else ''))
+    return ('<section class="about"><h2 class="d sub">About the club</h2>'
+            '<p class="body"><a href="/">Kava Social Chess Club</a> is a chess club in Bradenton, Florida, meeting Sundays and Tuesdays from 8PM to '
+            'midnight on the back patio at Kava Social Club, 540 13th St W in downtown Bradenton. It is the most active chess club in Manatee '
+            'County and half an hour from Sarasota, Lakewood Ranch, Palmetto and Ellenton. Every level plays here: beginners, casual players, '
+            'adults who have not played since school, and US Chess rated tournament players. An in-house chess league every other Sunday, '
+            'study night on Tuesdays, US Chess rated tournaments a few times a year. 21+, no dues, alcohol-free, in English and Spanish. '
+            'Established 2021%s.</p>'
+            '<p class="body">If you are looking for where to play chess in Bradenton, or a chess club near you on Florida\'s Gulf Coast, '
+            '<a href="/beginners/">this is your first night</a>.</p></section>'
+            % ((', %d club nights on record' % no) if no else ''))
+
+
 MONTHS_ES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre']
 DAYS_ES = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo']
 
@@ -223,6 +257,9 @@ def night_ld(n, es):
            "dateModified": n.get('updated', n['date']) + 'T23:59:00-04:00', "inLanguage": 'es' if es else 'en',
            "description": desc, "url": page_url, "mainEntityOfPage": page_url,
            "author": {"@type": "Person", "name": "Harold Gonzalez", "jobTitle": "Club director"},
+           "keywords": ', '.join(KEYWORDS_ES if es else KEYWORDS), "articleSection": 'Noches de club' if es else 'Club nights',
+           "about": {"@type": "Place", "name": "Kava Social Club", "address": "540 13th St W, Bradenton, FL 34205"},
+           "contentLocation": {"@type": "City", "name": "Bradenton", "containedInPlace": {"@type": "State", "name": "Florida"}},
            "publisher": {"@id": URL + "#club"}, "isPartOf": {"@type": "WebSite", "@id": URL + "#site"}}
     if n.get('photo'):
         art["image"] = URL + n['photo']
@@ -247,10 +284,11 @@ def build_night(n, es, prev_n, next_n):
     depth = '../../../' if es else '../../'
     page_url = URL + (s_es if es else s_en) + '/'
     title_txt = loc(n, 'title', es) or night_type(n, es)
-    title = '%s — %s — Kava Social Chess Club' % (title_txt, short_date(n['date'], es))
-    desc = (loc(n, 'commentary', es) or loc(n, 'line', es) or title_txt)
+    title = ('%s — %s — Kava Social Chess Club, club de ajedrez en Bradenton' if es else '%s — %s — Kava Social Chess Club, chess club in Bradenton FL') % (title_txt, short_date(n['date'], es))
+    lead = ('%s en Kava Social Chess Club, club de ajedrez en Bradenton, Florida: ' if es else '%s at Kava Social Chess Club, a chess club in Bradenton, Florida: ') % night_type(n, es)
+    desc = lead + (loc(n, 'commentary', es) or loc(n, 'line', es) or title_txt)
     desc = desc[:157] + '…' if len(desc) > 160 else desc
-    body = chrome(night_body(n, es, prev_n, next_n), es, depth, s_en, s_es, '/es/' if es else '/')
+    body = chrome(night_body(n, es, prev_n, next_n).replace('</main>', about_block(es, ALL) + '</main>'), es, depth, s_en, s_es, '/es/' if es else '/')
     doc = head('es' if es else 'en', title, desc, page_url, s_en, s_es, depth, n.get('photo', 'img/hero-wide.jpg'), night_ld(n, es)) + body + '\n</body>\n</html>\n'
     return write(os.path.join(OUT, *(s_es if es else s_en).split('/'), 'index.html'), doc)
 
@@ -273,13 +311,17 @@ def archive_body(nights, es):
                      % (slug(n, es), img, 'Noche' if es else 'Night', n.get('no', 0), esc(long_date(n['date'], es)), esc(title), meta, esc(line)))
     return ('<main class="wrap page nights"><div class="phead"><div class="m lbl">%s</div><h1 class="d">%s</h1>'
             '<p class="body lead">%s</p></div>'
+            '<div class="history"><div><div class="d v">2021</div><div class="m">%s</div></div><div><div class="d v">%d</div><div class="m">%s</div></div>'
+            '<div><div class="d v">2,800+</div><div class="m">%s</div></div><div><div class="d v">10</div><div class="m">%s</div></div></div>'
             '<div class="nlist">%s</div>'
             '<div class="pfoot"><p class="body">%s</p><div class="cta">'
             '<a class="btn btn-p" href="%s#night">%s%s</a><a class="btn btn-s" href="/nights.xml">%s%s</a></div></div></main>') % (
         'Noches de club' if es else 'Club nights',
-        'Cada noche, registrada' if es else 'Every night, on the record',
-        ('Una foto, los números y una línea de cada noche de club en Kava Social. Las más recientes primero.' if es
-         else 'One photo, the numbers and a line from every club night at Kava Social. Newest first.'),
+        'Cada noche de ajedrez en Bradenton, registrada' if es else 'Every chess night in Bradenton, on the record',
+        ('Una foto, los números y una línea de cada noche del club de ajedrez de Bradenton, en Kava Social. Las más recientes primero.' if es
+         else 'One photo, the numbers and a line from every night of Bradenton\'s chess club, at Kava Social. Newest first.'),
+        'fundado' if es else 'established', max([n.get('no', 0) for n in nights] or [0]), 'noches de club' if es else 'club nights',
+        'partidas registradas' if es else 'games recorded', 'temporadas de liga' if es else 'league seasons',
         ''.join(cards),
         ('Las noches siguen cada domingo y martes a las 8.' if es else 'The nights carry on every Sunday and Tuesday at eight.'),
         '/es/' if es else '/', 'Tu primera noche' if es else 'Your first night', ARROW, 'RSS', ARROW)
@@ -289,15 +331,15 @@ def build_archive(nights, es):
     s_en, s_es = 'nights', 'es/noches'
     depth = '../../' if es else '../'
     page_url = URL + (s_es if es else s_en) + '/'
-    title = ('Noches de club — Kava Social Chess Club, Bradenton' if es else 'Club nights — Kava Social Chess Club, Bradenton')
-    desc = ('Cada noche de club en Kava Social, Bradenton: una foto, los resultados de la liga y una línea sobre cómo estuvo. Actualizado después de cada domingo y martes.' if es
-            else 'Every club night at Kava Social in Bradenton: a photo, the league results and a line on how it went. Updated after every Sunday and Tuesday.')
+    title = ('Noches de club — historia del club de ajedrez de Bradenton — Kava Social Chess Club' if es else 'Club nights — the history of Bradenton\'s chess club — Kava Social Chess Club')
+    desc = ('Cada noche de ajedrez en Bradenton, Florida, desde 2021: una foto, los resultados de la liga y una línea sobre cómo estuvo. El club de ajedrez de Kava Social, domingos y martes, todos los niveles, cerca de Sarasota.' if es
+            else 'Every chess night in Bradenton, Florida since 2021: a photo, the league results and a line on how it went. Kava Social Chess Club, Sundays and Tuesdays, every level, near Sarasota.')
     ld = {"@context": "https://schema.org", "@graph": [
         {"@type": "CollectionPage", "name": title, "url": page_url, "description": desc, "inLanguage": 'es' if es else 'en',
-         "isPartOf": {"@type": "WebSite", "@id": URL + "#site"}, "publisher": {"@id": URL + "#club"},
+         "isPartOf": {"@type": "WebSite", "@id": URL + "#site"}, "publisher": {"@id": URL + "#club"}, "keywords": ', '.join(KEYWORDS_ES if es else KEYWORDS),
          "hasPart": [{"@type": "Article", "headline": loc(n, 'title', es) or night_type(n, es), "url": URL + slug(n, es) + '/',
                       "datePublished": n['date']} for n in nights[:20]]}]}
-    body = chrome(archive_body(nights, es), es, depth, s_en, s_es, '/es/' if es else '/')
+    body = chrome(archive_body(nights, es).replace('</main>', about_block(es, nights) + '</main>'), es, depth, s_en, s_es, '/es/' if es else '/')
     doc = head('es' if es else 'en', title, desc, page_url, s_en, s_es, depth, nights[0]['photo'] if nights and nights[0].get('photo') else 'img/hero-wide.jpg', ld) + body + '\n</body>\n</html>\n'
     return write(os.path.join(OUT, *(s_es if es else s_en).split('/'), 'index.html'), doc)
 
@@ -342,10 +384,15 @@ def sitemap(nights):
         'xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + ''.join(rows) + '</urlset>\n')
 
 
+ALL = []
+
+
 def main():
+    global ALL
     path = os.path.join(OUT, 'nights.json')
     nights = json.load(open(path, encoding='utf-8')).get('nights', []) if os.path.exists(path) else []
     nights = sorted(nights, key=lambda n: n['date'], reverse=True)
+    ALL = nights
     sizes = []
     for i, n in enumerate(nights):
         newer = nights[i - 1] if i > 0 else None
