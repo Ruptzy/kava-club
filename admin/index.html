@@ -419,16 +419,28 @@ code{font-family:var(--fm);font-size:13px;color:var(--cream);background:var(--pa
     });
   }
   function caption(n){
-    var t=n.title||TYPES[n.type]||"Club night", lines=[];
-    lines.push(t.toUpperCase()+" — night "+(n.no||"")+" · "+longDate(n.date));
-    if(n.line) lines.push("", "“"+n.line+"”");
-    var facts=[]; if(n.played) facts.push(n.played+" players"); if(n.rounds) facts.push(n.rounds+" rounds"); if(n.standings&&n.standings.length) facts.push(n.standings.length+" brackets");
-    if(facts.length) lines.push("", facts.join(" · "));
-    var w=winners(n); if(w.length) lines.push("Top of the brackets: "+w.join(" · "));
-    lines.push("", "Full recap and standings: kavasocialchessclub.com/nights/"+n.date+"/");
-    lines.push("", "Sundays & Tuesdays, 8PM–midnight · Kava Social Club, 540 13th St W, Bradenton · every level welcome · 21+ · no dues");
-    lines.push("", "#chess #chessclub #bradenton #sarasota #manateecounty #bradentonfl #chessnight #chesslife #kavasocialchessclub #chessleague #floridachess");
-    return lines.join("\n");
+    var t=n.title||TYPES[n.type]||"Club night", d=dt(n.date), L=[];
+    var night={league:"league night",social:"social Sunday",study:"study night",adobe:"Thursday study night",special:"night",tournament:"tournament"}[n.type]||"night";
+    L.push("\u265f\ufe0f "+t+".");
+    if(n.played) L.push("", n.played+" of us on the patio for "+night+" "+(d.getDay()===0?"Sunday":DAYS[d.getDay()])+(n.rounds?", "+n.rounds+" rounds under the string lights.":".")+" \ud83c\udf19");
+    var st=n.standings||[];
+    if(st.length){
+      L.push("");
+      st.forEach(function(b){
+        var top=b.rows.filter(function(r){return r.pts===b.rows[0].pts;}), names=top.map(function(r){return r.name;});
+        var lead=top[0], sweep=n.rounds&&lead.pts>=n.rounds&&top.length===1;
+        if(sweep) L.push("\ud83d\udd25 "+lead.name+" went "+lead.pts+"\u20130 in the "+b.bracket.toLowerCase()+"s. Untouched.");
+        else if(top.length>1) L.push("\ud83e\udd1d "+names.slice(0,-1).join(", ")+" and "+names[names.length-1]+" share the "+b.bracket.toLowerCase()+"s on "+lead.pts+" \u2014 nothing settled yet.");
+        else L.push("\ud83e\udd47 "+lead.name+" took the "+b.bracket.toLowerCase()+"s"+(n.rounds?", "+lead.pts+" of "+n.rounds+".":"."));
+      });
+    }
+    if(n.line) L.push("", "\u201c"+n.line+"\u201d \u2014 Harold");
+    L.push("", "Full recap + standings \ud83d\udc49 kavasocialchessclub.com/nights/"+n.date+"/");
+    var nx=new Date(d); do{ nx.setDate(nx.getDate()+1); }while(nx.getDay()!==0&&nx.getDay()!==2);
+    L.push("", "Next one: "+DAYS[nx.getDay()]+" "+nx.getDate()+" "+MONTHS[nx.getMonth()].slice(0,3)+", 8PM. First time? Just say so at the door. \ud83d\ude4c");
+    L.push("Every level \u00b7 21+ \u00b7 no dues \u00b7 Kava Social Club, downtown Bradenton \ud83d\udccd");
+    L.push("", "#chess #chessclub #bradenton #sarasota #manateecounty #bradentonfl #chessnight #chesslife #kavasocialchessclub #chessleague #floridachess");
+    return L.join("\n");
   }
   // ---- the card: 1080 x 1350, the site's own look ----
   function rr(c,x,y,w,h,r){c.beginPath();c.moveTo(x+r,y);c.arcTo(x+w,y,x+w,y+h,r);c.arcTo(x+w,y+h,x,y+h,r);c.arcTo(x,y+h,x,y,r);c.arcTo(x,y,x+w,y,r);c.closePath();}
