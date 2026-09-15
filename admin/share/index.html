@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Share a night — Kava Social Chess Club</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Newsreader:opsz,wght@6..72,300;6..72,400&family=JetBrains+Mono:wght@400;700&display=swap">
+<style>
+:root{--void:#0C0D0E;--panel:#141618;--panel-2:#1B1E21;--rule:#24282C;--rule-2:#343A40;--rule-3:#4A5057;--cream:#FFF6E8;--ink:#E7DFD2;--ink-2:#BDB5A9;--ink-3:#A39B8E;--scarlet:#FE273A;--ok:#3BC79A;
+  --fd:"Archivo","Arial Narrow",Arial,sans-serif;--fs:"Newsreader",Georgia,serif;--fm:"JetBrains Mono","Courier New",monospace}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:var(--void);color:var(--ink);font-family:var(--fs);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:var(--cream)}h1,h2,p{margin:0}
+.wrap{max-width:720px;margin:0 auto;padding:32px 20px 80px}
+.d{font-family:var(--fd);font-weight:900;text-transform:uppercase;color:var(--cream);letter-spacing:-.01em;line-height:1}
+.m{font-family:var(--fm);font-weight:700;text-transform:uppercase;letter-spacing:.16em;font-size:11.5px;color:var(--ink-3)}
+header{display:flex;align-items:center;gap:14px;padding-bottom:20px;border-bottom:3px solid var(--cream)}header img{width:48px;height:48px;border-radius:50%}header .d{font-size:20px}
+.sub{margin-top:10px;color:var(--ink-2);font-size:16px}
+section{margin-top:36px;padding-top:24px;border-top:1px solid var(--rule-2)}
+section h2{font-size:17px;margin-bottom:14px}
+.pick{display:flex;gap:10px;align-items:center;margin-top:16px}select{background:var(--panel);border:1px solid var(--rule-2);border-radius:3px;color:var(--cream);font-family:var(--fs);font-size:16px;padding:10px 12px;flex:1}
+.shot{background:var(--panel);border:1px solid var(--rule);padding:10px}.shot img{width:100%;height:auto;display:block}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--fm);font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:12.5px;padding:13px 22px;border-radius:999px;border:0;cursor:pointer;background:var(--scarlet);color:var(--void);text-decoration:none}
+.btn.s{background:none;border:1px solid var(--rule-3);color:var(--cream)}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+textarea{width:100%;background:var(--panel);border:1px solid var(--rule-2);border-radius:3px;color:var(--cream);font-family:var(--fs);font-size:16px;padding:12px;min-height:260px;resize:vertical}
+.msg{margin-top:10px;font-family:var(--fm);font-size:12px;letter-spacing:.06em;min-height:18px;color:var(--ok)}
+.hint{color:var(--ink-3);font-size:14px;margin-top:8px}
+ol.steps{margin:14px 0 0;padding-left:20px;color:var(--ink-2);font-size:16px}ol.steps li{margin-bottom:6px}
+canvas{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><img src="../../img/logo.png" alt=""><div><div class="d">Share a night</div><div class="m" style="margin-top:8px">Kava Social Chess Club &middot; Instagram, Facebook, Discord</div></div></header>
+<p class="sub">Two images and a caption, ready to post. Long-press an image on your phone to save it to Photos, or use the buttons.</p>
+<div class="pick"><span class="m">Night</span><select id="pick"></select></div>
+
+<section>
+  <h2 class="d">1 &middot; The photo</h2>
+  <div class="shot"><img id="photo" alt=""></div>
+  <div class="row"><a class="btn s" id="dlPhoto" download>Save photo</a></div>
+</section>
+
+<section>
+  <h2 class="d">2 &middot; The standings card</h2>
+  <div class="shot"><img id="card" alt="Standings card"></div>
+  <div class="row"><a class="btn s" id="dlCard" download>Save card</a></div>
+  <p class="hint" id="cardHint"></p>
+  <canvas id="cv" width="1080" height="1350"></canvas>
+</section>
+
+<section>
+  <h2 class="d">3 &middot; The caption</h2>
+  <textarea id="cap"></textarea>
+  <div class="row"><button class="btn" id="copy">Copy caption</button><a class="btn s" id="open" target="_blank" rel="noopener">Open the recap</a></div>
+  <div class="msg" id="msg"></div>
+</section>
+
+<section>
+  <h2 class="d">Then</h2>
+  <ol class="steps">
+    <li>Instagram &rarr; new post &rarr; pick the photo first, then the card (two slides).</li>
+    <li>Paste the caption. Post.</li>
+    <li>Same two images and caption work for the Facebook page and #club-schedule on Discord.</li>
+  </ol>
+</section>
+</div>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id);};
+  var TYPES={league:"League night",social:"Social Sunday",study:"Study night",adobe:"Intermediate+ study night",special:"Special event",tournament:"Tournament"};
+  var MONTHS=["January","February","March","April","May","June","July","August","September","October","November","December"];
+  var DAYS=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  var nights=[], cur=null;
+  function dt(s){var d=s.split("-");return new Date(+d[0],+d[1]-1,+d[2]);}
+  function longDate(s){var d=dt(s);return DAYS[d.getDay()]+" "+d.getDate()+" "+MONTHS[d.getMonth()]+" "+d.getFullYear();}
+  function winners(n){
+    return (n.standings||[]).map(function(b){
+      var top=b.rows.filter(function(r){return r.pts===b.rows[0].pts;}).map(function(r){return r.name;});
+      return top.join(" & ")+" ("+b.bracket+")";
+    });
+  }
+  function caption(n){
+    var t=n.title||TYPES[n.type]||"Club night", lines=[];
+    lines.push(t.toUpperCase()+" — night "+(n.no||"")+" · "+longDate(n.date));
+    if(n.line) lines.push("", "“"+n.line+"”");
+    var facts=[]; if(n.played) facts.push(n.played+" players"); if(n.rounds) facts.push(n.rounds+" rounds"); if(n.standings&&n.standings.length) facts.push(n.standings.length+" brackets");
+    if(facts.length) lines.push("", facts.join(" · "));
+    var w=winners(n); if(w.length) lines.push("Top of the brackets: "+w.join(" · "));
+    lines.push("", "Full recap and standings: kavasocialchessclub.com/nights/"+n.date+"/");
+    lines.push("", "Sundays & Tuesdays, 8PM–midnight · Kava Social Club, 540 13th St W, Bradenton · every level welcome · 21+ · no dues");
+    lines.push("", "#chess #chessclub #bradenton #sarasota #manateecounty #bradentonfl #chessnight #chesslife #kavasocialchessclub #chessleague #floridachess");
+    return lines.join("\n");
+  }
+  // ---- the card: 1080 x 1350, the site's own look ----
+  function rr(c,x,y,w,h,r){c.beginPath();c.moveTo(x+r,y);c.arcTo(x+w,y,x+w,y+h,r);c.arcTo(x+w,y+h,x,y+h,r);c.arcTo(x,y+h,x,y,r);c.arcTo(x,y,x+w,y,r);c.closePath();}
+  function draw(n,logo){
+    var cv=$("cv"), c=cv.getContext("2d"), W=1080, H=1350;
+    c.fillStyle="#0C0D0E"; c.fillRect(0,0,W,H);
+    // masthead
+    if(logo){ c.save(); c.beginPath(); c.arc(112,112,58,0,Math.PI*2); c.closePath(); c.clip(); c.drawImage(logo,54,54,116,116); c.restore(); }
+    c.fillStyle="#FFF6E8"; c.font="900 46px Archivo"; c.textBaseline="alphabetic";
+    c.fillText("KAVA SOCIAL CHESS CLUB",200,102);
+    c.fillStyle="#FE273A"; c.fillText((n.type==="league"?"LEAGUE":(TYPES[n.type]||"CLUB NIGHT")).toUpperCase(),200,152);
+    c.fillStyle="#A39B8E"; c.font="700 20px 'JetBrains Mono'";
+    var meta=[longDate(n.date).toUpperCase()]; if(n.rounds) meta.push(n.rounds+" ROUNDS"); if(n.played) meta.push(n.played+" PLAYED");
+    c.fillText(meta.join("   ·   "),200,190);
+    c.fillStyle="#FE273A"; c.fillRect(54,222,W-108,3);
+    var y=270, st=n.standings||[];
+    if(!st.length){
+      c.fillStyle="#FFF6E8"; c.font="900 64px Archivo"; wrap(c,(n.title||TYPES[n.type]||"Club night").toUpperCase(),54,y+50,W-108,68);
+      if(n.line){ c.fillStyle="#E7DFD2"; c.font="300 34px Newsreader"; wrap(c,"“"+n.line+"”",54,y+220,W-108,44); }
+    } else {
+      var rows=st.reduce(function(a,b){return a+b.rows.length;},0);
+      var avail=H-y-110-st.length*74, rh=Math.max(44,Math.min(66,Math.floor(avail/rows)));
+      st.forEach(function(b){
+        c.fillStyle="#FE273A"; c.font="700 20px 'JetBrains Mono'"; c.fillText(b.bracket.toUpperCase().replace("OVER","OVER").replace("UNDER","UNDER")+(/\d/.test(b.bracket)?" ELO":""),54,y+22); y+=44;
+        var rank=0,last=null;
+        b.rows.forEach(function(r,i){
+          if(r.pts!==last){rank=i+1;last=r.pts;}
+          c.fillStyle=(i%2===0)?"#141618":"#0C0D0E"; rr(c,54,y,W-108,rh-4,10); c.fill();
+          var col=rank===1?"#E4B02F":rank===2?"#C9CBCF":rank===3?"#C67A3A":null;
+          c.beginPath(); c.arc(92,y+(rh-4)/2,16,0,Math.PI*2); c.closePath();
+          if(col){ c.fillStyle=col; c.fill(); c.fillStyle="#0C0D0E"; } else { c.strokeStyle="#4A5057"; c.lineWidth=1.5; c.stroke(); c.fillStyle="#A39B8E"; }
+          c.font="700 16px 'JetBrains Mono'"; c.textAlign="center"; c.fillText(String(rank),92,y+(rh-4)/2+6); c.textAlign="left";
+          c.fillStyle="#FFF6E8"; c.font="800 "+Math.round(rh*0.44)+"px Archivo"; c.fillText(r.name+(r.note?"  ("+r.note+")":""),128,y+(rh-4)/2+Math.round(rh*0.16));
+          c.textAlign="right"; c.font="900 "+Math.round(rh*0.46)+"px Archivo"; c.fillText(String(r.pts),W-190,y+(rh-4)/2+Math.round(rh*0.17));
+          c.fillStyle="#A39B8E"; c.font="700 17px 'JetBrains Mono'"; c.fillText(r.rec||"",W-72,y+(rh-4)/2+6); c.textAlign="left";
+          y+=rh;
+        });
+        y+=30;
+      });
+    }
+    c.fillStyle="#24282C"; c.fillRect(54,H-92,W-108,1);
+    c.fillStyle="#A39B8E"; c.font="700 18px 'JetBrains Mono'"; c.fillText("KAVASOCIALCHESSCLUB.COM/NIGHTS/",54,H-50);
+    c.textAlign="right"; c.fillStyle="#FE273A"; c.fillText("NIGHT "+(n.no||""),W-54,H-50); c.textAlign="left";
+    var url=cv.toDataURL("image/jpeg",0.92); $("card").src=url; $("dlCard").href=url; $("dlCard").download="kava-chess-"+n.date+"-standings.jpg";
+    $("cardHint").textContent=st.length?"":"No scores on this night, so the card shows the title and your line.";
+  }
+  function wrap(c,text,x,y,maxW,lh){ var words=text.split(" "),line=""; words.forEach(function(w){ var t=line?line+" "+w:w; if(c.measureText(t).width>maxW&&line){c.fillText(line,x,y);y+=lh;line=w;}else line=t; }); if(line)c.fillText(line,x,y); }
+  function show(n){
+    cur=n;
+    $("photo").src=n.photo?"../../"+n.photo:""; $("photo").parentNode.hidden=!n.photo;
+    $("dlPhoto").href=n.photo?"../../"+n.photo:"#"; $("dlPhoto").download="kava-chess-"+n.date+".jpg";
+    $("cap").value=caption(n); $("open").href="/nights/"+n.date+"/";
+    var logo=new Image(); logo.onload=function(){draw(n,logo);}; logo.onerror=function(){draw(n,null);}; logo.src="../../img/logo.png";
+  }
+  $("copy").addEventListener("click",function(){
+    var t=$("cap"); t.select(); t.setSelectionRange(0,99999);
+    (navigator.clipboard?navigator.clipboard.writeText(t.value):Promise.reject()).then(function(){ $("msg").textContent="Copied. Open Instagram and paste."; })
+      .catch(function(){ document.execCommand("copy"); $("msg").textContent="Copied."; });
+  });
+  $("pick").addEventListener("change",function(){ var n=nights.filter(function(x){return x.date===$("pick").value;})[0]; if(n) show(n); });
+  document.fonts.ready.then(function(){ return fetch("../../nights.json",{cache:"no-cache"}); }).then(function(r){return r.json();}).then(function(j){
+    nights=(j.nights||[]).slice().sort(function(a,b){return a.date<b.date?1:-1;});
+    $("pick").innerHTML=nights.map(function(n){return '<option value="'+n.date+'">'+longDate(n.date)+" — "+(n.title||TYPES[n.type]||"")+"</option>";}).join("");
+    var want=new URLSearchParams(location.search).get("d"), n=nights.filter(function(x){return x.date===want;})[0]||nights[0];
+    if(n){ $("pick").value=n.date; show(n); }
+  });
+})();
+</script>
+</body>
+</html>

@@ -117,7 +117,7 @@ code{font-family:var(--fm);font-size:13px;color:var(--cream);background:var(--pa
       <label class="full"><span class="m">Title in Spanish (optional)</span><input id="n_title_es"></label>
       <label class="full"><span class="m">Your line in Spanish (optional)</span><textarea id="n_line_es"></textarea></label>
     </div>
-    <div class="row"><button class="btn" type="submit" id="nsave">Post the night</button><button class="btn s" type="reset">Clear</button></div>
+    <div class="row"><button class="btn" type="submit" id="nsave">Post the night</button><button class="btn s" type="reset">Clear</button><a class="btn s" href="share/" style="margin-left:auto">Share a night</a></div>
     <div class="msg" id="nmsg"></div>
   </form>
 
@@ -338,6 +338,7 @@ code{font-family:var(--fm);font-size:13px;color:var(--cream);background:var(--pa
       return api("PUT",body,"nights.json");
     }).then(function(){
       msg($("nmsg"),"Posted. The page builds itself and is on the site in about two minutes.","ok");
+      var sh=document.createElement("a"); sh.className="btn s"; sh.style.marginTop="12px"; sh.href="share/?d="+date; sh.textContent="Share it on Instagram →"; $("nmsg").appendChild(document.createElement("br")); $("nmsg").appendChild(sh);
       $("nform").reset(); $("nsave").disabled=false;
     }).catch(function(err){ msg($("nmsg"),err.message,"err"); $("nsave").disabled=false; });
   });
