@@ -234,8 +234,16 @@ def night_body(n, es, prev_n, next_n):
             '<div class="pfoot"><p class="body">%s</p>'
             '<div class="cta"><a class="btn btn-p" href="%s#night">%s%s</a>'
             '<a class="btn btn-s" href="/%s/">%s%s</a>'
-            '<a class="btn btn-s" href="%s" target="_blank" rel="noopener">%s%s</a></div>%s</div>'
-            '</main>') % (
+            '<a class="btn btn-s" href="%s" target="_blank" rel="noopener">%s%s</a>'
+            '<button type="button" class="btn btn-s" id="shareNight" data-title="%s" data-text="%s">%s%s</button></div>%s</div>'
+            '</main>'
+            '<script>(function(){var b=document.getElementById("shareNight");if(!b)return;var lab=b.firstChild;'
+            'b.addEventListener("click",function(){var d={title:b.dataset.title,text:b.dataset.text,url:location.href};'
+            'function go(files){if(files)d.files=files;if(navigator.share&&(!files||(navigator.canShare&&navigator.canShare(d)))){navigator.share(d).catch(function(){});return true;}return false;}'
+            'function fallback(){(navigator.clipboard?navigator.clipboard.writeText(location.href):Promise.reject()).then(function(){lab.textContent="%s";}).catch(function(){});}'
+            'var img=document.querySelector(".nphoto img");'
+            'if(img&&navigator.canShare){fetch(img.currentSrc).then(function(r){return r.blob();}).then(function(bl){var f=new File([bl],"kava-chess-night.jpg",{type:bl.type||"image/jpeg"});if(!go([f])&&!go())fallback();}).catch(function(){if(!go())fallback();});}'
+            'else if(!go())fallback();});})();</script>') % (
         'es/noches' if es else 'nights', 'Noches de club' if es else 'Club nights', 'Noche' if es else 'Night', n.get('no', 0), esc(t),
         esc(title),
         esc(long_date(n['date'], es)), esc(venue(n, es)),
@@ -244,7 +252,9 @@ def night_body(n, es, prev_n, next_n):
         ('Cada domingo y martes a las 8. Di que es tu primera noche.' if es else 'Every Sunday and Tuesday at eight. Say it\'s your first night.'),
         home, 'Tu primera noche' if es else 'Your first night', ARROW,
         'es/calendario' if es else 'calendar', 'Ver el calendario' if es else 'See the calendar', ARROW,
-        LADDER, 'Tabla de la liga' if es else 'League standings', ARROW, nav)
+        LADDER, 'Tabla de la liga' if es else 'League standings', ARROW,
+        esc(title + ' — Kava Social Chess Club'), esc((line or (loc(n, 'commentary', es) or '')[:140]).strip()),
+        'Compartir esta noche' if es else 'Share this night', ARROW, nav, 'Enlace copiado' if es else 'Link copied')
 
 
 def night_ld(n, es):
