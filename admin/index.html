@@ -133,16 +133,19 @@ code{font-family:var(--fm);font-size:13px;color:var(--cream);background:var(--pa
       </select></label>
       <label class="full"><span class="m">Photo</span><input id="n_photo" type="file" accept="image/*"></label>
       <label class="full"><span class="m">Title (optional &mdash; the night type is used if blank)</span><input id="n_title" placeholder="e.g. Season 10 opens"></label>
-      <label class="full"><span class="m">Your line about the night &mdash; in your words</span><textarea id="n_line" placeholder="Slow start, then the patio filled up around ten. First night for three people."></textarea></label>
+      <label class="full"><span class="m">Your line about the night &mdash; one sentence, in your words</span><input id="n_line" maxlength="180" placeholder="Slow start, then the patio filled up around ten. First night for three people."></label>
+      <label class="full"><span class="m">The write-up (optional) &mdash; a paragraph or three, blank line between them</span><textarea id="n_comm" rows="6" placeholder="What was studied, who showed up, what happened at the boards."></textarea></label>
       <label><span class="m">Players</span><input id="n_played" type="number" min="0" inputmode="numeric" placeholder="16"></label>
       <label><span class="m">Rounds</span><input id="n_rounds" type="number" min="0" inputmode="numeric" placeholder="5"></label>
       <label class="full"><span class="m">Scores (optional) &mdash; a bracket name on its own line, then one player per line: name, points, W-D-L</span><textarea id="n_stand" rows="8" placeholder="Over 1400&#10;Scott 5 5-0-0&#10;Alex 3 3-0-2&#10;Derek (left early) 2 2-0-0&#10;Under 1400&#10;Omar Cruz 4 4-0-1"></textarea></label>
       <label class="full"><span class="m">Title in Spanish (optional)</span><input id="n_title_es"></label>
-      <label class="full"><span class="m">Your line in Spanish (optional)</span><textarea id="n_line_es"></textarea></label>
+      <label class="full"><span class="m">Your line in Spanish (optional)</span><input id="n_line_es" maxlength="180"></label>
+      <label class="full"><span class="m">Write-up in Spanish (optional)</span><textarea id="n_comm_es" rows="4"></textarea></label>
     </div>
-    <div class="row"><button class="btn" type="submit" id="nsave">Post the night</button><button class="btn s" type="reset">Clear</button><a class="btn s" href="#share" style="margin-left:auto">Share a night</a></div>
+    <div class="row"><button class="btn" type="submit" id="nsave">Post the night</button><button class="btn s" type="reset" id="nclear">Clear</button><a class="btn s" href="#share" style="margin-left:auto">Share a night</a></div>
     <div class="msg" id="nmsg"></div>
   </form>
+  <div style="margin-top:32px"><h2 class="d" style="font-size:17px">Posted nights</h2><p class="sub" style="margin-top:6px">Edit loads a night back into the form; save it again to change it. Remove takes the page off the site.</p><div id="nlist" style="margin-top:8px"></div><div class="msg" id="nlistMsg"></div></div>
 
   <section id="share">
   <h2 class="d" style="font-size:20px">Share a night</h2>
@@ -365,8 +368,10 @@ code{font-family:var(--fm);font-size:13px;color:var(--cream);background:var(--pa
     var date=$("n_date").value; if(!date){ msg($("nmsg"),"Pick the date of the night.","err"); return; }
     var n={date:date,type:$("n_type").value,title:$("n_title").value.trim(),title_es:$("n_title_es").value.trim(),
            line:$("n_line").value.trim(),line_es:$("n_line_es").value.trim(),
+           commentary:$("n_comm").value.trim().replace(/\r/g,"").replace(/\n{2,}/g,"\n"),commentary_es:$("n_comm_es").value.trim().replace(/\r/g,"").replace(/\n{2,}/g,"\n"),
            played:+$("n_played").value||0,rounds:+$("n_rounds").value||0,updated:new Date().toISOString().slice(0,10)};
     var st=$("n_stand").value.trim(); if(st) n.standings=parseStandings(st);
+    var editing=$("nform").dataset.editing===date;   // loaded through Edit: the form is the whole truth, blanks clear
     Object.keys(n).forEach(function(k){ if(n[k]===""||n[k]===0) delete n[k]; });
     var file=$("n_photo").files[0];
     $("nsave").disabled=true; msg($("nmsg"),file?"Shrinking the photo\u2026":"Saving\u2026","busy");
@@ -385,8 +390,9 @@ code{font-family:var(--fm);font-size:13px;color:var(--cream);background:var(--pa
       var doc={nights:[]}, sha=null;
       if(j){ sha=j.sha; try{ doc=JSON.parse(unb64(j.content)); }catch(e){} if(!doc.nights) doc.nights=[]; }
       var old=doc.nights.filter(function(x){return x.date===date;})[0];
-      if(old){ // keep what the form did not touch (commentary, photo when none was chosen)
-        Object.keys(old).forEach(function(k){ if(n[k]===undefined) n[k]=old[k]; });
+      if(old){
+        if(editing){ n.no=old.no; if(!n.photo&&old.photo) n.photo=old.photo; ["photo_alt","photo_alt_es","season"].forEach(function(k){ if(old[k]!==undefined&&n[k]===undefined) n[k]=old[k]; }); }
+        else { Object.keys(old).forEach(function(k){ if(n[k]===undefined) n[k]=old[k]; }); }   // a fresh post on a known date keeps what it did not touch
         doc.nights=doc.nights.filter(function(x){return x.date!==date;});
       } else {
         var max=doc.nights.reduce(function(a,x){return Math.max(a,x.no||0);},88);
@@ -394,14 +400,65 @@ code{font-family:var(--fm);font-size:13px;color:var(--cream);background:var(--pa
       }
       doc.nights.push(n); doc.nights.sort(function(a,b){return a.date<b.date?1:-1;});
       doc.updated=new Date().toISOString().slice(0,10);
-      var body={message:"Post the night of "+date,content:b64(JSON.stringify(doc,null,1)+"\n"),branch:"main"}; if(sha) body.sha=sha;
-      return api("PUT",body,"nights.json");
+      nightsDoc=doc;
+      var body={message:(editing?"Edit the night of ":"Post the night of ")+date,content:b64(JSON.stringify(doc,null,1)+"\n"),branch:"main"}; if(sha) body.sha=sha;
+      return api("PUT",body,"nights.json").then(function(j){ nightsSha=j.content.sha; });
     }).then(function(){
-      msg($("nmsg"),"Posted. The page builds itself and is on the site in about two minutes.","ok");
-      var sh=document.createElement("a"); sh.className="btn s"; sh.style.marginTop="12px"; sh.href="share/?d="+date; sh.textContent="Share it on Instagram →"; $("nmsg").appendChild(document.createElement("br")); $("nmsg").appendChild(sh);
+      msg($("nmsg"),(editing?"Saved. ":"Posted. ")+"The page rebuilds itself and is on the site in about two minutes.","ok");
+      delete $("nform").dataset.editing; $("nsave").textContent="Post the night"; renderNights();
+      var sh=document.createElement("a"); sh.className="btn s"; sh.style.marginTop="12px"; sh.href="#share"; sh.textContent="Share it on Instagram →"; sh.addEventListener("click",function(){ loadShare(date); }); $("nmsg").appendChild(document.createElement("br")); $("nmsg").appendChild(sh);
       $("nform").reset(); $("nsave").disabled=false;
     }).catch(function(err){ msg($("nmsg"),err.message,"err"); $("nsave").disabled=false; });
   });
+  // ---- posted nights: list, edit, remove ----
+  var nightsDoc={nights:[]}, nightsSha=null;
+  var NT={league:"League night",social:"Social Sunday",study:"Study night",adobe:"Intermediate+ study night",special:"Special event",tournament:"Tournament"};
+  function standingsText(st){
+    return (st||[]).map(function(b){ return [b.bracket].concat(b.rows.map(function(r){ return r.name+(r.note?" ("+r.note+")":"")+" "+r.pts+" "+(r.rec||""); })).join("\n"); }).join("\n");
+  }
+  function loadNights(){
+    return api("GET",null,"nights.json").then(function(j){
+      if(j){ nightsSha=j.sha; try{ nightsDoc=JSON.parse(unb64(j.content)); }catch(e){ nightsDoc={nights:[]}; } }
+      if(!nightsDoc.nights) nightsDoc.nights=[];
+      renderNights();
+    }).catch(function(err){ msg($("nlistMsg"),err.message,"err"); });
+  }
+  function renderNights(){
+    var box=$("nlist"); if(!box) return;
+    var ns=nightsDoc.nights.slice().sort(function(a,b){return a.date<b.date?1:-1;});
+    if(!ns.length){ box.innerHTML='<p class="sub" style="padding:14px 0">Nothing posted yet.</p>'; return; }
+    box.innerHTML=ns.map(function(n){
+      var d=n.date.split("-"), dt=new Date(+d[0],+d[1]-1,+d[2]);
+      return '<div class="ev"><div class="dt">'+dt.getDate()+'<span>'+["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][dt.getMonth()]+" "+dt.getFullYear()+'</span></div>'
+        +'<div><b>'+esc(n.title||NT[n.type]||n.type)+'</b><div class="m meta">'+esc(NT[n.type]||n.type)+(n.played?" · "+n.played+" players":"")+(n.no?" · night "+n.no:"")+'</div>'
+        +(n.line?'<p>'+esc(n.line)+'</p>':'')+'<div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap"><a class="tag" href="/nights/'+n.date+'/" target="_blank" rel="noopener">View</a></div></div>'
+        +'<div style="display:flex;gap:8px;flex-direction:column"><button class="btn s" data-edit="'+n.date+'">Edit</button><button class="btn s" data-remove="'+n.date+'">Remove</button></div></div>';
+    }).join("");
+    box.querySelectorAll("[data-edit]").forEach(function(b){ b.addEventListener("click",function(){ editNight(b.getAttribute("data-edit")); }); });
+    box.querySelectorAll("[data-remove]").forEach(function(b){ b.addEventListener("click",function(){ removeNight(b.getAttribute("data-remove")); }); });
+  }
+  function editNight(date){
+    var n=nightsDoc.nights.filter(function(x){return x.date===date;})[0]; if(!n) return;
+    $("n_date").value=n.date; $("n_type").value=n.type||"league"; $("n_title").value=n.title||""; $("n_title_es").value=n.title_es||"";
+    $("n_line").value=n.line||""; $("n_line_es").value=n.line_es||""; $("n_comm").value=(n.commentary||"").replace(/\n/g,"\n\n"); $("n_comm_es").value=(n.commentary_es||"").replace(/\n/g,"\n\n");
+    $("n_played").value=n.played||""; $("n_rounds").value=n.rounds||""; $("n_stand").value=standingsText(n.standings); $("n_photo").value="";
+    $("nform").dataset.editing=date; $("nsave").textContent="Save changes";
+    msg($("nmsg"),"Editing the night of "+date+". The photo stays unless you pick a new one.","busy");
+    $("nform").scrollIntoView({behavior:"smooth"});
+  }
+  function removeNight(date){
+    var n=nightsDoc.nights.filter(function(x){return x.date===date;})[0]; if(!n) return;
+    if(!confirm("Remove the night of "+date+" from the site? The page comes down within a couple of minutes.")) return;
+    msg($("nlistMsg"),"Removing\u2026","busy");
+    api("GET",null,"nights.json").then(function(j){
+      var doc={nights:[]}, sha=null; if(j){ sha=j.sha; doc=JSON.parse(unb64(j.content)); }
+      doc.nights=(doc.nights||[]).filter(function(x){return x.date!==date;}); doc.updated=new Date().toISOString().slice(0,10);
+      var body={message:"Remove the night of "+date,content:b64(JSON.stringify(doc,null,1)+"\n"),branch:"main"}; if(sha) body.sha=sha;
+      return api("PUT",body,"nights.json").then(function(r){ nightsDoc=doc; nightsSha=r.content.sha; });
+    }).then(function(){ renderNights(); msg($("nlistMsg"),"Removed. The site updates within a couple of minutes.","ok"); })
+      .catch(function(err){ msg($("nlistMsg"),err.message,"err"); });
+  }
+  $("nclear").addEventListener("click",function(){ delete $("nform").dataset.editing; $("nsave").textContent="Post the night"; msg($("nmsg"),""); });
   // the date defaults to the most recent Sunday or Tuesday
   (function(){ var d=new Date(); for(var i=0;i<7;i++){ var x=new Date(d); x.setDate(d.getDate()-i); if(x.getDay()===0||x.getDay()===2){ $("n_date").value=x.toISOString().slice(0,10); $("n_type").value=x.getDay()===2?"study":"league"; break; } } })();
 
@@ -538,7 +595,7 @@ code{font-family:var(--fm);font-size:13px;color:var(--cream);background:var(--pa
   }
   function opened(){
     $("app").hidden=false; $("setup").hidden=true; $("unlock").hidden=true; $("howto").hidden=true;
-    msg($("authMsg"),"Connected.","ok"); armIdle(); loadShare();
+    msg($("authMsg"),"Connected.","ok"); armIdle(); loadShare(); loadNights();
   }
   ["click","keydown","scroll"].forEach(function(ev){ addEventListener(ev,function(){ if(tok) armIdle(); },{passive:true}); });
 

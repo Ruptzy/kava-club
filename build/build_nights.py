@@ -207,9 +207,11 @@ def night_body(n, es, prev_n, next_n):
     if n.get('season'):
         facts.append('<div><div class="d v">%d</div><div class="m">%s</div></div>' % (n['season'], 'temporada' if es else 'season'))
     line = loc(n, 'line', es)
+    commentary = loc(n, 'commentary', es)
+    if len(line) > 220 or '\n' in line:   # a whole write-up landed in the one-line slot
+        commentary = (line + '\n' + commentary).strip(); line = ''
     quote = ('<blockquote class="nline"><p>&ldquo;%s&rdquo;</p><div class="m"><b>Harold Gonzalez</b> &middot; <span>%s</span></div></blockquote>'
              % (esc(line), 'Director del club' if es else 'Club director')) if line else ''
-    commentary = loc(n, 'commentary', es)
     comm = ''.join('<p class="body">%s</p>' % esc(p.strip()) for p in commentary.split('\n') if p.strip())
     photo = ('<figure class="nphoto"><img src="%s" alt="%s" width="1600" height="1600" decoding="async" fetchpriority="high"></figure>'
              % (esc(n['photo']), esc(loc(n, 'photo_alt', es)))) if n.get('photo') else ''
@@ -408,6 +410,14 @@ def main():
         newer = nights[i - 1] if i > 0 else None
         older = nights[i + 1] if i + 1 < len(nights) else None
         sizes.append((build_night(n, False, older, newer), build_night(n, True, older, newer)))
+    # recaps for nights that are no longer on record go away
+    import shutil
+    keep = set(n['date'] for n in nights)
+    for base in (os.path.join(OUT, 'nights'), os.path.join(OUT, 'es', 'noches')):
+        if os.path.isdir(base):
+            for name in os.listdir(base):
+                if re.match(r'\d{4}-\d{2}-\d{2}$', name) and name not in keep:
+                    shutil.rmtree(os.path.join(base, name))
     build_archive(nights, False); build_archive(nights, True)
     rss(nights); sitemap(nights)
     print('nights: %d recaps (%s KB), archive, nights.xml, sitemap.xml' % (len(nights), '/'.join('%d' % a for a, b in sizes) or '0'))
