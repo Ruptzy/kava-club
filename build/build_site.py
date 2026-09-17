@@ -109,6 +109,7 @@ PAGES = {
     'beginners': ('es/principiantes', 'beginners.html'),
     'lessons': ('es/clases', 'lessons.html'),
     'calendar': ('es/calendario', None),   # assembled from the home page's calendar chapter
+    'merch': ('es/merch', 'merch.html'),
 }
 # /nights/ and /es/noches/ come from build_nights.py; they are listed here so the language switch and sitemap know them
 PAGES_ALL = dict(PAGES, nights='es/noches')
@@ -314,6 +315,13 @@ def build_subpage(lang, slug_en, meta):
 
 
 SUBPAGES = {
+    'merch': {
+        'title': 'Club merch — polos and jackets — Kava Social Chess Club',
+        'title_es': 'Merch del club — polos y chaquetas — Kava Social Chess Club',
+        'desc': 'Embroidered Kava Social Chess Club polos and jackets with your name on the collar. Put your name down and we reach out with the price and timing.',
+        'desc_es': 'Polos y chaquetas bordadas del Kava Social Chess Club con tu nombre en el cuello. Deja tu nombre y te contactamos con el precio y los tiempos.',
+        'image': 'img/merch.jpg',
+    },
     'calendar': {
         'title': 'Calendar — Kava Social Chess Club, Bradenton',
         'title_es': 'Calendario — Kava Social Chess Club, Bradenton',

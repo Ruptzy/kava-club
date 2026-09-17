@@ -32,7 +32,7 @@ ARROW = ('<i class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentCo
 
 # the static pages, for the sitemap: english slug -> spanish slug
 PAGES = {'code-of-conduct': 'es/codigo-de-conducta', 'beginners': 'es/principiantes',
-         'lessons': 'es/clases', 'calendar': 'es/calendario', 'nights': 'es/noches'}
+         'lessons': 'es/clases', 'calendar': 'es/calendario', 'nights': 'es/noches', 'merch': 'es/merch'}
 
 TYPES = {'league': ('League night', 'Noche de liga'), 'social': ('Social Sunday', 'Domingo social'),
          'study': ('Study night', 'Noche de estudio'), 'adobe': ('Intermediate+ study night', 'Noche de estudio intermedio+'),

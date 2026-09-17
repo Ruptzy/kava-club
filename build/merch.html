@@ -1,0 +1,52 @@
+<main class="wrap page merch">
+  <div class="phead">
+    <div class="m lbl">Club merch</div>
+    <h1 class="d">Wear the club</h1>
+    <p class="body lead">Custom-made polos and jackets, embroidered with the Kava Social Chess Club mark on the chest and your name or nickname on the collar. Orders go in waves &mdash; we collect names, then place one order for everyone. There is no direct link to buy yet: fill out the form and we'll get back to you with the price and when the next wave goes in.</p>
+  </div>
+
+  <div class="mgrid">
+    <figure class="mphoto"><img src="img/merch.jpg" alt="Kava Social Chess Club polos and jackets: the club mark embroidered on the chest, a member's name on the collar" width="768" height="1200" loading="lazy" decoding="async"></figure>
+    <div>
+      <h2 class="d sub" style="margin-top:0;padding-top:0;border-top:0">Put your name down</h2>
+      <p class="body">Nothing is charged here. This puts you on the list for the next wave; we email you the details before anything is ordered.</p>
+      <form class="cform mform" id="mform" novalidate>
+        <input type="hidden" name="access_key" value="76361320-66ff-4b2e-bda4-4cce4ba85729">
+        <input type="hidden" name="subject" value="Merch order request — kavasocialchessclub.com">
+        <input type="hidden" name="from_name" value="Kava Social Chess Club website">
+        <input type="checkbox" name="botcheck" class="trap" tabindex="-1" autocomplete="off">
+        <label><span class="m">Your name</span><input name="name" required autocomplete="name"></label>
+        <label><span class="m">Your email</span><input name="email" type="email" required autocomplete="email"></label>
+        <label><span class="m">Item</span><select name="item" required><option value="">Choose one</option><option>Polo</option><option>Jacket</option><option>Polo and jacket</option></select></label>
+        <label><span class="m">Size</span><select name="size" required><option value="">Choose one</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>2XL</option><option>3XL</option></select></label>
+        <label class="full"><span class="m">Name or nickname for the collar</span><input name="collar" placeholder="Exactly as you want it embroidered"></label>
+        <label class="full"><span class="m">Anything else (optional)</span><textarea name="message" rows="3" placeholder="Colour, a second size, a question."></textarea></label>
+        <div class="full row"><button class="btn btn-p" type="submit" id="msend">Send my order<i class="disc">{{ARROW}}</i></button><span class="m cmsg" id="mmsg"></span></div>
+      </form>
+    </div>
+  </div>
+
+  <div class="pfoot">
+    <p class="body">Questions first? Text or call, or ask anyone at the tables on a club night.</p>
+    <div class="cta"><a class="btn btn-s" href="tel:+17862508993">Text or call (786) 250-8993<i class="disc">{{ARROW}}</i></a><a class="btn btn-s" href="{{HOME}}#night">Your first night<i class="disc">{{ARROW}}</i></a></div>
+  </div>
+</main>
+<script>
+(function(){
+  var f=document.getElementById("mform"), out=document.getElementById("mmsg"), btn=document.getElementById("msend");
+  if(!f) return;
+  function say(t,c){ out.className="m cmsg"+(c?" "+c:""); out.textContent=t; }
+  f.addEventListener("submit",function(ev){
+    ev.preventDefault();
+    var bad=[].slice.call(f.querySelectorAll("[required]")).filter(function(el){ return !el.value.trim() || (el.type==="email" && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value)); });
+    f.querySelectorAll(".bad").forEach(function(el){ el.classList.remove("bad"); });
+    if(bad.length){ bad.forEach(function(el){ el.classList.add("bad"); }); bad[0].focus(); say("Name, email, item and size are needed.","err"); return; }
+    btn.disabled=true; say("Sending…");
+    var data={}; new FormData(f).forEach(function(v,k){ data[k]=v; });
+    fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(data)})
+      .then(function(r){ return r.json(); })
+      .then(function(j){ btn.disabled=false; if(j.success){ f.reset(); say("Got it — we'll email you with the price and timing.","ok"); } else { say("That did not send. Email kavasocialchess@gmail.com.","err"); } })
+      .catch(function(){ btn.disabled=false; say("That did not send. Email kavasocialchess@gmail.com.","err"); });
+  });
+})();
+</script>
