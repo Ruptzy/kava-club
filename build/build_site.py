@@ -318,10 +318,10 @@ def build_subpage(lang, slug_en, meta):
 
 SUBPAGES = {
     'merch': {
-        'title': 'Club merch — polos and jackets — Kava Social Chess Club',
-        'title_es': 'Merch del club — polos y chaquetas — Kava Social Chess Club',
-        'desc': 'Embroidered Kava Social Chess Club polos and jackets with your name on the collar. Put your name down and we reach out with the price and timing.',
-        'desc_es': 'Polos y chaquetas bordadas del Kava Social Chess Club con tu nombre en el cuello. Deja tu nombre y te contactamos con el precio y los tiempos.',
+        'title': 'Club merch — tournament polos and jackets — Kava Social Chess Club',
+        'title_es': 'Merch del club — polos y chaquetas de torneo — Kava Social Chess Club',
+        'desc': 'Custom tournament polos and jackets for Kava Social Chess Club, embroidered with the club mark and your name on the collar. Put your name down and we reach out with the price and timing.',
+        'desc_es': 'Polos y chaquetas de torneo a medida del Kava Social Chess Club, bordadas con el emblema y tu nombre en el cuello. Deja tu nombre y te contactamos con el precio y los tiempos.',
         'image': 'img/merch.jpg',
     },
     'calendar': {
