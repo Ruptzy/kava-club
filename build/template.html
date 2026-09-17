@@ -37,7 +37,7 @@ a.tile{display:block;color:inherit;transition:transform .35s var(--ease)}a.tile:
 #burger i{display:block;width:18px;height:2px;background:var(--cream);position:relative}#burger i::before,#burger i::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--cream)}#burger i::before{top:-7px}#burger i::after{top:7px}
 #navbar{position:sticky;top:0;z-index:20;background:rgba(12,13,14,.94);border-top:3px solid var(--cream);border-bottom:1px solid var(--rule-2);transition:box-shadow .3s ease}
 #navbar.stuck{box-shadow:0 10px 30px rgba(0,0,0,.45)}
-#navbar .in{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;padding:18px var(--pad);gap:20px}
+#navbar .in{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;padding:18px var(--pad);gap:32px}
 #navbar .loc{display:none}
 #navbar nav{display:flex;gap:18px;white-space:nowrap;margin:0;align-items:center;justify-self:center}
 .nv{position:relative;color:var(--cream);font-size:14px;letter-spacing:.08em;padding:5px 0;transition:color .25s ease}.nv.boxed{border:1px solid var(--scarlet);border-radius:2px;padding:6px 9px;margin-left:4px;transition:background-color .25s ease,color .25s ease}.nv.boxed::after{display:none}.nv.boxed:hover,.nv.boxed.on{background:var(--scarlet);color:var(--void)}
@@ -126,8 +126,8 @@ html.js .ln>span{transform:translateY(110%);animation:rise 1s var(--ease) forwar
 @keyframes rise{to{transform:translateY(0)}}@keyframes up{to{opacity:1;transform:translateY(0)}}
 /* ---------- responsive ---------- */
 
-@media (max-width:1360px){.nv{font-size:12.5px;letter-spacing:.06em}.nv.boxed{padding:7px 9px}#navbar nav{gap:12px;margin:0}#navbar .in{gap:12px}.soc a{width:26px;height:26px}.soc svg{width:17px;height:17px}#navbar .btn{font-size:13px;padding:6px 6px 6px 20px}#navbar .btn .disc{width:38px;height:38px}.lang{font-size:13px}.lang a{padding:8px 13px}}
-@media (max-width:1200px){#navbar .soc{display:none}#navbar .in{grid-template-columns:minmax(0,1fr) auto}#navbar nav{justify-self:start}}
+@media (max-width:1460px){.nv{font-size:12.5px;letter-spacing:.06em}.nv.boxed{padding:7px 9px}#navbar nav{gap:14px;margin:0}#navbar .in{gap:24px}.soc a{width:26px;height:26px}.soc svg{width:17px;height:17px}#navbar .btn{font-size:13px;padding:6px 6px 6px 20px}#navbar .btn .disc{width:38px;height:38px}.lang{font-size:13px}.lang a{padding:8px 13px}}
+@media (max-width:1260px){.nv{font-size:11.5px;letter-spacing:.04em}.nv.boxed{padding:6px 7px}#navbar nav{gap:10px}#navbar .in{gap:16px}.soc{gap:2px}.soc a{width:22px;height:22px}.soc svg{width:16px;height:16px}#navbar .btn{font-size:11.5px;letter-spacing:.1em;padding:5px 5px 5px 14px;gap:10px}#navbar .btn .disc{width:32px;height:32px}#navbar .btn .disc svg{width:13px;height:13px}.lang{font-size:11.5px;padding:3px}.lang a{padding:6px 9px}}
 @media (max-width:1100px){.clubs{grid-template-columns:repeat(4,minmax(0,1fr))}.band{grid-template-columns:1fr;padding:44px 36px}.band .cta{flex-direction:row;flex-wrap:wrap}
   :root{--pad:28px}body{font-size:18px}
   .mast .top{justify-content:flex-start;gap:14px;padding-bottom:16px}#burger{display:grid;position:fixed;background:rgba(12,13,14,.85);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
