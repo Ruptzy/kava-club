@@ -13,6 +13,7 @@ import html
 import json
 import os
 import re
+import webp
 import sys
 from datetime import date, datetime, timezone
 
@@ -136,6 +137,7 @@ def chrome(body, es, depth, slug_en, slug_es, home):
                                  else '<a class="on" href="/%s/">EN</a><a href="/%s/">ES</a>') % (slug_en, slug_es))
     body = re.sub(r'href="#([a-z0-9]+)"', lambda m: 'href="%s#%s"' % (home, m.group(1)), body)
     body = body.replace('href="%s#events"' % home, 'href="/%s/"' % ('es/calendario' if es else 'calendar'))
+    body = webp.picturize(body, OUT)
     body = re.sub(r'(src|srcset|href|poster)="(img/|media/)', lambda m: '%s="%s%s' % (m.group(1), depth, m.group(2)), body)
     body = body.replace('url(img/', 'url(%simg/' % depth)
     return body
@@ -401,6 +403,12 @@ ALL = []
 
 def main():
     global ALL
+    # a photo posted from a phone arrives as a large JPEG; give it a WebP twin first,
+    # so the recap it lands on is light. Without Pillow the pages still build, in JPEG.
+    try:
+        webp.convert_dir(os.path.join(OUT, 'img', 'nights'))
+    except Exception as e:
+        print('no webp for the night photos (%s)' % e)
     path = os.path.join(OUT, 'nights.json')
     nights = json.load(open(path, encoding='utf-8')).get('nights', []) if os.path.exists(path) else []
     nights = sorted(nights, key=lambda n: n['date'], reverse=True)

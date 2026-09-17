@@ -20,6 +20,7 @@ DOMAIN = 'kavasocialchessclub.com'
 URL = 'https://' + DOMAIN + '/'
 sys.path.insert(0, HERE)
 import i18n_es
+import webp
 
 for d in ['img', 'img/gallery', 'img/logos', 'media', 'es']:
     os.makedirs(os.path.join(OUT, d), exist_ok=True)
@@ -28,12 +29,14 @@ def jpg(src, w, q, name):
     im = ImageOps.exif_transpose(Image.open(src)).convert('RGB')
     if im.width > w: im = im.resize((w, round(im.height * w / im.width)), Image.LANCZOS)
     im.save(os.path.join(OUT, 'img', name), 'JPEG', quality=q, optimize=True, progressive=True)
+    webp.emit(im, os.path.join(OUT, 'img', name))
     return 'img/' + name, im.width / im.height
 
 def png(src, w, name, square=False):
     im = ImageOps.exif_transpose(Image.open(src)).convert('RGBA')
     im = im.resize((w, w), Image.LANCZOS) if square else (im.resize((w, round(im.height * w / im.width)), Image.LANCZOS) if im.width > w else im)
     im.save(os.path.join(OUT, 'img', name), 'PNG', optimize=True)
+    webp.emit(im, os.path.join(OUT, 'img', name), lossless=True)   # flat logos stay pixel-exact
     return 'img/' + name
 
 # ---------------- assets (written once, shared by both languages) ----------------
@@ -50,7 +53,8 @@ used.add('IMG_9978.jpg')
 _src = ImageOps.exif_transpose(Image.open(os.path.join(LG, 'hero-crop.jpg'))).convert('RGB')
 _bh = int(_src.width / 2.11); _top = int((_src.height - _bh) * 0.62)
 _band = _src.crop((0, _top, _src.width, _top + _bh)).resize((1600, round(1600 * _bh / _src.width)), Image.LANCZOS)
-_band.save(os.path.join(OUT, 'img', 'hero-wide.jpg'), 'JPEG', quality=72, optimize=True, progressive=True); M['HEROWIDE'] = 'img/hero-wide.jpg'
+_band.save(os.path.join(OUT, 'img', 'hero-wide.jpg'), 'JPEG', quality=72, optimize=True, progressive=True)
+webp.emit(_band, os.path.join(OUT, 'img', 'hero-wide.jpg')); M['HEROWIDE'] = 'img/hero-wide.jpg'
 M['VENUE'], _ = jpg(os.path.join(LG, 'ksc-store.jpg'), 1400, 78, 'venue.jpg')
 M['BG'], _ = jpg(os.path.join(LG, 'bg.jpg'), 1086, 66, 'bg.jpg')
 M['VPOSTER'], _ = jpg(COVER, 1080, 82, 'promo-poster.jpg')
@@ -92,12 +96,16 @@ gal = ''
 made = set()
 for i, (f, p, alt, cat, hsh) in enumerate(tiles):
     # position + content hash: a reorder changes the name, so no browser keeps showing the old photo
-    path, ar = jpg(p, 720, 74, 'gallery/%02d-%s.jpg' % (i + 1, hsh)); made.add(os.path.basename(path))
+    path, ar = jpg(p, 720, 74, 'gallery/%02d-%s.jpg' % (i + 1, hsh))
+    made.add(os.path.basename(path)); made.add(os.path.basename(path)[:-4] + '.webp')
     lazy = '' if i < 10 else ' loading="lazy"'
     hide = ' hidden' if i >= GALLERY_OPEN else ''   # the rest appear behind the show-all button
     gal += '\n      <img src="%s" alt="%s" data-cat="%s" data-ar="%s"%s%s>' % (path, alt, cat, round(ar, 4), lazy, hide)
 for _old in os.listdir(os.path.join(OUT, 'img', 'gallery')):
     if _old not in made: os.remove(os.path.join(OUT, 'img', 'gallery', _old))
+
+# the clause art and the night photos are written by other hands, so catch them here
+_swept = webp.convert_dir(os.path.join(OUT, 'img'))
 
 # favicon: cream knight on scarlet, built by hand for legibility at 16px (img/favicon*.png)
 
@@ -152,6 +160,7 @@ def build_page(lang):
     h = h.replace('{{NIGHTS_URL}}', '../nights.json' if es else 'nights.json').replace('{{DEPTH}}', '../' if es else '')
     for k, v in M.items(): h = h.replace('{{%s}}' % k, v)
     assert '{{' not in h, 'unreplaced placeholder'
+    h = webp.picturize(h, OUT)
     if es:
         h = es_links(i18n_es.localize(h))
         # asset paths relative to /es/
@@ -211,7 +220,7 @@ def build_page(lang):
             '<link rel="icon" href="/favicon.ico" sizes="any">\n<link rel="icon" href="' + prefix + 'img/favicon-v4-32.png" sizes="32x32" type="image/png">\n<link rel="icon" href="' + prefix + 'img/favicon-v4-192.png" sizes="192x192" type="image/png">\n<link rel="apple-touch-icon" href="' + prefix + 'img/favicon-v4-180.png">\n'
             '<meta property="og:site_name" content="Kava Social Chess Club">\n<meta property="og:type" content="website">\n<meta property="og:title" content="' + title + '">\n<meta property="og:description" content="' + q(desc) + '">\n'
             '<meta property="og:url" content="' + page_url + '">\n<meta property="og:image" content="' + URL + 'img/hero.jpg">\n<meta property="og:locale" content="' + ('es_US' if es else 'en_US') + '">\n'
-            '<meta name="twitter:card" content="summary_large_image">\n<meta name="theme-color" content="#0C0D0E">\n<link rel="preload" as="image" href="' + prefix + 'img/hero-wide.jpg" media="(min-width:1101px)">\n<link rel="preload" as="image" href="' + prefix + 'img/hero.jpg" media="(max-width:1100px)">\n'
+            '<meta name="twitter:card" content="summary_large_image">\n<meta name="theme-color" content="#0C0D0E">\n<link rel="preload" as="image" href="' + prefix + 'img/hero-wide.webp" type="image/webp" media="(min-width:1101px)">\n<link rel="preload" as="image" href="' + prefix + 'img/hero.webp" type="image/webp" media="(max-width:1100px)">\n'
             '<script type="application/ld+json">' + json.dumps(ld, ensure_ascii=False) + '</script>\n')
     body = re.sub(r'^<title>[^<]*</title>\n', '', h)
     cut = body.index('</style>') + len('</style>')
@@ -275,6 +284,7 @@ def build_subpage(lang, slug_en, meta):
     body = re.sub(r'href="#([a-z0-9]+)"', lambda m: 'href="%s#%s"' % (home, m.group(1)), body)
     # away from the home page, the Calendar link is the calendar page
     body = body.replace('href="%s#events"' % home, 'href="/%s/"' % ('es/calendario' if es else 'calendar'))
+    body = webp.picturize(body, OUT)
     body = re.sub(r'(src|srcset|href|poster)="(img/|media/)', lambda m: '%s="%s%s' % (m.group(1), depth, m.group(2)), body)
     body = body.replace('url(img/', 'url(%simg/' % depth)
 
