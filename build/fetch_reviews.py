@@ -25,7 +25,7 @@ if not KEY:
 
 def details(place_id):
     req = urllib.request.Request(
-        'https://places.googleapis.com/v1/places/%s?languageCode=en' % place_id,
+        'https://places.googleapis.com/v1/places/%s' % place_id,
         headers={'X-Goog-Api-Key': KEY,
                  'X-Goog-FieldMask': 'displayName,rating,userRatingCount,googleMapsUri,reviews'})
     try:
