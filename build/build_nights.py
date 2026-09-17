@@ -188,8 +188,8 @@ def standings_html(n, es):
                     if r.get('note') else '')
             pts = r.get('pts', 0)
             pts = ('%g' % pts) if isinstance(pts, (int, float)) else esc(pts)
-            li.append('<li><span class="rk%s">%d</span><span class="nm">%s%s</span><span class="pt">%s</span><span class="rc">%s</span></li>'
-                      % (medal, rk, esc(r.get('name', '')), note, pts, esc(r.get('rec', ''))))
+            li.append('<li style="--i:%d"><span class="rk%s">%d</span><span class="nm">%s%s</span><span class="pt">%s</span><span class="rc">%s</span></li>'
+                      % (len(li), medal, rk, esc(r.get('name', '')), note, pts, esc(r.get('rec', ''))))
         out.append('<div class="bracket"><div class="m">%s</div><ol>%s</ol></div>' % (esc(b.get('bracket_es') if es else b.get('bracket', '')) or esc(b.get('bracket', '')), ''.join(li)))
     return ''.join(out)
 
@@ -216,7 +216,7 @@ def night_body(n, es, prev_n, next_n):
     photo = ('<figure class="nphoto"><img src="%s" alt="%s" width="1600" height="1600" decoding="async" fetchpriority="high"></figure>'
              % (esc(n['photo']), esc(loc(n, 'photo_alt', es)))) if n.get('photo') else ''
     standings = standings_html(n, es)
-    st_block = ('<h2 class="d sub">%s</h2><div class="nstand">%s</div><p class="cap">%s</p>'
+    st_block = ('<h2 class="d sub">%s</h2><div class="nstand stg">%s</div><p class="cap">%s</p>'
                 % ('Resultados de la noche' if es else 'The night\'s standings', standings,
                    ('Ratings internos de la liga del club, solo cuentan aquí. W-D-L = victorias-tablas-derrotas.' if es
                     else 'In-house club league ratings; they only count here. W-D-L = wins-draws-losses.'))) if standings else ''
@@ -318,14 +318,14 @@ def archive_body(nights, es):
         img = ('<img src="%s" alt="" loading="lazy" decoding="async">' % esc(n['photo'])) if n.get('photo') else '<div class="noimg"></div>'
         meta = ' &middot; '.join(x for x in [esc(t), ('%d %s' % (n['played'], 'jugadores' if es else 'players')) if n.get('played') else '',
                                               ('%d %s' % (n['rounds'], 'rondas' if es else 'rounds')) if n.get('rounds') else ''] if x)
-        cards.append('<a class="ncard" href="/%s/">%s<div class="nc"><div class="m">%s %d &middot; %s</div><h2 class="d">%s</h2>'
+        cards.append('<a class="ncard" style="--i:%d" href="/%s/">%s<div class="nc"><div class="m">%s %d &middot; %s</div><h2 class="d">%s</h2>'
                      '<div class="m nmeta">%s</div><p class="body">%s</p></div></a>'
-                     % (slug(n, es), img, 'Noche' if es else 'Night', n.get('no', 0), esc(long_date(n['date'], es)), esc(title), meta, esc(line)))
+                     % (len(cards), slug(n, es), img, 'Noche' if es else 'Night', n.get('no', 0), esc(long_date(n['date'], es)), esc(title), meta, esc(line)))
     return ('<main class="wrap page nights"><div class="phead"><div class="m lbl">%s</div><h1 class="d">%s</h1>'
             '<p class="body lead">%s</p></div>'
             '<div class="history"><div><div class="d v">2021</div><div class="m">%s</div></div><div><div class="d v">%d</div><div class="m">%s</div></div>'
             '<div><div class="d v">2,800+</div><div class="m">%s</div></div><div><div class="d v">10</div><div class="m">%s</div></div></div>'
-            '<div class="nlist">%s</div>'
+            '<div class="nlist stg">%s</div>'
             '<div class="pfoot"><p class="body">%s</p><div class="cta">'
             '<a class="btn btn-p" href="%s#night">%s%s</a><a class="btn btn-s" href="/%s/">%s%s</a></div></div></main>') % (
         'Noches de club' if es else 'Club nights',
