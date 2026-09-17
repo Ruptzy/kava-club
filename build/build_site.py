@@ -87,7 +87,7 @@ for folder in sorted(alts):
         if hsh in seen: continue
         seen.add(hsh); tiles.append((f, p, alts[folder][0], alts[folder][1], hsh[:6]))
 tiles.sort(key=lambda t: rank(t[0]))
-GALLERY_OPEN = 14      # photos shown before the show-all button
+GALLERY_OPEN = 6       # photos shown before the show-all button; the rest are one tap away
 gal = ''
 made = set()
 for i, (f, p, alt, cat, hsh) in enumerate(tiles):
@@ -146,6 +146,8 @@ def build_page(lang):
     prefix = '../' if es else ''
     page_url = URL + ('es/' if es else '')
     h = TEMPLATE.replace('{{GALLERY}}', gal)
+    # the month grid, the phone list, the legend and the day drawer live on /calendar/ only
+    h = re.sub(r'\s*<div class="calhead">.*?<aside class="side" id="calSide".*?</aside>', '', h, count=1, flags=re.S)
     h = h.replace('{{GALLERY_MORE}}', ('Ver las %d fotos' if es else 'Show all %d photos') % len(tiles))
     h = h.replace('{{NIGHTS_URL}}', '../nights.json' if es else 'nights.json').replace('{{DEPTH}}', '../' if es else '')
     for k, v in M.items(): h = h.replace('{{%s}}' % k, v)

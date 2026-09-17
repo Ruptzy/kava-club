@@ -195,6 +195,8 @@ TEXT = {
     "Send my order": "Enviar mi pedido",
     "Questions first? Text or call, or ask anyone at the tables on a club night.": "¿Preguntas primero? Escribe o llama, o pregúntale a cualquiera en las mesas una noche de club.",
     "Merch": "Merch",
+    "See the full calendar": "Ver el calendario completo",
+    "Write us a message": "Escríbenos un mensaje",
     "This month at the club": "Este mes en el club",
     "(786) 250-8993 &middot; text or call": "(786) 250-8993 &middot; llama o escribe",
     "Your name": "Tu nombre", "Your email": "Tu correo", "Message": "Mensaje", "Send": "Enviar",
