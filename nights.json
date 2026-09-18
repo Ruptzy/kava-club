@@ -5,7 +5,6 @@
   {
    "date": "2026-09-17",
    "type": "adobe",
-   "no": 91,
    "title": "Tactics night before Tampa",
    "title_es": "Noche de táctica antes de Tampa",
    "line": "Three hours of tactics, and Tampa is sixteen days out.",
@@ -25,7 +24,6 @@
    "played": 7,
    "updated": "2026-09-16",
    "photo": "img/nights/2026-09-15.jpg",
-   "no": 90,
    "commentary": "Tonight at Kava Social Chess Club, we continued our 40 Lessons for the Club Player series with Chapter 29, diving into the positional genius of former World Champion Anatoly Karpov.\nKarpov’s games are a masterclass in making chess look almost unfairly simple. No wild fireworks required. Just better squares, better pieces, tiny improvements, mounting pressure... and suddenly the opponent has nowhere comfortable to stand.\nTonight we studied how Karpov used prophylaxis, piece placement, positional pressure, and patient maneuvering to slowly take control of a position before delivering the final blow.\nThen, of course, we put the books away and the boards came alive. 🔥♟️\nThat’s what Study Night is all about: learning together, testing ideas over the board, talking chess, meeting new players, and getting a little stronger every Tuesday.\nHuge thanks to everyone who came out tonight and made the patio feel like a late-night chess laboratory. 🧪♟️\nNext Tuesday, we continue the journey.",
    "line_es": "Guardamos los libros y los tableros cobraron vida.",
    "commentary_es": "Esta noche en Kava Social Chess Club seguimos con nuestra serie 40 lecciones para el jugador de club, capítulo 29: el genio posicional del excampeón mundial Anatoly Karpov.\nLas partidas de Karpov son una clase magistral en hacer que el ajedrez parezca casi injustamente simple. Sin fuegos artificiales. Mejores casillas, mejores piezas, pequeñas mejoras, presión que se acumula... y de pronto el rival no tiene dónde pararse cómodo.\nEstudiamos cómo Karpov usaba la profilaxis, la colocación de piezas, la presión posicional y la maniobra paciente para tomar el control de una posición poco a poco antes del golpe final.\nY después, claro, guardamos los libros y los tableros cobraron vida. 🔥♟️\nDe eso se trata la noche de estudio: aprender juntos, probar ideas sobre el tablero, hablar de ajedrez, conocer jugadores nuevos y hacerse un poco más fuerte cada martes.\nGracias a todos los que vinieron e hicieron del patio un laboratorio de ajedrez de madrugada. 🧪♟️\nEl próximo martes seguimos el viaje.",
@@ -35,7 +33,6 @@
   },
   {
    "date": "2026-09-13",
-   "no": 89,
    "type": "league",
    "season": 10,
    "title": "Season 10 opens",

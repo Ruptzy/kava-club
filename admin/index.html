@@ -391,13 +391,11 @@ code{font-family:var(--fm);font-size:13px;color:var(--cream);background:var(--pa
       if(j){ sha=j.sha; try{ doc=JSON.parse(unb64(j.content)); }catch(e){} if(!doc.nights) doc.nights=[]; }
       var old=doc.nights.filter(function(x){return x.date===date;})[0];
       if(old){
-        if(editing){ n.no=old.no; if(!n.photo&&old.photo) n.photo=old.photo; ["photo_alt","photo_alt_es","season"].forEach(function(k){ if(old[k]!==undefined&&n[k]===undefined) n[k]=old[k]; }); }
+        if(editing){ if(!n.photo&&old.photo) n.photo=old.photo; ["photo_alt","photo_alt_es","season"].forEach(function(k){ if(old[k]!==undefined&&n[k]===undefined) n[k]=old[k]; }); }
         else { Object.keys(old).forEach(function(k){ if(n[k]===undefined) n[k]=old[k]; }); }   // a fresh post on a known date keeps what it did not touch
         doc.nights=doc.nights.filter(function(x){return x.date!==date;});
-      } else {
-        var max=doc.nights.reduce(function(a,x){return Math.max(a,x.no||0);},88);
-        n.no=max+1;
       }
+      // the night number is counted from the schedule at build time, never stored here
       doc.nights.push(n); doc.nights.sort(function(a,b){return a.date<b.date?1:-1;});
       doc.updated=new Date().toISOString().slice(0,10);
       nightsDoc=doc;

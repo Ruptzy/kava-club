@@ -15,7 +15,7 @@ import os
 import re
 import webp
 import sys
-from datetime import date, datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.dirname(HERE)
@@ -48,9 +48,46 @@ KEYWORDS_ES = ["club de ajedrez en Bradenton", "ajedrez en Bradenton", "ajedrez 
                "noche de ajedrez Bradenton", "liga de ajedrez Bradenton"]
 
 
+# ---------------------------------------------------------------------------
+# How many nights the club has held.
+#
+# The club has met at Kava Social every Sunday and Tuesday since it started in early
+# 2021. The Thursday night at Adobe Kava is a separate, newer room that opened on
+# 10 September 2026. A night's number is therefore COUNTED from the schedule rather
+# than stored on the entry, because a stored counter drifts: the one this replaces was
+# seeded at 88 and called 91 nights what was really the club's five hundred and
+# seventieth. Change FOUNDED if the exact opening week ever turns up.
+# ---------------------------------------------------------------------------
+FOUNDED = date(2021, 2, 15)      # Harold: the club started in the first quarter of 2021
+ADOBE_FROM = date(2026, 9, 10)   # the first Thursday at Adobe Kava
+_HOME_DOWS = (6, 1)              # Sunday and Tuesday, in Python's Monday-is-0 numbering
+_ADOBE_DOWS = (3,)               # Thursday
+
+
+def _held(start, end, dows):
+    """Weekday occurrences from start through end, counted rather than walked."""
+    if end < start:
+        return 0
+    total = 0
+    for dow in dows:
+        first = start + timedelta(days=(dow - start.weekday()) % 7)
+        if first <= end:
+            total += (end - first).days // 7 + 1
+    return total
+
+
+def night_number(date_str):
+    """The count of club nights held by the close of this date."""
+    try:
+        end = date(*(int(x) for x in date_str.split('-')))
+    except (ValueError, TypeError, AttributeError):
+        return 0
+    return _held(FOUNDED, end, _HOME_DOWS) + _held(ADOBE_FROM, end, _ADOBE_DOWS)
+
+
 def about_block(es, nights=None):
     """The standing paragraph under every recap: what the club is, where it is, who it is for."""
-    no = max([n.get('no', 0) for n in nights] or [0]) if nights else 0
+    no = max([night_number(n['date']) for n in nights] or [0]) if nights else 0
     if es:
         return ('<section class="about"><h2 class="d sub">Sobre el club</h2>'
                 '<p class="body"><a href="/es/">Kava Social Chess Club</a> es un club de ajedrez en Bradenton, Florida, que se reúne los domingos y martes '
@@ -249,7 +286,7 @@ def night_body(n, es, prev_n, next_n):
             'var img=document.querySelector(".nphoto img");'
             'if(img&&navigator.canShare){fetch(img.src).then(function(r){return r.blob();}).then(function(bl){var f=new File([bl],"kava-chess-night.jpg",{type:bl.type||"image/jpeg"});if(!go([f])&&!go())fallback();}).catch(function(){if(!go())fallback();});}'
             'else if(!go())fallback();});})();</script>') % (
-        'es/noches' if es else 'nights', 'Noches de club' if es else 'Club nights', 'Noche' if es else 'Night', n.get('no', 0), esc(t),
+        'es/noches' if es else 'nights', 'Noches de club' if es else 'Club nights', 'Noche' if es else 'Night', night_number(n['date']), esc(t),
         esc(title),
         esc(long_date(n['date'], es)), esc(venue(n, es)),
         photo, facts_block, quote, comm,
@@ -323,11 +360,11 @@ def archive_body(nights, es):
                                               ('%d %s' % (n['rounds'], 'rondas' if es else 'rounds')) if n.get('rounds') else ''] if x)
         cards.append('<a class="ncard" style="--i:%d" href="/%s/">%s<div class="nc"><div class="m">%s %d &middot; %s</div><h2 class="d">%s</h2>'
                      '<div class="m nmeta">%s</div><p class="body">%s</p></div></a>'
-                     % (len(cards), slug(n, es), img, 'Noche' if es else 'Night', n.get('no', 0), esc(long_date(n['date'], es)), esc(title), meta, esc(line)))
+                     % (len(cards), slug(n, es), img, 'Noche' if es else 'Night', night_number(n['date']), esc(long_date(n['date'], es)), esc(title), meta, esc(line)))
     return ('<main class="wrap page nights"><div class="phead"><div class="m lbl">%s</div><h1 class="d">%s</h1>'
             '<p class="body lead">%s</p></div>'
             '<div class="history"><div><div class="d v">2021</div><div class="m">%s</div></div><div><div class="d v">%d</div><div class="m">%s</div></div>'
-            '<div><div class="d v">2,800+</div><div class="m">%s</div></div><div><div class="d v">10</div><div class="m">%s</div></div></div>'
+            '<div><div class="d v">3,400+</div><div class="m">%s</div></div><div><div class="d v">10</div><div class="m">%s</div></div></div>'
             '<div class="nlist stg">%s</div>'
             '<div class="pfoot"><p class="body">%s</p><div class="cta">'
             '<a class="btn btn-p" href="%s#night">%s%s</a><a class="btn btn-s" href="/%s/">%s%s</a></div></div></main>') % (
@@ -335,7 +372,7 @@ def archive_body(nights, es):
         'Cada noche de ajedrez en Bradenton, registrada' if es else 'Every chess night in Bradenton, on the record',
         ('Una foto, los números y una línea de cada noche del club de ajedrez de Bradenton, en Kava Social. Las más recientes primero.' if es
          else 'One photo, the numbers and a line from every night of Bradenton\'s chess club, at Kava Social. Newest first.'),
-        'fundado' if es else 'established', max([n.get('no', 0) for n in nights] or [0]), 'noches de club' if es else 'club nights',
+        'fundado' if es else 'established', max([night_number(n['date']) for n in nights] or [0]), 'noches de club' if es else 'club nights',
         'partidas registradas' if es else 'games recorded', 'temporadas de liga' if es else 'league seasons',
         ''.join(cards),
         ('Las noches siguen cada domingo y martes a las 8.' if es else 'The nights carry on every Sunday and Tuesday at eight.'),
