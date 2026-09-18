@@ -1,10 +1,17 @@
 {
  "name": "Kava Social Chess Club",
  "rating": 4.9,
- "count": 17,
+ "count": 18,
  "url": "https://maps.google.com/?cid=5077918318847267088&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA",
  "placeId": "ChIJ-bv_E6gXw4gREBFXmc5jeEY",
  "reviews": [
+  {
+   "author": "Chase Callahan",
+   "rating": 5,
+   "text": "This chess club has taught me more and more about the best ways to play chess, at a great location, and with great instructors and team! I %100 recommend attending any of the club nights either on Sunday or Tuesday nights, as well as any of the big tournaments!",
+   "time": "2026-09-18",
+   "when": "in the last week"
+  },
   {
    "author": "Eddy Oquendo",
    "rating": 5,
@@ -30,13 +37,6 @@
    "author": "Matthew Saba",
    "rating": 5,
    "text": "Good drinks and good people, always a fun time.",
-   "time": "2026-09-10",
-   "when": "a week ago"
-  },
-  {
-   "author": "Josh Silvani",
-   "rating": 5,
-   "text": "Amazing chess club and great group of people. The club itself has a large amount of events happening regularly through the year and is active with players of all levels all year round, rain or shine, hot or cold.  Harold, the director of this chess club, is constantly working on improving the club, putting on events, and even keeps track of entire seasons of weekly tournaments with chess member having an in house elo system.",
    "time": "2026-09-10",
    "when": "a week ago"
   },
