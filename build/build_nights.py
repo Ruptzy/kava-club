@@ -217,6 +217,7 @@ def night_body(n, es, prev_n, next_n):
     comm = ''.join('<p class="body">%s</p>' % esc(p.strip()) for p in commentary.split('\n') if p.strip())
     photo = ('<figure class="nphoto"><img src="%s" alt="%s" width="1600" height="1600" decoding="async" fetchpriority="high"></figure>'
              % (esc(n['photo']), esc(loc(n, 'photo_alt', es)))) if n.get('photo') else ''
+    facts_block = ('<div class="nfacts">%s</div>' % ''.join(facts)) if facts else ''
     standings = standings_html(n, es)
     st_block = ('<h2 class="d sub">%s</h2><div class="nstand stg">%s</div><p class="cap">%s</p>'
                 % ('Resultados de la noche' if es else 'The night\'s standings', standings,
@@ -233,7 +234,7 @@ def night_body(n, es, prev_n, next_n):
             '<h1 class="d">%s</h1>'
             '<p class="dateline m">%s &middot; %s</p></div>'
             '<div class="ngrid">%s<div class="ntext">'
-            '<div class="nfacts">%s</div>%s%s</div></div>'
+            '%s%s%s</div></div>'
             '%s'
             '<div class="pfoot"><p class="body">%s</p>'
             '<div class="cta"><a class="btn btn-p" href="%s#night">%s%s</a>'
@@ -246,12 +247,12 @@ def night_body(n, es, prev_n, next_n):
             'function go(files){if(files)d.files=files;if(navigator.share&&(!files||(navigator.canShare&&navigator.canShare(d)))){navigator.share(d).catch(function(){});return true;}return false;}'
             'function fallback(){(navigator.clipboard?navigator.clipboard.writeText(location.href):Promise.reject()).then(function(){lab.textContent="%s";}).catch(function(){});}'
             'var img=document.querySelector(".nphoto img");'
-            'if(img&&navigator.canShare){fetch(img.currentSrc).then(function(r){return r.blob();}).then(function(bl){var f=new File([bl],"kava-chess-night.jpg",{type:bl.type||"image/jpeg"});if(!go([f])&&!go())fallback();}).catch(function(){if(!go())fallback();});}'
+            'if(img&&navigator.canShare){fetch(img.src).then(function(r){return r.blob();}).then(function(bl){var f=new File([bl],"kava-chess-night.jpg",{type:bl.type||"image/jpeg"});if(!go([f])&&!go())fallback();}).catch(function(){if(!go())fallback();});}'
             'else if(!go())fallback();});})();</script>') % (
         'es/noches' if es else 'nights', 'Noches de club' if es else 'Club nights', 'Noche' if es else 'Night', n.get('no', 0), esc(t),
         esc(title),
         esc(long_date(n['date'], es)), esc(venue(n, es)),
-        photo, ''.join(facts), quote, comm,
+        photo, facts_block, quote, comm,
         st_block,
         ('Cada domingo y martes a las 8. Di que es tu primera noche.' if es else 'Every Sunday and Tuesday at eight. Say it\'s your first night.'),
         home, 'Tu primera noche' if es else 'Your first night', ARROW,

@@ -1,7 +1,22 @@
 {
  "_comment": "One entry per club night, newest first. Written by the admin console (Post a night) or by hand. build/build_nights.py turns these into /nights/<date>/ pages, the archive, the RSS feed and the sitemap. 'line' is Harold's own sentence about the night; 'commentary' is the write-up of the numbers.",
- "updated": "2026-09-16",
+ "updated": "2026-09-17",
  "nights": [
+  {
+   "date": "2026-09-17",
+   "type": "adobe",
+   "no": 91,
+   "title": "Tactics night before Tampa",
+   "title_es": "Noche de táctica antes de Tampa",
+   "line": "Three hours of tactics, and Tampa is sixteen days out.",
+   "line_es": "Tres horas de táctica, y Tampa está a dieciséis días.",
+   "commentary": "Thursday night at Adobe Kava, and nobody walked in to play casual. This is the intermediate-and-up room, and for three straight hours the only thing on the table was tactics. 🧩\nWe worked puzzle after puzzle through three themes that decide more club games than any opening ever will. Forks, the move that makes your opponent pick which piece to hand over. Deflection, where you drag a defender off the one square it cannot afford to leave. And removing the defender outright, because a piece holding the whole position together is a piece worth trading, chasing or simply taking.\nNone of this was academic. The Battle for the Bay is sixteen days away, on the road in Tampa against the Tampa Knights, and team matches are almost never decided by theory. They are decided by whoever still spots the fork on move 34 with a long night behind them. That is the muscle we were building tonight. ⚔️\nThree hours, heads down, boards lit. Tampa, we are coming for you. ♟️🔥",
+   "commentary_es": "Jueves por la noche en Adobe Kava, y nadie llegó a jugar casual. Esta es la sala de intermedios para arriba, y durante tres horas seguidas lo único sobre la mesa fue táctica. 🧩\nResolvimos ejercicio tras ejercicio con tres temas que deciden más partidas de club que cualquier apertura. El tenedor, la jugada que obliga al rival a elegir qué pieza entrega. La desviación, donde arrastras a un defensor fuera de la única casilla que no puede abandonar. Y la eliminación del defensor, porque una pieza que sostiene toda la posición es una pieza que vale la pena cambiar, perseguir o simplemente tomar.\nNada de esto era teórico. La Battle for the Bay es en dieciséis días, de visita en Tampa contra los Tampa Knights, y los duelos por equipos casi nunca se deciden por teoría. Se deciden por quien todavía ve el tenedor en la jugada 34 con una noche larga encima. Ese es el músculo que estuvimos construyendo. ⚔️\nTres horas, cabeza abajo, tableros encendidos. Tampa, vamos por ustedes. ♟️🔥",
+   "photo": "img/nights/2026-09-17.jpg",
+   "photo_alt": "Players working through tactics puzzles by lamplight at Adobe Kava, two boards and an open puzzle book on the table",
+   "photo_alt_es": "Jugadores resolviendo ejercicios tácticos a la luz de una lámpara en Adobe Kava, dos tableros y un libro de ejercicios abierto sobre la mesa",
+   "updated": "2026-09-17"
+  },
   {
    "date": "2026-09-15",
    "type": "study",
