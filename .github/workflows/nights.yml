@@ -41,7 +41,7 @@ jobs:
       - name: Post to the club Discord
         continue-on-error: true
         env:
-          DISCORD_RECAPS_WEBHOOK: ${{ secrets.DISCORD_RECAPS_WEBHOOK }}
+          DISCORD_RECAPS_WEBHOOK: ${{ secrets.NIGHT_RECAPS }}
         run: python build/post_discord.py
       - name: Record what Discord has
         if: always()
