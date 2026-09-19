@@ -1,0 +1,19 @@
+{
+ "_comment": "Which recaps are on the club Discord. Written by build/post_discord.py.",
+ "posted": {
+  "2026-09-13": {
+   "fp": "187c529e4137a927",
+   "id": null,
+   "seeded": true
+  },
+  "2026-09-15": {
+   "fp": "bafc13e097bcf8a4",
+   "id": null,
+   "seeded": true
+  },
+  "2026-09-17": {
+   "fp": "9dccbbf259f8b181",
+   "id": "1550965148007665734"
+  }
+ }
+}
