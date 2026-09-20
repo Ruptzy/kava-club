@@ -185,6 +185,14 @@ code{font-family:var(--fm);font-size:13px;color:var(--cream);background:var(--pa
   </section>
 
   <section>
+  <h2 class="d" style="font-size:20px">Study book</h2>
+  <p class="sub" style="margin-top:8px">What the Tuesday room is working through. The 2pm Discord post names it. You only need to touch this when the room starts a new book &mdash; the chapter comes from your latest study recap on its own.</p>
+  <div class="grid" style="margin-top:14px">
+    <label><span class="m">Book</span><input id="s_book" placeholder="40 Lessons for the Club Player"></label>
+    <label><span class="m">Calls them</span><select id="s_unit"><option value="chapter">Chapters</option><option value="lesson">Lessons</option></select></label>
+  </div>
+  <div class="row" style="margin-top:14px"><button class="btn" id="s_save" type="button">Save the book</button><span class="msg" id="s_msg"></span></div>
+
   <h2 class="d" style="font-size:20px">Add an event</h2>
   <form id="form" style="margin-top:20px">
     <div class="grid">
@@ -297,13 +305,41 @@ code{font-family:var(--fm);font-size:13px;color:var(--cream);background:var(--pa
     });
   }
 
+  // ---- study book: one field, changed only when the room starts a new book ----
+  var studySha=null, studyDoc=null;
+  function loadStudy(){
+    return api("GET",null,"study.json").then(function(j){
+      if(!j){ studyDoc={book:"",unit:"chapter",number:null}; studySha=null; return; }
+      studySha=j.sha; studyDoc=JSON.parse(unb64(j.content));
+      $("s_book").value=studyDoc.book||"";
+      $("s_unit").value=(studyDoc.unit||"chapter");
+    }).catch(function(){ /* the card just stays blank */ });
+  }
+  $("s_save").addEventListener("click",function(){
+    var book=$("s_book").value.trim();
+    if(!book){ msg($("s_msg"),"Type the book's title first.","err"); return; }
+    if(!studyDoc) studyDoc={};
+    var changed = (studyDoc.book||"") !== book;
+    studyDoc._comment="What the study nights are working through. Set the book here when the room starts a new one. Leave number null: the 2pm Discord post reads the chapter out of the most recent study recap.";
+    studyDoc.book=book; studyDoc.unit=$("s_unit").value;
+    if(changed){ studyDoc.number=null; studyDoc.started=new Date().toISOString().slice(0,10); }
+    studyDoc.updated=new Date().toISOString().slice(0,10);
+    msg($("s_msg"),"Saving…","busy");
+    var body={message:"Study book: "+book,content:b64(JSON.stringify(studyDoc,null,1)+"\n"),branch:"main"};
+    if(studySha) body.sha=studySha;
+    api("PUT",body,"study.json").then(function(j){
+      studySha=j.content.sha;
+      msg($("s_msg"),changed?"Saved. Tonight's post will name the new book.":"Saved.","ok");
+    }).catch(function(err){ msg($("s_msg"),err.message,"err"); });
+  });
+
   $("connect").addEventListener("click",function(){
     var t=$("tok").value.trim(), p1=$("pass1").value, p2=$("pass2").value;
     if(!t){ msg($("authMsg"),"Paste a token first.","err"); return; }
     if(p1.length<8){ msg($("authMsg"),"Use a passphrase of at least eight characters.","err"); return; }
     if(p1!==p2){ msg($("authMsg"),"The two passphrases do not match.","err"); return; }
     tok=t; msg($("authMsg"),"Checking\u2026","busy");
-    load().then(function(){ return lockToken(t,p1); })
+    loadStudy(); load().then(function(){ return lockToken(t,p1); })
       .then(function(){ $("tok").value=""; $("pass1").value=""; $("pass2").value=""; opened(); })
       .catch(function(err){ tok=""; msg($("authMsg"),err.message+" \u2014 check the token has Contents: Read and write on "+REPO+".","err"); });
   });

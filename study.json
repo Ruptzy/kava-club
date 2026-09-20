@@ -1,0 +1,8 @@
+{
+ "_comment": "What the study nights are working through. Harold sets the book here, from the admin page, whenever the room starts a new one. Leave number null: the 2pm Discord post reads the chapter out of the most recent study recap, so there is no second number to keep up to date. Setting a number here overrides the recap.",
+ "book": "40 Lessons for the Club Player",
+ "unit": "chapter",
+ "number": null,
+ "started": "2026-09-15",
+ "updated": "2026-09-20"
+}
