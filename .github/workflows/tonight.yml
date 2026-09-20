@@ -1,0 +1,43 @@
+name: Tonight on Discord
+
+on:
+  schedule:
+    # GitHub cron is UTC only. 2pm in Bradenton is 18:00 UTC on daylight time and
+    # 19:00 UTC on standard time, so fire at both and let the script check the real
+    # local hour. That keeps the time right across daylight saving on its own.
+    - cron: "0 18 * * *"
+    - cron: "0 19 * * *"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "dry = print it here only, post = really send it to the channel"
+        default: dry
+        type: choice
+        options: [dry, post]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tonight-post
+  cancel-in-progress: false
+
+jobs:
+  announce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Say what is on tonight
+        env:
+          CLUB_SCHEDULE: ${{ secrets.CLUB_SCHEDULE }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.mode }}" = "dry" ]; then
+            python build/post_tonight.py --dry
+          elif [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            python build/post_tonight.py --force
+          else
+            python build/post_tonight.py
+          fi
