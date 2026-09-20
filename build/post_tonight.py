@@ -31,6 +31,8 @@ except Exception:                                  # pragma: no cover
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.dirname(HERE)
 UA = 'KavaSocialChessClub-schedule (https://kavasocialchessclub.com, 1.0)'
+# Lenny posts these. Discord fetches the picture itself, so it has to be a public URL.
+AVATAR = 'https://kavasocialchessclub.com/img/lenny.png'
 
 # these three constants are the calendar; they must match build/template.html
 ANCHOR = date(2026, 8, 30)        # a league Sunday; Sundays alternate league / social
@@ -375,7 +377,8 @@ def combinations():
 
 
 def send(hook, text):
-    payload = {'content': text, 'allowed_mentions': {'parse': ['everyone']}}
+    payload = {'content': text, 'allowed_mentions': {'parse': ['everyone']},
+               'avatar_url': AVATAR}
     req = urllib.request.Request(hook.split('?')[0] + '?wait=true',
                                  data=json.dumps(payload, ensure_ascii=False).encode('utf-8'),
                                  method='POST')
