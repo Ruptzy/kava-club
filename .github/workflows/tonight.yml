@@ -32,7 +32,7 @@ jobs:
           python-version: "3.12"
       - name: Say what is on tonight
         env:
-          CLUB_SCHEDULE: ${{ secrets.CLUB_SCHEDULE }}
+          CLUB_SCHEDULE: ${{ secrets.SCHEDULE_FOR_DAY }}
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.mode }}" = "dry" ]; then
             python build/post_tonight.py --dry
