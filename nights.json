@@ -1,7 +1,21 @@
 {
  "_comment": "One entry per club night, newest first. Written by the admin console (Post a night) or by hand. build/build_nights.py turns these into /nights/<date>/ pages, the archive, the RSS feed and the sitemap. 'line' is Harold's own sentence about the night; 'commentary' is the write-up of the numbers.",
- "updated": "2026-09-17",
+ "updated": "2026-09-21",
  "nights": [
+  {
+   "date": "2026-09-20",
+   "type": "social",
+   "title": "Rain or shine under the tiki",
+   "title_es": "Llueva o haga sol, bajo el tiki",
+   "line": "It poured, so we moved under the tiki and kept playing.",
+   "line_es": "Llovió a cántaros, así que nos metimos bajo el tiki y seguimos jugando.",
+   "commentary": "The sky opened up on Sunday night, and nobody went home. ☔ We carried the boards under the tiki on the back patio at Kava Social, the rain came down on the thatch, and the games carried on like nothing was happening. Rain or shine, we play chess.\nIt was a free play night, which means anything goes, and the room went a little bit everywhere. Chess960 made a proper appearance, with the back rank shuffled at random so nobody's opening prep survives past move one. Rapid on one end of the table, blitz on the other, and a few social games that were more conversation than calculation. ♟️⚡\nAnd a big welcome to Mel, our newest member, pictured here deep in thought over the board. Every regular at this club started exactly where Mel is now: one Sunday, one board, one game. 🤝\nTuesday is study night, and next Sunday is a league night, so ratings are back on the line. See you under the tiki. 🌴",
+   "commentary_es": "El cielo se abrió el domingo por la noche, y nadie se fue a casa. ☔ Llevamos los tableros bajo el tiki en el patio trasero de Kava Social, la lluvia cayó sobre el techo de paja y las partidas siguieron como si nada. Llueva o haga sol, jugamos ajedrez.\nFue una noche de juego libre, donde todo vale, y la sala se fue un poco para todos lados. El Chess960 hizo acto de presencia, con la fila de atrás mezclada al azar para que ninguna preparación de aperturas sobreviva la primera jugada. Rápidas en una punta de la mesa, blitz en la otra, y unas cuantas partidas sociales con más conversación que cálculo. ♟️⚡\nY una gran bienvenida a Mel, nuestro miembro más nuevo, aquí muy concentrado frente al tablero. Cada habitual de este club empezó justo donde está Mel ahora: un domingo, un tablero, una partida. 🤝\nEl martes es noche de estudio, y el próximo domingo es noche de liga, así que los ratings vuelven a estar en juego. Nos vemos bajo el tiki. 🌴",
+   "photo": "img/nights/2026-09-20.jpg",
+   "photo_alt": "Mel, the club's newest member, deep in thought over the board under the tiki at Kava Social on a rainy free play night",
+   "photo_alt_es": "Mel, el miembro más nuevo del club, concentrado frente al tablero bajo el tiki de Kava Social en una noche lluviosa de juego libre",
+   "updated": "2026-09-21"
+  },
   {
    "date": "2026-09-17",
    "type": "adobe",
