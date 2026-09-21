@@ -378,7 +378,7 @@ def combinations():
 
 def send(hook, text):
     payload = {'content': text, 'allowed_mentions': {'parse': ['everyone']},
-               'avatar_url': AVATAR}
+               'avatar_url': AVATAR, 'username': 'Lenny'}
     req = urllib.request.Request(hook.split('?')[0] + '?wait=true',
                                  data=json.dumps(payload, ensure_ascii=False).encode('utf-8'),
                                  method='POST')
