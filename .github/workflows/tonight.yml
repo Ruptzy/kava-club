@@ -2,11 +2,10 @@ name: Tonight on Discord
 
 on:
   schedule:
-    # GitHub cron is UTC only. 2pm in Bradenton is 18:00 UTC on daylight time and
-    # 19:00 UTC on standard time, so fire at both and let the script check the real
-    # local hour. That keeps the time right across daylight saving on its own.
-    - cron: "0 18 * * *"
-    - cron: "0 19 * * *"
+    # Hourly, because GitHub's scheduled runs are best-effort and have been landing two
+    # to three hours late. The script posts on the first run at or after 2pm in Bradenton
+    # and records the day, so a late or repeated run still posts exactly once.
+    - cron: "0 * * * *"
   workflow_dispatch:
     inputs:
       mode:
@@ -16,7 +15,7 @@ on:
         options: [dry, post]
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: tonight-post
@@ -40,4 +39,15 @@ jobs:
             python build/post_tonight.py --force
           else
             python build/post_tonight.py
+          fi
+      - name: Record that it went out
+        if: always()
+        run: |
+          if [ -n "$(git status --porcelain tonight-posted.json)" ]; then
+            git config user.name "nights-bot"
+            git config user.email "nights-bot@users.noreply.github.com"
+            git add tonight-posted.json
+            git commit -m "Schedule post sent"
+            git pull --rebase --quiet origin main
+            git push
           fi

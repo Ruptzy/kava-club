@@ -6,9 +6,12 @@ social from the same anchor date, Tuesday is study night, Thursday is the
 intermediate+ room at Adobe Kava from 10 September 2026, and anything booked in
 events.json takes over the post for that day. If nothing is on, nothing is posted.
 
-GitHub cron only speaks UTC, so the workflow fires at both 18:00 and 19:00 UTC and this
-script posts only when it really is 2pm in Bradenton. That keeps the time right on both
-sides of daylight saving without touching the workflow twice a year.
+GitHub cron only speaks UTC and its scheduled runs are best-effort: ours have landed two
+to three hours late. So the workflow runs every hour and this script posts on the first
+run at or after 2pm in Bradenton, gives up after 7pm so a post never lands once the night
+has started, and records the day in tonight-posted.json so a late or repeated run still
+posts exactly once. Working in Bradenton's own clock also keeps daylight saving right
+without touching the workflow twice a year.
 
 The webhook for the channel is the CLUB_SCHEDULE secret and is never written in this
 repo. Without it the script says so and exits cleanly.
@@ -37,7 +40,9 @@ AVATAR = 'https://kavasocialchessclub.com/img/lenny.png'
 # these three constants are the calendar; they must match build/template.html
 ANCHOR = date(2026, 8, 30)        # a league Sunday; Sundays alternate league / social
 ADOBE_FROM = date(2026, 9, 10)    # first Thursday at Adobe Kava
-POST_HOUR = 14                    # 2pm, Bradenton time
+POST_HOUR = 14                    # 2pm, Bradenton time: the earliest we will post
+LATEST_HOUR = 19                  # and the latest, so it never lands after the night has started
+LEDGER = os.path.join(OUT, 'tonight-posted.json')   # the day we last posted, so a retry cannot double up
 
 
 def whats_on(day, events):
@@ -391,6 +396,19 @@ def send(hook, text):
         raise RuntimeError('Discord said %d: %s' % (e.code, e.read()[:300]))
 
 
+def last_posted():
+    try:
+        return json.load(open(LEDGER, encoding='utf-8')).get('last', '')
+    except Exception:
+        return ''
+
+
+def remember(day):
+    json.dump({'_comment': 'The last day the schedule post went out. Written by build/post_tonight.py.',
+               'last': day.isoformat()}, open(LEDGER, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+    open(LEDGER, 'a', encoding='utf-8').write(chr(10))
+
+
 def main(argv):
     if '--count' in argv:
         plan = study_plan()
@@ -406,11 +424,20 @@ def main(argv):
         day = date(*(int(x) for x in day_arg[0].split('=', 1)[1].split('-')))
     elif EASTERN:
         now = datetime.now(EASTERN)
-        if now.hour != POST_HOUR and not (dry or force):
-            print('Not 2pm in Bradenton (it is %02d:%02d there); the other cron will do it.'
-                  % (now.hour, now.minute))
-            return 0
         day = now.date()
+        if not (dry or force):
+            # GitHub's schedules are best-effort and can run hours late, so the workflow runs every
+            # hour and this posts on the first run inside the window that has not already posted.
+            if now.hour < POST_HOUR:
+                print('Too early in Bradenton (%02d:%02d); waiting for %d:00.' % (now.hour, now.minute, POST_HOUR))
+                return 0
+            if now.hour >= LATEST_HOUR:
+                print('Too late in Bradenton (%02d:%02d); the night is about to start, so nothing posted.'
+                      % (now.hour, now.minute))
+                return 0
+            if last_posted() == day.isoformat():
+                print('Already posted for %s.' % day.isoformat())
+                return 0
     else:
         print('No timezone database available; not guessing at the hour.')
         return 0
@@ -434,6 +461,7 @@ def main(argv):
         print('The secret does not look like a Discord webhook URL; nothing posted.')
         return 0
     send(hook, text)
+    remember(day)
     print('Posted the %s for %s.' % (on[0].get('type', 'event'), day.isoformat()))
     return 0
 
