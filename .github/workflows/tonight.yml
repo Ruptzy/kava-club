@@ -2,15 +2,15 @@ name: Tonight on Discord
 
 on:
   schedule:
-    # Every five minutes through the early afternoon in Bradenton, so the post lands at
-    # 2pm without anyone touching it. GitHub's scheduled runs are best-effort and ours
-    # have been two to three hours late when asked for a single time on the hour; asking
-    # often means one of them fires within minutes of 2pm even when some are delayed.
-    # 17:00-21:00 UTC covers 1pm-5pm Bradenton on daylight time and noon-4pm on standard
-    # time. The script posts on the first run at or after 2pm local and writes down the
-    # day, so the other runs do nothing. Free: Actions minutes are unmetered on a public
-    # repository.
-    - cron: "*/5 17-21 * * *"
+    # GitHub runs this repository's schedules 4 to 7 hours late, every day without
+    # exception (measured on the Google reviews job, which has never once run on time).
+    # So this is a net rather than an appointment: an event every five minutes across a
+    # wide band, and whichever one GitHub actually gets round to inside 2pm-7pm Bradenton
+    # time does the posting. The ledger keeps it to one post a day. Actions minutes are
+    # unmetered on a public repository, so the extra events cost nothing.
+    # For a post that really lands at 2pm, an outside trigger has to call this workflow;
+    # GitHub's own scheduler cannot do it.
+    - cron: "*/5 14-23 * * *"
   workflow_dispatch:
     inputs:
       mode:
