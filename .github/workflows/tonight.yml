@@ -2,10 +2,15 @@ name: Tonight on Discord
 
 on:
   schedule:
-    # Hourly, because GitHub's scheduled runs are best-effort and have been landing two
-    # to three hours late. The script posts on the first run at or after 2pm in Bradenton
-    # and records the day, so a late or repeated run still posts exactly once.
-    - cron: "0 * * * *"
+    # Every five minutes through the early afternoon in Bradenton, so the post lands at
+    # 2pm without anyone touching it. GitHub's scheduled runs are best-effort and ours
+    # have been two to three hours late when asked for a single time on the hour; asking
+    # often means one of them fires within minutes of 2pm even when some are delayed.
+    # 17:00-21:00 UTC covers 1pm-5pm Bradenton on daylight time and noon-4pm on standard
+    # time. The script posts on the first run at or after 2pm local and writes down the
+    # day, so the other runs do nothing. Free: Actions minutes are unmetered on a public
+    # repository.
+    - cron: "*/5 17-21 * * *"
   workflow_dispatch:
     inputs:
       mode:
