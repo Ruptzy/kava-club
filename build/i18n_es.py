@@ -223,7 +223,7 @@ TEXT = {
     "Free play, no pairings, no pressure. Every other Sunday.": "Juego libre, sin emparejamientos, sin presión. Un domingo sí y otro no.",
     "Alex Galante &middot; Google review": "Alex Galante &middot; Reseña en Google",
     "Quick questions": "Preguntas rápidas",
-    "Just how the pieces move. Someone will show you the rest at the board.": "Solo cómo se mueven las piezas. Alguien te enseña el resto en el tablero.",
+    "No. We teach complete beginners too. Knowing how the pieces move just makes it easier.": "No. También enseñamos a principiantes desde cero. Saber cómo se mueven las piezas solo lo hace más fácil.",
     "No. Those only matter for our rated tournaments.": "No. Solo cuentan para nuestros torneos con rating.",
     "Yes. Pull up a chair, just don't comment on a game in progress.": "Sí. Acerca una silla, solo no comentes una partida en curso.",
     "Will stronger players go easy on me?": "¿Los jugadores fuertes me van a aplastar?",
