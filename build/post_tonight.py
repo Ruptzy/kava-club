@@ -155,6 +155,12 @@ OPENERS = {
         "Tonight we keep going through {book}. Last session was {unit} {number}.",
         "Study night tonight, straight on from {unit} {number} of {book}.",
         "We're still deep in {book}. Last time was {unit} {number}, tonight we go further.",
+        "Study night! We stopped at {unit} {number} of {book} last week, so that is where we start.",
+        "Books out tonight. {book}, carrying on from {unit} {number}.",
+        "Study night tonight. Last session took us through {unit} {number} of {book}.",
+        "We pick {book} back up tonight, just past {unit} {number}.",
+        "Study night! {unit} {number} of {book} is behind us. Onward.",
+        "Tonight is study night. We left {book} at {unit} {number}.",
     ],
     'adobe': [
         "Intermediate+ study night at Adobe Kava tonight. Harder material, tougher positions.",
@@ -288,11 +294,16 @@ def study_plan():
 
 
 def study_pool(plan):
-    """Only offer wordings the facts can actually fill in."""
-    pool = [x for x in OPENERS['study'] if '{book}' not in x or plan.get('book')]
+    """Only offer wordings the facts can actually fill in.
+
+    When the recaps tell us where the book is up to, every opener names it: the chapter
+    is the most useful thing a study night post can say, so it should never be a coin
+    toss. The general openers are only for when no chapter is known yet, such as the
+    first study night of a new book.
+    """
     if plan.get('book') and plan.get('number'):
-        pool += OPENERS['study_numbered' if plan.get('source') == 'plan' else 'study_last']
-    return pool
+        return OPENERS['study_numbered' if plan.get('source') == 'plan' else 'study_last']
+    return [x for x in OPENERS['study'] if '{book}' not in x or plan.get('book')]
 
 
 def fill(line, plan):
