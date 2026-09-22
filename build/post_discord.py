@@ -128,7 +128,7 @@ def lenny_says(n):
     rng = random.Random('lenny|' + n['date'])
     no = B.night_number(n['date'])
     text = ' '.join([B.loc(n, 'title', False), B.loc(n, 'line', False), B.loc(n, 'commentary', False)]).lower()
-    topical = [f for key, f in LENNY_TOPICAL if re.search(r'%s' % re.escape(key), text)]
+    topical = [f for key, f in LENNY_TOPICAL if re.search(r'\b%s\b' % re.escape(key), text)]
     fact = rng.choice(topical) if topical and rng.random() < 0.6 else rng.choice(LENNY_FACTS)
     data = [
         "For the record, that was club night number %d." % no,
