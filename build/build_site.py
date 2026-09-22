@@ -56,6 +56,11 @@ _band = _src.crop((0, _top, _src.width, _top + _bh)).resize((1600, round(1600 * 
 _band.save(os.path.join(OUT, 'img', 'hero-wide.jpg'), 'JPEG', quality=72, optimize=True, progressive=True)
 webp.emit(_band, os.path.join(OUT, 'img', 'hero-wide.jpg')); M['HEROWIDE'] = 'img/hero-wide.jpg'
 M['VENUE'], _ = jpg(os.path.join(LG, 'ksc-store.jpg'), 1400, 78, 'venue.jpg')
+# the beginners page opens on a sharp, wide shot of the tiki tables (5967x3978 original).
+# Called directly rather than through the hero list so the photo stays in the gallery too.
+M['FIRSTNIGHT'], _ = jpg(os.path.join(SRC, 'IMG_1782.jpg'), 1800, 80, 'first-night.jpg')
+M['CHECK'] = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" '
+              'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>')
 M['BG'], _ = jpg(os.path.join(LG, 'bg.jpg'), 1086, 66, 'bg.jpg')
 M['VPOSTER'], _ = jpg(COVER, 1080, 82, 'promo-poster.jpg')
 for key, fn, out in [('L_MANASOTA', 'manasota.png', 'manasota.png'), ('L_TAMPA', 'tampa.png', 'tampa.png'), ('L_ORCA', 'orca.png', 'orca.png'),
@@ -353,11 +358,11 @@ SUBPAGES = {
     'beginners': {
         'title': 'Your first night — a beginner\'s guide to Kava Social Chess Club',
         'title_es': 'Tu primera noche — guía para principiantes del Kava Social Chess Club',
-        'desc': ('Never played, or not since school? How a club night works in Bradenton: when to come, what to bring '
-                 '(nothing), who you\'ll play, and answers to the questions everyone asks first.'),
-        'desc_es': ('¿Nunca has jugado, o no desde la escuela? Cómo funciona una noche de club en Bradenton: cuándo venir, '
-                    'qué traer (nada), con quién jugarás y respuestas a las preguntas que todos hacen primero.'),
-        'image': 'img/sunday.jpg',
+        'desc': ('Never played, or not since school? Your first chess night in Bradenton: walk in any Sunday or '
+                 'Tuesday after 8, order one drink, say it\'s your first night. Free, every level welcome, nothing to bring.'),
+        'desc_es': ('¿Nunca has jugado, o no desde la escuela? Tu primera noche de ajedrez en Bradenton: ven cualquier '
+                    'domingo o martes después de las 8, pide una bebida y di que es tu primera noche. Gratis, todos los niveles.'),
+        'image': 'img/first-night.jpg',
     },
     'lessons': {
         'title': 'Private chess lessons in Bradenton & Sarasota — Kava Social Chess Club',
