@@ -1,10 +1,17 @@
 {
  "name": "Kava Social Chess Club",
  "rating": 4.9,
- "count": 18,
+ "count": 19,
  "url": "https://maps.google.com/?cid=5077918318847267088&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA",
  "placeId": "ChIJ-bv_E6gXw4gREBFXmc5jeEY",
  "reviews": [
+  {
+   "author": "Madison Dennis",
+   "rating": 5,
+   "text": "Side effects: may leave you feeling an obsessive attachment to chess tactics and falling in love with Harold the club manager 💚",
+   "time": "2026-09-21",
+   "when": "in the last week"
+  },
   {
    "author": "Chase Callahan",
    "rating": 5,
@@ -30,13 +37,6 @@
    "author": "Alex Galante",
    "rating": 5,
    "text": "Solid chess club with relaxed, beginner-friendly vibes and good organization/leadership.",
-   "time": "2026-09-10",
-   "when": "a week ago"
-  },
-  {
-   "author": "Matthew Saba",
-   "rating": 5,
-   "text": "Good drinks and good people, always a fun time.",
    "time": "2026-09-10",
    "when": "a week ago"
   },
