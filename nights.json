@@ -1,7 +1,21 @@
 {
  "_comment": "One entry per club night, newest first. Written by the admin console (Post a night) or by hand. build/build_nights.py turns these into /nights/<date>/ pages, the archive, the RSS feed and the sitemap. 'line' is Harold's own sentence about the night; 'commentary' is the write-up of the numbers.",
- "updated": "2026-09-21",
+ "updated": "2026-09-23",
  "nights": [
+  {
+   "date": "2026-09-22",
+   "type": "study",
+   "title": "Six puzzles, and Maddie took the hardest",
+   "title_es": "Seis ejercicios, y Maddie se llevó el más difícil",
+   "line": "Six puzzles on the table, scored, and the hardest one fell to Maddie.",
+   "line_es": "Seis ejercicios sobre la mesa, con puntuación, y el más difícil cayó ante Maddie.",
+   "commentary": "Chapter 30 of 40 Lessons for the Club Player, and the subject was evaluation: looking at a position and knowing who actually stands better, before you calculate a single line. 📚\nThen we put it to the test. Six puzzles, scored, the whole room working the same positions. Evaluation is the hardest thing to teach and the easiest thing to fake, so a scored set is honest about what you really see. Some great solves came out of it, and the hardest puzzle in the set went to Maddie. Not bad for a rookie. 🏆\nTwo new faces joined us as well, and both got straight into the games. That is exactly how a Tuesday should go. 🤝\nOne more bit of club news: our chess.com verification application is finished and submitted. And the training carries on, because the Battle for the Bay against the Tampa Knights is eleven days out. ⚔️♟️",
+   "commentary_es": "Capítulo 30 de 40 Lessons for the Club Player, y el tema fue la evaluación: mirar una posición y saber quién está realmente mejor, antes de calcular una sola variante. 📚\nDespués lo pusimos a prueba. Seis ejercicios, con puntuación, toda la sala con las mismas posiciones. La evaluación es lo más difícil de enseñar y lo más fácil de fingir, así que un set puntuado es honesto sobre lo que de verdad ves. Salieron soluciones excelentes, y el ejercicio más difícil del set fue para Maddie. Nada mal para una novata. 🏆\nTambién se nos unieron dos caras nuevas, y las dos entraron directo a jugar. Así es como debe ser un martes. 🤝\nY una noticia más del club: nuestra solicitud de verificación en chess.com está terminada y enviada. El entrenamiento sigue, porque la Battle for the Bay contra los Tampa Knights es en once días. ⚔️♟️",
+   "photo": "img/nights/2026-09-22.jpg",
+   "photo_alt": "Players at the tables on the patio at Kava Social Club on a Tuesday study night, boards mid-game under the neon",
+   "photo_alt_es": "Jugadores en las mesas del patio de Kava Social Club en una noche de estudio de martes, partidas en curso bajo el neón",
+   "updated": "2026-09-23"
+  },
   {
    "date": "2026-09-20",
    "type": "social",
