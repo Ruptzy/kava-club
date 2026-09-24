@@ -1,10 +1,17 @@
 {
  "name": "Kava Social Chess Club",
- "rating": 4.9,
- "count": 19,
+ "rating": 5,
+ "count": 20,
  "url": "https://maps.google.com/?cid=5077918318847267088&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA",
  "placeId": "ChIJ-bv_E6gXw4gREBFXmc5jeEY",
  "reviews": [
+  {
+   "author": "Israel Carromero",
+   "rating": 5,
+   "text": "Great place to play chess and meet other players. The atmosphere is relaxed, the people are friendly, and there’s a good mix of skill levels. It’s nice having a place where you can sit down, play a few games, and enjoy the game without it feeling overly competitive. I’ll definitely be back.",
+   "time": "2026-09-24",
+   "when": "in the last week"
+  },
   {
    "author": "Madison Dennis",
    "rating": 5,
@@ -30,13 +37,6 @@
    "author": "Samantha Julien",
    "rating": 5,
    "text": "I play chess here once a week on Sundays, and the group is great. They have cheap alternatives since I can’t drink kava or kratom, and the people are great to be around. Everyone is friendly, and they always have some kind of event going on.",
-   "time": "2026-09-10",
-   "when": "a week ago"
-  },
-  {
-   "author": "Alex Galante",
-   "rating": 5,
-   "text": "Solid chess club with relaxed, beginner-friendly vibes and good organization/leadership.",
    "time": "2026-09-10",
    "when": "a week ago"
   },
