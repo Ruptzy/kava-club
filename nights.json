@@ -1,7 +1,21 @@
 {
  "_comment": "One entry per club night, newest first. Written by the admin console (Post a night) or by hand. build/build_nights.py turns these into /nights/<date>/ pages, the archive, the RSS feed and the sitemap. 'line' is Harold's own sentence about the night; 'commentary' is the write-up of the numbers.",
- "updated": "2026-09-23",
+ "updated": "2026-09-25",
  "nights": [
+  {
+   "date": "2026-09-24",
+   "type": "adobe",
+   "title": "Rapid fire, then a Taimanov",
+   "title_es": "Fuego rápido, y después una Taimanov",
+   "line": "Three hours: puzzles against the clock, then both sides of a Taimanov.",
+   "line_es": "Tres horas: ejercicios contra el reloj, y después los dos bandos de una Taimanov.",
+   "commentary": "Thursday at Adobe Kava, and the intermediate+ room went straight to work. The method was Woodpecker: a set of tactics solved at speed, then solved again, and again, until the patterns stop needing thought. Every puzzle scored, same as Tuesday. ⏱️🧩\nThen the books went down and we sparred. One position out of the Taimanov Sicilian, played from both sides, over and over. Playing a structure instead of memorising a line is how you learn what the pieces actually want in it. ♟️\nThree hours, heads down, nobody drifting. That is what the Thursday room is for, and it is exactly the shape of preparation you want nine days out from the Battle for the Bay. ⚔️",
+   "commentary_es": "Jueves en Adobe Kava, y la sala de intermedios fue directo al trabajo. El método fue Woodpecker: un set de tácticas resuelto a velocidad, y luego otra vez, y otra, hasta que los patrones dejan de necesitar pensamiento. Cada ejercicio con puntuación, igual que el martes. ⏱️🧩\nDespués dejamos los libros y practicamos. Una posición de la Siciliana Taimanov, jugada por los dos bandos, una y otra vez. Jugar una estructura en vez de memorizar una línea es como aprendes lo que las piezas quieren de verdad en ella. ♟️\nTres horas, cabeza abajo, nadie distraído. Para eso está la sala del jueves, y es justo la preparación que quieres a nueve días de la Battle for the Bay. ⚔️",
+   "photo": "img/nights/2026-09-24.jpg",
+   "photo_alt": "Players at the boards under the umbrella lights at Adobe Kava on a Thursday intermediate study night",
+   "photo_alt_es": "Jugadores en los tableros bajo las luces de la sombrilla en Adobe Kava en una noche de estudio intermedio de jueves",
+   "updated": "2026-09-25"
+  },
   {
    "date": "2026-09-22",
    "type": "study",
