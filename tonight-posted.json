@@ -1,4 +1,5 @@
 {
  "_comment": "The last day the schedule post went out, and the last day a club night went unannounced. Written by build/post_tonight.py.",
- "last": "2026-09-22"
+ "last": "2026-09-22",
+ "missed": "2026-09-27"
 }
