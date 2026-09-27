@@ -10,10 +10,10 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "dry = print it here only, post = really send it to the channel"
+        description: "auto = the normal rules (3pm, once a day) | dry = print only | post = send now"
         default: dry
         type: choice
-        options: [dry, post]
+        options: [auto, dry, post]
 
 permissions:
   contents: write
@@ -35,12 +35,12 @@ jobs:
         env:
           CLUB_SCHEDULE: ${{ secrets.SCHEDULE_FOR_DAY }}
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.mode }}" = "dry" ]; then
-            python build/post_tonight.py --dry
-          elif [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            python build/post_tonight.py --force
-          else
+          if [ "${{ github.event_name }}" != "workflow_dispatch" ] || [ "${{ inputs.mode }}" = "auto" ]; then
             python build/post_tonight.py
+          elif [ "${{ inputs.mode }}" = "dry" ]; then
+            python build/post_tonight.py --dry
+          else
+            python build/post_tonight.py --force
           fi
       - name: Record that it went out
         if: always()
