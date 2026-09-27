@@ -410,16 +410,27 @@ def send(hook, text):
         raise RuntimeError('Discord said %d: %s' % (e.code, e.read()[:300]))
 
 
-def last_posted():
+def _ledger():
     try:
-        return json.load(open(LEDGER, encoding='utf-8')).get('last', '')
+        return json.load(open(LEDGER, encoding='utf-8'))
     except Exception:
-        return ''
+        return {}
 
 
-def remember(day):
-    json.dump({'_comment': 'The last day the schedule post went out. Written by build/post_tonight.py.',
-               'last': day.isoformat()}, open(LEDGER, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+def last_posted():
+    return _ledger().get('last', '')
+
+
+def last_missed():
+    return _ledger().get('missed', '')
+
+
+def remember(day, key='last'):
+    led = _ledger()
+    led['_comment'] = ('The last day the schedule post went out, and the last day a club night went '
+                       'unannounced. Written by build/post_tonight.py.')
+    led[key] = day.isoformat()
+    json.dump(led, open(LEDGER, 'w', encoding='utf-8'), ensure_ascii=False, indent=1, sort_keys=True)
     open(LEDGER, 'a', encoding='utf-8').write(chr(10))
 
 
@@ -449,6 +460,13 @@ def main(argv):
             if now.hour >= LATEST_HOUR:
                 print('Too late in Bradenton (%02d:%02d); the night is about to start, so nothing posted.'
                       % (now.hour, now.minute))
+                booked = json.load(open(os.path.join(OUT, 'events.json'), encoding='utf-8')).get('events', [])
+                if whats_on(day, booked) and last_missed() != day.isoformat():
+                    remember(day, 'missed')
+                    print()
+                    print('MISSED: there was a club night on %s and no announcement went out. '
+                          'Failing this run so GitHub emails the owner.' % day.isoformat())
+                    return 1
                 return 0
             if now.hour < EARLIEST_HOUR:
                 print('Only %02d:%02d in Bradenton; too far from %d:00 to wait. Leaving it to a later run.'

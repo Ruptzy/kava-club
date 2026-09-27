@@ -2,11 +2,14 @@ name: Tonight on Discord
 
 on:
   schedule:
-    # Measured over a week: of the ~120 runs asked for each day, GitHub actually executes
-    # two to four, at times of its own choosing. So the schedule is only a way of getting
-    # a runner at all. The script does the timing: a run that lands before 3pm Bradenton
-    # waits for 3pm and then posts, which is why the job needs a long timeout.
-    - cron: "*/5 14-23 * * *"
+    # This schedule is only a backstop. The timing is done by a scheduled task on Harold's
+    # PC, which dispatches this workflow at 3pm Bradenton time; GitHub acts on a dispatch in
+    # seconds. GitHub's own scheduler executes only a handful of the runs it is asked for,
+    # at times of its choosing, and drops the rest, so: asked for at off-peak minutes, and
+    # any run that lands early waits for 3pm before posting (hence the long timeout). A
+    # late run that finds a club night went unannounced fails on purpose, which makes
+    # GitHub email the owner.
+    - cron: "13,43 14-23 * * *"
   workflow_dispatch:
     inputs:
       mode:
