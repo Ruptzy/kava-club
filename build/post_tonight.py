@@ -21,6 +21,7 @@ import os
 import random
 import re
 import sys
+import time
 import urllib.error
 import urllib.request
 from datetime import date, datetime, timedelta
@@ -40,8 +41,10 @@ AVATAR = 'https://kavasocialchessclub.com/img/lenny.png'
 # these three constants are the calendar; they must match build/template.html
 ANCHOR = date(2026, 8, 30)        # a league Sunday; Sundays alternate league / social
 ADOBE_FROM = date(2026, 9, 10)    # first Thursday at Adobe Kava
-POST_HOUR = 14                    # 2pm, Bradenton time: the earliest we will post
-LATEST_HOUR = 19                  # and the latest, so it never lands after the night has started
+POST_HOUR = 15                    # 3pm, Bradenton time: when the post should land
+EARLIEST_HOUR = 10                # a run before this is too far out to sit and wait for 3pm
+LATEST_HOUR = 19                  # after this the night is starting, so we skip the day instead
+MAX_WAIT = 5 * 3600 + 1800        # never hold the runner longer than five and a half hours
 LEDGER = os.path.join(OUT, 'tonight-posted.json')   # the day we last posted, so a retry cannot double up
 
 
@@ -437,18 +440,42 @@ def main(argv):
         now = datetime.now(EASTERN)
         day = now.date()
         if not (dry or force):
-            # GitHub's schedules are best-effort and can run hours late, so the workflow runs every
-            # hour and this posts on the first run inside the window that has not already posted.
-            if now.hour < POST_HOUR:
-                print('Too early in Bradenton (%02d:%02d); waiting for %d:00.' % (now.hour, now.minute, POST_HOUR))
+            # GitHub executes two to four of the 120 runs asked for each day, at times of its own
+            # choosing, so a fixed appointment is not something it can keep. Instead: take
+            # whatever run we are given, and if it lands before 3pm, wait for 3pm and post then.
+            if last_posted() == day.isoformat():
+                print('Already posted for %s.' % day.isoformat())
                 return 0
             if now.hour >= LATEST_HOUR:
                 print('Too late in Bradenton (%02d:%02d); the night is about to start, so nothing posted.'
                       % (now.hour, now.minute))
                 return 0
-            if last_posted() == day.isoformat():
-                print('Already posted for %s.' % day.isoformat())
+            if now.hour < EARLIEST_HOUR:
+                print('Only %02d:%02d in Bradenton; too far from %d:00 to wait. Leaving it to a later run.'
+                      % (now.hour, now.minute, POST_HOUR))
                 return 0
+            if now.hour < POST_HOUR:
+                target = now.replace(hour=POST_HOUR, minute=0, second=0, microsecond=0)
+                wait = (target - now).total_seconds()
+                if wait > MAX_WAIT:
+                    print('Too long to wait for %d:00 from %02d:%02d.' % (POST_HOUR, now.hour, now.minute))
+                    return 0
+                print('It is %02d:%02d in Bradenton. Holding on for %d:00, %d minutes away.'
+                      % (now.hour, now.minute, POST_HOUR, round(wait / 60)))
+                while True:
+                    left = (target - datetime.now(EASTERN)).total_seconds()
+                    if left <= 0:
+                        break
+                    time.sleep(min(left, 600))
+                    left = (target - datetime.now(EASTERN)).total_seconds()
+                    if left > 0:
+                        print('  still waiting, %d minutes to go' % round(left / 60))
+                now = datetime.now(EASTERN)
+                day = now.date()
+                if last_posted() == day.isoformat():     # another run got there while we waited
+                    print('Already posted for %s.' % day.isoformat())
+                    return 0
+                print('It is %02d:%02d. Posting.' % (now.hour, now.minute))
     else:
         print('No timezone database available; not guessing at the hour.')
         return 0

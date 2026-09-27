@@ -2,14 +2,10 @@ name: Tonight on Discord
 
 on:
   schedule:
-    # GitHub runs this repository's schedules 4 to 7 hours late, every day without
-    # exception (measured on the Google reviews job, which has never once run on time).
-    # So this is a net rather than an appointment: an event every five minutes across a
-    # wide band, and whichever one GitHub actually gets round to inside 2pm-7pm Bradenton
-    # time does the posting. The ledger keeps it to one post a day. Actions minutes are
-    # unmetered on a public repository, so the extra events cost nothing.
-    # For a post that really lands at 2pm, an outside trigger has to call this workflow;
-    # GitHub's own scheduler cannot do it.
+    # Measured over a week: of the ~120 runs asked for each day, GitHub actually executes
+    # two to four, at times of its own choosing. So the schedule is only a way of getting
+    # a runner at all. The script does the timing: a run that lands before 3pm Bradenton
+    # waits for 3pm and then posts, which is why the job needs a long timeout.
     - cron: "*/5 14-23 * * *"
   workflow_dispatch:
     inputs:
@@ -29,6 +25,7 @@ concurrency:
 jobs:
   announce:
     runs-on: ubuntu-latest
+    timeout-minutes: 360        # it may sit and wait for 3pm in Bradenton
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
