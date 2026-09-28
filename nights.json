@@ -1,7 +1,129 @@
 {
  "_comment": "One entry per club night, newest first. Written by the admin console (Post a night) or by hand. build/build_nights.py turns these into /nights/<date>/ pages, the archive, the RSS feed and the sitemap. 'line' is Harold's own sentence about the night; 'commentary' is the write-up of the numbers.",
- "updated": "2026-09-25",
+ "updated": "2026-09-28",
  "nights": [
+  {
+   "date": "2026-09-27",
+   "type": "league",
+   "season": 10,
+   "title": "Eighteen players, one perfect score",
+   "title_es": "Dieciocho jugadores, un pleno perfecto",
+   "line": "A cool night, full tables, and four underdogs walked off with a result.",
+   "line_es": "Una noche fresca, mesas llenas, y cuatro sorpresas que se llevaron su resultado.",
+   "commentary": "Night two of Season 10, and the patio filled up: eighteen players, five rounds, three brackets, and for once the weather did us a favour. Cool, clear, a breeze through the tiki. The kind of night the boards stay out until midnight and nobody notices the time. 🌙\nScott is a problem. Five rounds, five wins, and the list of who he beat reads like the top of the table: Harold, Mathew, Benji. Two nights into the season he is ten from ten. Behind him Harold and Mathew sit on four apiece, and Harold took a 37% shot at Benji in the last round and landed it. 🔥\nThen the upsets. Steve opened the night by beating Toska as a 35% underdog. Stevo closed it by beating Brian O at 32%. Jenny held Toska to a draw at 27%. And Maddie, four days after solving the hardest puzzle on Tuesday, turned it into a round-five win over Diego. All of which leaves Under 1400 in a three-way tie at the top: Zack, Steve and Stevo on three points each. 🧨\nUnder 1000, Anton and Maddie share the lead on two. Eighteen players, two nights in. Season 10 is going to be a fight, and the Battle for the Bay is Saturday. ⚔️♟️",
+   "commentary_es": "Noche dos de la Temporada 10, y el patio se llenó: dieciocho jugadores, cinco rondas, tres grupos, y por una vez el clima nos hizo el favor. Fresco, despejado, brisa entre el tiki. La clase de noche en la que los tableros se quedan afuera hasta medianoche y nadie mira la hora. 🌙\nScott es un problema. Cinco rondas, cinco victorias, y la lista de a quién venció parece la parte alta de la tabla: Harold, Mathew, Benji. A dos noches de temporada va diez de diez. Detrás, Harold y Mathew con cuatro cada uno, y Harold se jugó un 37% contra Benji en la última ronda y lo acertó. 🔥\nY las sorpresas. Steve abrió la noche venciendo a Toska con un 35%. Stevo la cerró venciendo a Brian O con un 32%. Jenny le sacó tablas a Toska con un 27%. Y Maddie, cuatro días después de resolver el ejercicio más difícil del martes, lo convirtió en una victoria sobre Diego en la quinta ronda. Todo eso deja a Menos de 1400 con un triple empate arriba: Zack, Steve y Stevo con tres puntos cada uno. 🧨\nEn Menos de 1000, Anton y Maddie comparten el liderato con dos. Dieciocho jugadores, dos noches. La Temporada 10 va a ser una pelea, y la Battle for the Bay es el sábado. ⚔️♟️",
+   "rounds": 5,
+   "played": 18,
+   "standings": [
+    {
+     "bracket": "Over 1400",
+     "bracket_es": "Más de 1400",
+     "rows": [
+      {
+       "name": "Scott",
+       "pts": 5,
+       "rec": "5-0-0"
+      },
+      {
+       "name": "Harold",
+       "pts": 4,
+       "rec": "4-0-1"
+      },
+      {
+       "name": "Mathew",
+       "pts": 4,
+       "rec": "4-0-1"
+      },
+      {
+       "name": "Benji",
+       "pts": 3,
+       "rec": "3-0-2"
+      },
+      {
+       "name": "Toska",
+       "pts": 2.5,
+       "rec": "2-1-2"
+      }
+     ]
+    },
+    {
+     "bracket": "Under 1400",
+     "bracket_es": "Menos de 1400",
+     "rows": [
+      {
+       "name": "Zack",
+       "pts": 3,
+       "rec": "3-0-2"
+      },
+      {
+       "name": "Steve",
+       "pts": 3,
+       "rec": "3-0-2"
+      },
+      {
+       "name": "Stevo",
+       "pts": 3,
+       "rec": "3-0-2"
+      },
+      {
+       "name": "Jenny",
+       "pts": 2.5,
+       "rec": "2-1-2"
+      },
+      {
+       "name": "Brian O",
+       "pts": 2,
+       "rec": "2-0-3"
+      },
+      {
+       "name": "Omar Cruz",
+       "pts": 2,
+       "rec": "2-0-3"
+      }
+     ]
+    },
+    {
+     "bracket": "Under 1000",
+     "bracket_es": "Menos de 1000",
+     "rows": [
+      {
+       "name": "Anton",
+       "pts": 2,
+       "rec": "2-0-3"
+      },
+      {
+       "name": "Maddie",
+       "pts": 2,
+       "rec": "1-0-3"
+      },
+      {
+       "name": "Diego",
+       "pts": 1,
+       "rec": "0-0-4"
+      },
+      {
+       "name": "Cody",
+       "pts": 1,
+       "rec": "0-0-3"
+      },
+      {
+       "name": "Ron",
+       "pts": 1,
+       "rec": "1-0-2"
+      },
+      {
+       "name": "Drake",
+       "pts": 1,
+       "rec": "1-0-3"
+      }
+     ]
+    }
+   ],
+   "photo": "img/nights/2026-09-27.jpg",
+   "photo_alt": "League night two of season 10 at Kava Social Club: a long table of boards down the patio, eighteen players under the red and blue lights",
+   "photo_alt_es": "Noche de liga dos de la temporada 10 en Kava Social Club: una mesa larga de tableros a lo largo del patio, dieciocho jugadores bajo las luces rojas y azules",
+   "updated": "2026-09-28"
+  },
   {
    "date": "2026-09-24",
    "type": "adobe",
