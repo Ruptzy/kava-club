@@ -122,7 +122,29 @@
    "photo": "img/nights/2026-09-27.jpg",
    "photo_alt": "League night two of season 10 at Kava Social Club: a long table of boards down the patio, eighteen players under the red and blue lights",
    "photo_alt_es": "Noche de liga dos de la temporada 10 en Kava Social Club: una mesa larga de tableros a lo largo del patio, dieciocho jugadores bajo las luces rojas y azules",
-   "updated": "2026-09-28"
+   "updated": "2026-09-28",
+   "upsets": [
+    [
+     "Steve",
+     "Toska",
+     "35%"
+    ],
+    [
+     "Stevo",
+     "Brian O",
+     "32%"
+    ],
+    [
+     "Harold",
+     "Benji",
+     "37%"
+    ],
+    [
+     "Maddie",
+     "Diego",
+     "33%"
+    ]
+   ]
   },
   {
    "date": "2026-09-24",

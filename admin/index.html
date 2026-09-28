@@ -230,6 +230,7 @@ code{font-family:var(--fm);font-size:13px;color:var(--cream);background:var(--pa
 
 </div>
 
+<script src="card.js"></script>
 <script>
 (function(){
   var REPO="Ruptzy/kava-club", PATH="events.json", API="https://api.github.com/repos/"+REPO+"/contents/"+PATH, BASE="https://api.github.com/repos/"+REPO+"/contents/";
@@ -536,48 +537,14 @@ code{font-family:var(--fm);font-size:13px;color:var(--cream);background:var(--pa
   // ---- the card: 1080 x 1350, the site's own look ----
   function rr(c,x,y,w,h,r){c.beginPath();c.moveTo(x+r,y);c.arcTo(x+w,y,x+w,y+h,r);c.arcTo(x+w,y+h,x,y+h,r);c.arcTo(x,y+h,x,y,r);c.arcTo(x,y,x+w,y,r);c.closePath();}
   function draw(n,logo){
-    var cv=$("cv"), c=cv.getContext("2d"), W=1080, H=1350;
-    c.fillStyle="#0C0D0E"; c.fillRect(0,0,W,H);
-    // masthead
-    if(logo){ c.save(); c.beginPath(); c.arc(112,112,58,0,Math.PI*2); c.closePath(); c.clip(); c.drawImage(logo,54,54,116,116); c.restore(); }
-    c.fillStyle="#FFF6E8"; c.font="900 46px Archivo"; c.textBaseline="alphabetic";
-    c.fillText("KAVA SOCIAL CHESS CLUB",200,102);
-    c.fillStyle="#FE273A"; c.fillText((n.type==="league"?"LEAGUE":(TYPES[n.type]||"CLUB NIGHT")).toUpperCase(),200,152);
-    c.fillStyle="#A39B8E"; c.font="700 20px 'JetBrains Mono'";
-    var meta=[longDate(n.date).toUpperCase()]; if(n.rounds) meta.push(n.rounds+" ROUNDS"); if(n.played) meta.push(n.played+" PLAYED");
-    c.fillText(meta.join("   ·   "),200,190);
-    c.fillStyle="#FE273A"; c.fillRect(54,222,W-108,3);
-    var y=270, st=n.standings||[];
-    if(!st.length){
-      c.fillStyle="#FFF6E8"; c.font="900 64px Archivo"; wrap(c,(n.title||TYPES[n.type]||"Club night").toUpperCase(),54,y+50,W-108,68);
-      if(n.line){ c.fillStyle="#E7DFD2"; c.font="300 34px Newsreader"; wrap(c,"“"+n.line+"”",54,y+220,W-108,44); }
-    } else {
-      var rows=st.reduce(function(a,b){return a+b.rows.length;},0);
-      var avail=H-y-110-st.length*74, rh=Math.max(44,Math.min(66,Math.floor(avail/rows)));
-      st.forEach(function(b){
-        c.fillStyle="#FE273A"; c.font="700 20px 'JetBrains Mono'"; c.fillText(b.bracket.toUpperCase().replace("OVER","OVER").replace("UNDER","UNDER")+(/\d/.test(b.bracket)?" ELO":""),54,y+22); y+=44;
-        var rank=0,last=null;
-        b.rows.forEach(function(r,i){
-          if(r.pts!==last){rank=i+1;last=r.pts;}
-          c.fillStyle=(i%2===0)?"#141618":"#0C0D0E"; rr(c,54,y,W-108,rh-4,10); c.fill();
-          var col=rank===1?"#E4B02F":rank===2?"#C9CBCF":rank===3?"#C67A3A":null;
-          c.beginPath(); c.arc(92,y+(rh-4)/2,16,0,Math.PI*2); c.closePath();
-          if(col){ c.fillStyle=col; c.fill(); c.fillStyle="#0C0D0E"; } else { c.strokeStyle="#4A5057"; c.lineWidth=1.5; c.stroke(); c.fillStyle="#A39B8E"; }
-          c.font="700 16px 'JetBrains Mono'"; c.textAlign="center"; c.fillText(String(rank),92,y+(rh-4)/2+6); c.textAlign="left";
-          c.fillStyle="#FFF6E8"; c.font="800 "+Math.round(rh*0.44)+"px Archivo"; c.fillText(r.name+(r.note?"  ("+r.note+")":""),128,y+(rh-4)/2+Math.round(rh*0.16));
-          c.textAlign="right"; c.font="900 "+Math.round(rh*0.46)+"px Archivo"; c.fillText(String(r.pts),W-190,y+(rh-4)/2+Math.round(rh*0.17));
-          c.fillStyle="#A39B8E"; c.font="700 17px 'JetBrains Mono'"; c.fillText(r.rec||"",W-72,y+(rh-4)/2+6); c.textAlign="left";
-          y+=rh;
-        });
-        y+=30;
-      });
-    }
-    c.fillStyle="#24282C"; c.fillRect(54,H-92,W-108,1);
-    c.fillStyle="#A39B8E"; c.font="700 18px 'JetBrains Mono'"; c.fillText("KAVASOCIALCHESSCLUB.COM/NIGHTS/",54,H-50);
-    c.textAlign="right"; c.fillStyle="#FE273A"; c.fillText("NIGHT "+(n.no||""),W-54,H-50); c.textAlign="left";
-    var url=cv.toDataURL("image/jpeg",0.92); $("card").src=url; $("dlCard").href=url; $("dlCard").download="kava-chess-"+n.date+"-standings.jpg";
+    var cv=$("cv"), st=n.standings||[];
+    var nights=(nightsDoc&&nightsDoc.nights)||[], events=(doc&&doc.events)||[];
+    drawStandingsCard(cv, n, {no:n.no||nightNo(n.date), leagueNight:cardHelpers.leagueNightNumber(nights,n), next:cardHelpers.nextUp(n.date,events)});
+    var url=cv.toDataURL("image/png"); $("card").src=url; $("dlCard").href=url; $("dlCard").download="kava-chess-"+n.date+"-standings.png";
     $("cardHint").textContent=st.length?"":"No scores on this night, so the card shows the title and your line.";
   }
+  function nightNo(ds){ var p=ds.split("-"), end=new Date(+p[0],+p[1]-1,+p[2]); function held(start,dows){ if(end<start)return 0; var t=0; dows.forEach(function(dow){ var first=new Date(start); first.setDate(first.getDate()+((dow-start.getDay()+7)%7)); if(first<=end) t+=Math.floor(Math.round((end-first)/864e5)/7)+1; }); return t; }
+    return held(new Date(2021,1,15),[0,2])+held(new Date(2026,8,10),[4]); }
   function wrap(c,text,x,y,maxW,lh){ var words=text.split(" "),line=""; words.forEach(function(w){ var t=line?line+" "+w:w; if(c.measureText(t).width>maxW&&line){c.fillText(line,x,y);y+=lh;line=w;}else line=t; }); if(line)c.fillText(line,x,y); }
   function show(n){
     cur=n;

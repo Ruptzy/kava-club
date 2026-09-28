@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Standings card</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&family=JetBrains+Mono:wght@400;700&display=swap">
+<style>
+  body{margin:0;background:#0C0D0E;color:#FFF6E8;font-family:"JetBrains Mono",monospace;display:grid;place-items:center;min-height:100vh;padding:20px;box-sizing:border-box}
+  .warm{position:absolute;left:-9999px;top:0}
+  .a{font-family:Archivo;font-weight:900}.n{font-family:Newsreader;font-weight:300;font-style:italic}.m{font-family:"JetBrains Mono";font-weight:700}
+  canvas{display:block;width:min(100%,540px);height:auto;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+  .row{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap;justify-content:center}
+  a.btn,button{font:700 12px "JetBrains Mono";letter-spacing:.14em;text-transform:uppercase;color:#0C0D0E;background:#FE273A;border:0;border-radius:999px;padding:12px 22px;text-decoration:none;cursor:pointer}
+  p{font-size:12px;letter-spacing:.06em;color:#B9B1A6;text-align:center;max-width:540px}
+</style>
+</head>
+<body>
+<div class="warm"><span class="a">Aa</span><span class="n">Aa</span><span class="m">Aa</span></div>
+<div>
+  <canvas id="c" width="1080" height="1350"></canvas>
+  <div class="row"><a class="btn" id="dl" download>Save the card</a></div>
+  <p id="hint">Add ?date=YYYY-MM-DD to the address for a specific night. Without it, the newest night is drawn.</p>
+</div>
+<script src="card.js"></script>
+<script>
+(async function(){
+  await Promise.all(['900 80px Archivo','800 40px Archivo','italic 300 34px Newsreader','700 20px "JetBrains Mono"','400 20px "JetBrains Mono"'].map(function(f){return document.fonts.load(f);}));
+  var q=new URLSearchParams(location.search), want=q.get('date');
+  var nights=(await (await fetch('../nights.json',{cache:'no-cache'})).json()).nights||[];
+  var events=[]; try{ events=(await (await fetch('../events.json',{cache:'no-cache'})).json()).events||[]; }catch(e){}
+  nights.sort(function(a,b){return a.date<b.date?1:-1;});
+  var n=want?nights.filter(function(o){return o.date===want;})[0]:nights[0];
+  if(!n){ document.getElementById('hint').textContent='No night on '+want+'.'; return; }
+  // the night number is counted, exactly as the site counts it
+  function nightNo(ds){ var p=ds.split('-'), end=new Date(+p[0],+p[1]-1,+p[2]); function held(start,dows){ if(end<start)return 0; var t=0; dows.forEach(function(dow){ var first=new Date(start); first.setDate(first.getDate()+((dow-start.getDay()+7)%7)); if(first<=end) t+=Math.floor(Math.round((end-first)/864e5)/7)+1; }); return t; }
+    return held(new Date(2021,1,15),[0,2])+held(new Date(2026,8,10),[4]); }
+  var cv=document.getElementById('c');
+  drawStandingsCard(cv, n, {no:nightNo(n.date), leagueNight:cardHelpers.leagueNightNumber(nights,n), next:cardHelpers.nextUp(n.date,events)});
+  var url=cv.toDataURL('image/png'); var a=document.getElementById('dl'); a.href=url; a.download='kava-chess-'+n.date+'-standings.png';
+  window.cardData=url; window.cardReady=true;
+})();
+</script>
+</body>
+</html>
