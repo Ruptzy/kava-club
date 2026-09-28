@@ -1,2 +1,4 @@
 __pycache__/
 *.pyc
+# the built email is handed to the email service, not published
+build/out-email/
