@@ -356,11 +356,11 @@ SUBPAGES = {
                     'ajedrecístico, y las reglas Safe Play de US Chess aplican en nuestras noches de club.'),
     },
     'beginners': {
-        'title': 'Your first night — a beginner\'s guide to Kava Social Chess Club',
-        'title_es': 'Tu primera noche — guía para principiantes del Kava Social Chess Club',
-        'desc': ('Never played, or not since school? Your first chess night in Bradenton: walk in any Sunday or '
-                 'Tuesday after 8, order one drink, say it\'s your first night. Free, every level welcome, nothing to bring.'),
-        'desc_es': ('¿Nunca has jugado, o no desde la escuela? Tu primera noche de ajedrez en Bradenton: ven cualquier '
+        'title': 'Learn chess in Bradenton — your first night at Kava Social Chess Club',
+        'title_es': 'Aprende ajedrez en Bradenton — tu primera noche en Kava Social Chess Club',
+        'desc': ('Learn chess in Bradenton with adults who teach. Never played, or not since school? Walk in any Sunday or '
+                 'Tuesday after 8, order one drink, say it\'s your first night. Free, every level, nothing to bring.'),
+        'desc_es': ('Aprende ajedrez en Bradenton con adultos que enseñan. ¿Nunca has jugado, o no desde la escuela? Ven cualquier '
                     'domingo o martes después de las 8, pide una bebida y di que es tu primera noche. Gratis, todos los niveles.'),
         'image': 'img/first-night.jpg',
     },

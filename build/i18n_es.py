@@ -120,6 +120,10 @@ TEXT = {
     "Who you'll play": "Con quién jugarás",
     "Questions people ask first": "Lo que todos preguntan primero",
     "Do I need to know the rules?": "¿Tengo que saber las reglas?",
+    "Learn chess in Bradenton": "Aprende ajedrez en Bradenton",
+    "Where can I learn chess in Bradenton?": "¿Dónde puedo aprender ajedrez en Bradenton?",
+    "Right here. Tuesday is a guided study night, Sunday is for playing. Private lessons are available too.":
+        "Aquí mismo. El martes es noche de estudio guiada y el domingo es para jugar. También hay clases privadas.",
     "Knowing how the pieces move is enough. Anything else &mdash; castling, en passant, how the clock works &mdash; someone will show you at the board.": "Con saber cómo se mueven las piezas basta. Lo demás &mdash; el enroque, la captura al paso, cómo funciona el reloj &mdash; alguien te lo enseña en el tablero.",
     "Which night should I come first?": "¿Qué noche me conviene para empezar?",
     "Sunday. Every other Sunday is social night: free play, no pressure. The others are league night, still open to walk-ins. Tuesday is study night, where the room works through a lesson together &mdash; a good second visit.": "El domingo. Un domingo sí y otro no es noche social: juego libre, sin presión. Los otros son noche de liga, igual abierta a quien llegue. El martes es noche de estudio, donde la sala trabaja una lección en conjunto &mdash; buena segunda visita.",
