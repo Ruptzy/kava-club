@@ -308,9 +308,9 @@ def build(send_day, out_dir):
     P.append(row(
         label('Follow the club', INK3) +
         '<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-top:12px"><tr>%s</tr></table>' % ''.join(
-            '<td style="padding-right:7px"><a href="%s" style="display:inline-block;padding:10px 9px;border:1px solid %s;'
-            'font-family:%s;font-size:11px;font-weight:700;letter-spacing:1px;line-height:16px;text-transform:uppercase;'
-            'color:%s;text-decoration:none">%s</a></td>' % (href, RULE, FM, CREAM, name) for name, href in SOCIAL),
+            '<td style="padding-right:22px"><a href="%s" style="text-decoration:none"><img src="%simg/email/%s.png" width="36" '
+            'height="36" alt="%s" style="display:block;border:0;font-family:%s;font-size:11px;color:%s"></a></td>'
+            % (href, SITE, name.lower(), name, FM, CREAM) for name, href in SOCIAL),
         '34px 28px 0'))
     P.append(row(
         '<div style="font-family:%s;font-size:12px;line-height:20px;letter-spacing:.5px;color:%s">'
