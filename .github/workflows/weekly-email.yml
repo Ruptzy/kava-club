@@ -1,0 +1,62 @@
+name: Weekly email
+
+on:
+  schedule:
+    # A backstop only. GitHub runs this repository's schedules hours late, which is fine
+    # here: the job only has to happen at some point on Monday before 6pm Bradenton time,
+    # and Brevo does the actual timing. Asked for from 9am to 5pm Eastern, off the hour.
+    - cron: "23 13-21 * * 1"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "auto = the normal Monday rules | dry = build and report, contact nobody"
+        default: dry
+        type: choice
+        options: [auto, dry]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: weekly-email
+  cancel-in-progress: false
+
+jobs:
+  email:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Pillow
+        run: pip install --quiet pillow
+      - name: Build the email and its photo
+        run: python build/send_email.py --dry
+      - name: Publish the photo
+        run: |
+          if [ -n "$(git status --porcelain img/email)" ]; then
+            git config user.name "nights-bot"
+            git config user.email "nights-bot@users.noreply.github.com"
+            git add img/email
+            git commit -m "Photo for the weekly email"
+            git pull --rebase --quiet origin main
+            git push
+          fi
+      - name: Hand it to Brevo
+        if: github.event_name != 'workflow_dispatch' || inputs.mode == 'auto'
+        env:
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+        run: python build/send_email.py
+      - name: Record what was scheduled
+        if: always()
+        run: |
+          if [ -n "$(git status --porcelain email-sent.json)" ]; then
+            git config user.name "nights-bot"
+            git config user.email "nights-bot@users.noreply.github.com"
+            git add email-sent.json
+            git commit -m "Weekly email scheduled"
+            git pull --rebase --quiet origin main
+            git push
+          fi
