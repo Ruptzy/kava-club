@@ -7,3 +7,6 @@ REM Discord webhook stays a GitHub secret. The workflow still applies its own ru
 REM nothing is posted twice and nothing is posted on a night with nothing on.
 set GH="%LOCALAPPDATA%\Microsoft\WinGet\Packages\GitHub.cli_Microsoft.Winget.Source_8wekyb3d8bbwe\bin\gh.exe"
 %GH% workflow run tonight.yml --repo Ruptzy/kava-club -f mode=auto
+REM The weekly email. Started every day; the workflow itself only acts on a Monday, and
+REM hands the email to Brevo, which sends it at 6pm. The Brevo key stays a GitHub secret.
+%GH% workflow run weekly-email.yml --repo Ruptzy/kava-club -f mode=auto
