@@ -131,39 +131,62 @@ def keep_current(mine, meta, html, mark, key):
 
 
 def rehearse(meta, html, sender, key, now):
-    """Walk the real Brevo calls with a campaign that has nobody on it, then delete it.
+    """Walk the real Brevo calls with a campaign nobody can receive, then delete it.
 
-    With no recipients it cannot reach a member whatever happens. Done twice: as a draft,
-    and scheduled five days out, which is the state the Monday campaign waits in.
+    Done twice: as a draft with no recipients, and scheduled five days out to a list made
+    for the purpose and left empty, which is the state the Monday campaign waits in.
     """
     bad = 0
-    for label, extra in (('draft', {}),
-                         ('scheduled', {'scheduledAt': (now + timedelta(days=5)).isoformat(timespec='seconds')})):
-        cid = None
-        try:
-            body = {'name': 'REHEARSAL, safe to delete (%s)' % label, 'subject': meta['subject'],
-                    'previewText': meta['preheader'], 'htmlContent': html,
-                    'sender': {'name': meta['from_name'], 'email': sender['email']}}
-            body.update(extra)
-            cid = call('POST', '/emailCampaigns', key, body).get('id')
-            print('%s: created, Brevo reports "%s"' % (label, call('GET', '/emailCampaigns/%s' % cid, key).get('status')))
-            call('PUT', '/emailCampaigns/%s' % cid, key, {
-                'subject': meta['subject'] + ' (changed)', 'previewText': meta['preheader'], 'htmlContent': html})
-            got = call('GET', '/emailCampaigns/%s' % cid, key)
-            ok = got.get('subject', '').endswith('(changed)')
-            print('%s: changed after creation: %s, still "%s"' % (label, 'yes' if ok else 'NO', got.get('status')))
-            bad += 0 if ok else 1
-        except RuntimeError as e:
-            print('%s: %s' % (label, e))
-            bad += 1
-        finally:
-            if cid:
-                try:
-                    call('DELETE', '/emailCampaigns/%s' % cid, key)
-                    print('%s: deleted' % label)
-                except RuntimeError as e:
-                    print('%s: COULD NOT DELETE campaign %s, remove it in Brevo: %s' % (label, cid, e))
-                    bad += 1
+    lid = None
+    try:
+        folders = call('GET', '/contacts/folders?limit=10', key).get('folders', [])
+        lid = call('POST', '/contacts/lists', key, {'name': 'Rehearsal (empty, safe to delete)',
+                                                    'folderId': folders[0]['id']}).get('id')
+        size = call('GET', '/contacts/lists/%s' % lid, key)
+        if size.get('uniqueSubscribers') or size.get('totalSubscribers'):
+            print('The rehearsal list is not empty, so the rehearsal stopped.')
+            return 1
+        print('empty list made for the rehearsal')
+        for label, extra in (('draft', {}),
+                             ('scheduled', {'scheduledAt': (now + timedelta(days=5)).isoformat(timespec='seconds'),
+                                            'recipients': {'listIds': [lid]}})):
+            cid = None
+            try:
+                body = {'name': 'REHEARSAL, safe to delete (%s)' % label, 'subject': meta['subject'],
+                        'previewText': meta['preheader'], 'htmlContent': html,
+                        'sender': {'name': meta['from_name'], 'email': sender['email']}}
+                body.update(extra)
+                cid = call('POST', '/emailCampaigns', key, body).get('id')
+                print('%s: created, Brevo reports "%s"' % (label, call('GET', '/emailCampaigns/%s' % cid, key).get('status')))
+                call('PUT', '/emailCampaigns/%s' % cid, key, {
+                    'subject': meta['subject'] + ' (changed)', 'previewText': meta['preheader'], 'htmlContent': html})
+                got = call('GET', '/emailCampaigns/%s' % cid, key)
+                ok = got.get('subject', '').endswith('(changed)')
+                print('%s: changed after creation: %s, still "%s", due %s'
+                      % (label, 'yes' if ok else 'NO', got.get('status'), got.get('scheduledAt')))
+                bad += 0 if ok else 1
+            except RuntimeError as e:
+                print('%s: %s' % (label, e))
+                bad += 1
+            finally:
+                if cid:
+                    try:
+                        call('DELETE', '/emailCampaigns/%s' % cid, key)
+                        print('%s: deleted' % label)
+                    except RuntimeError as e:
+                        print('%s: COULD NOT DELETE campaign %s, remove it in Brevo: %s' % (label, cid, e))
+                        bad += 1
+    except (RuntimeError, IndexError, KeyError) as e:
+        print('rehearsal: %s' % e)
+        bad += 1
+    finally:
+        if lid:
+            try:
+                call('DELETE', '/contacts/lists/%s' % lid, key)
+                print('rehearsal list deleted')
+            except RuntimeError as e:
+                print('COULD NOT DELETE the rehearsal list, remove it in Brevo: %s' % e)
+                bad += 1
     return 1 if bad else 0
 
 
