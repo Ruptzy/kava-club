@@ -291,7 +291,7 @@ def main(argv):
         print('The photo is not on the live site yet, so the email was not scheduled.')
         return 1
 
-    made = call('POST', '/emailCampaigns', key, {
+    body = {
         'name': 'Weekly · %s' % day.isoformat(),
         'subject': meta['subject'],
         'previewText': meta['preheader'],
@@ -299,7 +299,17 @@ def main(argv):
         'htmlContent': html,
         'recipients': {'listIds': [match[0]['id']]},
         'scheduledAt': when,
-    })
+    }
+    # where a member's reply lands. Optional, a secret, and never printed: without it
+    # replies go to the sending address, which only works if that mailbox exists.
+    reply = os.environ.get('REPLY_TO', '').strip()
+    if reply:
+        body['replyTo'] = reply
+    try:
+        made = call('POST', '/emailCampaigns', key, body)
+    except RuntimeError as e:
+        raise RuntimeError(str(e).replace(reply, '(the reply address)') if reply else str(e))
+    print('Replies go to %s.' % ('the address in the REPLY_TO secret' if reply else 'the sending address'))
     remember('weekly-%s' % day.isoformat(), made.get('id'), when, mark)
     print('Scheduled "%s" for %s. %d members on the list. Brevo campaign %s.'
           % (meta['subject'], when, match[0].get('uniqueSubscribers', match[0].get('totalSubscribers', 0)), made.get('id')))

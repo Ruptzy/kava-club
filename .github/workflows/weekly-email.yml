@@ -55,6 +55,7 @@ jobs:
         if: github.event_name != 'workflow_dispatch' || inputs.mode == 'auto'
         env:
           BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          REPLY_TO: ${{ secrets.REPLY_TO }}
         run: python build/send_email.py
       - name: Send a test to the account owner
         if: github.event_name == 'workflow_dispatch' && inputs.mode == 'test'
