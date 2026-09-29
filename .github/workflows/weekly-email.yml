@@ -3,19 +3,18 @@ name: Weekly email
 on:
   schedule:
     # A backstop only. GitHub runs this repository's schedules hours late or not at all,
-    # so the timing is done elsewhere: Brevo sends at 6pm, and the 3pm task on Harold's PC
-    # starts this workflow. These are asked for all through Monday, Bradenton time, so that
-    # at least one lands. Every run is safe to repeat; see build/send_email.py.
-    - cron: "23 14-23 * * 1"
-    - cron: "23 0-3 * * 2"
+    # so nothing here depends on them. The email is handed to Brevo when a recap is posted
+    # (below), days before it is due, and Brevo sends it at 6pm on Monday. The 3pm task on
+    # Harold's PC starts this workflow daily as well. Every run is safe to repeat.
+    - cron: "23 3,15,19,21 * * *"
   workflow_run:
-    # a recap posted on a Monday goes straight into the email that is waiting to send
+    # a recap being posted is what schedules the coming Monday's email, or updates it
     workflows: ["Night recaps"]
     types: [completed]
   workflow_dispatch:
     inputs:
       mode:
-        description: "auto = the normal Monday rules | dry = build and report, contact nobody | test = send it to the Brevo account owner only | rehearse = walk the Brevo calls with a campaign that has no recipients"
+        description: "auto = schedule or update the coming Monday | dry = build and report, contact nobody | test = send it to the Brevo account owner only | rehearse = walk the Brevo calls with a campaign that has no recipients"
         default: dry
         type: choice
         options: [auto, dry, test, rehearse]

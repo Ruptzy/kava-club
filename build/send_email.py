@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Hand the weekly email to Brevo, scheduled for Monday 6pm in Bradenton.
 
-    python build/send_email.py            the normal run: acts on a Monday, once a week
+    python build/send_email.py            the normal run: schedules or updates the coming Monday's email
     python build/send_email.py --dry      build it and say what would happen; contacts nobody
     python build/send_email.py --test=me@example.com   send the built email to one address, now
 
@@ -15,7 +15,8 @@ for the list by name and for the sender Brevo already has on file.
 email-sent.json records the last week handed over, so a second run cannot create a
 second campaign. A week with no new recap builds nothing and sends nothing.
 
-It is safe to run as often as anything likes to run it. On a Monday, in order:
+It is safe to run as often as anything likes to run it, on any day. Each run works
+towards the coming Monday, so the campaign is usually with Brevo days ahead:
   nothing scheduled yet      create the campaign, then read it back to see Brevo queued it
   scheduled, recap added     put the newer recap into the campaign already waiting
   scheduled, nothing new     do nothing
@@ -70,10 +71,17 @@ def ledger():
         return {}
 
 
+def settle(how):
+    led = ledger()
+    led['confirmed'] = how
+    json.dump(led, open(LEDGER, 'w', encoding='utf-8'), ensure_ascii=False, indent=1, sort_keys=True)
+    open(LEDGER, 'a', encoding='utf-8').write(chr(10))
+
+
 def remember(campaign, cid, when, mark):
     led = ledger()
     led['_comment'] = 'The last weekly email handed to Brevo. Written by build/send_email.py.'
-    led.update(last=campaign, id=cid, scheduled=when, mark=mark)
+    led.update(last=campaign, id=cid, scheduled=when, mark=mark, confirmed=False)
     json.dump(led, open(LEDGER, 'w', encoding='utf-8'), ensure_ascii=False, indent=1, sort_keys=True)
     open(LEDGER, 'a', encoding='utf-8').write(chr(10))
 
@@ -98,13 +106,16 @@ def went_out(mine, key, now):
     status = call('GET', '/emailCampaigns/%s' % mine['id'], key).get('status')
     due = datetime.fromisoformat(mine['scheduled'])
     if status in GONE:
-        print('This week\'s email has gone out (campaign %s).' % mine['id'])
+        print('The email for %s has gone out (campaign %s).' % (mine['last'], mine['id']))
+        settle(True)
         return 0
     if status in WAITING and now < due + timedelta(minutes=30):
-        print('This week\'s email is queued for %s (campaign %s).' % (mine['scheduled'], mine['id']))
+        print('The email is queued for %s (campaign %s).' % (mine['scheduled'], mine['id']))
         return 0
     print('Campaign %s was due at %s and Brevo reports it as "%s". Open Brevo and send it by hand.'
           % (mine['id'], mine['scheduled'], status))
+    if now > due + timedelta(days=1):
+        settle('missed')          # said once, loudly; do not fail every run for ever after
     return 1
 
 
@@ -191,27 +202,30 @@ def main(argv):
     dry = '--dry' in argv
     test = [a.split('=', 1)[1] for a in argv if a.startswith('--test=')]
     now = datetime.now(T.EASTERN)
-    day = now.date()
+    # the Monday this run is working towards: today if it is Monday and not yet too late,
+    # otherwise the one coming. The campaign is handed to Brevo as soon as there is a
+    # recap to put in it, days ahead if need be, so nothing depends on a run on the day.
+    ahead = (7 - now.weekday()) % 7
+    if ahead == 0 and now.hour >= LAST_HOUR:
+        ahead = 7
+    day = now.date() + timedelta(days=ahead)
 
     key = os.environ.get('BREVO_API_KEY', '').strip()
     led = ledger()
     mine = led if led.get('last') == 'weekly-%s' % day.isoformat() else None
+    late = 0
 
     if not (dry or test):
-        if day.weekday() != 0:
-            print('Today is %s in Bradenton. The email goes on Mondays.' % E.DAYS[day.weekday()])
-            return 0
         if not key:
-            print('The BREVO_API_KEY secret is missing, so this week\'s email cannot be handed over.')
+            print('The BREVO_API_KEY secret is missing, so the weekly email cannot be handed over.')
             return 1
         if mine and not mine.get('id'):
             print('This week\'s email was sent by hand, so there is nothing to do.')
             return 0
         if mine and now >= datetime.fromisoformat(mine['scheduled']) - timedelta(minutes=CLOSE):
             return went_out(mine, key, now)
-        if not mine and now.hour >= LAST_HOUR:
-            print('It is past %d:00 on Monday and nothing was scheduled; too late for this week.' % LAST_HOUR)
-            return 1
+        if not mine and led.get('id') and not led.get('confirmed'):
+            late = went_out(led, key, now)        # last week's: did it really leave?
 
     out = os.path.join(OUT, 'build', 'out-email')
     meta = E.build(day, out)
@@ -219,11 +233,13 @@ def main(argv):
         if mine and not (dry or test):
             print('A campaign is scheduled but there is no longer a recap to build it from.')
             return 1
-        return 0
+        if ahead == 0 and not (dry or test):
+            print('It is Monday and there is no recap from the past week, so no email goes out.')
+        return late
     html = open(os.path.join(out, 'email.html'), encoding='utf-8').read()
     mark = hashlib.sha256((meta['subject'] + meta['preheader'] + html).encode('utf-8')).hexdigest()[:16]
 
-    target = now.replace(hour=SEND_HOUR, minute=0, second=0, microsecond=0)
+    target = datetime(day.year, day.month, day.day, SEND_HOUR, tzinfo=T.EASTERN)
     if now >= target - timedelta(minutes=CLOSE):
         target = now + timedelta(minutes=15)          # a late Monday run: send shortly, not next week
     when = target.isoformat(timespec='seconds')
@@ -292,7 +308,7 @@ def main(argv):
     if status not in WAITING + GONE:
         print('Brevo created the campaign but reports it as "%s", not scheduled.' % status)
         return 1
-    return 0
+    return late
 
 
 if __name__ == '__main__':
