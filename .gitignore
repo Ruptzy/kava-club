@@ -2,3 +2,5 @@ __pycache__/
 *.pyc
 # the built email is handed to the email service, not published
 build/out-email/
+# a local checking page, not part of the site
+_sweep.html

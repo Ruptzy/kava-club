@@ -28,12 +28,22 @@ LADDER = 'https://ladder.kavasocialchessclub.com/'
 GOATCOUNTER = 'kavasocialchessclub'
 COUNTER = ('<script data-goatcounter="https://%s.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>'
            % GOATCOUNTER) if GOATCOUNTER else ''
+# The weekly email signup in every footer. It posts to a Brevo form, which adds the address to
+# the list and handles the confirmation. The form's address is public, not a secret. Empty = no signup shown.
+NEWSLETTER_FORM = ''
+NEWSLETTER = ('<form class="news" action="%s" method="post" target="_blank">'
+              '<label class="m" for="nl">The week at the club, every Monday</label>'
+              '<div><input id="nl" type="email" name="EMAIL" required autocomplete="email" placeholder="Your email">'
+              '<input class="hp" type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true">'
+              '<input type="hidden" name="locale" value="en"><button type="submit">Subscribe</button></div></form>'
+              % NEWSLETTER_FORM) if NEWSLETTER_FORM else ''
 ARROW = ('<i class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" '
          'stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></i>')
 
 # the static pages, for the sitemap: english slug -> spanish slug
 PAGES = {'code-of-conduct': 'es/codigo-de-conducta', 'beginners': 'es/principiantes',
-         'lessons': 'es/clases', 'calendar': 'es/calendario', 'nights': 'es/noches', 'merch': 'es/merch'}
+         'lessons': 'es/clases', 'calendar': 'es/calendario', 'nights': 'es/noches', 'merch': 'es/merch',
+         'alcohol-free-night-out': 'es/noche-sin-alcohol', 'hall-of-fame': 'es/salon-de-la-fama'}
 
 TYPES = {'league': ('League night', 'Noche de liga'), 'social': ('Social Sunday', 'Domingo social'),
          'study': ('Study night', 'Noche de estudio'), 'adobe': ('Intermediate+ study night', 'Noche de estudio intermedio+'),
@@ -116,7 +126,7 @@ MONTHS_ES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'ag
 DAYS_ES = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo']
 
 TEMPLATE = open(os.path.join(HERE, 'template.html'), encoding='utf-8').read()
-TEMPLATE = TEMPLATE.replace('{{COUNTER}}', COUNTER).replace('{{LOGO}}', 'img/logo.png')
+TEMPLATE = TEMPLATE.replace('{{COUNTER}}', COUNTER).replace('{{LOGO}}', 'img/logo.png').replace('{{NEWSLETTER}}', NEWSLETTER)
 STYLE = TEMPLATE[:TEMPLATE.index('</style>') + len('</style>')]
 MAST = TEMPLATE[TEMPLATE.index('<!-- ============ MASTHEAD ============ -->'):TEMPLATE.index('<!-- ============ HERO ============ -->')]
 FOOT = TEMPLATE[TEMPLATE.index('<!-- ============ FOOTER ============ -->'):]

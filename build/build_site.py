@@ -59,6 +59,7 @@ M['VENUE'], _ = jpg(os.path.join(LG, 'ksc-store.jpg'), 1400, 78, 'venue.jpg')
 # the beginners page opens on a sharp, wide shot of the tiki tables (5967x3978 original).
 # Called directly rather than through the hero list so the photo stays in the gallery too.
 M['FIRSTNIGHT'], _ = jpg(os.path.join(SRC, 'IMG_1782.jpg'), 1800, 80, 'first-night.jpg')
+M['NIGHTOUT'], _ = jpg(os.path.join(SRC, 'IMG_8373.jpg'), 1800, 78, 'night-out.jpg')
 M['CHECK'] = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" '
               'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>')
 M['BG'], _ = jpg(os.path.join(LG, 'bg.jpg'), 1086, 66, 'bg.jpg')
@@ -115,6 +116,49 @@ _swept = webp.convert_dir(os.path.join(OUT, 'img'))
 # favicon: cream knight on scarlet, built by hand for legibility at 16px (img/favicon*.png)
 
 # ---------------- page assembly ----------------
+def build_nights_newsletter():
+    # one definition of the signup, shared with the recap pages
+    import build_nights
+    return build_nights.NEWSLETTER
+
+
+def hall(es):
+    """The hall of fame page, written from champions.json in the page's own language."""
+    doc = json.load(open(os.path.join(OUT, 'champions.json'), encoding='utf-8'))
+    t = (lambda en, sp: sp) if es else (lambda en, sp: en)
+    def bracket(b):
+        if not es:
+            return b[0].upper() + b[1:]
+        return re.sub(r'(?i)^over ', 'Más de ', b).replace('U', 'Sub-', 1) if b[0] in 'oOU' else b
+    rows = []
+    for s in doc['seasons']:
+        champs = ''.join('<li><span class="m">%s</span><b class="d">%s</b></li>' % (bracket(b), n) for b, n in s['champions'])
+        rows.append('<li><div><a class="d hs" href="https://ladder.kavasocialchessclub.com/season-%d.html" target="_blank" rel="noopener">%s %d</a>'
+                    '<div class="m hy">%s</div></div><ul class="hc">%s</ul></li>'
+                    % (s['no'], t('Season', 'Temporada'), s['no'], s['years'], champs))
+    battles = ''
+    if doc.get('battles'):
+        battles = ('<h2 class="d sub">%s</h2><ul class="hof">%s</ul>' % (t('Club battles', 'Batallas de clubes'), ''.join(
+            '<li><div><div class="d hs">%s</div><div class="m hy">%s</div></div><p class="body">%s</p></li>'
+            % (b['title'], b['date'], b[t('result', 'result_es')] if es and b.get('result_es') else b['result']) for b in doc['battles'])))
+    return ('<main class="wrap page">\n  <div class="phead">\n    <div class="m lbl">%s</div>\n    <h1 class="d">%s</h1>\n'
+            '    <p class="body lead">%s</p>\n  </div>\n  <ul class="hof">%s</ul>\n  %s\n'
+            '  <p class="body sm" style="margin-top:28px;color:var(--ink-3)">%s</p>\n'
+            '  <div class="pfoot">\n    <p class="body">%s</p>\n'
+            '    <div class="cta"><a class="btn btn-p" href="https://ladder.kavasocialchessclub.com/" target="_blank" rel="noopener">%s<i class="disc">{{ARROW}}</i></a>'
+            '<a class="btn btn-s" href="{{HOME}}#events">%s<i class="disc">{{ARROW}}</i></a></div>\n  </div>\n</main>\n'
+            % (t('Chess league in Bradenton', 'Liga de ajedrez en Bradenton'),
+               t('Hall of fame', 'Salón de la fama'),
+               t('Every season ends with a champion in each bracket. These are their names.',
+                 'Cada temporada termina con un campeón en cada bracket. Estos son sus nombres.'),
+               ''.join(rows), battles,
+               t('Seasons 1 to 7 are reconstructed from the club\'s game records. Tap a season for its final standings.',
+                 'Las temporadas 1 a 7 se reconstruyeron a partir de los registros de partidas del club. Toca una temporada para ver su tabla final.'),
+               t('Season 10 is being played now. Your name could be next.', 'La temporada 10 se está jugando ahora. Tu nombre puede ser el próximo.'),
+               t('See this season\'s standings', 'Ver la tabla de esta temporada'),
+               t('See the next league night', 'Ver la próxima noche de liga')))
+
+
 TEMPLATE = open(os.path.join(HERE, 'template.html'), encoding='utf-8').read()
 # the sub-pages: English slug -> (Spanish slug, body file)
 PAGES = {
@@ -123,6 +167,8 @@ PAGES = {
     'lessons': ('es/clases', 'lessons.html'),
     'calendar': ('es/calendario', None),   # assembled from the home page's calendar chapter
     'merch': ('es/merch', 'merch.html'),
+    'alcohol-free-night-out': ('es/noche-sin-alcohol', 'nightout.html'),
+    'hall-of-fame': ('es/salon-de-la-fama', None),   # written by hall() from champions.json
 }
 # /nights/ and /es/noches/ come from build_nights.py; they are listed here so the language switch and sitemap know them
 PAGES_ALL = dict(PAGES, nights='es/noches')
@@ -140,6 +186,7 @@ DISCORD = 'https://discord.gg/sYCb7RnTgZ'
 GOATCOUNTER = 'kavasocialchessclub'      # the site's code at goatcounter.com, e.g. 'kavachess'; empty = no counter
 COUNTER = ('<script data-goatcounter="https://%s.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>' % GOATCOUNTER) if GOATCOUNTER else ''
 TEMPLATE = TEMPLATE.replace('{{COUNTER}}', COUNTER)   # before the shared blocks are cut out of it
+TEMPLATE = TEMPLATE.replace('{{NEWSLETTER}}', build_nights_newsletter())
 _head_end = TEMPLATE.index('</style>') + len('</style>')
 STYLE = TEMPLATE[:_head_end]
 MAST = TEMPLATE[TEMPLATE.index('<!-- ============ MASTHEAD ============ -->'):TEMPLATE.index('<!-- ============ HERO ============ -->')]
@@ -269,7 +316,8 @@ def build_subpage(lang, slug_en, meta):
     depth = '../../' if es else '../'
     page_url = URL + slug + '/'
     home = '/es/' if es else '/'
-    page = open(os.path.join(HERE, body_file), encoding='utf-8').read() if body_file else CAL
+    page = (hall(es) if slug_en == 'hall-of-fame' else
+            open(os.path.join(HERE, body_file), encoding='utf-8').read() if body_file else CAL)
 
     body = MAST + page + FOOT
     btn = ('<a class="btn btn-p" href="%s" target="_blank" rel="noopener">Join the Discord<i class="disc">%s</i></a>'
@@ -332,6 +380,24 @@ def build_subpage(lang, slug_en, meta):
 
 
 SUBPAGES = {
+    'alcohol-free-night-out': {
+        'title': 'Things to do in Bradenton at night — an alcohol-free night out | Kava Social Chess Club',
+        'title_es': 'Qué hacer en Bradenton de noche — una salida sin alcohol | Kava Social Chess Club',
+        'desc': ('Looking for things to do in Bradenton at night that are not a bar? Social chess on the patio of an '
+                 'alcohol-free kava bar, Sundays and Tuesdays 8PM to midnight. No cover, every level, 21+.'),
+        'desc_es': ('¿Buscas qué hacer en Bradenton de noche que no sea un bar? Ajedrez social en el patio de un kava bar '
+                    'sin alcohol, domingos y martes de 8PM a medianoche. Sin cover, todos los niveles, 21+.'),
+        'image': 'img/night-out.jpg',
+    },
+    'hall-of-fame': {
+        'title': 'Hall of fame — chess league champions in Bradenton | Kava Social Chess Club',
+        'title_es': 'Salón de la fama — campeones de la liga de ajedrez en Bradenton | Kava Social Chess Club',
+        'desc': ('Every champion of the Kava Social Chess Club league in Bradenton, season by season and bracket by '
+                 'bracket, with links to each season\'s final standings.'),
+        'desc_es': ('Todos los campeones de la liga del Kava Social Chess Club en Bradenton, temporada por temporada y '
+                    'bracket por bracket, con enlaces a la tabla final de cada temporada.'),
+        'image': 'img/season.jpg',
+    },
     'merch': {
         'title': 'Club merch — tournament polos and jackets — Kava Social Chess Club',
         'title_es': 'Merch del club — polos y chaquetas de torneo — Kava Social Chess Club',
