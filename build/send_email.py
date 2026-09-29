@@ -239,6 +239,9 @@ def main(argv):
 
     out = os.path.join(OUT, 'build', 'out-email')
     meta = E.build(day, out)
+    if not meta and test:
+        # a test or rehearsal needs something to show, so use last week's email
+        meta = E.build(day - timedelta(days=7), out)
     if not meta:
         if mine and not (dry or test):
             print('A campaign is scheduled but there is no longer a recap to build it from.')
