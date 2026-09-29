@@ -38,6 +38,9 @@ import post_tonight as T          # noqa: E402
 
 OUT = B.OUT
 SITE = 'https://kavasocialchessclub.com/'
+SOCIAL = [('Instagram', 'https://www.instagram.com/kavasocialchessclub/'),
+          ('Facebook', 'https://www.facebook.com/KavaSocialChessClub'),
+          ('Discord', 'https://discord.gg/sYCb7RnTgZ')]
 LADDER = 'https://ladder.kavasocialchessclub.com/'
 MAPS = 'https://maps.google.com/?q=Kava+Social+Club,+540+13th+St+W,+Bradenton,+FL+34205'
 ADDRESS = 'Kava Social Chess Club · Kava Social Club, 540 13th St W, Bradenton, FL 34205'
@@ -238,11 +241,10 @@ def build(send_day, out_dir):
         preheader += ' Plus: %s, %s.' % (booked[0]['title'].split(':')[0], nice(booked[0]['day']).split(' ', 1)[0])
 
     P = []
-    P.append(row('<div style="border-top:4px solid %s;font-size:0;line-height:0">&nbsp;</div>' % CREAM, '0'))
     P.append(row(
         '<table role="presentation" width="100%%" cellpadding="0" cellspacing="0" border="0"><tr>'
-        '<td width="52" valign="middle"><a href="%s"><img src="%simg/logo.png" width="44" height="44" alt="Kava Social Chess Club" '
-        'style="display:block;border:0;border-radius:50%%"></a></td>'
+        '<td width="52" valign="middle"><a href="%s"><img src="%simg/email/logo.png" width="44" height="44" alt="Kava Social Chess Club" '
+        'style="display:block;border:0"></a></td>'
         '<td valign="middle" style="font-family:%s;font-size:17px;font-weight:900;line-height:20px;letter-spacing:.3px;'
         'text-transform:uppercase;color:%s">Kava Social<br>Chess Club</td>'
         '<td align="right" valign="middle" style="font-family:%s;font-size:11px;letter-spacing:2px;line-height:16px;'
@@ -303,6 +305,13 @@ def build(send_day, out_dir):
            btn('Come back this week', link('beginners/', 'comeback', campaign))),
         '34px 28px 38px', CREAM))
 
+    P.append(row(
+        label('Follow the club', INK3) +
+        '<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-top:12px"><tr>%s</tr></table>' % ''.join(
+            '<td style="padding-right:7px"><a href="%s" style="display:inline-block;padding:10px 9px;border:1px solid %s;'
+            'font-family:%s;font-size:11px;font-weight:700;letter-spacing:1px;line-height:16px;text-transform:uppercase;'
+            'color:%s;text-decoration:none">%s</a></td>' % (href, RULE, FM, CREAM, name) for name, href in SOCIAL),
+        '34px 28px 0'))
     P.append(row(
         '<div style="font-family:%s;font-size:12px;line-height:20px;letter-spacing:.5px;color:%s">'
         '<a href="%s" style="color:%s;text-decoration:underline">kavasocialchessclub.com</a> &nbsp;&middot;&nbsp; '
