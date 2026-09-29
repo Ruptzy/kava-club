@@ -134,19 +134,26 @@ def rehearse(meta, html, sender, key, now):
     """Walk the real Brevo calls with a campaign nobody can receive, then delete it.
 
     Done twice: as a draft with no recipients, and scheduled five days out to a list made
-    for the purpose and left empty, which is the state the Monday campaign waits in.
+    for the purpose that holds the account owner alone, which is the state the Monday campaign waits in.
     """
     bad = 0
     lid = None
     try:
         folders = call('GET', '/contacts/folders?limit=10', key).get('folders', [])
-        lid = call('POST', '/contacts/lists', key, {'name': 'Rehearsal (empty, safe to delete)',
+        lid = call('POST', '/contacts/lists', key, {'name': 'Rehearsal (safe to delete)',
                                                     'folderId': folders[0]['id']}).get('id')
+        # Brevo will not schedule to an empty list, so the list holds one person: the owner
+        # of the Brevo account. If every clean-up below failed, only they would get it.
+        owner = call('GET', '/account', key).get('email', '')
+        try:
+            call('POST', '/contacts', key, {'email': owner, 'listIds': [lid], 'updateEnabled': True})
+        except RuntimeError as e:
+            raise RuntimeError(str(e).replace(owner, '(the owner)'))
         size = call('GET', '/contacts/lists/%s' % lid, key)
-        if size.get('uniqueSubscribers') or size.get('totalSubscribers'):
-            print('The rehearsal list is not empty, so the rehearsal stopped.')
+        if (size.get('uniqueSubscribers') or size.get('totalSubscribers') or 0) > 1:
+            print('The rehearsal list has more than the owner on it, so the rehearsal stopped.')
             return 1
-        print('empty list made for the rehearsal')
+        print('list made for the rehearsal, holding the account owner only')
         for label, extra in (('draft', {}),
                              ('scheduled', {'scheduledAt': (now + timedelta(days=5)).isoformat(timespec='seconds'),
                                             'recipients': {'listIds': [lid]}})):
