@@ -1,10 +1,10 @@
 {
- "_comment": "Booked one-off events: club battles, tournaments, lectures, simuls. The recurring club nights are generated in the page itself, not listed here. Types: tournament | lecture | simul | special | social | league | study | adobe.",
+ "_comment": "Booked one-off events. The recurring club nights are generated in the page itself, not listed here; an entry here of a regular night's own type (league, social, study, adobe) replaces that night on that date. Types and their colours: battle = club against club (violet) | outing = the club somewhere else, not chess at the club (gold) | tournament, lecture, simul, special (scarlet) | league | social | study | adobe.",
  "updated": "2026-09-29",
  "events": [
   {
    "date": "2026-10-03",
-   "type": "special",
+   "type": "battle",
    "title": "Battle for the Bay: Tampa vs Bradenton",
    "title_es": "Battle for the Bay: Tampa vs Bradenton",
    "time": "8:00 PM",
@@ -16,7 +16,7 @@
   },
   {
    "date": "2026-10-11",
-   "type": "special",
+   "type": "outing",
    "title": "Movie Night: Grandmasters on the Big Screen",
    "title_es": "Noche de cine: Grandmasters en pantalla grande",
    "time": "6:00 PM",

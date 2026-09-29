@@ -37,7 +37,8 @@ PAGES = {'code-of-conduct': 'es/codigo-de-conducta', 'beginners': 'es/principian
 
 TYPES = {'league': ('League night', 'Noche de liga'), 'social': ('Social Sunday', 'Domingo social'),
          'study': ('Study night', 'Noche de estudio'), 'adobe': ('Intermediate+ study night', 'Noche de estudio intermedio+'),
-         'special': ('Special event', 'Evento especial'), 'tournament': ('Tournament', 'Torneo')}
+         'special': ('Special event', 'Evento especial'), 'tournament': ('Tournament', 'Torneo'),
+         'battle': ('Club battle', 'Batalla de clubes'), 'outing': ('Club outing', 'Salida del club')}
 VENUE = {'adobe': ('Adobe Kava, 1302 13th Ave W, Bradenton', 'Adobe Kava, 1302 13th Ave W, Bradenton')}
 VENUE_DEFAULT = ('Kava Social Club, 540 13th St W, Bradenton', 'Kava Social Club, 540 13th St W, Bradenton')
 KEYWORDS = ["chess club Bradenton", "chess in Bradenton", "chess near me", "chess club near me", "Bradenton chess club",
