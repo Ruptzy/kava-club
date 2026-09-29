@@ -178,9 +178,19 @@ def rehearse(meta, html, sender, key, now):
                 bad += 0 if how else 1
     cid = None
     try:
-        cid = call('POST', '/emailCampaigns', key, {
-            'name': 'REHEARSAL, safe to delete', 'subject': meta['subject'], 'previewText': meta['preheader'],
-            'htmlContent': html, 'sender': {'name': meta['from_name'], 'email': sender['email']}}).get('id')
+        body = {'name': 'REHEARSAL, safe to delete', 'subject': meta['subject'], 'previewText': meta['preheader'],
+                'htmlContent': html, 'sender': {'name': meta['from_name'], 'email': sender['email']}}
+        reply = os.environ.get('REPLY_TO', '').strip()
+        if reply:
+            body['replyTo'] = reply
+        try:
+            cid = call('POST', '/emailCampaigns', key, body).get('id')
+        except RuntimeError as e:
+            raise RuntimeError(str(e).replace(reply, '(the reply address)') if reply else str(e))
+        if reply:
+            kept = call('GET', '/emailCampaigns/%s' % cid, key).get('replyTo') == reply
+            print('draft: reply address %s' % ('accepted by Brevo' if kept else 'NOT kept by Brevo'))
+            bad += 0 if kept else 1
         print('draft: created, Brevo reports "%s"' % call('GET', '/emailCampaigns/%s' % cid, key).get('status'))
         call('PUT', '/emailCampaigns/%s' % cid, key, {
             'subject': meta['subject'] + ' (changed)', 'previewText': meta['preheader'], 'htmlContent': html})

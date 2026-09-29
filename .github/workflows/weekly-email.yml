@@ -66,6 +66,7 @@ jobs:
         if: github.event_name == 'workflow_dispatch' && inputs.mode == 'rehearse'
         env:
           BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          REPLY_TO: ${{ secrets.REPLY_TO }}
         run: python build/send_email.py --test=rehearse
       - name: Record what was scheduled
         if: always()
