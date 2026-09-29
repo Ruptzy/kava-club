@@ -127,10 +127,23 @@ def main(argv):
     sender = (own or senders)[0]
 
     if test:
-        call('POST', '/smtp/email', key, {
-            'sender': {'name': meta['from_name'], 'email': sender['email']},
-            'to': [{'email': test[0]}], 'subject': '[TEST] ' + meta['subject'], 'htmlContent': html})
-        print('Test sent to the address given.')
+        # "owner" is the address the Brevo account itself is registered to, so a test can
+        # be asked for without an address ever appearing in this repository or its logs
+        to = call('GET', '/account', key).get('email', '') if test[0] == 'owner' else test[0]
+        if not to:
+            print('Brevo did not say who owns the account, so no test was sent.')
+            return 1
+        try:
+            call('POST', '/smtp/email', key, {
+                'sender': {'name': meta['from_name'], 'email': sender['email']},
+                'to': [{'email': to}], 'subject': '[TEST] ' + meta['subject'], 'htmlContent': html})
+        except RuntimeError as e:
+            print(str(e).replace(to, '(the test address)'))
+            return 1
+        print('Test sent, from an address on %s.' % sender['email'].split('@')[-1])
+        found = [l for l in call('GET', '/contacts/lists?limit=50', key).get('lists', [])
+                 if l.get('name', '').strip().lower() == LIST_NAME.lower()]
+        print('The list "%s" %s.' % (LIST_NAME, 'is there' if found else 'was NOT found in Brevo'))
         return 0
 
     lists = call('GET', '/contacts/lists?limit=50', key).get('lists', [])

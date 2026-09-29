@@ -9,10 +9,10 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "auto = the normal Monday rules | dry = build and report, contact nobody"
+        description: "auto = the normal Monday rules | dry = build and report, contact nobody | test = send it to the Brevo account owner only"
         default: dry
         type: choice
-        options: [auto, dry]
+        options: [auto, dry, test]
 
 permissions:
   contents: write
@@ -49,6 +49,11 @@ jobs:
         env:
           BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
         run: python build/send_email.py
+      - name: Send a test to the account owner
+        if: github.event_name == 'workflow_dispatch' && inputs.mode == 'test'
+        env:
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+        run: python build/send_email.py --test=owner
       - name: Record what was scheduled
         if: always()
         run: |
