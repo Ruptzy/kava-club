@@ -38,11 +38,12 @@ import post_tonight as T          # noqa: E402
 
 OUT = B.OUT
 SITE = 'https://kavasocialchessclub.com/'
-SOCIAL = [('Instagram', 'https://www.instagram.com/kavasocialchessclub/'),
-          ('Facebook', 'https://www.facebook.com/KavaSocialChessClub'),
-          ('Discord', 'https://discord.gg/sYCb7RnTgZ')]
 LADDER = 'https://ladder.kavasocialchessclub.com/'
 MAPS = 'https://maps.google.com/?q=Kava+Social+Club,+540+13th+St+W,+Bradenton,+FL+34205'
+SOCIAL = [('Instagram', 'https://www.instagram.com/kavasocialchessclub/'),
+          ('Facebook', 'https://www.facebook.com/KavaSocialChessClub'),
+          ('Discord', 'https://discord.gg/sYCb7RnTgZ'),
+          ('Directions', MAPS)]
 ADDRESS = 'Kava Social Chess Club · Kava Social Club, 540 13th St W, Bradenton, FL 34205'
 MAX_BYTES = 80 * 1024
 
@@ -306,7 +307,7 @@ def build(send_day, out_dir):
         '34px 28px 38px', CREAM))
 
     P.append(row(
-        label('Follow the club', INK3) +
+        label('Find the club', INK3) +
         '<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-top:12px"><tr>%s</tr></table>' % ''.join(
             '<td style="padding-right:22px"><a href="%s" style="text-decoration:none"><img src="%simg/email/%s.png" width="36" '
             'height="36" alt="%s" style="display:block;border:0;font-family:%s;font-size:11px;color:%s"></a></td>'
