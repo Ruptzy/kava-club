@@ -33,6 +33,7 @@ LOCATION:Kava Social Club\, 540 13th St W\, Bradenton\, FL 34205
 DESCRIPTION:Every other Sunday. Season games in your bracket. In-house ratings\, only at the club\, for fun. 21+.
 URL:https://kavasocialchessclub.com/calendar/
 RRULE:FREQ=WEEKLY;INTERVAL=2;BYDAY=SU
+EXDATE;TZID=America/New_York:20261011T200000
 END:VEVENT
 BEGIN:VEVENT
 UID:social@kavasocialchessclub.com
@@ -64,6 +65,26 @@ DTEND;TZID=America/New_York:20261003T230000
 SUMMARY:Battle for the Bay: Tampa vs Bradenton - Kava Social Chess Club
 LOCATION:Tampa Knights Chess Club\, 1919 N Howard Ave\, Tampa\, FL 33607
 DESCRIPTION:Tampa Knights against Kava Social\, away in Tampa. One open section\, Swiss format. $15 if you register on Chess67\, $20 at the door. Prizes for the winners.
+URL:https://kavasocialchessclub.com/calendar/
+END:VEVENT
+BEGIN:VEVENT
+UID:booked-2026-10-11-movie-night-grandmasters-on-the-big-scre@kavasocialchessclub.com
+DTSTAMP:20260910T000000Z
+DTSTART;TZID=America/New_York:20261011T180000
+DTEND;TZID=America/New_York:20261011T210000
+SUMMARY:Movie Night: Grandmasters on the Big Screen - Kava Social Chess Club
+LOCATION:AMC Bradenton 20\, 2507 53rd Ave E\, Bradenton\, FL
+DESCRIPTION:The club goes to the movies. Grandmasters follows Magnus Carlsen and the breakaway league out to shake up top-level chess. Two nights only\, so buy your own ticket and sit with us. League bracket after at Kava Social\, 9:15 PM. Warm-up boards from 8.
+URL:https://kavasocialchessclub.com/calendar/
+END:VEVENT
+BEGIN:VEVENT
+UID:booked-2026-10-11-league-night-late-start@kavasocialchessclub.com
+DTSTAMP:20260910T000000Z
+DTSTART;TZID=America/New_York:20261011T211500
+DTEND;TZID=America/New_York:20261011T235900
+SUMMARY:League night\, late start - Kava Social Chess Club
+LOCATION:Kava Social Club\, 540 13th St W\, Bradenton\, FL 34205
+DESCRIPTION:Bracket starts at 9:15 PM\, after movie night. Want to warm up first? Boards are open from 8.
 URL:https://kavasocialchessclub.com/calendar/
 END:VEVENT
 END:VCALENDAR

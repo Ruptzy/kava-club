@@ -1,6 +1,6 @@
 {
  "_comment": "Booked one-off events: club battles, tournaments, lectures, simuls. The recurring club nights are generated in the page itself, not listed here. Types: tournament | lecture | simul | special | social | league | study | adobe.",
- "updated": "2026-09-09",
+ "updated": "2026-09-29",
  "events": [
   {
    "date": "2026-10-03",
@@ -13,6 +13,28 @@
    "note": "Tampa Knights against Kava Social, away in Tampa. One open section, Swiss format. $15 if you register on Chess67, $20 at the door. Prizes for the winners.",
    "note_es": "Tampa Knights contra Kava Social, de visita en Tampa. Una sección abierta, sistema suizo. $15 si te inscribes en Chess67, $20 en la puerta. Con premios para los ganadores.",
    "url": "https://chess67.com/club/tampa-knights-chess-club/tournaments/tampa-vs-bradenton-october-match-20261003"
+  },
+  {
+   "date": "2026-10-11",
+   "type": "special",
+   "title": "Movie Night: Grandmasters on the Big Screen",
+   "title_es": "Noche de cine: Grandmasters en pantalla grande",
+   "time": "6:00 PM",
+   "venue": "AMC Bradenton 20",
+   "addr": "AMC Bradenton 20, 2507 53rd Ave E, Bradenton, FL",
+   "note": "The club goes to the movies. Grandmasters follows Magnus Carlsen and the breakaway league out to shake up top-level chess. Two nights only, so buy your own ticket and sit with us. League bracket after at Kava Social, 9:15 PM. Warm-up boards from 8.",
+   "note_es": "El club va al cine. Grandmasters sigue a Magnus Carlsen y a la liga que quiere sacudir el ajedrez de élite. Solo dos noches: compra tu entrada y siéntate con nosotros. Después, bracket de liga en Kava Social a las 9:15 PM. Tableros de calentamiento desde las 8.",
+   "url": "https://www.grandmastersdoc.com/tickets/"
+  },
+  {
+   "date": "2026-10-11",
+   "type": "league",
+   "title": "League night, late start",
+   "title_es": "Noche de liga, inicio tardío",
+   "time": "9:15 PM – 12:00 AM",
+   "note": "Bracket starts at 9:15 PM, after movie night. Want to warm up first? Boards are open from 8.",
+   "note_es": "El bracket empieza a las 9:15 PM, después de la noche de cine. ¿Quieres calentar antes? Tableros abiertos desde las 8.",
+   "age": "21+"
   }
  ]
 }

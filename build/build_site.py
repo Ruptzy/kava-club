@@ -398,28 +398,35 @@ def ics():
          'BEGIN:DAYLIGHT', 'TZOFFSETFROM:-0500', 'TZOFFSETTO:-0400', 'TZNAME:EDT', 'DTSTART:19700308T020000', 'RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU', 'END:DAYLIGHT',
          'BEGIN:STANDARD', 'TZOFFSETFROM:-0400', 'TZOFFSETTO:-0500', 'TZNAME:EST', 'DTSTART:19701101T020000', 'RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU', 'END:STANDARD',
          'END:VTIMEZONE']
-    def vevent(uid, summary, start, end, where, desc, rrule=None):
+    def moved(kind):
+        # a booked entry of a regular night's own kind stands in for it that day,
+        # so the repeating event has to skip that date
+        return [e['date'].replace('-', '') + 'T200000' for e in BOOKED if e.get('type') == kind]
+
+    def vevent(uid, summary, start, end, where, desc, rrule=None, skip=()):
         L.extend(['BEGIN:VEVENT', 'UID:' + uid + '@kavasocialchessclub.com', 'DTSTAMP:20260910T000000Z',
                   'DTSTART;TZID=America/New_York:' + start, 'DTEND;TZID=America/New_York:' + end,
                   'SUMMARY:' + esc(summary), 'LOCATION:' + esc(where), 'DESCRIPTION:' + esc(desc), 'URL:' + URL + 'calendar/'])
         if rrule:
             L.append('RRULE:' + rrule)
+        for x in skip:
+            L.append('EXDATE;TZID=America/New_York:' + x)
         L.append('END:VEVENT')
     vevent('league', 'League night - Kava Social Chess Club', '20260830T200000', '20260830T235900', VENUE,
-           'Every other Sunday. Season games in your bracket. In-house ratings, only at the club, for fun. 21+.', 'FREQ=WEEKLY;INTERVAL=2;BYDAY=SU')
+           'Every other Sunday. Season games in your bracket. In-house ratings, only at the club, for fun. 21+.', 'FREQ=WEEKLY;INTERVAL=2;BYDAY=SU', moved('league'))
     vevent('social', 'Social Sunday - Kava Social Chess Club', '20260906T200000', '20260906T235900', VENUE,
-           'Every other Sunday. Free play: come and play, hang out, talk. 21+.', 'FREQ=WEEKLY;INTERVAL=2;BYDAY=SU')
+           'Every other Sunday. Free play: come and play, hang out, talk. 21+.', 'FREQ=WEEKLY;INTERVAL=2;BYDAY=SU', moved('social'))
     vevent('study', 'Study night - Kava Social Chess Club', '20260901T200000', '20260901T235900', VENUE,
-           'Every Tuesday. The room works through books, puzzles and grandmaster games together. 21+.', 'FREQ=WEEKLY;BYDAY=TU')
+           'Every Tuesday. The room works through books, puzzles and grandmaster games together. 21+.', 'FREQ=WEEKLY;BYDAY=TU', moved('study'))
     # Thursday is not in the feed on purpose: it is not a drop-in night, people contact Harold first
     for e in BOOKED:
         d = e['date'].replace('-', '')
         m = re.match(r'(\d{1,2}):(\d{2}) ?(AM|PM)', e.get('time', '') or '')
-        hh = 20
+        hh, mm = 20, 0
         if m:
-            hh = int(m.group(1)) % 12 + (12 if m.group(3) == 'PM' else 0)
+            hh, mm = int(m.group(1)) % 12 + (12 if m.group(3) == 'PM' else 0), int(m.group(2))
         vevent('booked-' + e['date'] + '-' + re.sub(r'[^a-z0-9]+', '-', e.get('title', '').lower())[:40],
-               e.get('title', 'Club event') + ' - Kava Social Chess Club', '%sT%02d0000' % (d, hh), '%sT%02d0000' % (d, min(hh + 4, 23)),
+               e.get('title', 'Club event') + ' - Kava Social Chess Club', '%sT%02d%02d00' % (d, hh, mm), '%sT%02d%02d00' % ((d, hh + 3, mm) if hh + 3 < 24 else (d, 23, 59)),
                e.get('addr') or e.get('venue') or VENUE, e.get('note', ''))
     L.append('END:VCALENDAR')
     open(os.path.join(OUT, 'calendar.ics'), 'w', encoding='utf-8', newline='').write('\r\n'.join(L) + '\r\n')
