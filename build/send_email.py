@@ -130,6 +130,19 @@ def keep_current(mine, meta, html, mark, key):
     return 0
 
 
+def remove(cid, key):
+    """Delete a campaign. Brevo will not delete one that is scheduled, so stop it first."""
+    for status in (None, 'suspended', 'draft'):
+        try:
+            if status:
+                call('PUT', '/emailCampaigns/%s/status' % cid, key, {'status': status})
+            call('DELETE', '/emailCampaigns/%s' % cid, key)
+            return True
+        except RuntimeError as e:
+            print('   (%s)' % str(e)[:150])
+    return False
+
+
 def rehearse(meta, html, sender, key, now):
     """Walk the real Brevo calls with a campaign nobody can receive, then delete it.
 
@@ -139,6 +152,11 @@ def rehearse(meta, html, sender, key, now):
     bad = 0
     lid = None
     try:
+        # anything an earlier rehearsal could not clear away
+        for status in ('queued', 'suspended', 'draft'):
+            for c in call('GET', '/emailCampaigns?status=%s&limit=50' % status, key).get('campaigns', []):
+                if c.get('name', '').startswith('REHEARSAL'):
+                    print('left over from before, campaign %s: %s' % (c['id'], 'deleted' if remove(c['id'], key) else 'STILL THERE'))
         folders = call('GET', '/contacts/folders?limit=10', key).get('folders', [])
         lid = call('POST', '/contacts/lists', key, {'name': 'Rehearsal (safe to delete)',
                                                     'folderId': folders[0]['id']}).get('id')
@@ -177,11 +195,10 @@ def rehearse(meta, html, sender, key, now):
                 bad += 1
             finally:
                 if cid:
-                    try:
-                        call('DELETE', '/emailCampaigns/%s' % cid, key)
+                    if remove(cid, key):
                         print('%s: deleted' % label)
-                    except RuntimeError as e:
-                        print('%s: COULD NOT DELETE campaign %s, remove it in Brevo: %s' % (label, cid, e))
+                    else:
+                        print('%s: COULD NOT DELETE campaign %s, remove it in Brevo' % (label, cid))
                         bad += 1
     except (RuntimeError, IndexError, KeyError) as e:
         print('rehearsal: %s' % e)
