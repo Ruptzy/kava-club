@@ -1,7 +1,29 @@
 {
  "_comment": "One entry per club night, newest first. Written by the admin console (Post a night) or by hand. build/build_nights.py turns these into /nights/<date>/ pages, the archive, the RSS feed and the sitemap. 'line' is Harold's own sentence about the night; 'commentary' is the write-up of the numbers.",
- "updated": "2026-09-28",
+ "updated": "2026-09-30",
  "nights": [
+  {
+   "date": "2026-09-29",
+   "type": "study",
+   "title": "The center is the soul of the opening",
+   "title_es": "El centro es el alma de la apertura",
+   "played": 12,
+   "line": "Twelve studious players arrived thirsty for knowledge.",
+   "line_es": "Doce jugadores estudiosos llegaron con sed de conocimiento.",
+   "commentary": "Chapter 31 of 40 Lessons for the Club Player: the center is the soul of the opening. The chapter builds on Alexander Belyavsky and the Lvov school of grandmasters, and its argument is simple. Control the central squares and your pieces find their development on their own; give the center up and every plan has to be forced. The tactical wins in the games come later, but they are decided there. 📚\nThen the books went down and we sparred. One sharp Sicilian middlegame, played out from both sides. Black has just swung the queen to h4, and it is a mistake. White to move: find the punishment. The position is below, so take it home if you did not solve it at the table. ♟️\nTwelve studious players arrived thirsty for knowledge, and the room worked for the whole session. That is the Tuesday we want, four days out from the Battle for the Bay. ⚔️",
+   "commentary_es": "Capítulo 31 de 40 Lessons for the Club Player: el centro es el alma de la apertura. El capítulo se apoya en Alexander Belyavsky y la escuela de grandes maestros de Lvov, y su argumento es simple. Controla las casillas centrales y tus piezas encuentran su desarrollo solas; cede el centro y cada plan hay que forzarlo. Las victorias tácticas de las partidas llegan después, pero se deciden ahí. 📚\nDespués dejamos los libros y practicamos. Un medio juego agudo de la Siciliana, jugado por los dos bandos. Las negras acaban de llevar la dama a h4, y es un error. Juegan blancas: encuentra el castigo. La posición está abajo, por si no la resolviste en la mesa. ♟️\nDoce jugadores estudiosos llegaron con sed de conocimiento, y la sala trabajó toda la sesión. Ese es el martes que queremos, a cuatro días de la Battle for the Bay. ⚔️",
+   "photo": "img/nights/2026-09-29.jpg",
+   "photo_alt": "A long table of boards on the patio at Kava Social Club on a Tuesday study night, twelve players under the red and blue lights",
+   "photo_alt_es": "Una mesa larga de tableros en el patio de Kava Social Club en una noche de estudio de martes, doce jugadores bajo las luces rojas y azules",
+   "diagram": {
+    "img": "img/nights/2026-09-29-position.png",
+    "alt": "Chess diagram: a Sicilian middlegame with the black queen on h4, White to move",
+    "alt_es": "Diagrama de ajedrez: un medio juego de la Siciliana con la dama negra en h4, juegan blancas",
+    "caption": "The sparring position. Black has just played the queen to h4. White to move.",
+    "caption_es": "La posición de práctica. Las negras acaban de jugar la dama a h4. Juegan blancas."
+   },
+   "updated": "2026-09-30"
+  },
   {
    "date": "2026-09-27",
    "type": "league",

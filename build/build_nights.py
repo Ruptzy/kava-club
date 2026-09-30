@@ -263,6 +263,13 @@ def night_body(n, es, prev_n, next_n):
     quote = ('<blockquote class="nline"><p>&ldquo;%s&rdquo;</p><div class="m"><b>Harold Gonzalez</b> &middot; <span>%s</span></div></blockquote>'
              % (esc(line), 'Director del club' if es else 'Club director')) if line else ''
     comm = ''.join('<p class="body">%s</p>' % esc(p.strip()) for p in commentary.split('\n') if p.strip())
+    # a study night can carry the position the room worked on: a square diagram under the write-up
+    dg = n.get('diagram')
+    if dg and dg.get('img'):
+        comm += ('<figure class="ndiag"><img src="%s" alt="%s" width="900" height="900" loading="lazy" decoding="async">'
+                 '<figcaption class="cap">%s</figcaption></figure>'
+                 % (esc(dg['img']), esc((dg.get('alt_es') if es else None) or dg.get('alt', '')),
+                    esc((dg.get('caption_es') if es else None) or dg.get('caption', ''))))
     photo = ('<figure class="nphoto"><img src="%s" alt="%s" width="1600" height="1600" decoding="async" fetchpriority="high"></figure>'
              % (esc(n['photo']), esc(loc(n, 'photo_alt', es)))) if n.get('photo') else ''
     facts_block = ('<div class="nfacts">%s</div>' % ''.join(facts)) if facts else ''
