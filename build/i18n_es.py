@@ -281,6 +281,10 @@ TEXT = {
     "(786) 250-8993 &middot; text or call": "(786) 250-8993 &middot; llama o escribe",
     "Your name": "Tu nombre", "Your email": "Tu correo", "Message": "Mensaje", "Send": "Enviar",
     "People and platforms that support us": "Personas y plataformas que nos apoyan",
+    "Where we're listed": "Dónde aparecemos", "Local guides and chess directories": "Guías locales y directorios de ajedrez",
+    "The local guide to things to do. Find us under Meet People.": "La guía local de qué hacer. Estamos en la sección Meet People.",
+    "Our verified club. Join for online team matches.": "Nuestro club verificado. Únete para los matches por equipos en línea.",
+    "Official affiliate, in the national club directory.": "Afiliado oficial, en el directorio nacional de clubes.",
     "Coaches and tools that have helped the club": "Entrenadores y herramientas que han ayudado al club",
     "An affiliate coach of the club. Ten years playing and teaching, with training plans built around the player in front of him.":
         "Entrenador afiliado al club. Diez años jugando y enseñando, con planes de entrenamiento hechos a la medida de cada jugador.", "Watch": "Video", "The league": "La liga",
