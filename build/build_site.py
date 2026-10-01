@@ -398,9 +398,9 @@ SUBPAGES = {
         'title': 'Parking at Kava Social Chess Club — where to park in downtown Bradenton',
         'title_es': 'Estacionamiento en Kava Social Chess Club — dónde estacionar en el centro de Bradenton',
         'desc': ('Where to park for chess night at Kava Social Club, 540 13th St W, Bradenton: the big lot off S Tamiami '
-                 'Trail or street parking on 13th St W. The small lot behind the shops is a tow-away zone.'),
+                 'Trail or street parking on 13th St W. The lot behind Jess Jewelers is a tow-away zone.'),
         'desc_es': ('Dónde estacionar para la noche de ajedrez en Kava Social Club, 540 13th St W, Bradenton: el lote grande '
-                    'de S Tamiami Trail o la calle 13th St W. El lote pequeño detrás de las tiendas es zona de grúa.'),
+                    'de S Tamiami Trail o la calle 13th St W. El lote detrás de Jess Jewelers es zona de grúa.'),
         'image': 'img/parking-yes.jpg',
     },
     'hall-of-fame': {
