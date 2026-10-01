@@ -60,6 +60,10 @@ M['VENUE'], _ = jpg(os.path.join(LG, 'ksc-store.jpg'), 1400, 78, 'venue.jpg')
 # Called directly rather than through the hero list so the photo stays in the gallery too.
 M['FIRSTNIGHT'], _ = jpg(os.path.join(SRC, 'IMG_1782.jpg'), 1800, 80, 'first-night.jpg')
 M['NIGHTOUT'], _ = jpg(os.path.join(SRC, 'IMG_8373.jpg'), 1800, 78, 'night-out.jpg')
+M['PARKYES'], _ = jpg(os.path.join(HERE, 'src-art', 'parking-yes.jpg'), 1200, 80, 'parking-yes.jpg')
+M['PARKNO'], _ = jpg(os.path.join(HERE, 'src-art', 'parking-no.jpg'), 1200, 82, 'parking-no.jpg')
+M['CROSS'] = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" '
+              'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>')
 M['CHECK'] = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" '
               'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>')
 M['BG'], _ = jpg(os.path.join(LG, 'bg.jpg'), 1086, 66, 'bg.jpg')
@@ -168,6 +172,7 @@ PAGES = {
     'calendar': ('es/calendario', None),   # assembled from the home page's calendar chapter
     'merch': ('es/merch', 'merch.html'),
     'alcohol-free-night-out': ('es/noche-sin-alcohol', 'nightout.html'),
+    'parking': ('es/estacionamiento', 'parking.html'),
     'hall-of-fame': ('es/salon-de-la-fama', None),   # written by hall() from champions.json
 }
 # /nights/ and /es/noches/ come from build_nights.py; they are listed here so the language switch and sitemap know them
@@ -388,6 +393,15 @@ SUBPAGES = {
         'desc_es': ('¿Buscas qué hacer en Bradenton de noche que no sea un bar? Ajedrez social en el patio de un kava bar '
                     'sin alcohol, domingos y martes de 8PM a medianoche. Sin cover, todos los niveles, 21+.'),
         'image': 'img/night-out.jpg',
+    },
+    'parking': {
+        'title': 'Parking at Kava Social Chess Club — where to park in downtown Bradenton',
+        'title_es': 'Estacionamiento en Kava Social Chess Club — dónde estacionar en el centro de Bradenton',
+        'desc': ('Where to park for chess night at Kava Social Club, 540 13th St W, Bradenton: the big lot off S Tamiami '
+                 'Trail or street parking on 13th St W. The small lot behind the shops is a tow-away zone.'),
+        'desc_es': ('Dónde estacionar para la noche de ajedrez en Kava Social Club, 540 13th St W, Bradenton: el lote grande '
+                    'de S Tamiami Trail o la calle 13th St W. El lote pequeño detrás de las tiendas es zona de grúa.'),
+        'image': 'img/parking-yes.jpg',
     },
     'hall-of-fame': {
         'title': 'Hall of fame — chess league champions in Bradenton | Kava Social Chess Club',
