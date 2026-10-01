@@ -96,6 +96,7 @@ TEXT = {
     "USCF Tournament": "Torneo USCF",
     "Beginner": "Principiante",
     "Read the full beginner's guide &rarr;": "Lee la guía completa para principiantes &rarr;",
+    "Where to park &rarr;": "Dónde estacionar &rarr;",
     "Registration, pairings, payments and lesson bookings.": "Inscripciones, pareos, pagos y reservas de clases.",
     "A free opening notebook and trainer.": "Un cuaderno y entrenador de aperturas gratuito.",
     "Affiliate coach of the club, ten years teaching.": "Entrenador afiliado del club, diez años enseñando.",
