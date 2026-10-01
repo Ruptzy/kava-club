@@ -137,7 +137,11 @@ def lenny_says(n):
         "Archive reference: Night %d, %s." % (no, B.long_date(n['date'], False)),
         "Filed under: %s. Night %d." % (B.night_type(n, False), no),
     ]
-    if n.get('played'):
+    if n.get('venue'):      # club news, not a club night: nothing to count
+        data = ["Filed under: %s." % B.night_type(n, False),
+                "Archive reference: club news, %s." % B.long_date(n['date'], False),
+                "Not a club night, so it takes no number. I checked the rules. I wrote the rules."]
+    elif n.get('played'):
         data.append("%d players attended, a figure I find deeply satisfying." % n['played'])
     return '\n\n'.join(['\U0001F4F0 ' + rng.choice(LENNY_INTROS), fact, rng.choice(data), rng.choice(LENNY_SIGNOFFS)])
 
@@ -166,7 +170,7 @@ def card(n):
         desc.append(_clip(first, 330))
     desc.append('**[Read the full recap →](%s)**' % url)
     embed = {
-        'title': _clip('Night %d · %s' % (no, title), 250),
+        'title': _clip('%s · %s' % (B.night_tag(n, False), title), 250),
         'url': url,
         'description': '\n\n'.join(desc),
         'color': SCARLET,

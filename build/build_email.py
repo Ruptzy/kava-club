@@ -255,7 +255,7 @@ def build(send_day, out_dir):
     if photo:
         P.append(row('<a href="%s"><img src="%s" width="600" alt="%s" style="display:block;width:100%%;max-width:600px;'
                      'height:auto;border:0"></a>' % (esc(recap_url), esc(photo), esc(lead.get('photo_alt') or subject)), '0'))
-    P.append(row(label('Night %d · %s · %s' % (no, kind, nice(d8(lead['date'])))), '30px 28px 0'))
+    P.append(row(label('%s · %s · %s' % (B.night_tag(lead, False), kind, nice(d8(lead['date'])))), '30px 28px 0'))
     P.append(row('<h1 style="margin:0;font-family:%s;font-size:34px;font-weight:900;line-height:36px;letter-spacing:-.4px;'
                  'text-transform:uppercase;color:%s"><a href="%s" style="color:%s;text-decoration:none">%s</a></h1>'
                  % (FD, CREAM, esc(recap_url), CREAM, esc(lead.get('title') or kind)), '12px 28px 0'))
@@ -346,7 +346,7 @@ def build(send_day, out_dir):
     size = len(doc.encode('utf-8'))
     assert size < MAX_BYTES, 'email is %d bytes; Gmail clips at 102KB' % size
 
-    txt = [subject.upper(), '', 'Night %d · %s · %s' % (no, kind, nice(d8(lead['date']), True)), '']
+    txt = [subject.upper(), '', '%s · %s · %s' % (B.night_tag(lead, False), kind, nice(d8(lead['date']), True)), '']
     if lead.get('line'):
         txt += ['"%s"' % lead['line'], '']
     txt += [first_sentences(lead.get('commentary')), '', 'Read the full recap: ' + recap_url, '']

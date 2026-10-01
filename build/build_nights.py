@@ -164,7 +164,26 @@ def night_type(n, es):
 
 
 def venue(n, es):
+    if n.get('venue'):        # the post names its own place, e.g. an online match
+        return (n.get('venue_es') if es else None) or n['venue']
     return VENUE.get(n.get('type', ''), VENUE_DEFAULT)[1 if es else 0]
+
+
+def night_tag(n, es):
+    """'Night 591' for a club night; a post that names its own place is club news and takes no number."""
+    if n.get('venue'):
+        return 'Noticias del club' if es else 'Club news'
+    return '%s %d' % ('Noche' if es else 'Night', night_number(n['date']))
+
+
+def linkify(text):
+    """Escaped text with any web address in it turned into a link, shown without its tracking tail."""
+    def a(m):
+        url = m.group(0)
+        shown = re.sub(r'^https?://(www\.)?', '', url.split('?')[0]).rstrip('/')
+        shown = re.sub(r'/join$', '', shown)
+        return '<a href="%s" target="_blank" rel="noopener">%s</a>' % (url, shown)
+    return re.sub(r'https?://[^\s<]*[^\s<.,;:!?)]', a, esc(text))
 
 
 def slug(n, es):
@@ -262,7 +281,7 @@ def night_body(n, es, prev_n, next_n):
         commentary = (line + '\n' + commentary).strip(); line = ''
     quote = ('<blockquote class="nline"><p>&ldquo;%s&rdquo;</p><div class="m"><b>Harold Gonzalez</b> &middot; <span>%s</span></div></blockquote>'
              % (esc(line), 'Director del club' if es else 'Club director')) if line else ''
-    comm = ''.join('<p class="body">%s</p>' % esc(p.strip()) for p in commentary.split('\n') if p.strip())
+    comm = ''.join('<p class="body">%s</p>' % linkify(p.strip()) for p in commentary.split('\n') if p.strip())
     # a study night can carry the position the room worked on: a square diagram under the write-up
     dg = n.get('diagram')
     if dg and dg.get('img'):
@@ -285,7 +304,7 @@ def night_body(n, es, prev_n, next_n):
         nav = '<div class="nnav">%s%s</div>' % (p, x)
     home = '/es/' if es else '/'
     return ('<main class="wrap page night">'
-            '<div class="phead"><div class="m lbl"><a href="/%s/">%s</a> &middot; %s %d &middot; %s</div>'
+            '<div class="phead"><div class="m lbl"><a href="/%s/">%s</a> &middot; %s &middot; %s</div>'
             '<h1 class="d">%s</h1>'
             '<p class="dateline m">%s &middot; %s</p></div>'
             '<div class="ngrid">%s<div class="ntext">'
@@ -304,7 +323,7 @@ def night_body(n, es, prev_n, next_n):
             'var img=document.querySelector(".nphoto img");'
             'if(img&&navigator.canShare){fetch(img.src).then(function(r){return r.blob();}).then(function(bl){var f=new File([bl],"kava-chess-night.jpg",{type:bl.type||"image/jpeg"});if(!go([f])&&!go())fallback();}).catch(function(){if(!go())fallback();});}'
             'else if(!go())fallback();});})();</script>') % (
-        'es/noches' if es else 'nights', 'Noches de club' if es else 'Club nights', 'Noche' if es else 'Night', night_number(n['date']), esc(t),
+        'es/noches' if es else 'nights', 'Noches de club' if es else 'Club nights', night_tag(n, es), esc(t),
         esc(title),
         esc(long_date(n['date'], es)), esc(venue(n, es)),
         photo, facts_block, quote, comm,
@@ -346,7 +365,8 @@ def night_ld(n, es):
         {"@type": "ListItem", "position": 1, "name": "Kava Social Chess Club", "item": URL + ('es/' if es else '')},
         {"@type": "ListItem", "position": 2, "name": 'Noches de club' if es else 'Club nights', "item": URL + ('es/noches/' if es else 'nights/')},
         {"@type": "ListItem", "position": 3, "name": title, "item": page_url}]}
-    return {"@context": "https://schema.org", "@graph": [art, ev, crumbs]}
+    # an online match is not an evening at the venue, so it is not described to Google as one
+    return {"@context": "https://schema.org", "@graph": [art, crumbs] if n.get('venue') else [art, ev, crumbs]}
 
 
 def build_night(n, es, prev_n, next_n):
@@ -376,9 +396,9 @@ def archive_body(nights, es):
         img = ('<img src="%s" alt="" loading="lazy" decoding="async">' % esc(n['photo'])) if n.get('photo') else '<div class="noimg"></div>'
         meta = ' &middot; '.join(x for x in [esc(t), ('%d %s' % (n['played'], 'jugadores' if es else 'players')) if n.get('played') else '',
                                               ('%d %s' % (n['rounds'], 'rondas' if es else 'rounds')) if n.get('rounds') else ''] if x)
-        cards.append('<a class="ncard" style="--i:%d" href="/%s/">%s<div class="nc"><div class="m">%s %d &middot; %s</div><h2 class="d">%s</h2>'
+        cards.append('<a class="ncard" style="--i:%d" href="/%s/">%s<div class="nc"><div class="m">%s &middot; %s</div><h2 class="d">%s</h2>'
                      '<div class="m nmeta">%s</div><p class="body">%s</p></div></a>'
-                     % (len(cards), slug(n, es), img, 'Noche' if es else 'Night', night_number(n['date']), esc(long_date(n['date'], es)), esc(title), meta, esc(line)))
+                     % (len(cards), slug(n, es), img, night_tag(n, es), esc(long_date(n['date'], es)), esc(title), meta, esc(line)))
     return ('<main class="wrap page nights"><div class="phead"><div class="m lbl">%s</div><h1 class="d">%s</h1>'
             '<p class="body lead">%s</p></div>'
             '<div class="history"><div><div class="d v">2021</div><div class="m">%s</div></div><div><div class="d v">%d</div><div class="m">%s</div></div>'
