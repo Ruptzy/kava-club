@@ -60,8 +60,8 @@ END:VEVENT
 BEGIN:VEVENT
 UID:booked-2026-10-03-battle-for-the-bay-tampa-vs-bradenton@kavasocialchessclub.com
 DTSTAMP:20260910T000000Z
-DTSTART;TZID=America/New_York:20261003T200000
-DTEND;TZID=America/New_York:20261003T230000
+DTSTART;TZID=America/New_York:20261003T190000
+DTEND;TZID=America/New_York:20261003T220000
 SUMMARY:Battle for the Bay: Tampa vs Bradenton - Kava Social Chess Club
 LOCATION:Tampa Knights Chess Club\, 1919 N Howard Ave\, Tampa\, FL 33607
 DESCRIPTION:Tampa Knights against Kava Social\, away in Tampa. One open section\, Swiss format. $15 if you register on Chess67\, $20 at the door. Prizes for the winners.
