@@ -17,7 +17,16 @@
    "photo": "img/nights/2026-10-01.jpg",
    "photo_alt": "Match card: Kava Social Chess Club versus Orlando Chess Association, a chess.com club battle on 13 boards, daily games, started 1 October 2026",
    "photo_alt_es": "Tarjeta del match: Kava Social Chess Club contra Orlando Chess Association, batalla de clubes en chess.com a 13 tableros, partidas diarias, iniciada el 1 de octubre de 2026",
-   "updated": "2026-10-01"
+   "updated": "2026-10-01",
+   "diagram": {
+    "img": "img/nights/2026-10-01-match.png",
+    "w": 705,
+    "h": 942,
+    "alt": "The chess.com match page for Kava Social Chess Club versus Orlando Chess Association: 13 players a side, daily games, with the first seven boards listed",
+    "alt_es": "La página del match en chess.com entre Kava Social Chess Club y Orlando Chess Association: 13 jugadores por lado, partidas diarias, con los primeros siete tableros",
+    "caption": "The match page on chess.com. Thirteen boards, and the top seven as they were paired.",
+    "caption_es": "La página del match en chess.com. Trece tableros, y los primeros siete tal como quedaron emparejados."
+   }
   },
   {
    "date": "2026-09-29",

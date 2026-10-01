@@ -285,9 +285,12 @@ def night_body(n, es, prev_n, next_n):
     # a study night can carry the position the room worked on: a square diagram under the write-up
     dg = n.get('diagram')
     if dg and dg.get('img'):
-        comm += ('<figure class="ndiag"><img src="%s" alt="%s" width="900" height="900" loading="lazy" decoding="async">'
+        w, h = dg.get('w') or 900, dg.get('h') or 900
+        # a picture that gives its own size keeps its own shape and is never shown larger than it is
+        shape = (' style="max-width:%dpx"' % w, ' style="aspect-ratio:%d/%d"' % (w, h)) if dg.get('w') else ('', '')
+        comm += ('<figure class="ndiag"%s><img src="%s" alt="%s" width="%d" height="%d"%s loading="lazy" decoding="async">'
                  '<figcaption class="cap">%s</figcaption></figure>'
-                 % (esc(dg['img']), esc((dg.get('alt_es') if es else None) or dg.get('alt', '')),
+                 % (shape[0], esc(dg['img']), esc((dg.get('alt_es') if es else None) or dg.get('alt', '')), w, h, shape[1],
                     esc((dg.get('caption_es') if es else None) or dg.get('caption', ''))))
     photo = ('<figure class="nphoto"><img src="%s" alt="%s" width="1600" height="1600" decoding="async" fetchpriority="high"></figure>'
              % (esc(n['photo']), esc(loc(n, 'photo_alt', es)))) if n.get('photo') else ''
