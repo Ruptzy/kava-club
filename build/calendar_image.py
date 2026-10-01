@@ -106,7 +106,7 @@ def draw_month(year, month, root, path):
                 text = label if d.textlength(label, font=f_chip) < CELL_W - 34 else label[:14] + '…'
                 tw = d.textlength(text, font=f_chip)
                 d.rounded_rectangle([x + 10, cy, x + 12 + tw + 12, cy + 28], radius=3, fill=col)
-                ink = VOID if t in ('social', 'adobe', 'lecture', 'simul', 'battle', 'outing') else CREAM
+                ink = VOID if t in ('social', 'study', 'adobe', 'lecture', 'simul', 'battle', 'outing') else CREAM
                 d.text((x + 16, cy + 5), text, font=f_chip, fill=ink)
                 cy += 34
 
