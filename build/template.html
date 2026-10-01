@@ -264,7 +264,7 @@ var soc=document.querySelector("#navbar .soc"),lang=document.querySelector("#nav
   (function(){
     if(!window.fetch) return;
     var ES=document.documentElement.lang==="es", box=document.getElementById("latest");
-    var T={league:["League night","Noche de liga"],social:["Social Sunday","Domingo social"],study:["Study night","Noche de estudio"],adobe:["Intermediate+ study night","Noche de estudio intermedio+"],special:["Special event","Evento especial"],tournament:["Tournament","Torneo"]};
+    var T={league:["League night","Noche de liga"],social:["Social Sunday","Domingo social"],study:["Study night","Noche de estudio"],adobe:["Intermediate+ study night","Noche de estudio intermedio+"],special:["Special event","Evento especial"],tournament:["Tournament","Torneo"],battle:["Club battle","Batalla de clubes"],outing:["Club outing","Salida del club"]};
     var MS=ES?["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"]:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
     function L(n,k){ return (ES&&n[k+"_es"])||n[k]||""; }
     fetch("{{NIGHTS_URL}}",{cache:"no-cache"}).then(function(r){return r.ok?r.json():null;}).then(function(j){
@@ -272,7 +272,7 @@ var soc=document.querySelector("#navbar .soc"),lang=document.querySelector("#nav
       var n=j.nights.slice().sort(function(a,b){return a.date<b.date?1:-1;})[0];
       var d=n.date.split("-"), dt=new Date(+d[0],+d[1]-1,+d[2]), days=Math.round((Date.now()-dt)/864e5);
       var t=(T[n.type]||[n.type,n.type])[ES?1:0];
-      document.getElementById("latestK").textContent=(days<=3?(ES?"La última noche":"Last night at the club"):(ES?"Última noche registrada":"The last night on record"));
+      document.getElementById("latestK").textContent=n.venue?(ES?"Noticias del club":"Club news"):(days<=3?(ES?"La última noche":"Last night at the club"):(ES?"Última noche registrada":"The last night on record"));
       document.getElementById("latestT").textContent=L(n,"title")||t;
       document.getElementById("latestM").textContent=t+" \u00b7 "+dt.getDate()+" "+MS[dt.getMonth()]+" "+dt.getFullYear()+(n.played?" \u00b7 "+n.played+(ES?" jugadores":" players"):"");
       var line=L(n,"line")||L(n,"commentary"); if(line.length>200) line=line.slice(0,197).replace(/\s+\S*$/,"")+"\u2026";
