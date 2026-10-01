@@ -76,6 +76,8 @@ for key, fn, out in [('TAB_ALL', 'all.png', 'bracket-all.png'), ('TAB_O1400', 'o
                      ('TAB_U1400', 'u1400.png', 'bracket-u1400.png'), ('TAB_U1000', 'u1000.png', 'bracket-u1000.png')]:
     M[key] = png(os.path.join(LG, fn), 900, out)
 shutil.copy(os.path.join(LG, 'uschess.svg'), os.path.join(OUT, 'img', 'logos', 'uschess.svg')); M['L_USCHESS'] = 'img/logos/uschess.svg'
+M['L_CHESSCOM'] = png(os.path.join(LG, 'chesscom.png'), 480, 'logos/chesscom.png')
+M['L_VIBING'] = png(os.path.join(LG, 'vibing.png'), 480, 'logos/vibing.png')
 shutil.copy(os.path.join(LG, 'c67-dark.svg'), os.path.join(OUT, 'img', 'logos', 'chess67.svg')); M['L_C67'] = 'img/logos/chess67.svg'
 shutil.copy(os.path.join(LG, 'promo-web.mp4'), os.path.join(OUT, 'media', 'promo.mp4')); M['VIDEO'] = 'media/promo.mp4'
 if os.path.exists(os.path.join(LG, 'promo-720.mp4')):
