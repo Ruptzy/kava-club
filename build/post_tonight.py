@@ -90,6 +90,12 @@ SIGNOFFS = [
     "Come say hi if you're new!",
 ]
 
+# Lenny's own greetings and sign-offs, from build/lenny/tonight.txt, join the pools above
+sys.path.insert(0, HERE)
+import lenny_bank as L  # noqa: E402
+GREETINGS = GREETINGS + L.TONIGHT_GREETINGS
+SIGNOFFS = SIGNOFFS + L.TONIGHT_SIGNOFFS
+
 OPENERS = {
     'league': [
         "Tonight is a league night, so every game counts toward your in-house elo.",
@@ -367,6 +373,9 @@ def message(day, on, events=()):
             aside = draw(ASIDES['adobe' if kind == 'adobe' else 'home'])
             if aside:
                 parts.append(aside)
+        if chance(2):
+            # one thing worth knowing, different every day: a fact, or one of his opinions
+            parts.append('🤓 ' + L.knowledge(day.toordinal()))
         parts.append('Starts at %s%s. %s' % (when, where, bye))
         nudge = countdown(day, events) if chance(3) else None
         if nudge:

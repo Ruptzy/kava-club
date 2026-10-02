@@ -1,0 +1,348 @@
+# Lenny's facts. One per line. Every line here is a real, checkable fact about chess:
+# no opinions (those live in takes.txt) and nothing about club members.
+# A lead-in such as "Actually:" or "Fun fact:" is added in front when it is posted.
+
+# --- numbers and geometry
+There are exactly 20 legal first moves for White.
+After one move each there are 400 possible positions.
+After two moves each there are 197,281 possible games.
+Claude Shannon estimated about 10^120 possible chess games. The observable universe has roughly 10^80 atoms.
+A chessboard has 64 squares, but if you count squares of every size there are 204.
+There are 1,296 rectangles of every size on a chessboard.
+A rook on an empty board controls exactly 14 squares, wherever it stands.
+A queen in the centre of an empty board controls 27 squares.
+A queen in the corner of an empty board still controls 21 squares.
+A bishop controls 13 squares from the centre of an empty board and only 7 from the corner.
+A knight controls 8 squares from the centre and just 2 from the corner.
+A king controls 8 squares in the middle of the board, 5 on the edge and 3 in the corner.
+There are 92 ways to place eight queens so that none attacks another. Only 12 of them are truly different.
+The eight queens puzzle was first posed in 1848.
+The most legal moves known in any reachable position is 218.
+The fastest possible checkmate takes two moves. It is called Fool's Mate, and White has to cooperate.
+Scholar's Mate takes four moves.
+A knight needs six moves to travel from one corner to the opposite corner.
+A king needs seven moves to walk from one edge of the board to the other.
+A pawn can promote in as few as five moves from its starting square.
+One side can legally have nine queens on the board at once.
+Each side starts with 16 pieces, and half of them are pawns.
+In the starting position, the knights are the only pieces that can move before a pawn does.
+The standard piece values are pawn 1, knight 3, bishop 3, rook 5, queen 9. The king has no price.
+A knight always lands on the opposite colour from the square it left.
+A knight's tour visits all 64 squares exactly once. Euler studied it in the 1700s.
+Counting direction, there are 26,534,728,821,064 closed knight's tours on a chessboard.
+Chess960 has exactly 960 starting positions.
+The number of legal chess positions is estimated at about 4.8 x 10^44.
+In the wheat and chessboard story, doubling one grain across 64 squares gives more than 18 quintillion grains.
+The longest forced mate found in seven-piece endgame tablebases takes 549 moves.
+King, bishop and knight can always force mate against a lone king, in at most 33 moves.
+Two knights cannot force checkmate against a lone king.
+A light-squared bishop can only ever reach 32 of the 64 squares.
+Every position with seven pieces or fewer has been solved by endgame tablebases.
+A bishop never leaves the colour it starts on.
+The square a1 is always a dark square.
+The board has 32 light squares and 32 dark squares.
+A knight in the centre can reach any square on the board in four moves or fewer.
+The two longest diagonals on the board are eight squares long. There is one of each colour.
+A rook can reach any square on an empty board in at most two moves.
+A queen can reach any square on an empty board in at most two moves.
+A bishop can reach any square of its own colour on an empty board in at most two moves.
+There are 16 pawns at the start of a game, and none of them can ever move backward.
+There are eight files and eight ranks. Files are lettered a to h and ranks are numbered 1 to 8.
+
+# --- rules
+Castling is the only move where two of your own pieces move at once.
+You cannot castle out of check, through check, or into check.
+You can castle while your rook is under attack. Only the king's squares matter.
+When castling queenside, the rook may cross an attacked square. The king may not.
+Castling is written O-O on the kingside and O-O-O on the queenside.
+Under FIDE rules you must touch the king first when you castle.
+You may not castle with a king or a rook that has already moved, even if it moved back.
+En passant is only legal on the very next move.
+En passant is the only capture where the capturing piece does not land on the square of the piece it takes.
+En passant is French for "in passing".
+The pawn's two-square first move is the reason en passant exists.
+A promoting pawn can become a queen, rook, bishop or knight. Never a king.
+Promoting to anything other than a queen is called underpromotion.
+You may promote to a second queen while your first one is still on the board.
+Stalemate is a draw, not a win.
+A king is never actually captured. The game ends one move earlier.
+Two kings can never stand on adjacent squares.
+A double check can only be answered by moving the king.
+A pinned piece can still give check.
+You can deliver checkmate by castling.
+You can deliver checkmate with an en passant capture.
+Under touch-move, if you deliberately touch a piece you must move it if it has a legal move.
+"J'adoube" means "I adjust". You say it before straightening a piece.
+The board is set up with a light square in each player's right-hand corner.
+The queen starts on her own colour: the white queen on a light square, the black queen on a dark one.
+White moves first. That only became the standard convention in the late 1800s.
+The 50-move rule resets with every capture and every pawn move.
+Since 2014 a game is automatically drawn after 75 moves without a capture or pawn move, even if nobody claims it.
+Fivefold repetition ends a game automatically. Threefold repetition has to be claimed.
+A position where no sequence of legal moves could ever give mate is an immediate draw.
+King against king is a draw the moment it appears.
+King and bishop against a lone king is a draw.
+King and knight against a lone king is a draw.
+If your flag falls but your opponent has no possible way to mate you, the game is a draw.
+Under FIDE rules you may not write a move down before you play it.
+In algebraic notation the knight is N, because K was already taken by the king.
+A plus sign means check. A hash sign means checkmate.
+In annotations, "!!" is a brilliant move, "??" a blunder, "!?" interesting and "?!" dubious.
+FIDE made algebraic notation the standard in 1981.
+In Spanish notation the pieces are R, D, T, A and C: rey, dama, torre, alfil, caballo.
+In German notation the knight is S, for Springer, and the bishop is L, for Läufer.
+Under FIDE rules, rapid chess means more than 10 and less than 60 minutes per player.
+Under FIDE rules, blitz means 10 minutes or less per player.
+An increment adds time to your clock after every move.
+Bobby Fischer filed a patent for a chess clock with increments in 1988.
+A time control written G/30 means each player has 30 minutes for the whole game.
+Threefold repetition does not need the positions to occur one after another.
+For a repetition claim, the same player must be to move and the same moves must be possible each time.
+
+# --- history
+Chess descends from chaturanga, a game played in India around the sixth century.
+The Persian form of chess was called shatranj.
+"Checkmate" comes from the Persian "shah mat", roughly "the king is helpless".
+"Rook" comes from the Persian "rukh", a chariot.
+The bishop began as an elephant. In Spanish it is still "alfil", from the Arabic for elephant.
+The queen began as a counsellor that moved only one square diagonally.
+The modern queen appeared in Europe in the late 1400s. Players called the new game "mad queen chess".
+The oldest recorded game with modern rules comes from a Valencian poem, "Scachs d'amor", from around 1475.
+Luis Ramírez de Lucena published the oldest surviving printed chess book in 1497.
+Ruy López, a Spanish priest, published his chess book in 1561. The opening still carries his name.
+The Staunton chess pattern dates from 1849. It was designed by Nathaniel Cooke and endorsed by Howard Staunton.
+The first international chess tournament was London 1851. Adolf Anderssen won it.
+The Immortal Game was played in London in 1851. Anderssen gave up a bishop, both rooks and his queen, then mated.
+The Evergreen Game was played in 1852, and Anderssen won that one too.
+Paul Morphy played the Opera Game in Paris in 1858, against a duke and a count playing together.
+Paul Morphy retired from serious chess in his early twenties.
+Wilhelm Steinitz became the first official world champion in 1886, beating Johannes Zukertort.
+Emanuel Lasker held the world title for 27 years, from 1894 to 1921. Nobody has held it longer.
+Emanuel Lasker was also a mathematician. A theorem in algebra carries his name.
+José Raúl Capablanca went eight years without losing a game, from 1916 to 1924.
+Alexander Alekhine is the only world champion to die while holding the title.
+Max Euwe, world champion from 1935 to 1937, was a mathematics teacher.
+Mikhail Botvinnik was an electrical engineer as well as a world champion.
+Mikhail Tal became world champion in 1960 at the age of 23.
+Bobby Fischer won the world title in Reykjavik in 1972.
+Bobby Fischer won the 1963-64 US Championship with a perfect score: 11 wins from 11 games.
+Bobby Fischer won 20 games in a row against top opposition in 1970 and 1971.
+Bobby Fischer became a grandmaster at 15, in 1958.
+Anatoly Karpov became world champion in 1975 without playing a match, when Fischer did not defend.
+Anatoly Karpov was world champion from 1975 to 1985.
+The first Karpov-Kasparov match was stopped after 48 games with no winner declared.
+Garry Kasparov became world champion in 1985 at the age of 22.
+Garry Kasparov's peak rating of 2851 stood as the record until Magnus Carlsen passed it in 2013.
+Vladimir Kramnik took the title from Kasparov in 2000 without losing a single game of the match.
+Viswanathan Anand became India's first grandmaster in 1988.
+Magnus Carlsen became a grandmaster at 13.
+Magnus Carlsen held the world title from 2013 to 2023.
+Magnus Carlsen went 125 classical games without a loss, from 2018 to 2020.
+Magnus Carlsen's peak classical rating of 2882 is the highest ever recorded.
+Ding Liren became world champion in 2023.
+Gukesh Dommaraju became the youngest world champion in history in 2024, at 18.
+Vera Menchik became the first women's world champion in 1927.
+Nona Gaprindashvili became the first woman awarded the grandmaster title, in 1978.
+Judit Polgár became a grandmaster at 15, breaking Bobby Fischer's record.
+Judit Polgár reached number eight in the world, the highest any woman has ever been ranked.
+Hou Yifan became women's world champion at 16.
+Abhimanyu Mishra became the youngest grandmaster in history in 2021, at 12 years and 4 months.
+Sergey Karjakin held the record for youngest grandmaster for 19 years.
+FIDE, the world chess federation, was founded in Paris in 1924.
+FIDE's motto is "Gens una sumus": we are one family.
+FIDE first awarded the grandmaster title in 1950.
+The first official Chess Olympiad was held in London in 1927.
+International Chess Day is July 20, the date FIDE was founded.
+The Elo rating system is named after Arpad Elo, a physics professor.
+US Chess adopted the Elo system in 1960. FIDE adopted it in 1970.
+Elo is a surname, not an acronym, so it is not written in capitals.
+The US Chess Federation was founded in 1939.
+The Mechanics' Institute in San Francisco has hosted a chess club since 1854.
+The Marshall Chess Club in New York was founded in 1915.
+The Zürich chess society, founded in 1809, is the oldest chess club in the world.
+Mechanical chess clocks were first used at the London tournament of 1883.
+The Lewis chessmen were carved in the 12th century, mostly from walrus ivory.
+The Lewis chessmen were found on a Scottish island in 1831.
+The Turk, a chess-playing "machine" built in 1770, was a hoax. A strong player was hidden inside.
+Benjamin Franklin wrote an essay called "The Morals of Chess".
+William Caxton's book on chess was one of the first books printed in English.
+Philidor, the best player of the 1700s, was also a successful opera composer.
+Philidor wrote that pawns are the soul of chess.
+In 1970 the cosmonauts of Soyuz 9 played a game against ground control. It was a draw.
+In 2008 an astronaut on the International Space Station played a game against the public on Earth.
+Chessboxing is a real sport. Its first event was held in 2003.
+The longest world championship game is game 6 of Carlsen against Nepomniachtchi in 2021. It ran 136 moves.
+The longest tournament game on record is Nikolić against Arsović, Belgrade 1989: 269 moves, drawn.
+Armenia teaches chess as a compulsory subject in primary school.
+The International Olympic Committee recognises chess as a sport.
+The World Chess Hall of Fame is in St. Louis, Missouri.
+In 1999 Garry Kasparov played a game against "the World", with the public voting on each move. He won in 62 moves.
+Timur Gareyev played 48 games at once, blindfolded, in 2016.
+The 1972 world championship match in Reykjavik made front pages around the world.
+
+# --- openings
+The Scotch Game is named after a correspondence match between Edinburgh and London in the 1820s.
+The French Defence is named after a correspondence match between London and Paris in 1834.
+The English Opening is named after Howard Staunton, who played it in 1843.
+The Caro-Kann is named after two players, Horatio Caro and Marcus Kann.
+The Grünfeld Defence is named after Ernst Grünfeld, who introduced it in 1922.
+The Najdorf Variation is named after Miguel Najdorf.
+The Benko Gambit is named after Pal Benko.
+Alekhine's Defence, 1.e4 Nf6, invites White's pawns forward on purpose.
+The Orangutan, 1.b4, got its name after Savielly Tartakower visited a zoo in 1924.
+The Dragon Variation of the Sicilian is named after the constellation Draco.
+The Ruy López is also called the Spanish Game.
+The Italian Game is one of the oldest recorded openings.
+Frank Marshall unveiled the Marshall Attack against Capablanca in 1918. Capablanca won anyway.
+Kramnik's Berlin Defence frustrated Kasparov so much in 2000 that it became known as the Berlin Wall.
+The Queen's Gambit is not a true gambit. White can usually win the pawn back.
+The Encyclopaedia of Chess Openings sorts every opening into 500 codes, from A00 to E99.
+The Sicilian Defence is the most popular reply to 1.e4 at master level.
+The Bongcloud is 1.e4 e5 2.Ke2. Carlsen and Nakamura once played it against each other and drew by repetition.
+The King's Gambit, 1.e4 e5 2.f4, was the height of fashion in the 1800s.
+The London System takes its name from the London tournament of 1922.
+The Fried Liver Attack is a real opening name. In Italian it is the Fegatello.
+The Hippopotamus is a real opening setup. So is the Hedgehog.
+The Grob, 1.g4, is named after the Swiss player Henri Grob.
+The Réti Opening is named after Richard Réti, who beat Capablanca with it in 1924.
+The Nimzo-Indian Defence is named after Aron Nimzowitsch.
+Petrov's Defence is also called the Russian Game.
+The Catalan Opening got its name from a tournament in Barcelona in 1929.
+The Dutch Defence begins 1.d4 f5.
+The Scandinavian Defence, 1.e4 d5, is one of the oldest recorded openings.
+The Sicilian Defence begins 1.e4 c5.
+The Caro-Kann begins 1.e4 c6.
+The French Defence begins 1.e4 e6.
+The Ruy López begins 1.e4 e5 2.Nf3 Nc6 3.Bb5.
+The Italian Game begins 1.e4 e5 2.Nf3 Nc6 3.Bc4.
+The Queen's Gambit begins 1.d4 d5 2.c4.
+The King's Indian Defence lets White build a big centre and then attacks it.
+The Pirc Defence is named after the Slovenian grandmaster Vasja Pirc.
+The Evans Gambit is named after a Welsh sea captain, William Davies Evans.
+The Budapest Gambit begins 1.d4 Nf6 2.c4 e5.
+The Vienna Game begins 1.e4 e5 2.Nc3.
+The Englund Gambit begins 1.d4 e5.
+The Smith-Morra Gambit is White's pawn sacrifice against the Sicilian: 1.e4 c5 2.d4.
+The Poisoned Pawn Variation is named for a pawn on b2 that is dangerous to take.
+
+# --- words
+Zugzwang is German for "compulsion to move". It is when every available move makes your position worse.
+Zwischenzug is German for "in-between move".
+Fianchetto is Italian for "little flank".
+"Gambit" comes from an Italian word for tripping someone up.
+"En prise" describes a piece left where it can simply be taken.
+"Luft" is German for air. In chess it means giving your king an escape square.
+"Patzer", a weak player, comes from German.
+A "kibitzer" is someone who comments on a game they are not playing. The word comes from Yiddish.
+A "tabiya" is a standard opening position where the real game begins.
+Nimzowitsch made the word "prophylaxis" famous in chess: stopping the opponent's idea before it starts.
+An "isolani" is an isolated queen's pawn.
+A "desperado" is a doomed piece that captures as much as it can before it goes.
+A "windmill" is a repeating series of discovered checks.
+In chess, "the exchange" means a rook traded for a bishop or a knight.
+A "fortress" is a position the stronger side cannot break down.
+"Opposition" is when the two kings face each other with one square between them.
+"Triangulation" is losing a move on purpose with your king.
+A "battery" is two pieces lined up on the same file, rank or diagonal.
+A "skewer" is a pin in reverse: the more valuable piece stands in front.
+An "absolute pin" is a pin against the king. The pinned piece cannot legally move.
+A "smothered mate" is delivered by a knight against a king boxed in by its own pieces.
+The "Greek gift" is the bishop sacrifice on h7.
+"Légal's mate" is named after an 18th-century French player.
+"Boden's mate" is delivered by two bishops on crossing diagonals.
+"Anastasia's mate" takes its name from a novel published in 1803.
+The "Arabian mate", with rook and knight, is one of the oldest recorded mating patterns.
+The "Lucena position" is the key winning method in rook endings.
+The "Philidor position" is the key drawing method in rook endings.
+"The square of the pawn" tells you whether a king can catch a passed pawn without calculating.
+A "passed pawn" has no enemy pawns in front of it or on the files beside it.
+A "backward pawn" cannot be protected by another pawn and cannot safely advance.
+A "tempo" is one move's worth of time.
+A "novelty" is a move nobody has played before in that position.
+Time trouble has a German name that players use everywhere: "Zeitnot".
+"Minor pieces" are bishops and knights. "Major pieces" are rooks and queens.
+The Saavedra position of 1895 is won by promoting to a rook, not a queen.
+The Lasker Trap ends with a pawn promoting to a knight on move seven.
+The Noah's Ark Trap wins a bishop in the Ruy López.
+The Elephant Trap is a trap in the Queen's Gambit Declined.
+A "simul" is one player taking on many boards at the same time.
+"Blindfold chess" is played without sight of the board. Moves are called out loud.
+"Correspondence chess" is played by post or server, with days for each move.
+"Fingerfehler" is German for a slip of the finger: playing a move you did not mean.
+The "initiative" belongs to the side making threats that have to be answered.
+"Overloading" is giving one defender more jobs than it can do.
+A "discovered check" comes from the piece that was uncovered, not the piece that moved.
+
+# --- machines
+Alan Turing wrote a chess program before any computer existed that could run it. He worked through its moves by hand.
+Claude Shannon published the first paper on programming a computer to play chess in 1950.
+Deep Blue beat Garry Kasparov in a match in 1997, by 3.5 to 2.5.
+Deep Blue won its first game against Kasparov in 1996, but lost that match.
+Deep Blue searched about 200 million positions per second.
+In 2017 AlphaZero taught itself chess in a matter of hours, knowing only the rules.
+Stockfish is free and open source. Anyone can read its code.
+Leela Chess Zero is an open-source engine that learned chess by playing against itself.
+Modern engines are rated above 3500. The best human in history peaked at 2882.
+Stockfish added a neural network to its evaluation in 2020.
+In 1988 Deep Thought became the first computer to beat a grandmaster in a regular tournament game.
+Belle was the first chess machine to earn a master rating, in 1983.
+Mac Hack VI was the first program to play in a human tournament, in 1967.
+Lichess is free, carries no ads and is open source. It launched in 2010.
+Chess.com launched in 2007.
+The Internet Chess Server went online in 1992.
+The Glicko rating system was invented by Mark Glickman in 1995.
+An engine evaluation of +1.00 means an advantage worth roughly one pawn.
+A "centipawn" is a real unit. It is one hundredth of a pawn.
+An endgame tablebase does not calculate. It looks the answer up.
+The first complete seven-piece tablebases took up about 140 terabytes.
+The "horizon effect" is when an engine pushes a problem just past the depth it can see.
+The minimax idea behind chess engines goes back to John von Neumann in 1928.
+Alpha-beta pruning lets an engine skip moves it can prove do not matter.
+In 2005 two amateurs with ordinary computers won a "freestyle" tournament ahead of grandmasters with engines.
+
+# --- ratings and titles
+A 400-point rating gap means the stronger player is expected to score about 91 percent.
+A 200-point rating gap means the stronger player is expected to score about 76 percent.
+Two players with equal ratings each have an expected score of exactly 50 percent.
+The grandmaster title requires a 2500 rating and three norms.
+The International Master title requires a 2400 rating. FIDE Master requires 2300.
+A chess title is for life. A rating is not.
+In US Chess, 2200 is National Master, 2000 is Expert and 1800 is Class A.
+A "norm" is a tournament performance at title level.
+A "performance rating" is the rating your results in one event would suggest.
+The K-factor decides how quickly a rating moves. New players get a higher one.
+A draw against a higher-rated player gains you rating points.
+The Elo system has no maximum rating.
+Fabiano Caruana's peak rating of 2844 is the third highest in history.
+Fabiano Caruana began the 2014 Sinquefield Cup with seven straight wins.
+Hikaru Nakamura has won the US Championship five times.
+In 1972 Bobby Fischer was rated 125 points above the world number two.
+
+# --- books, films and quotes
+The chess scene in the first Harry Potter film was designed by International Master Jeremy Silman.
+The game HAL plays in "2001: A Space Odyssey" is a real game from 1910.
+Stanley Kubrick was a serious chess player.
+The chess game in "Blade Runner" follows the Immortal Game.
+"The Queen's Gambit" is based on a 1983 novel by Walter Tevis.
+Garry Kasparov was a consultant on "The Queen's Gambit".
+"Searching for Bobby Fischer" is based on the childhood of Josh Waitzkin.
+Humphrey Bogart was a strong club player.
+Marcel Duchamp set much of his art career aside for chess and played for France at Olympiads.
+In "The Seventh Seal" a knight plays chess against Death.
+The musical "Chess" has music by two members of ABBA.
+"Through the Looking-Glass" is built around a chess game. Alice starts as a pawn.
+The chess position in "From Russia with Love" comes from a real game between Spassky and Bronstein.
+Mikhail Tal said: "You must take your opponent into a deep dark forest where 2+2=5, and the path leading out is only wide enough for one."
+Savielly Tartakower said: "The blunders are all there on the board, waiting to be made."
+Savielly Tartakower said: "The winner of the game is the player who makes the next-to-last mistake."
+Bobby Fischer said: "I don't believe in psychology. I believe in good moves."
+Siegbert Tarrasch wrote: "Chess, like love, like music, has the power to make men happy."
+Aron Nimzowitsch is credited with the line "The threat is stronger than the execution."
+Emanuel Lasker is credited with the advice "When you see a good move, look for a better one."
+Capablanca advised students to study endgames before openings.
+Richard Réti's 1921 study shows a king chasing two goals at once along a diagonal.
+Sam Loyd composed a game that reaches stalemate in just ten moves.
+John Nunn coined the abbreviation LPDO: loose pieces drop off.
+Siegbert Tarrasch gave the rule that rooks belong behind passed pawns.
+Aron Nimzowitsch wrote that a passed pawn has a "lust to expand".
+Wilhelm Steinitz taught that the king is a fighting piece.

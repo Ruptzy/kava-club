@@ -1,0 +1,60 @@
+# Lenny's line about the night itself. He only restates what the recap already records.
+# {no} = the club night number, {type} = the kind of night, {date} = its date, {n} = players.
+# [night] lines need a night number; [played] lines also need a player count; [news] lines are
+# for club news posts, which have no number.
+
+[night]
+For the record, that was club night number {no}.
+Night {no}. I counted. Twice.
+That makes {no} club nights since 2021, if anyone was keeping score. I was.
+Archive reference: Night {no}, {date}.
+Filed under: {type}. Night {no}.
+Club night number {no} is officially in the books.
+Entry {no} in the big ledger.
+Night {no}, logged and labelled.
+The count now stands at {no} club nights. I have the receipts.
+{no} nights and my filing system has never been healthier.
+Catalogue number {no}. Shelf: {type}.
+Night {no} of an ongoing study.
+Running total: {no} club nights. The trend is upward. I made a chart.
+That was number {no}. Yes, I keep a tally. Yes, it is laminated.
+Volume {no} of the club chronicle.
+{no} nights on record. Each one filed in order.
+Add one to the counter: we are at {no}.
+Night {no}. Same patio, new data.
+The archive now holds {no} nights. It is my favourite number so far.
+Reference: {type}, {date}, night {no}.
+{date}. Night {no}. Noted.
+Chapter {no} is written.
+{no} club nights and counting. I am the one counting.
+Official tally: {no}.
+Night {no} joins the collection.
+Data point number {no} has been recorded.
+Since 2021 we have done this {no} times. I recommend it.
+Record updated: night {no}, {type}.
+Number {no}. I would not round that. Precision matters.
+Night {no}. The spreadsheet thanks you.
+
+[played]
+{n} players attended, a figure I find deeply satisfying.
+Attendance: {n}. I counted heads, then counted again.
+{n} players. That is {n} more than zero, and I checked the maths.
+The sign-in sheet says {n}. The sign-in sheet does not lie.
+{n} players at the boards. A healthy sample size.
+Headcount: {n}. Each one accounted for.
+{n} people chose chess. Excellent judgement, all {n} of them.
+Turnout: {n}. Logged under "good".
+With {n} players, that is a lot of moves. I did not count the moves. This time.
+{n} in attendance, per my clipboard.
+{n} players showed up, and every one is now a data point.
+Roll call came to {n}.
+
+[news]
+Filed under: {type}.
+Archive reference: club news, {date}.
+Not a club night, so it takes no number. I checked the rules. I wrote the rules.
+This one goes in the "news" drawer. Yes, there is a drawer.
+Club news, dated {date}, filed accordingly.
+A special entry. It gets its own folder.
+Filed under {type}. Colour-coded gold.
+No night number for this one. It is news, and news is filed separately.

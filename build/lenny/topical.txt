@@ -1,0 +1,72 @@
+# Facts Lenny only uses when the recap itself mentions the subject.
+# word | fact      (the word is matched whole, ignoring case)
+
+960 | Chess960 has exactly 960 legal starting positions. Bobby Fischer proposed it in 1996.
+960 | In Chess960 the king always starts between the rooks, so you can still castle.
+fork | Nothing can block a knight's move, which is exactly why knight forks hurt so much.
+forks | A fork attacks two things at once. Your opponent only gets one move.
+deflection | Deflection works because a defender can only guard so many things at once.
+karpov | Anatoly Karpov was world champion from 1975 to 1985.
+blitz | Under FIDE rules, blitz means 10 minutes or less per player.
+rapid | Under FIDE rules, rapid chess means more than 10 and less than 60 minutes per player.
+woodpecker | The Woodpecker Method means solving the same set of puzzles again and again until the patterns are automatic.
+woodpecker | The Woodpecker Method is named after one of its authors, Hans Tikkanen. "Tikka" is Finnish for woodpecker.
+sicilian | The Sicilian Defence begins 1.e4 c5 and is the most popular reply to 1.e4 at master level.
+taimanov | The Taimanov Variation is named after Mark Taimanov, a grandmaster who was also a concert pianist.
+najdorf | The Najdorf Variation is named after Miguel Najdorf.
+dragon | The Dragon Variation of the Sicilian is named after the constellation Draco.
+puzzles | Chess problems are older than modern chess. Arabic players were composing them over a thousand years ago.
+puzzle | Solving puzzles trains pattern recognition, which is memory wearing a disguise.
+endgame | Capablanca advised students to study endgames before openings.
+endgames | Rook endings are the most common type of endgame.
+pin | An absolute pin is a pin against the king. The pinned piece cannot legally move.
+skewer | A skewer is a pin in reverse: the more valuable piece stands in front.
+sacrifice | The Immortal Game of 1851 featured the sacrifice of a bishop, both rooks and the queen.
+gambit | "Gambit" comes from an Italian word for tripping someone up.
+upset | The Elo system expects upsets. A 200-point underdog still scores about 24 percent on average.
+upsets | The Elo system expects upsets. A 200-point underdog still scores about 24 percent on average.
+league | Round-robin, Swiss and knockout are the three classic tournament formats.
+swiss | The Swiss system was first used at a tournament in Zürich in 1895.
+bracket | In a Swiss tournament, players with the same score are paired against each other each round.
+draw | Stalemate is a draw, not a win.
+stalemate | Sam Loyd composed a game that reaches stalemate in just ten moves.
+checkmate | "Checkmate" comes from the Persian "shah mat", roughly "the king is helpless".
+castle | Castling is the only move where two of your own pieces move at once.
+castling | You can castle while your rook is under attack. Only the king's squares matter.
+promotion | A promoting pawn can become a queen, rook, bishop or knight. Never a king.
+knight | A knight always lands on the opposite colour from the square it left.
+bishop | A bishop never leaves the colour it starts on.
+rook | "Rook" comes from the Persian "rukh", a chariot.
+queen | The queen began as a counsellor that moved only one square diagonally.
+pawn | Philidor wrote that pawns are the soul of chess.
+pawns | Philidor wrote that pawns are the soul of chess.
+clock | Mechanical chess clocks were first used at the London tournament of 1883.
+clocks | Mechanical chess clocks were first used at the London tournament of 1883.
+opening | The Encyclopaedia of Chess Openings sorts every opening into 500 codes, from A00 to E99.
+center | In the starting position, the four central squares are d4, e4, d5 and e5. Every opening fights over them.
+centre | In the starting position, the four central squares are d4, e4, d5 and e5. Every opening fights over them.
+evaluation | An engine evaluation of +1.00 means an advantage worth roughly one pawn.
+engine | Modern engines are rated above 3500. The best human in history peaked at 2882.
+study | Richard Réti's 1921 study shows a king chasing two goals at once along a diagonal.
+beginners | Scholar's Mate takes four moves. Learning to stop it takes one lesson.
+beginner | Scholar's Mate takes four moves. Learning to stop it takes one lesson.
+rating | The Elo rating system is named after Arpad Elo, a physics professor.
+ratings | A 400-point rating gap means the stronger player is expected to score about 91 percent.
+grandmasters | FIDE first awarded the grandmaster title in 1950.
+carlsen | Magnus Carlsen's peak classical rating of 2882 is the highest ever recorded.
+magnus | Magnus Carlsen became a grandmaster at 13.
+fischer | Bobby Fischer won the 1963-64 US Championship with a perfect score: 11 wins from 11 games.
+kasparov | Garry Kasparov became world champion in 1985 at the age of 22.
+tal | Mikhail Tal became world champion in 1960 at the age of 23.
+capablanca | José Raúl Capablanca went eight years without losing a game, from 1916 to 1924.
+online | Lichess and Chess.com both use versions of the Glicko rating system, invented by Mark Glickman.
+daily | In daily chess each player has a day or more for every move. Correspondence chess by post worked the same way.
+tournament | The first international chess tournament was London 1851. Adolf Anderssen won it.
+documentary | The 1972 world championship match in Reykjavik made front pages around the world.
+movie | The chess scene in the first Harry Potter film was designed by International Master Jeremy Silman.
+tampa | The Scotch Game is named after a match between two cities, Edinburgh and London. City rivalries are a chess tradition.
+orlando | The French Defence is named after a correspondence match between London and Paris in 1834. Clubs have been challenging each other for a long time.
+battle | Team matches are as old as organised chess. London played Edinburgh by post in the 1820s.
+spanish | In Spanish notation the pieces are R, D, T, A and C: rey, dama, torre, alfil, caballo.
+zugzwang | Zugzwang is German for "compulsion to move".
+tactics | A "windmill" is a repeating series of discovered checks. It is as good as it sounds.

@@ -1,0 +1,160 @@
+# Extra lines for the 3pm "tonight" post. These are added to the pools already in post_tonight.py.
+# Every [greeting] must contain @everyone, because that is what pings the server.
+
+[greeting]
+Attention @everyone!
+Good afternoon, scholars @everyone!
+@everyone, your attention please!
+Pencils up @everyone!
+@everyone, I have checked the calendar. Twice.
+Greetings @everyone!
+Hear ye, hear ye @everyone!
+@everyone, this is your friendly reminder!
+Salutations @everyone!
+@everyone, Lenny here!
+Calendar alert @everyone!
+@everyone, the schedule has spoken!
+Hello fellow thinkers @everyone!
+@everyone, by my calculations it is chess day!
+Roll call @everyone!
+@everyone, mark your notebooks!
+Good news @everyone!
+@everyone, I ran the numbers. Tonight is tonight.
+Paging @everyone!
+@everyone, public service announcement!
+Dear colleagues @everyone!
+@everyone, glasses on!
+Bulletin for @everyone!
+@everyone, set a reminder. This is the reminder.
+Friendly nudge @everyone!
+@everyone, the board is calling!
+Announcement time @everyone!
+@everyone, consult your calendars!
+Class is in session tonight @everyone!
+@everyone, I have news of the scheduled variety!
+Afternoon, chess friends @everyone!
+@everyone, clocks are being wound as we speak!
+Scheduled as promised @everyone!
+@everyone, it is on the calendar and therefore it is happening!
+Reporting in @everyone!
+@everyone, tonight's agenda has one item!
+Listen closely @everyone!
+@everyone, I have set out the good pieces in my mind already!
+Evening plans sorted @everyone!
+@everyone, the pieces are restless!
+A reminder, precisely on time @everyone!
+@everyone, statistically you are free tonight!
+Knights, bishops and @everyone!
+@everyone, the forecast is chess!
+Good day to you @everyone!
+@everyone, this is not a drill. It is a club night.
+Day planner says chess @everyone!
+@everyone, the notice board has been updated!
+Friends, members, @everyone!
+@everyone, I trust you have done your puzzles!
+Ahem @everyone!
+@everyone, punctuality is a virtue and so is chess!
+Daily briefing for @everyone!
+@everyone, see below for tonight's proceedings!
+Dear @everyone!
+@everyone, the archive demands new entries!
+Reminder from the records desk @everyone!
+@everyone, tonight we add to the data!
+Top of the afternoon @everyone!
+@everyone, it is that time again!
+Schedule check @everyone!
+Chess bulletin @everyone!
+@everyone, your evening has been planned for you!
+Hello hello @everyone!
+@everyone, prepare your openings!
+Tonight, tonight @everyone!
+@everyone, I have laminated the schedule and it says tonight!
+Raise your hand if you are coming @everyone!
+@everyone, tonight's lesson plan is ready!
+Citizens of the sixty-four squares @everyone!
+@everyone, be advised!
+Timely reminder @everyone!
+@everyone, the tables will not fill themselves!
+Message for @everyone!
+@everyone, it would be illogical to miss this!
+Agenda item one @everyone!
+@everyone, the evening awaits!
+Fellow enthusiasts @everyone!
+@everyone, bring your brain. I am bringing mine.
+
+[signoff]
+Be there. I will be taking attendance.
+Arrive on time. I will know.
+See you tonight. I will be the one with the clipboard.
+Bring a pen. Bring a friend. Bring both.
+Come early. The good seats go to the punctual.
+Attendance is optional. Regret is not.
+I have saved you a seat. Do not waste it.
+Come ready to think.
+Do a puzzle on the way over.
+Remember your openings. Or come and learn one.
+Check for checks. Then come to club.
+See you at the tables. I will be early.
+New faces welcome. I will introduce myself. Thoroughly.
+All levels welcome. I will explain everything.
+Bring your questions. I have answers.
+First timers, say hello. I do not bite. I annotate.
+The clocks will be set. So will I.
+Come get your data point recorded.
+I will be counting heads.
+Late arrivals will be noted. Warmly.
+Tonight goes in the archive either way. Be in it.
+Come add yourself to the record.
+Loose pieces drop off. Do not drop off the schedule.
+I expect a strong turnout. I have a forecast.
+See you there. I will be easy to spot.
+Bring your A game. Or your B game. I grade on a curve.
+It is going to be a good one. I checked.
+Your presence is requested and will be logged.
+Come for the chess. Stay for my footnotes.
+There will be chess. This is guaranteed.
+Good moves await.
+Be punctual. Be curious.
+Come hungry for knowledge.
+The patio awaits.
+Do not make me start without you. I will, but I will not like it.
+Bring your brain. The rest is provided.
+Come make a new friend. Statistically likely.
+Wear something comfortable for sitting and thinking.
+Expect games, questions and at least one fun fact.
+I will bring the fun facts.
+Tell a friend. Tell two. Exponential growth is powerful.
+One game or ten. Both count.
+Show up. That is the hard part. The rest is chess.
+I will be the first one there. Race me.
+Castle early and arrive early.
+Come as you are. Leave slightly smarter.
+Class starts on time.
+See you over the board.
+Your move. Literally. Come make it.
+Until tonight.
+See you soon, by my watch.
+The record awaits its next entry.
+Be part of tonight's statistics.
+Come and be counted.
+RSVP not required. Enthusiasm appreciated.
+Looking forward to it. I really am.
+Plan accordingly.
+Set your alarms.
+Write it on your hand if you have to.
+No excuses. Well, a few excuses. But come anyway.
+The more the merrier, and the better the data.
+I have high hopes and a full notebook.
+Do join us.
+Kindly attend.
+It would be my pleasure to see you there.
+Come sharpen something. Preferably your tactics.
+We start when we start, which is on time.
+Until then, do your puzzles.
+Good chess is expected. Good company is guaranteed.
+See you under the lights.
+Bring nothing. Boards are provided.
+Come find out what you have forgotten since last time.
+Everyone learns something. I make sure of it.
+You will not regret it. I have run the numbers.
+Tonight. Do not forget. I will not.

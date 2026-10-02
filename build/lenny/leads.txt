@@ -1,0 +1,65 @@
+# Lead-ins. A line under [fact] goes in front of a fact; a line under [take] goes in front of an opinion.
+
+[fact]
+Actually:
+Well, actually:
+Fun fact:
+For the record:
+Technically:
+Per my notes:
+Not that anyone asked, but:
+Trivia time:
+Unsolicited knowledge:
+I looked it up so you don't have to:
+Footnote:
+Sidebar:
+Did you know?
+Nerd alert:
+Pop quiz answer:
+Today's fact, pre-verified:
+Little-known fact:
+Fact of the night:
+From the archive:
+Reference desk says:
+Checked it twice:
+One for the notebook:
+Write this down:
+Source: several books I own.
+You will want to remember this:
+Correcting nobody in particular:
+Since we are here:
+While I have your attention:
+Glasses on:
+Allow me:
+In case it comes up at dinner:
+Historically speaking:
+By the numbers:
+Strictly speaking:
+Citation ready:
+Lenny's fact file:
+Here is one I like:
+This one is true, I promise:
+From my index cards:
+Knowledge drop:
+
+[take]
+Lenny's Law:
+Unsolicited advice:
+Free coaching:
+Hot take, peer-reviewed by me:
+In my learned opinion:
+Advice nobody requested:
+Pin this to the fridge:
+Rule of thumb:
+If you remember one thing:
+A thought, from the front row:
+Lenny's tip of the night:
+Speaking as your archivist:
+Words to play by:
+Study note:
+Pro tip, amateur delivery:
+From my well-thumbed notebook:
+My professional recommendation:
+Counsel from the reference desk:
+Gently, but firmly:
+I say this with love:

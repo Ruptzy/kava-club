@@ -45,106 +45,45 @@ UA = 'KavaSocialChessClub-recaps (https://kavasocialchessclub.com, 1.0)'
 # Lenny, the club's resident know-it-all, introduces every recap. His lines sit above
 # the card; the card itself is still the recap exactly as it reads on the site.
 #
-# His words are drawn at random but seeded by the night's date, so a given recap always
-# gets the same Lenny. That matters: an edited recap keeps its joke, and his lines are
-# kept out of the fingerprint so they can never make an old message look "changed".
+# His lines live in build/lenny/*.txt and are read by lenny_bank.py: about a thousand of them.
+# A given recap always gets the same Lenny, so an edited recap keeps its joke, and his lines
+# are kept out of the fingerprint so they can never make an old message look "changed".
 #
-# Every "Actually..." is a real, checkable fact. Nothing here is made up about the club
-# or its members; the club-specific lines only restate what the recap already records.
+# Everything in facts.txt is a real, checkable fact; opinions live in takes.txt and are never
+# introduced as facts. Nothing is made up about the club or its members: the lines about the
+# night only restate what the recap already records.
 LENNY_NAME = 'Lenny'
 LENNY_AVATAR = 'https://kavasocialchessclub.com/img/lenny.png'
 
-LENNY_INTROS = [
-    "*pushes glasses up* A new recap has been filed.",
-    "Ahem. The minutes of the last meeting are now available.",
-    "Excuse me. Excuse me. New recap, for the record.",
-    "I have catalogued another club night. You're welcome.",
-    "*adjusts bow tie* The archive has been updated.",
-    "Well, well. Another night, meticulously documented.",
-    "Attention, fellow scholars of the sixty-four squares.",
-    "Breaking news from the back patio, which I was monitoring closely.",
-    "I've taken the liberty of writing everything down again.",
-    "New entry in the historical record. Please hold your applause.",
-    "According to my notes, which are extensive, there is a new recap.",
-    "For posterity: another night has been recorded.",
-    "*clears throat* The data from the last session is in.",
-    "Good news, everyone. I have documentation.",
-    "Someone has to keep the records. Naturally, it's me.",
-    "Fresh recap. Peer-reviewed by me, personally.",
-]
-
-LENNY_FACTS = [
-    "Actually, there are exactly 20 legal first moves for White.",
-    "Actually, after one move each there are 400 possible positions.",
-    "Actually, after two moves each there are 197,281 possible games.",
-    "Actually, Claude Shannon estimated about 10^120 possible chess games. The observable universe has roughly 10^80 atoms.",
-    "Actually, castling is the only move where two of your own pieces move at once.",
-    "Actually, a bishop never leaves the colour it starts on. Loyal. Admirable.",
-    "Actually, the queen used to move only one square diagonally. She got her modern powers in the late 1400s.",
-    "Actually, \"checkmate\" comes from the Persian \"shah mat\", roughly \"the king is helpless\".",
-    "Actually, the Elo rating system is named after Arpad Elo, a physics professor. My kind of guy.",
-    "Actually, the first official World Championship was 1886, Steinitz against Zukertort.",
-    "Actually, the longest tournament game on record is Nikolić vs Arsović, Belgrade 1989. 269 moves. A draw.",
-    "Actually, a knight in the corner controls just two squares. In the centre, eight. Knights on the rim are dim.",
-    "Actually, stalemate is a draw, not a win. I will die on this hill.",
-    "Actually, the 50-move rule means nobody can shuffle pieces forever without a capture or a pawn move.",
-    "Actually, Magnus Carlsen's peak classical rating was 2882, set in 2014.",
-    "Actually, a promoting pawn can become a queen, rook, bishop or knight. Never a king. I checked.",
-    "Actually, en passant is only legal on the very next move. Use it or lose it.",
-    "Actually, a lone king and knight cannot checkmate a lone king. Mathematically impossible.",
-    "Actually, the knight is the only piece that can jump over other pieces.",
-    "Actually, nothing can block a knight's move, which is exactly why knight forks hurt so much.",
-]
-
-# only used when the recap itself mentions the subject
-LENNY_TOPICAL = [
-    ('960', "Actually, Chess960 has exactly 960 legal starting positions. Bobby Fischer proposed it in 1996."),
-    ('960', "Actually, in Chess960 the king always starts between the rooks, so you can still castle."),
-    ('fork', "Actually, nothing can block a knight's move, which is exactly why knight forks hurt so much."),
-    ('deflection', "Actually, deflection works because a defender can only guard so many things at once. Overworked pieces, I relate."),
-    ('rain', "Actually, not even a hurricane has cancelled a club night. The record stands."),
-    ('tiki', "Actually, not even a hurricane has cancelled a club night. The record stands."),
-    ('karpov', "Actually, Anatoly Karpov was world champion from 1975 to 1985."),
-    ('blitz', "Actually, a blitz game gives each player ten minutes or less for the whole game."),
-]
-
-LENNY_SIGNOFFS = [
-    "\u2014 Lenny \U0001F913",
-    "Read it. There will be a quiz. \u2014 Lenny",
-    "Citations available on request. \u2014 Lenny",
-    "That is all. \u2014 Lenny",
-    "Peer review welcome in the replies. \u2014 Lenny",
-    "*pushes glasses up again* \u2014 Lenny",
-    "Knowledge solves most things. \u2014 Lenny",
-    "Curiosity leads further. \u2014 Lenny",
-    "Facts > feelings. This recap is a fact. \u2014 Lenny",
-    "Carry on. \u2014 Lenny",
-    "I'll be in the library. \u2014 Lenny",
-    "End of transmission. \u2014 Lenny",
-]
+import lenny_bank as L  # noqa: E402
 
 
 def lenny_says(n):
-    """Lenny's intro for one night. Same night, same Lenny, every time."""
-    rng = random.Random('lenny|' + n['date'])
-    no = B.night_number(B.when(n))
+    """Lenny's introduction to one recap.
+
+    Each pool is walked in a fixed shuffled order, one step per club night, so nothing
+    repeats until its whole pool has been used. The same night always gets the same Lenny.
+    """
+    when = B.when(n)
+    news = bool(n.get('venue'))
+    no = B.night_number(when)
+    # club news has no night number of its own, so it steps by the calendar instead
+    k = datetime.strptime(when, '%Y-%m-%d').toordinal() if news else no
     text = ' '.join([B.loc(n, 'title', False), B.loc(n, 'line', False), B.loc(n, 'commentary', False)]).lower()
-    topical = [f for key, f in LENNY_TOPICAL if re.search(r'\b%s\b' % re.escape(key), text)]
-    fact = rng.choice(topical) if topical and rng.random() < 0.6 else rng.choice(LENNY_FACTS)
-    data = [
-        "For the record, that was club night number %d." % no,
-        "Night %d. I counted. Twice." % no,
-        "That makes %d club nights since 2021, if anyone was keeping score. I was." % no,
-        "Archive reference: Night %d, %s." % (no, B.long_date(B.when(n), False)),
-        "Filed under: %s. Night %d." % (B.night_type(n, False), no),
-    ]
-    if n.get('venue'):      # club news, not a club night: nothing to count
-        data = ["Filed under: %s." % B.night_type(n, False),
-                "Archive reference: club news, %s." % B.long_date(B.when(n), False),
-                "Not a club night, so it takes no number. I checked the rules. I wrote the rules."]
-    elif n.get('played'):
-        data.append("%d players attended, a figure I find deeply satisfying." % n['played'])
-    return '\n\n'.join(['\U0001F4F0 ' + rng.choice(LENNY_INTROS), fact, rng.choice(data), rng.choice(LENNY_SIGNOFFS)])
+    topical = [f for key, f in L.TOPICAL if re.search(r'\b%s\b' % re.escape(key.lower()), text)]
+    if topical and k % 2 == 0:
+        middle = '%s %s' % (L.pick(L.FACT_LEADS, 'fact-lead', k), L.pick(topical, 'topical', k // 2))
+    else:
+        middle = L.knowledge(k)
+    values = {'no': no, 'type': B.night_type(n, False), 'date': B.long_date(when, False), 'n': n.get('played') or 0}
+    if news:
+        record = L.pick(L.NEWS, 'news', k)
+    elif n.get('played') and k % 3 == 0:
+        record = L.pick(L.PLAYED, 'played', k // 3)
+    else:
+        record = L.pick(L.NIGHT, 'night', k)
+    return '\n\n'.join(['\U0001F4F0 ' + L.pick(L.INTROS, 'intro', k), middle, record.format(**values),
+                        L.pick(L.SIGNOFFS, 'signoff', k) + ' \u2014 Lenny'])
 
 
 # ---------------------------------------------------------------- the card
