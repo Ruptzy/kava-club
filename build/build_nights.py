@@ -198,20 +198,24 @@ POLL_JS = ('<script>(function(){var box=document.getElementById("npoll");if(!box
            'function path(o){return "poll-"+id+"-"+o;}'
            'function mark(o){btns.forEach(function(b){var on=b.dataset.o===o;b.classList.toggle("on",on);'
            'b.setAttribute("aria-pressed",on?"true":"false");b.disabled=true;});}'
-           # the counts are read from the site's own visitor counter. If that is switched off,
-           # or blocked by the browser, every request fails and no numbers are shown.
-           'function tally(){Promise.all(btns.map(function(b){return fetch("https://%s.goatcounter.com/counter/"+encodeURIComponent(path(b.dataset.o))+".json")'
-           '.then(function(r){return r.ok?r.json():null}).then(function(j){return j?(parseInt(String(j.count).replace(/\\D/g,""),10)||0):null})'
-           '.catch(function(){return null})})).then(function(c){if(c.every(function(x){return x===null}))return;'
-           'c=c.map(function(x){return x||0});var t=c.reduce(function(a,b){return a+b},0);if(!t)return;'
-           'btns.forEach(function(b,i){var p=Math.round(c[i]*100/t);b.style.setProperty("--p",p+"%%");b.querySelector("i").textContent=p+"%%";});});}'
+           # The counts come from the site's own visitor counter, which refreshes about every half hour.
+           # An option nobody has picked yet answers "not found", which is counted as zero. A voter's own
+           # pick is shown straight away, since the counter will not have caught up with it yet.
+           'function tally(mine){Promise.all(btns.map(function(b){return fetch("https://%s.goatcounter.com/counter/"+encodeURIComponent(path(b.dataset.o))+".json")'
+           '.then(function(r){return r.status===200?r.json():(r.status===404?{count:"0"}:null)})'
+           '.then(function(j){return j?(parseInt(String(j.count).replace(/\\D/g,""),10)||0):null})'
+           '.catch(function(){return null})})).then(function(c){if(c.some(function(x){return x===null}))return;'
+           'btns.forEach(function(b,i){if(b.dataset.o===mine&&c[i]<1)c[i]=1;});'
+           'var t=c.reduce(function(a,b){return a+b},0);if(!t)return;'
+           'btns.forEach(function(b,i){var p=Math.round(c[i]*100/t);b.style.setProperty("--p",p+"%%");b.querySelector("i").textContent=p+"%%";});'
+           'var n=box.querySelector(".npn");if(n)n.textContent=" "+(t===1?box.dataset.one:box.dataset.many.replace("{n}",t));});}'
            'var mine=null;try{mine=localStorage.getItem(key)}catch(e){}'
-           'if(mine){mark(mine);msg.textContent=box.dataset.voted;tally();}'
-           'else if(closes&&Date.now()>closes){btns.forEach(function(b){b.disabled=true});msg.textContent=box.dataset.closed;tally();}'
+           'if(mine){mark(mine);msg.firstChild.textContent=box.dataset.voted;tally(mine);}'
+           'else if(closes&&Date.now()>closes){btns.forEach(function(b){b.disabled=true});msg.firstChild.textContent=box.dataset.closed;tally(null);}'
            'btns.forEach(function(b){b.addEventListener("click",function(){if(b.disabled)return;var o=b.dataset.o;'
            'try{localStorage.setItem(key,o)}catch(e){}'
            'if(window.goatcounter&&window.goatcounter.count){window.goatcounter.count({path:path(o),title:"Prediction: "+b.dataset.l,event:true});}'
-           'msg.textContent=box.dataset.voted;mark(o);setTimeout(tally,1500);});});})();</script>' % GOATCOUNTER)
+           'msg.firstChild.textContent=box.dataset.voted;mark(o);tally(o);});});})();</script>' % GOATCOUNTER)
 
 
 def poll_html(n, es):
@@ -224,12 +228,15 @@ def poll_html(n, es):
         return talk
     buttons = ''.join('<button type="button" data-o="%s" data-l="%s" aria-pressed="false"><span>%s</span><i></i></button>'
                       % (esc(o[0]), esc(o[1]), esc(o[2] if es and len(o) > 2 else o[1])) for o in p['options'])
-    return ('<section class="npoll" id="npoll" data-poll="%s" data-closes="%s" data-voted="%s" data-closed="%s">'
+    return ('<section class="npoll" id="npoll" data-poll="%s" data-closes="%s" data-voted="%s" data-closed="%s" data-one="%s" data-many="%s">'
             '<div class="m">%s</div><h2 class="d">%s</h2><div class="npo">%s</div>'
-            '<p class="cap npm" aria-live="polite">%s</p></section>%s%s'
+            '<p class="cap npm" aria-live="polite"><span>%s</span><span class="npn"></span></p></section>%s%s'
             % (esc(p.get('id') or n['date']), esc(p.get('closes', '')),
-               'Gracias. Tu predicción quedó registrada.' if es else 'Thanks. Your prediction is in.',
+               'Gracias. Tu predicción quedó registrada. Los resultados se actualizan cada media hora.' if es
+               else 'Thanks. Your prediction is in. Results update about every half hour.',
                'La votación cerró.' if es else 'Voting has closed.',
+               '1 voto hasta ahora.' if es else '1 vote so far.',
+               '{n} votos hasta ahora.' if es else '{n} votes so far.',
                'Tu predicción' if es else 'Your prediction', esc((p.get('q_es') if es else None) or p['q']), buttons,
                'Toca tu elección. Un voto por persona.' if es else 'Tap your pick. One vote each.', talk, POLL_JS))
 
