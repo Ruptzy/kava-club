@@ -174,7 +174,7 @@ def night_tag(n, es):
     """'Night 591' for a club night; a post that names its own place is club news and takes no number."""
     if n.get('venue'):
         return 'Noticias del club' if es else 'Club news'
-    return '%s %d' % ('Noche' if es else 'Night', night_number(n['date']))
+    return '%s %d' % ('Noche' if es else 'Night', night_number(when(n)))
 
 
 def linkify(text):
@@ -185,6 +185,53 @@ def linkify(text):
         shown = re.sub(r'/join$', '', shown)
         return '<a href="%s" target="_blank" rel="noopener">%s</a>' % (url, shown)
     return re.sub(r'https?://[^\s<]*[^\s<.,;:!?)]', a, esc(text))
+
+
+def when(n):
+    """The night a recap is about. Normally its date; a recap filed under the next day says so with "night"."""
+    return n.get('night') or n['date']
+
+
+POLL_JS = ('<script>(function(){var box=document.getElementById("npoll");if(!box)return;'
+           'var id=box.dataset.poll,key="kava-poll-"+id,closes=Date.parse(box.dataset.closes||"")||0;'
+           'var btns=[].slice.call(box.querySelectorAll("button[data-o]")),msg=box.querySelector(".npm");'
+           'function path(o){return "poll-"+id+"-"+o;}'
+           'function mark(o){btns.forEach(function(b){var on=b.dataset.o===o;b.classList.toggle("on",on);'
+           'b.setAttribute("aria-pressed",on?"true":"false");b.disabled=true;});}'
+           # the counts are read from the site's own visitor counter. If that is switched off,
+           # or blocked by the browser, every request fails and no numbers are shown.
+           'function tally(){Promise.all(btns.map(function(b){return fetch("https://%s.goatcounter.com/counter/"+encodeURIComponent(path(b.dataset.o))+".json")'
+           '.then(function(r){return r.ok?r.json():null}).then(function(j){return j?(parseInt(String(j.count).replace(/\\D/g,""),10)||0):null})'
+           '.catch(function(){return null})})).then(function(c){if(c.every(function(x){return x===null}))return;'
+           'c=c.map(function(x){return x||0});var t=c.reduce(function(a,b){return a+b},0);if(!t)return;'
+           'btns.forEach(function(b,i){var p=Math.round(c[i]*100/t);b.style.setProperty("--p",p+"%%");b.querySelector("i").textContent=p+"%%";});});}'
+           'var mine=null;try{mine=localStorage.getItem(key)}catch(e){}'
+           'if(mine){mark(mine);msg.textContent=box.dataset.voted;tally();}'
+           'else if(closes&&Date.now()>closes){btns.forEach(function(b){b.disabled=true});msg.textContent=box.dataset.closed;tally();}'
+           'btns.forEach(function(b){b.addEventListener("click",function(){if(b.disabled)return;var o=b.dataset.o;'
+           'try{localStorage.setItem(key,o)}catch(e){}'
+           'if(window.goatcounter&&window.goatcounter.count){window.goatcounter.count({path:path(o),title:"Prediction: "+b.dataset.l,event:true});}'
+           'msg.textContent=box.dataset.voted;mark(o);setTimeout(tally,1500);});});})();</script>' % GOATCOUNTER)
+
+
+def poll_html(n, es):
+    """A one-question prediction under the write-up, and where the conversation is."""
+    talk = ('<p class="cap ntalk">%s <a href="%s" target="_blank" rel="noopener">%s</a>.</p>'
+            % ('¿Tienes algo que decir? La conversación está en' if es else 'Got a take? The conversation is on',
+               DISCORD, 'el Discord del club' if es else 'the club Discord'))
+    p = n.get('poll') or {}
+    if not p.get('q') or not p.get('options'):
+        return talk
+    buttons = ''.join('<button type="button" data-o="%s" data-l="%s" aria-pressed="false"><span>%s</span><i></i></button>'
+                      % (esc(o[0]), esc(o[1]), esc(o[2] if es and len(o) > 2 else o[1])) for o in p['options'])
+    return ('<section class="npoll" id="npoll" data-poll="%s" data-closes="%s" data-voted="%s" data-closed="%s">'
+            '<div class="m">%s</div><h2 class="d">%s</h2><div class="npo">%s</div>'
+            '<p class="cap npm" aria-live="polite">%s</p></section>%s%s'
+            % (esc(p.get('id') or n['date']), esc(p.get('closes', '')),
+               'Gracias. Tu predicción quedó registrada.' if es else 'Thanks. Your prediction is in.',
+               'La votación cerró.' if es else 'Voting has closed.',
+               'Tu predicción' if es else 'Your prediction', esc((p.get('q_es') if es else None) or p['q']), buttons,
+               'Toca tu elección. Un voto por persona.' if es else 'Tap your pick. One vote each.', talk, POLL_JS))
 
 
 def slug(n, es):
@@ -293,6 +340,7 @@ def night_body(n, es, prev_n, next_n):
                  '<figcaption class="cap">%s</figcaption></figure>'
                  % (shape[0], esc(dg['img']), esc((dg.get('alt_es') if es else None) or dg.get('alt', '')), w, h, shape[1],
                     esc((dg.get('caption_es') if es else None) or dg.get('caption', ''))))
+    comm += poll_html(n, es)
     photo = ('<figure class="nphoto"><img src="%s" alt="%s" width="1600" height="1600" decoding="async" fetchpriority="high"></figure>'
              % (esc(n['photo']), esc(loc(n, 'photo_alt', es)))) if n.get('photo') else ''
     facts_block = ('<div class="nfacts">%s</div>' % ''.join(facts)) if facts else ''
@@ -303,8 +351,8 @@ def night_body(n, es, prev_n, next_n):
                     else 'In-house club league ratings; they only count here. W-D-L = wins-draws-losses.'))) if standings else ''
     nav = ''
     if prev_n or next_n:
-        p = ('<a class="btn btn-s" href="/%s/">&larr; %s</a>' % (slug(prev_n, es), esc(short_date(prev_n['date'], es)))) if prev_n else '<span></span>'
-        x = ('<a class="btn btn-s" href="/%s/">%s &rarr;</a>' % (slug(next_n, es), esc(short_date(next_n['date'], es)))) if next_n else '<span></span>'
+        p = ('<a class="btn btn-s" href="/%s/">&larr; %s</a>' % (slug(prev_n, es), esc(short_date(when(prev_n), es)))) if prev_n else '<span></span>'
+        x = ('<a class="btn btn-s" href="/%s/">%s &rarr;</a>' % (slug(next_n, es), esc(short_date(when(next_n), es)))) if next_n else '<span></span>'
         nav = '<div class="nnav">%s%s</div>' % (p, x)
     home = '/es/' if es else '/'
     return ('<main class="wrap page night">'
@@ -329,7 +377,7 @@ def night_body(n, es, prev_n, next_n):
             'else if(!go())fallback();});})();</script>') % (
         'es/noches' if es else 'nights', 'Noches de club' if es else 'Club nights', night_tag(n, es), esc(t),
         esc(title),
-        esc(long_date(n['date'], es)), esc(venue(n, es)),
+        esc(long_date(when(n), es)), esc(venue(n, es)),
         photo, facts_block, quote, comm,
         st_block,
         ('Cada domingo y martes a las 8. Di que es tu primera noche.' if es else 'Every Sunday and Tuesday at eight. Say it\'s your first night.'),
@@ -356,8 +404,8 @@ def night_ld(n, es):
            "publisher": {"@id": URL + "#club"}, "isPartOf": {"@type": "WebSite", "@id": URL + "#site"}}
     if n.get('photo'):
         art["image"] = URL + n['photo']
-    ev = {"@type": "Event", "name": "Kava Social Chess Club — " + title, "startDate": "%sT%02d:00:00-04:00" % (n['date'], start_h),
-          "endDate": "%sT%02d:59:00-04:00" % (n['date'], end_h), "eventStatus": "https://schema.org/EventScheduled",
+    ev = {"@type": "Event", "name": "Kava Social Chess Club — " + title, "startDate": "%sT%02d:00:00-04:00" % (when(n), start_h),
+          "endDate": "%sT%02d:59:00-04:00" % (when(n), end_h), "eventStatus": "https://schema.org/EventScheduled",
           "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "description": desc, "url": page_url,
           "location": {"@type": "Place", "name": "Adobe Kava" if n.get('type') == 'adobe' else "Kava Social Club",
                        "address": "1302 13th Ave W, Bradenton, FL 34205" if n.get('type') == 'adobe' else "540 13th St W, Bradenton, FL 34205"},
@@ -378,7 +426,7 @@ def build_night(n, es, prev_n, next_n):
     depth = '../../../' if es else '../../'
     page_url = URL + (s_es if es else s_en) + '/'
     title_txt = loc(n, 'title', es) or night_type(n, es)
-    title = ('%s — %s — Kava Social Chess Club, club de ajedrez en Bradenton' if es else '%s — %s — Kava Social Chess Club, chess club in Bradenton FL') % (title_txt, short_date(n['date'], es))
+    title = ('%s — %s — Kava Social Chess Club, club de ajedrez en Bradenton' if es else '%s — %s — Kava Social Chess Club, chess club in Bradenton FL') % (title_txt, short_date(when(n), es))
     lead = ('%s en Kava Social Chess Club, club de ajedrez en Bradenton, Florida: ' if es else '%s at Kava Social Chess Club, a chess club in Bradenton, Florida: ') % night_type(n, es)
     desc = lead + (loc(n, 'commentary', es) or loc(n, 'line', es) or title_txt)
     desc = desc[:157] + '…' if len(desc) > 160 else desc
@@ -402,7 +450,7 @@ def archive_body(nights, es):
                                               ('%d %s' % (n['rounds'], 'rondas' if es else 'rounds')) if n.get('rounds') else ''] if x)
         cards.append('<a class="ncard" style="--i:%d" href="/%s/">%s<div class="nc"><div class="m">%s &middot; %s</div><h2 class="d">%s</h2>'
                      '<div class="m nmeta">%s</div><p class="body">%s</p></div></a>'
-                     % (len(cards), slug(n, es), img, night_tag(n, es), esc(long_date(n['date'], es)), esc(title), meta, esc(line)))
+                     % (len(cards), slug(n, es), img, night_tag(n, es), esc(long_date(when(n), es)), esc(title), meta, esc(line)))
     return ('<main class="wrap page nights"><div class="phead"><div class="m lbl">%s</div><h1 class="d">%s</h1>'
             '<p class="body lead">%s</p></div>'
             '<div class="history"><div><div class="d v">2021</div><div class="m">%s</div></div><div><div class="d v">%d</div><div class="m">%s</div></div>'
@@ -450,7 +498,7 @@ def rss(nights):
         enc = ('<enclosure url="%s" type="image/jpeg" length="%d"/>' % (URL + n['photo'], os.path.getsize(os.path.join(OUT, n['photo'])))
                if n.get('photo') and os.path.exists(os.path.join(OUT, n['photo'])) else '')
         items.append('<item><title>%s — %s</title><link>%s</link><guid isPermaLink="true">%s</guid><pubDate>%s</pubDate>'
-                     '<description>%s</description>%s</item>' % (esc(title), esc(short_date(n['date'], False)), link, link, pub, esc(desc), enc))
+                     '<description>%s</description>%s</item>' % (esc(title), esc(short_date(when(n), False)), link, link, pub, esc(desc), enc))
     doc = ('<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel>'
            '<title>Kava Social Chess Club — club nights</title><link>%snights/</link>'
            '<description>One photo, the numbers and a line from every club night in Bradenton.</description><language>en-us</language>'

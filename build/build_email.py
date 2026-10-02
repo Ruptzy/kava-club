@@ -227,7 +227,7 @@ def build(send_day, out_dir):
         return None
     lead, rest = fresh[0], fresh[1:]
     campaign = 'weekly-%s' % send_day.isoformat()
-    no = B.night_number(lead['date'])
+    no = B.night_number(B.when(lead))
     kind = B.night_type(lead, False)
     recap_url = link('nights/%s/' % lead['date'], 'recap', campaign)
     photo = email_photo(lead) if lead.get('photo') else None
@@ -255,7 +255,7 @@ def build(send_day, out_dir):
     if photo:
         P.append(row('<a href="%s"><img src="%s" width="600" alt="%s" style="display:block;width:100%%;max-width:600px;'
                      'height:auto;border:0"></a>' % (esc(recap_url), esc(photo), esc(lead.get('photo_alt') or subject)), '0'))
-    P.append(row(label('%s · %s · %s' % (B.night_tag(lead, False), kind, nice(d8(lead['date'])))), '30px 28px 0'))
+    P.append(row(label('%s · %s · %s' % (B.night_tag(lead, False), kind, nice(d8(B.when(lead))))), '30px 28px 0'))
     P.append(row('<h1 style="margin:0;font-family:%s;font-size:34px;font-weight:900;line-height:36px;letter-spacing:-.4px;'
                  'text-transform:uppercase;color:%s"><a href="%s" style="color:%s;text-decoration:none">%s</a></h1>'
                  % (FD, CREAM, esc(recap_url), CREAM, esc(lead.get('title') or kind)), '12px 28px 0'))
@@ -284,7 +284,7 @@ def build(send_day, out_dir):
             '<div style="padding-top:4px"><a href="%s" style="font-family:%s;font-size:18px;font-weight:900;line-height:23px;'
             'text-transform:uppercase;color:%s;text-decoration:none">%s&nbsp;&rarr;</a></div>'
             '<div style="font-family:%s;font-size:16px;line-height:24px;color:%s;padding-top:4px">%s</div></td></tr>'
-            % (RULE, label('%s · %s' % (DAYS[d8(n['date']).weekday()], B.night_type(n, False)), INK3),
+            % (RULE, label('%s · %s' % (DAYS[d8(B.when(n)).weekday()], B.night_type(n, False)), INK3),
                esc(link('nights/%s/' % n['date'], 'also-%s' % n['date'], campaign)), FD, CREAM,
                esc(n.get('title') or B.night_type(n, False)), FS, INK2, esc(n.get('line') or first_sentences(n.get('commentary'), 110)))
             for n in rest[:3])
@@ -346,7 +346,7 @@ def build(send_day, out_dir):
     size = len(doc.encode('utf-8'))
     assert size < MAX_BYTES, 'email is %d bytes; Gmail clips at 102KB' % size
 
-    txt = [subject.upper(), '', '%s · %s · %s' % (B.night_tag(lead, False), kind, nice(d8(lead['date']), True)), '']
+    txt = [subject.upper(), '', '%s · %s · %s' % (B.night_tag(lead, False), kind, nice(d8(B.when(lead)), True)), '']
     if lead.get('line'):
         txt += ['"%s"' % lead['line'], '']
     txt += [first_sentences(lead.get('commentary')), '', 'Read the full recap: ' + recap_url, '']

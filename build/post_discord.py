@@ -28,6 +28,7 @@ import time
 import urllib.error
 import urllib.request
 import uuid
+from datetime import datetime, timezone
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
@@ -126,7 +127,7 @@ LENNY_SIGNOFFS = [
 def lenny_says(n):
     """Lenny's intro for one night. Same night, same Lenny, every time."""
     rng = random.Random('lenny|' + n['date'])
-    no = B.night_number(n['date'])
+    no = B.night_number(B.when(n))
     text = ' '.join([B.loc(n, 'title', False), B.loc(n, 'line', False), B.loc(n, 'commentary', False)]).lower()
     topical = [f for key, f in LENNY_TOPICAL if re.search(r'\b%s\b' % re.escape(key), text)]
     fact = rng.choice(topical) if topical and rng.random() < 0.6 else rng.choice(LENNY_FACTS)
@@ -134,12 +135,12 @@ def lenny_says(n):
         "For the record, that was club night number %d." % no,
         "Night %d. I counted. Twice." % no,
         "That makes %d club nights since 2021, if anyone was keeping score. I was." % no,
-        "Archive reference: Night %d, %s." % (no, B.long_date(n['date'], False)),
+        "Archive reference: Night %d, %s." % (no, B.long_date(B.when(n), False)),
         "Filed under: %s. Night %d." % (B.night_type(n, False), no),
     ]
     if n.get('venue'):      # club news, not a club night: nothing to count
         data = ["Filed under: %s." % B.night_type(n, False),
-                "Archive reference: club news, %s." % B.long_date(n['date'], False),
+                "Archive reference: club news, %s." % B.long_date(B.when(n), False),
                 "Not a club night, so it takes no number. I checked the rules. I wrote the rules."]
     elif n.get('played'):
         data.append("%d players attended, a figure I find deeply satisfying." % n['played'])
@@ -158,7 +159,7 @@ def _clip(text, limit):
 
 def card(n):
     """The Discord message for one night: a line of text and one embed."""
-    no = B.night_number(n['date'])
+    no = B.night_number(B.when(n))
     title = B.loc(n, 'title', False) or B.night_type(n, False)
     url = B.URL + B.slug(n, False) + '/'
     line = B.loc(n, 'line', False)
@@ -175,7 +176,7 @@ def card(n):
         'description': '\n\n'.join(desc),
         'color': SCARLET,
         'author': {'name': B.night_type(n, False)},
-        'footer': {'text': '%s · %s' % (B.long_date(n['date'], False), B.venue(n, False))},
+        'footer': {'text': '%s · %s' % (B.long_date(B.when(n), False), B.venue(n, False))},
     }
     if n.get('played'):
         embed['fields'] = [{'name': 'Players', 'value': str(n['played']), 'inline': True}]
@@ -245,6 +246,26 @@ def call(method, url, payload=None, photo=None):
     raise RuntimeError('Discord kept rate-limiting')
 
 
+def poll_message(n):
+    """A recap's prediction as a Discord poll, open until the recap says it closes."""
+    p = n.get('poll') or {}
+    if not p.get('q') or not p.get('options'):
+        return None
+    hours = 48
+    if p.get('closes'):
+        try:
+            left = (datetime.fromisoformat(p['closes']) - datetime.now(timezone.utc)).total_seconds() / 3600
+        except (ValueError, TypeError):
+            left = hours
+        if left < 1:
+            return None            # already over: a poll nobody can answer is noise
+        hours = max(1, min(768, int(left)))
+    return {'poll': {'question': {'text': p['q'][:300]},
+                     'answers': [{'poll_media': {'text': o[1][:55]}} for o in p['options'][:10]],
+                     'duration': hours, 'allow_multiselect': False},
+            'username': LENNY_NAME, 'avatar_url': LENNY_AVATAR, 'allowed_mentions': {'parse': []}}
+
+
 # ---------------------------------------------------------------- the run
 
 def load_nights():
@@ -301,6 +322,18 @@ def main(dry=False):
         elif seen.get('fp') != fp:
             seen['fp'] = fp      # an old night from before the bot existed; leave the channel alone
 
+        # the prediction goes out as its own message, once, right under the recap
+        seen = posted.get(d)
+        pm = poll_message(n)
+        if pm and dry and not (seen or {}).get('poll'):
+            print('DRY poll  %s  %s' % (d, pm['poll']['question']['text']))
+        elif pm and seen and seen.get('id') and not seen.get('poll'):
+            try:
+                seen['poll'] = call('POST', base + '?wait=true', pm).get('id')
+                did.append('poll ' + d)
+            except RuntimeError as e:
+                print('Discord: the poll for %s was not posted: %s' % (d, e))
+
     # removed from the site
     for d in [d for d in posted if d not in by_date]:
         mid = posted[d].get('id')
@@ -309,6 +342,8 @@ def main(dry=False):
             continue
         if mid:
             call('DELETE', '%s/messages/%s' % (base, mid))
+        if posted[d].get('poll'):
+            call('DELETE', '%s/messages/%s' % (base, posted[d]['poll']))
         del posted[d]
         did.append('removed ' + d)
 

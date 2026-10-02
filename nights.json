@@ -1,7 +1,45 @@
 {
  "_comment": "One entry per club night, newest first. Written by the admin console (Post a night) or by hand. build/build_nights.py turns these into /nights/<date>/ pages, the archive, the RSS feed and the sitemap. 'line' is Harold's own sentence about the night; 'commentary' is the write-up of the numbers.",
- "updated": "2026-10-01",
+ "updated": "2026-10-02",
  "nights": [
+  {
+   "date": "2026-10-02",
+   "night": "2026-10-01",
+   "type": "adobe",
+   "title": "Last reps before the Bay",
+   "title_es": "Los últimos ensayos antes de la Bahía",
+   "line": "Last practice before Tampa. Heads down, good questions, and two new players at the top table. We're ready.",
+   "line_es": "Última práctica antes de Tampa. Cabeza abajo, buenas preguntas, y dos jugadores nuevos en la mesa fuerte. Estamos listos.",
+   "commentary": "First night of the month, and the Thursday room at Adobe Kava treated it like the last practice before a final. Because it was. Saturday is the Battle for the Bay: Tampa Knights against Kava Social, in their house. 🔥\nWe opened with the Woodpecker: tactics against the clock, solved, scored, and solved again until the patterns stop needing thought. Then the books went down and we sparred the night away, position after position, trading sides and trading ideas. ⏱️♟️\nThe whole night ran on focus and questions. Why not this move? What changes if the knight is on the other square? Those are the questions that turn into half points when the clock is running for real. 🧠\nTwo new faces stepped up to the higher-level table, Toska and Anton, and neither looked out of place. Welcome to Thursdays. 👏\nNow it's your turn. Bradenton travels to Tampa on Saturday at 7PM, one open section, club against club, and there is no rematch until someone earns it. Who takes it? Make your prediction below. ⚔️",
+   "commentary_es": "Primera noche del mes, y la sala de los jueves en Adobe Kava la tomó como la última práctica antes de una final. Porque lo era. El sábado es el Battle for the Bay: Tampa Knights contra Kava Social, en su casa. 🔥\nAbrimos con el Woodpecker: tácticas contra el reloj, resueltas, puntuadas, y resueltas otra vez hasta que los patrones dejan de necesitar pensamiento. Después dejamos los libros y practicamos toda la noche, posición tras posición, cambiando de bando y de ideas. ⏱️♟️\nToda la noche fue de concentración y preguntas. ¿Por qué no esta jugada? ¿Qué cambia si el caballo está en la otra casilla? Esas son las preguntas que se convierten en medios puntos cuando el reloj corre de verdad. 🧠\nDos caras nuevas subieron a la mesa de nivel alto, Toska y Anton, y ninguno desentonó. Bienvenidos a los jueves. 👏\nAhora te toca a ti. Bradenton viaja a Tampa el sábado a las 7PM, una sección abierta, club contra club, y no hay revancha hasta que alguien se la gane. ¿Quién se lo lleva? Haz tu predicción abajo. ⚔️",
+   "photo": "img/nights/2026-10-02.jpg",
+   "photo_alt": "Players at three boards under the lit umbrellas at Adobe Kava on a Thursday study night",
+   "photo_alt_es": "Jugadores en tres tableros bajo las sombrillas iluminadas de Adobe Kava en una noche de estudio de jueves",
+   "poll": {
+    "id": "bay-2026-10",
+    "q": "Battle for the Bay: who takes it on Saturday?",
+    "q_es": "Battle for the Bay: ¿quién gana el sábado?",
+    "options": [
+     [
+      "kava",
+      "Kava Social",
+      "Kava Social"
+     ],
+     [
+      "tampa",
+      "Tampa Knights",
+      "Tampa Knights"
+     ],
+     [
+      "draw",
+      "Too close to call",
+      "Demasiado parejo"
+     ]
+    ],
+    "closes": "2026-10-03T19:00:00-04:00"
+   },
+   "updated": "2026-10-02"
+  },
   {
    "date": "2026-10-01",
    "type": "battle",
