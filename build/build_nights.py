@@ -347,6 +347,14 @@ def night_body(n, es, prev_n, next_n):
                  '<figcaption class="cap">%s</figcaption></figure>'
                  % (shape[0], esc(dg['img']), esc((dg.get('alt_es') if es else None) or dg.get('alt', '')), w, h, shape[1],
                     esc((dg.get('caption_es') if es else None) or dg.get('caption', ''))))
+    # a night with many pictures: a two-column strip under the write-up, each one opening the full photo
+    if n.get('gallery'):
+        comm += '<div class="ngal">' + ''.join(
+            '<figure><a href="%s" target="_blank" rel="noopener"><img src="%s" alt="%s" width="%d" height="%d" '
+            'loading="lazy" decoding="async"></a><figcaption class="cap">%s</figcaption></figure>'
+            % (esc(g['img']), esc(g['img']), esc((g.get('alt_es') if es else None) or g.get('alt', '')), g.get('w', 1600), g.get('h', 1200),
+               esc((g.get('caption_es') if es else None) or g.get('caption', '')))
+            for g in n['gallery']) + '</div>'
     comm += poll_html(n, es)
     photo = ('<figure class="nphoto"><img src="%s" alt="%s" width="1600" height="1600" decoding="async" fetchpriority="high"></figure>'
              % (esc(n['photo']), esc(loc(n, 'photo_alt', es)))) if n.get('photo') else ''

@@ -1,7 +1,156 @@
 {
  "_comment": "One entry per club night, newest first. Written by the admin console (Post a night) or by hand. build/build_nights.py turns these into /nights/<date>/ pages, the archive, the RSS feed and the sitemap. 'line' is Harold's own sentence about the night; 'commentary' is the write-up of the numbers.",
- "updated": "2026-10-02",
+ "updated": "2026-10-04",
  "nights": [
+  {
+   "date": "2026-10-03",
+   "type": "battle",
+   "venue": "Tampa Knights Chess Club, Tampa",
+   "venue_es": "Tampa Knights Chess Club, Tampa",
+   "title": "Battle for the Bay: Tampa takes round one",
+   "title_es": "Battle for the Bay: Tampa se lleva la primera ronda",
+   "line": "Tampa took the match. We took a queen, a rookie's section and a National Master's scalp. Round two is on our patio.",
+   "line_es": "Tampa se llevó el match. Nosotros nos llevamos una dama, la sección de un novato y la cabeza de un Maestro Nacional. La segunda ronda es en nuestro patio.",
+   "commentary": "Saturday night, Tampa. Kava Social rolled into Tampa Knights' home for the first ever Battle for the Bay, and the hosts held serve. Tampa took the match. We fought for every half point, and we're driving home with more than a scoreline. 🔥\nStart with the queen. Maddie was named Best Female Player of the battle, trophy in hand, and the photo in front of our own sign says the rest. 👑\nThen the rookie. Toska, in his first club battle, won his section outright and took Best Rookie with it. First road trip, first trophy. That is how you announce yourself. 🥇\nAnd on board one, Ben, rated 1800 USCF, beat a National Master. Read that again. Our board one beat a National Master. 🧠⚔️\nHuge thanks to Frank and the Tampa Knights for hosting a proper event: full tables, a crowd on the sidewalk, and a drinks menu named after openings. That is a club that gets it. 🤝\nNow the part that matters. Battle for the Bay 2 is coming, and this time it's on Kava Social turf. Our patio, our lights, our boards. Tampa, bring everyone. We'll have the kettle on. ⚔️",
+   "commentary_es": "Sábado por la noche, Tampa. Kava Social llegó a la casa de los Tampa Knights para el primer Battle for the Bay, y los anfitriones defendieron su cancha. Tampa se llevó el match. Peleamos cada medio punto, y volvemos a casa con más que un marcador. 🔥\nEmpecemos por la dama. Maddie fue nombrada Mejor Jugadora de la batalla, trofeo en mano, y la foto frente a nuestro propio letrero dice el resto. 👑\nLuego el novato. Toska, en su primera batalla de clubes, ganó su sección y se llevó el premio al Mejor Novato. Primer viaje, primer trofeo. Así se presenta uno. 🥇\nY en el tablero uno, Ben, con 1800 USCF, le ganó a un Maestro Nacional. Léelo otra vez. Nuestro tablero uno le ganó a un Maestro Nacional. 🧠⚔️\nGracias enormes a Frank y a los Tampa Knights por organizar un evento como se debe: mesas llenas, gente hasta en la acera, y un menú de bebidas con nombres de aperturas. Ese es un club que lo entiende. 🤝\nAhora lo importante. Battle for the Bay 2 ya viene, y esta vez es en territorio de Kava Social. Nuestro patio, nuestras luces, nuestros tableros. Tampa, traigan a todos. Los esperamos. ⚔️",
+   "photo": "img/nights/2026-10-03.jpg",
+   "photo_alt": "Maddie holding the white queen trophy for Best Female Player in front of the Kava Social Club sign",
+   "photo_alt_es": "Maddie con el trofeo de la dama blanca por Mejor Jugadora frente al letrero de Kava Social Club",
+   "gallery": [
+    {
+     "img": "img/nights/2026-10-03-trophies.jpg",
+     "w": 1600,
+     "h": 1143,
+     "alt": "The Kava Social squad with the night's trophies",
+     "alt_es": "El equipo de Kava Social con los trofeos de la noche",
+     "caption": "Trophies in hand before the drive home.",
+     "caption_es": "Trofeos en mano antes del viaje de vuelta."
+    },
+    {
+     "img": "img/nights/2026-10-03-squad.jpg",
+     "w": 1600,
+     "h": 847,
+     "alt": "The full Kava Social travelling squad lined up on the patio in Tampa",
+     "alt_es": "Todo el equipo viajero de Kava Social en fila en el patio en Tampa",
+     "caption": "The travelling squad. Bradenton showed up.",
+     "caption_es": "El equipo viajero. Bradenton se presentó."
+    },
+    {
+     "img": "img/nights/2026-10-03-toska.jpg",
+     "w": 739,
+     "h": 1600,
+     "alt": "Toska shaking hands after winning his section",
+     "alt_es": "Toska dándose la mano tras ganar su sección",
+     "caption": "Toska: section winner and Best Rookie, in his first club battle.",
+     "caption_es": "Toska: ganador de su sección y Mejor Novato, en su primera batalla de clubes."
+    },
+    {
+     "img": "img/nights/2026-10-03-maddie.jpg",
+     "w": 739,
+     "h": 1600,
+     "alt": "Maddie holding the queen trophy for Best Female Player",
+     "alt_es": "Maddie con el trofeo de la dama por Mejor Jugadora",
+     "caption": "Maddie takes the queen: Best Female Player.",
+     "caption_es": "Maddie se lleva la dama: Mejor Jugadora."
+    },
+    {
+     "img": "img/nights/2026-10-03-handshake.jpg",
+     "w": 1600,
+     "h": 739,
+     "alt": "Two players shaking hands at the counter after the match",
+     "alt_es": "Dos jugadores dándose la mano en el mostrador después del match",
+     "caption": "Respect, both ways.",
+     "caption_es": "Respeto, en los dos sentidos."
+    },
+    {
+     "img": "img/nights/2026-10-03-board-6.jpg",
+     "w": 1600,
+     "h": 1196,
+     "alt": "Four players deep in thought over board 6",
+     "alt_es": "Cuatro jugadores concentrados sobre el tablero 6",
+     "caption": "Board 6. Nobody is breathing.",
+     "caption_es": "Tablero 6. Nadie respira."
+    },
+    {
+     "img": "img/nights/2026-10-03-boards.jpg",
+     "w": 739,
+     "h": 1600,
+     "alt": "Two games side by side against the brick wall",
+     "alt_es": "Dos partidas lado a lado contra la pared de ladrillo",
+     "caption": "Two boards, four problems to solve.",
+     "caption_es": "Dos tableros, cuatro problemas por resolver."
+    },
+    {
+     "img": "img/nights/2026-10-03-room.jpg",
+     "w": 1600,
+     "h": 1204,
+     "alt": "The playing room at Tampa Knights with games on every table",
+     "alt_es": "La sala de juego en Tampa Knights con partidas en cada mesa",
+     "caption": "Every table taken.",
+     "caption_es": "Todas las mesas ocupadas."
+    },
+    {
+     "img": "img/nights/2026-10-03-sidewalk.jpg",
+     "w": 1600,
+     "h": 1185,
+     "alt": "Games spilling onto the sidewalk outside the venue",
+     "alt_es": "Partidas que se extienden hasta la acera frente al local",
+     "caption": "When the room fills, the sidewalk becomes a board.",
+     "caption_es": "Cuando la sala se llena, la acera se vuelve tablero."
+    },
+    {
+     "img": "img/nights/2026-10-03-brian.jpg",
+     "w": 1447,
+     "h": 1600,
+     "alt": "Brian at the board in the dim back room",
+     "alt_es": "Brian en el tablero en la sala del fondo",
+     "caption": "Brian, mid-game, in the back room.",
+     "caption_es": "Brian, a mitad de partida, en la sala del fondo."
+    },
+    {
+     "img": "img/nights/2026-10-03-board-5.jpg",
+     "w": 739,
+     "h": 1600,
+     "alt": "Board 5 in the lounge, mid-game",
+     "alt_es": "Tablero 5 en el salón, a mitad de partida",
+     "caption": "Board 5, clock running.",
+     "caption_es": "Tablero 5, reloj corriendo."
+    },
+    {
+     "img": "img/nights/2026-10-03-patio.jpg",
+     "w": 739,
+     "h": 1600,
+     "alt": "A player studying the board under the string lights, with the chess drink specials menu in front",
+     "alt_es": "Una jugadora estudiando el tablero bajo las luces, con el menú de bebidas de ajedrez enfrente",
+     "caption": "The hosts even named the drinks after openings.",
+     "caption_es": "Los anfitriones hasta nombraron las bebidas con aperturas."
+    }
+   ],
+   "poll": {
+    "id": "bay2-2026",
+    "q": "Battle for the Bay 2, on our turf: who takes it?",
+    "q_es": "Battle for the Bay 2, en nuestra casa: ¿quién gana?",
+    "options": [
+     [
+      "kava",
+      "Kava Social",
+      "Kava Social"
+     ],
+     [
+      "tampa",
+      "Tampa Knights",
+      "Tampa Knights"
+     ],
+     [
+      "draw",
+      "Too close to call",
+      "Demasiado parejo"
+     ]
+    ],
+    "closes": "2026-11-03T19:00:00-05:00"
+   },
+   "updated": "2026-10-04"
+  },
   {
    "date": "2026-10-02",
    "night": "2026-10-01",

@@ -1,15 +1,159 @@
 {
  "_comment": "Section champions by season, as the ladder crowns them (ladder.kavasocialchessclub.com). Copied here so the site builds without the ladder repo. Add a season when it ends. Seasons 1 to 7 were reconstructed from the club's game records. 'battles' is for club-against-club results: {date, title, result}.",
  "seasons": [
-  {"no": 9, "years": "2026", "champions": [["Over 1400", "Scott"], ["U1400", "Josh"], ["U1000", "Sonny"]]},
-  {"no": 8, "years": "2024–26", "champions": [["Over 1400", "Benji"], ["U1400", "Josh"], ["U1000", "Taylor"]]},
-  {"no": 7, "years": "2024", "champions": [["Over 1000", "Benji"], ["U1000", "Sam"], ["U800", "Maddie"]]},
-  {"no": 6, "years": "2024", "champions": [["Over 1000", "Harold"], ["U1000", "Sam"]]},
-  {"no": 5, "years": "2024", "champions": [["Over 1000", "Vincent"], ["U800", "Johnathon"]]},
-  {"no": 4, "years": "2023–24", "champions": [["Over 1000", "Alex"], ["U1000", "Sam (Mable)"], ["U800", "Maddie"]]},
-  {"no": 3, "years": "2023", "champions": [["Over 1000", "Harold"], ["U1000", "Sam"]]},
-  {"no": 2, "years": "2023", "champions": [["Over 1000", "Harold"], ["U1000", "Diego"], ["U800", "George"]]},
-  {"no": 1, "years": "2022–23", "champions": [["Over 1000", "Harold"], ["U1000", "Brian"]]}
+  {
+   "no": 9,
+   "years": "2026",
+   "champions": [
+    [
+     "Over 1400",
+     "Scott"
+    ],
+    [
+     "U1400",
+     "Josh"
+    ],
+    [
+     "U1000",
+     "Sonny"
+    ]
+   ]
+  },
+  {
+   "no": 8,
+   "years": "2024–26",
+   "champions": [
+    [
+     "Over 1400",
+     "Benji"
+    ],
+    [
+     "U1400",
+     "Josh"
+    ],
+    [
+     "U1000",
+     "Taylor"
+    ]
+   ]
+  },
+  {
+   "no": 7,
+   "years": "2024",
+   "champions": [
+    [
+     "Over 1000",
+     "Benji"
+    ],
+    [
+     "U1000",
+     "Sam"
+    ],
+    [
+     "U800",
+     "Maddie"
+    ]
+   ]
+  },
+  {
+   "no": 6,
+   "years": "2024",
+   "champions": [
+    [
+     "Over 1000",
+     "Harold"
+    ],
+    [
+     "U1000",
+     "Sam"
+    ]
+   ]
+  },
+  {
+   "no": 5,
+   "years": "2024",
+   "champions": [
+    [
+     "Over 1000",
+     "Vincent"
+    ],
+    [
+     "U800",
+     "Johnathon"
+    ]
+   ]
+  },
+  {
+   "no": 4,
+   "years": "2023–24",
+   "champions": [
+    [
+     "Over 1000",
+     "Alex"
+    ],
+    [
+     "U1000",
+     "Sam (Mable)"
+    ],
+    [
+     "U800",
+     "Maddie"
+    ]
+   ]
+  },
+  {
+   "no": 3,
+   "years": "2023",
+   "champions": [
+    [
+     "Over 1000",
+     "Harold"
+    ],
+    [
+     "U1000",
+     "Sam"
+    ]
+   ]
+  },
+  {
+   "no": 2,
+   "years": "2023",
+   "champions": [
+    [
+     "Over 1000",
+     "Harold"
+    ],
+    [
+     "U1000",
+     "Diego"
+    ],
+    [
+     "U800",
+     "George"
+    ]
+   ]
+  },
+  {
+   "no": 1,
+   "years": "2022–23",
+   "champions": [
+    [
+     "Over 1000",
+     "Harold"
+    ],
+    [
+     "U1000",
+     "Brian"
+    ]
+   ]
+  }
  ],
- "battles": []
+ "battles": [
+  {
+   "date": "3 October 2026",
+   "title": "Battle for the Bay, at Tampa Knights",
+   "result": "Tampa Knights won the match. For Kava Social: Maddie, Best Female Player; Toska, section winner and Best Rookie; Ben beat a National Master on board one.",
+   "result_es": "Tampa Knights ganó el match. Por Kava Social: Maddie, Mejor Jugadora; Toska, ganador de su sección y Mejor Novato; Ben le ganó a un Maestro Nacional en el tablero uno."
+  }
+ ]
 }
