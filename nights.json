@@ -213,18 +213,18 @@
     "subject": "Battle for the Bay: we came home hungry",
     "preheader": "A queen, a rookie's section and a win over a National Master. Now we train.",
     "title": "Battle for the Bay: we came home hungry",
-    "intro": "Saturday we took the club on the road for the first Battle for the Bay. Tampa Knights won the match at home. Here is what came back with us.",
+    "intro": "",
     "wins_label": "What we brought home",
     "wins": [
      [
       "Best Female Player",
       "Maddie",
-      "The queen trophy is hers, and it looks right in front of our sign."
+      ""
      ],
      [
       "Won his section · Best Rookie",
       "Toska",
-      "His first club battle. He won his whole section."
+      "In his first club battle."
      ],
      [
       "Board one",
@@ -233,17 +233,17 @@
      ]
     ],
     "body": [
-     "Thank you to everyone who made the trip and sat across from strangers, masters included. That takes nerve, and it is exactly how players get better.",
-     "The score was honest with us: we need more training, and we will do it together. Bring your games from Saturday to study night, the losses most of all. Battle for the Bay 2 is on our turf. We are staying hungry, and we will be ready."
+     "Proud of everyone who made the trip and took on strangers, masters included. That is how players grow. The score says we need more training, so bring your Saturday games to study night. Battle for the Bay 2 is on our turf, and we will be ready."
     ],
     "button": "Recap and photos",
-    "also": 2,
+    "also": 1,
     "comeback": {
      "label": "Haven’t played lately",
      "title": "Room for 23",
-     "text": "Sunday we had 22 players, and there is a chair for you. Every level plays here, and nobody keeps track of how long you were gone. Sundays and Tuesdays at 8, same back patio.",
+     "text": "Sunday we had 22 players. Every level plays here, and nobody counts how long you were gone. Sundays and Tuesdays at 8.",
      "button": "Come back this week"
-    }
+    },
+    "notes": "booked"
    }
   },
   {

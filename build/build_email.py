@@ -28,7 +28,8 @@ Why it is built the way it is
   own the email: {"lead": true} holds the top even if a later recap is posted, and
   subject, preheader, title, intro, wins ([award, name, note] rows), body (a list of
   paragraphs) and button replace what would otherwise be taken from the recap; also (how many other
-  recaps to list, 3 by default) and comeback ({label, title, text, button}) trim and reword the rest.
+  recaps to list, 3 by default) and comeback ({label, title, text, button}) trim and reword the rest;
+  intro "" drops the opening paragraph, and notes "booked" keeps calendar notes only for one-off events.
 """
 import html
 import json
@@ -193,15 +194,17 @@ def wins(mail):
     cells = ''.join(
         '<tr><td style="padding:14px 0;border-top:1px solid %s">%s'
         '<div style="font-family:%s;font-size:22px;font-weight:900;line-height:26px;text-transform:uppercase;color:%s;padding-top:4px">%s</div>'
-        '<div style="font-family:%s;font-size:16px;line-height:24px;color:%s;padding-top:4px">%s</div></td></tr>'
-        % (RULE, label(r[0], GOLD), FD, CREAM, esc(r[1]), FS, INK2, esc(r[2] if len(r) > 2 else ''))
+        '%s</td></tr>'
+        % (RULE, label(r[0], GOLD), FD, CREAM, esc(r[1]),
+           ('<div style="font-family:%s;font-size:16px;line-height:24px;color:%s;padding-top:4px">%s</div>'
+            % (FS, INK2, esc(r[2]))) if len(r) > 2 and r[2] else '')
         for r in rows)
     return row(label(mail.get('wins_label') or 'What we brought home', tag='h2') +
                '<table role="presentation" width="100%%" cellpadding="0" cellspacing="0" border="0" style="margin-top:10px">%s</table>'
                % cells, '28px 28px 18px', PANEL)
 
 
-def week_ahead(send_day, events, campaign):
+def week_ahead(send_day, events, campaign, notes='all'):
     rows, special = [], []
     plan = T.study_plan()
     for i in range(1, 8):
@@ -216,6 +219,8 @@ def week_ahead(send_day, events, campaign):
                 blurb = whole_sentences(' '.join((e.get('note') or '').split()), 130)
             else:
                 blurb = NIGHT_BLURB.get(kind, '')
+            if notes == 'booked' and not booked:
+                blurb = ''
             where = e.get('venue') or ('Adobe Kava' if kind == 'adobe' else 'Kava Social Club')
             when = (e.get('time') or '8:00 PM').replace(':00 ', '').replace(' ', '').lower()
             item = dict(day=day, title=title, blurb=blurb, where=where, when=when, booked=booked, url=e.get('url'), kind=kind)
@@ -235,10 +240,11 @@ def week_ahead(send_day, events, campaign):
             '<td valign="top" style="padding:16px 0;border-top:1px solid %s">'
             '<div style="font-family:%s;font-size:19px;font-weight:900;line-height:24px;text-transform:uppercase;color:%s">%s</div>'
             '<div style="font-family:%s;font-size:12px;letter-spacing:1px;line-height:20px;color:%s;padding-top:2px">%s &middot; %s</div>'
-            '<div style="font-family:%s;font-size:16px;line-height:24px;color:%s;padding-top:6px">%s</div>%s</td></tr>'
+            '%s%s</td></tr>'
             % (edge, FM, SCARLET if it['booked'] else INK3, DAYS[it['day'].weekday()][:3].upper(), FD, CREAM, it['day'].day,
-               edge, FD, CREAM, esc(it['title']), FM, INK3, esc(it['when'].upper()), esc(it['where']), FS, INK2,
-               esc(it['blurb']), extra))
+               edge, FD, CREAM, esc(it['title']), FM, INK3, esc(it['when'].upper()), esc(it['where']),
+               ('<div style="font-family:%s;font-size:16px;line-height:24px;color:%s;padding-top:6px">%s</div>'
+                % (FS, INK2, esc(it['blurb']))) if it['blurb'] else '', extra))
     if not out:
         return '', []
     body = (label('This week at the club', tag='h2') +
@@ -272,7 +278,7 @@ def build(send_day, out_dir):
     subject = mail.get('subject') or lead.get('title') or kind
     if len(subject) > 48:
         subject = subject[:48].rsplit(' ', 1)[0] + '…'
-    body_week, coming = week_ahead(send_day, events, campaign)
+    body_week, coming = week_ahead(send_day, events, campaign, mail.get('notes', 'all'))
     preheader = (mail.get('preheader') or lead.get('line') or first_sentences(lead.get('commentary'), 90)).rstrip()
     booked = [c for c in coming if c['booked']]
     if booked and len(preheader) < 80 and not mail.get('preheader'):
@@ -305,8 +311,11 @@ def build(send_day, out_dir):
                      % (SCARLET, SCARLET, FS, CREAM, esc(lead['line']), FM, INK3), '24px 28px 0'))
     para = lambda t, pad='22px 28px 0': row('<p style="margin:0;font-family:%s;font-size:17px;line-height:27px;color:%s">%s</p>'
                                             % (FS, INK2, esc(t)), pad)
-    opening = mail.get('intro') or first_sentences(lead.get('commentary'))
-    P.append(para(opening, '22px 28px 28px' if mail.get('wins') else '22px 28px 0'))
+    opening = mail['intro'] if 'intro' in mail else first_sentences(lead.get('commentary'))
+    if opening:
+        P.append(para(opening, '22px 28px 28px' if mail.get('wins') else '22px 28px 0'))
+    elif mail.get('wins'):
+        P.append(row('', '28px 0 0'))
     P.append(wins(mail))
     said = list(mail.get('body') or [])
     P += [para(t, ('26px 28px 0' if i == 0 and mail.get('wins') else '18px 28px 0')) for i, t in enumerate(said)]
@@ -358,7 +367,7 @@ def build(send_day, out_dir):
         '<div style="font-family:%s;font-size:12px;line-height:20px;letter-spacing:.5px;color:%s">'
         '<a href="%s" style="color:%s;text-decoration:underline">kavasocialchessclub.com</a> &nbsp;&middot;&nbsp; '
         '<a href="%s" style="color:%s;text-decoration:underline">Directions</a><br><br>'
-        'You are getting this because you are a member of Kava Social Chess Club. One email a week, on Mondays.<br>'
+        'You’re a member of Kava Social Chess Club. One email a week.<br>'
         '%s<br><br>'
         '<a href="{{ unsubscribe }}" style="color:%s;text-decoration:underline">Unsubscribe</a> &nbsp;&middot;&nbsp; '
         '<a href="{{ mirror }}" style="color:%s;text-decoration:underline">View in your browser</a></div>'
@@ -390,10 +399,10 @@ def build(send_day, out_dir):
     txt = [subject.upper(), '', '%s · %s · %s' % (B.night_tag(lead, False), kind, nice(d8(B.when(lead)), True)), '']
     if lead.get('line'):
         txt += ['"%s"' % lead['line'], '']
-    txt += [opening, '']
+    txt += [opening, ''] if opening else []
     if mail.get('wins'):
         txt += [(mail.get('wins_label') or 'What we brought home').upper()] + [
-            '- %s: %s. %s' % (r[1], r[0], r[2] if len(r) > 2 else '') for r in mail['wins']] + ['']
+            ('- %s: %s. %s' % (r[1], r[0], r[2] if len(r) > 2 else '')).rstrip() for r in mail['wins']] + ['']
     for t in said:
         txt += [t, '']
     txt += ['%s: %s' % (mail.get('button') or 'Read the full recap', recap_url), '']
