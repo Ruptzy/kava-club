@@ -24,6 +24,10 @@ Why it is built the way it is
 * Each link carries its own utm_content, so the report can tell the recap button from
   the come-back button. That second number is the one that says whether it is working.
 * If no recap was posted since the last email, it builds nothing and says so.
+* A recap can carry an "email" block in nights.json for a week when one story should
+  own the email: {"lead": true} holds the top even if a later recap is posted, and
+  subject, preheader, title, intro, wins ([award, name, note] rows), body (a list of
+  paragraphs) and button replace what would otherwise be taken from the recap.
 """
 import html
 import json
@@ -166,6 +170,22 @@ def leaders(n, campaign):
         '30px 28px 34px', PANEL)
 
 
+def wins(mail):
+    """The week's honours, one row each: what was won, who won it, and a line about it."""
+    rows = mail.get('wins') or []
+    if not rows:
+        return ''
+    cells = ''.join(
+        '<tr><td style="padding:14px 0;border-top:1px solid %s">%s'
+        '<div style="font-family:%s;font-size:22px;font-weight:900;line-height:26px;text-transform:uppercase;color:%s;padding-top:4px">%s</div>'
+        '<div style="font-family:%s;font-size:16px;line-height:24px;color:%s;padding-top:4px">%s</div></td></tr>'
+        % (RULE, label(r[0], GOLD), FD, CREAM, esc(r[1]), FS, INK2, esc(r[2] if len(r) > 2 else ''))
+        for r in rows)
+    return row(label(mail.get('wins_label') or 'What we brought home', tag='h2') +
+               '<table role="presentation" width="100%%" cellpadding="0" cellspacing="0" border="0" style="margin-top:10px">%s</table>'
+               % cells, '28px 28px 18px', PANEL)
+
+
 def week_ahead(send_day, events, campaign):
     rows, special = [], []
     plan = T.study_plan()
@@ -225,20 +245,23 @@ def build(send_day, out_dir):
     if not fresh:
         print('No recap posted since %s. Nothing to send this week.' % since.isoformat())
         return None
-    lead, rest = fresh[0], fresh[1:]
+    # the newest recap leads, unless one of the week's recaps is marked to hold the top
+    lead = next((n for n in fresh if (n.get('email') or {}).get('lead')), fresh[0])
+    rest = [n for n in fresh if n is not lead]
+    mail = lead.get('email') or {}
     campaign = 'weekly-%s' % send_day.isoformat()
     no = B.night_number(B.when(lead))
     kind = B.night_type(lead, False)
     recap_url = link('nights/%s/' % lead['date'], 'recap', campaign)
     photo = email_photo(lead) if lead.get('photo') else None
 
-    subject = lead.get('title') or kind
+    subject = mail.get('subject') or lead.get('title') or kind
     if len(subject) > 48:
         subject = subject[:48].rsplit(' ', 1)[0] + '…'
     body_week, coming = week_ahead(send_day, events, campaign)
-    preheader = (lead.get('line') or first_sentences(lead.get('commentary'), 90)).rstrip()
+    preheader = (mail.get('preheader') or lead.get('line') or first_sentences(lead.get('commentary'), 90)).rstrip()
     booked = [c for c in coming if c['booked']]
-    if booked and len(preheader) < 80:
+    if booked and len(preheader) < 80 and not mail.get('preheader'):
         preheader += ' Plus: %s, %s.' % (booked[0]['title'].split(':')[0], nice(booked[0]['day']).split(' ', 1)[0])
 
     P = []
@@ -258,7 +281,7 @@ def build(send_day, out_dir):
     P.append(row(label('%s · %s · %s' % (B.night_tag(lead, False), kind, nice(d8(B.when(lead))))), '30px 28px 0'))
     P.append(row('<h1 style="margin:0;font-family:%s;font-size:34px;font-weight:900;line-height:36px;letter-spacing:-.4px;'
                  'text-transform:uppercase;color:%s"><a href="%s" style="color:%s;text-decoration:none">%s</a></h1>'
-                 % (FD, CREAM, esc(recap_url), CREAM, esc(lead.get('title') or kind)), '12px 28px 0'))
+                 % (FD, CREAM, esc(recap_url), CREAM, esc(mail.get('title') or lead.get('title') or kind)), '12px 28px 0'))
     if lead.get('line'):
         P.append(row('<table role="presentation" width="100%%" cellpadding="0" cellspacing="0" border="0"><tr>'
                      '<td width="3" bgcolor="%s" style="background:%s;font-size:0;line-height:0">&nbsp;</td>'
@@ -266,8 +289,13 @@ def build(send_day, out_dir):
                      '&ldquo;%s&rdquo;<div style="font-family:%s;font-size:11px;font-style:normal;font-weight:700;letter-spacing:2px;'
                      'text-transform:uppercase;color:%s;padding-top:8px">Harold Gonzalez &middot; Club director</div></td></tr></table>'
                      % (SCARLET, SCARLET, FS, CREAM, esc(lead['line']), FM, INK3), '24px 28px 0'))
-    P.append(row('<p style="margin:0;font-family:%s;font-size:17px;line-height:27px;color:%s">%s</p>'
-                 % (FS, INK2, esc(first_sentences(lead.get('commentary')))), '22px 28px 0'))
+    para = lambda t, pad='22px 28px 0': row('<p style="margin:0;font-family:%s;font-size:17px;line-height:27px;color:%s">%s</p>'
+                                            % (FS, INK2, esc(t)), pad)
+    opening = mail.get('intro') or first_sentences(lead.get('commentary'))
+    P.append(para(opening, '22px 28px 28px' if mail.get('wins') else '22px 28px 0'))
+    P.append(wins(mail))
+    said = list(mail.get('body') or [])
+    P += [para(t, ('26px 28px 0' if i == 0 and mail.get('wins') else '18px 28px 0')) for i, t in enumerate(said)]
     facts = [(lead.get('played'), 'players'), (lead.get('rounds'), 'rounds'), (len(lead.get('standings') or []) or None, 'brackets')]
     facts = [f for f in facts if f[0]]
     if facts:
@@ -275,7 +303,7 @@ def build(send_day, out_dir):
             '<td style="padding-right:30px"><div style="font-family:%s;font-size:30px;font-weight:900;line-height:32px;color:%s">%s</div>'
             '<div style="font-family:%s;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:%s">%s</div></td>'
             % (FD, CREAM, esc(v), FM, INK3, k) for v, k in facts), '24px 28px 0'))
-    P.append(row(btn('Read the full recap', recap_url), '28px 28px 36px'))
+    P.append(row(btn(mail.get('button') or 'Read the full recap', recap_url), '28px 28px 36px'))
     P.append(leaders(lead, campaign))
 
     if rest:
@@ -349,7 +377,13 @@ def build(send_day, out_dir):
     txt = [subject.upper(), '', '%s · %s · %s' % (B.night_tag(lead, False), kind, nice(d8(B.when(lead)), True)), '']
     if lead.get('line'):
         txt += ['"%s"' % lead['line'], '']
-    txt += [first_sentences(lead.get('commentary')), '', 'Read the full recap: ' + recap_url, '']
+    txt += [opening, '']
+    if mail.get('wins'):
+        txt += [(mail.get('wins_label') or 'What we brought home').upper()] + [
+            '- %s: %s. %s' % (r[1], r[0], r[2] if len(r) > 2 else '') for r in mail['wins']] + ['']
+    for t in said:
+        txt += [t, '']
+    txt += ['%s: %s' % (mail.get('button') or 'Read the full recap', recap_url), '']
     if rest:
         txt += ['ALSO LAST WEEK'] + ['- %s: %s' % (n.get('title'), link('nights/%s/' % n['date'], 'also-%s' % n['date'], campaign)) for n in rest[:3]] + ['']
     if coming:

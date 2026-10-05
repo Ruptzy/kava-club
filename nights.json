@@ -149,7 +149,38 @@
     ],
     "closes": "2026-11-03T19:00:00-05:00"
    },
-   "updated": "2026-10-04"
+   "updated": "2026-10-04",
+   "email": {
+    "lead": true,
+    "subject": "Battle for the Bay: we came home hungry",
+    "preheader": "A queen, a rookie's section and a win over a National Master. Now we train.",
+    "title": "Battle for the Bay: we came home hungry",
+    "intro": "Saturday night we took the club on the road for the first Battle for the Bay. Tampa Knights won the match on their home boards, and they earned it. Here is what came home with us.",
+    "wins_label": "What we brought home",
+    "wins": [
+     [
+      "Best Female Player",
+      "Maddie",
+      "The queen trophy is hers, and it looks right in front of our sign."
+     ],
+     [
+      "Section winner · Best Rookie",
+      "Toska",
+      "His first club battle. He won his whole section."
+     ],
+     [
+      "Board one",
+      "Ben",
+      "Rated 1800 USCF, he beat a National Master."
+     ]
+    ],
+    "body": [
+     "To everyone who made the trip: thank you. It is easy to stay on our own patio, where we know every opening our friends play. You went and sat across from strangers, some of them masters, and you played anyway. That takes nerve, and it is exactly how players get better. We are proud of this team.",
+     "The score told us the truth, too. To win one of these we need more training, and we are going to do it together. Study night is Tuesday at 8. Intermediate+ study is Thursday at 7 at Adobe Kava. Bring your games from Saturday, the losses most of all. Those are the best lessons we have.",
+     "We are not giving up on this. Battle for the Bay 2 is coming, and this time it is on our turf. We stay hungry for knowledge, we keep showing up for each other, and we will be ready when the bay comes to us."
+    ],
+    "button": "Recap and photos"
+   }
   },
   {
    "date": "2026-10-02",
