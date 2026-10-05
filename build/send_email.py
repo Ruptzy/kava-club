@@ -288,10 +288,15 @@ def main(argv):
         if not to:
             print('Brevo did not say who owns the account, so no test was sent.')
             return 1
+        subject = '[TEST] ' + meta['subject']
+        if '--probe' in argv:
+            # a one-off page for checking how the owner's mail app draws something (build/probe-email.html)
+            html = open(os.path.join(HERE, 'probe-email.html'), encoding='utf-8').read()
+            subject = '[TEST] Dark mode check'
         try:
             call('POST', '/smtp/email', key, {
                 'sender': {'name': meta['from_name'], 'email': sender['email']},
-                'to': [{'email': to}], 'subject': '[TEST] ' + meta['subject'], 'htmlContent': html})
+                'to': [{'email': to}], 'subject': subject, 'htmlContent': html})
         except RuntimeError as e:
             print(str(e).replace(to, '(the test address)'))
             return 1

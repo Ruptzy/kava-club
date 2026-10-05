@@ -15,10 +15,10 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "auto = schedule or update the coming Monday | dry = build and report, contact nobody | test = send it to the Brevo account owner only | rehearse = walk the Brevo calls with a campaign that has no recipients"
+        description: "auto = schedule or update the coming Monday | dry = build and report, contact nobody | test = send it to the Brevo account owner only | rehearse = walk the Brevo calls with a campaign that has no recipients | probe = send build/probe-email.html to the account owner only"
         default: dry
         type: choice
-        options: [auto, dry, test, rehearse]
+        options: [auto, dry, test, rehearse, probe]
 
 permissions:
   contents: write
@@ -63,6 +63,11 @@ jobs:
         env:
           BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
         run: python build/send_email.py --test=owner
+      - name: Send the probe page to the account owner
+        if: github.event_name == 'workflow_dispatch' && inputs.mode == 'probe'
+        env:
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+        run: python build/send_email.py --test=owner --probe
       - name: Rehearse the Brevo calls
         if: github.event_name == 'workflow_dispatch' && inputs.mode == 'rehearse'
         env:
