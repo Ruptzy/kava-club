@@ -27,7 +27,8 @@ Why it is built the way it is
 * A recap can carry an "email" block in nights.json for a week when one story should
   own the email: {"lead": true} holds the top even if a later recap is posted, and
   subject, preheader, title, intro, wins ([award, name, note] rows), body (a list of
-  paragraphs) and button replace what would otherwise be taken from the recap.
+  paragraphs) and button replace what would otherwise be taken from the recap; also (how many other
+  recaps to list, 3 by default) and comeback ({label, title, text, button}) trim and reword the rest.
 """
 import html
 import json
@@ -50,6 +51,10 @@ SOCIAL = [('Instagram', 'https://www.instagram.com/kavasocialchessclub/'),
           ('Directions', MAPS)]
 ADDRESS = 'Kava Social Chess Club · Kava Social Club, 540 13th St W, Bradenton, FL 34205'
 MAX_BYTES = 80 * 1024
+COMEBACK = {'label': 'Haven’t played lately', 'title': 'Been a while?',
+            'text': 'Nothing has changed. No dues, nothing to bring, and nobody keeps track of how long you were gone. '
+                    'Sundays and Tuesdays at eight, same back patio. Pull up a chair.',
+            'button': 'Come back this week'}
 
 VOID, PANEL, CREAM, INK2, INK3, SCARLET, RULE, GOLD = (
     '#0C0D0E', '#151618', '#FFF6E8', '#C9C1B5', '#8E877D', '#FE273A', '#2A2C2F', '#E4B02F')
@@ -93,6 +98,16 @@ def first_sentences(text, limit=300):
     cut = para[:limit]
     stop = max(cut.rfind('. '), cut.rfind('! '), cut.rfind('? '))
     return (cut[:stop + 1] if stop > 120 else cut.rsplit(' ', 1)[0] + '…').strip()
+
+
+def whole_sentences(text, limit):
+    """As many whole sentences as fit in limit characters; a calendar note never ends mid-thought."""
+    out = ''
+    for s in text.replace('! ', '!\n').replace('? ', '?\n').replace('. ', '.\n').split('\n'):
+        if out and len(out) + 1 + len(s) > limit:
+            break
+        out = (out + ' ' + s).strip()
+    return out if len(out) <= limit else out[:limit].rsplit(' ', 1)[0] + '…'
 
 
 def email_photo(n):
@@ -198,13 +213,12 @@ def week_ahead(send_day, events, campaign):
             if kind == 'study' and plan.get('number'):
                 blurb = 'Carrying on from %s %d of %s.' % (plan.get('unit', 'chapter'), plan['number'], plan['book'])
             elif booked:
-                blurb = ' '.join((e.get('note') or '').split())
-                blurb = blurb if len(blurb) <= 150 else blurb[:150].rsplit(' ', 1)[0] + '…'
+                blurb = whole_sentences(' '.join((e.get('note') or '').split()), 130)
             else:
                 blurb = NIGHT_BLURB.get(kind, '')
             where = e.get('venue') or ('Adobe Kava' if kind == 'adobe' else 'Kava Social Club')
             when = (e.get('time') or '8:00 PM').replace(':00 ', '').replace(' ', '').lower()
-            item = dict(day=day, title=title, blurb=blurb, where=where, when=when, booked=booked, url=e.get('url'))
+            item = dict(day=day, title=title, blurb=blurb, where=where, when=when, booked=booked, url=e.get('url'), kind=kind)
             (special if booked else rows).append(item)
     out = []
     for it in sorted(special + rows, key=lambda i: i['day']):
@@ -212,8 +226,8 @@ def week_ahead(send_day, events, campaign):
         extra = ''
         if it['booked'] and it['url']:
             extra = ('<div style="padding-top:8px"><a href="%s" style="font-family:%s;font-size:12px;font-weight:700;'
-                     'letter-spacing:2px;text-transform:uppercase;color:%s;text-decoration:underline">Register&nbsp;&rarr;</a></div>'
-                     % (esc(it['url']), FM, CREAM))
+                     'letter-spacing:2px;text-transform:uppercase;color:%s;text-decoration:underline">%s&nbsp;&rarr;</a></div>'
+                     % (esc(it['url']), FM, CREAM, 'Get tickets' if it['kind'] == 'outing' else 'Register'))
         out.append(
             '<tr><td width="76" valign="top" style="padding:16px 0;border-top:1px solid %s">'
             '<div style="font-family:%s;font-size:11px;font-weight:700;letter-spacing:2px;color:%s">%s</div>'
@@ -315,7 +329,7 @@ def build(send_day, out_dir):
             % (RULE, label('%s · %s' % (DAYS[d8(B.when(n)).weekday()], B.night_type(n, False)), INK3),
                esc(link('nights/%s/' % n['date'], 'also-%s' % n['date'], campaign)), FD, CREAM,
                esc(n.get('title') or B.night_type(n, False)), FS, INK2, esc(n.get('line') or first_sentences(n.get('commentary'), 110)))
-            for n in rest[:3])
+            for n in rest[:mail.get('also', 3)])
         P.append(row(label('Also last week', tag='h2') + '<table role="presentation" width="100%%" cellpadding="0" cellspacing="0" border="0" '
                      'style="margin-top:12px">%s</table>' % items, '34px 28px 8px'))
     if body_week:
@@ -323,15 +337,14 @@ def build(send_day, out_dir):
         P.append(body_week)
 
     # for anyone who has drifted: inverted, so it is the one block that looks different
+    back = dict(COMEBACK, **(mail.get('comeback') or {}))
     P.append(row(
         '%s<h2 style="margin:0;font-family:%s;font-size:28px;font-weight:900;line-height:30px;letter-spacing:-.3px;text-transform:uppercase;'
-        'color:%s;padding-top:10px">Been a while?</h2>'
-        '<p style="margin:0;padding-top:12px;font-family:%s;font-size:17px;line-height:27px;color:#3A3631">'
-        'Nothing has changed. No dues, nothing to bring, and nobody keeps track of how long you were gone. '
-        'Sundays and Tuesdays at eight, same back patio. Pull up a chair.</p>'
+        'color:%s;padding-top:10px">%s</h2>'
+        '<p style="margin:0;padding-top:12px;font-family:%s;font-size:17px;line-height:27px;color:#3A3631">%s</p>'
         '<div style="padding-top:22px">%s</div>'
-        % (label('Haven’t played lately'), FD, VOID, FS,
-           btn('Come back this week', link('beginners/', 'comeback', campaign))),
+        % (label(back['label']), FD, VOID, esc(back['title']), FS, esc(back['text']),
+           btn(back['button'], link('beginners/', 'comeback', campaign))),
         '34px 28px 38px', CREAM))
 
     P.append(row(
@@ -385,10 +398,10 @@ def build(send_day, out_dir):
         txt += [t, '']
     txt += ['%s: %s' % (mail.get('button') or 'Read the full recap', recap_url), '']
     if rest:
-        txt += ['ALSO LAST WEEK'] + ['- %s: %s' % (n.get('title'), link('nights/%s/' % n['date'], 'also-%s' % n['date'], campaign)) for n in rest[:3]] + ['']
+        txt += ['ALSO LAST WEEK'] + ['- %s: %s' % (n.get('title'), link('nights/%s/' % n['date'], 'also-%s' % n['date'], campaign)) for n in rest[:mail.get('also', 3)]] + ['']
     if coming:
         txt += ['THIS WEEK AT THE CLUB'] + ['- %s: %s, %s, %s' % (nice(c['day']), c['title'], c['when'], c['where']) for c in coming] + ['']
-    txt += ['BEEN A WHILE?', 'Nothing has changed. No dues, nothing to bring. Sundays and Tuesdays at eight.',
+    txt += [back['title'].upper(), back['text'],
             link('beginners/', 'comeback', campaign), '', ADDRESS, 'Unsubscribe: {{ unsubscribe }}']
 
     os.makedirs(out_dir, exist_ok=True)

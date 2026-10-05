@@ -1,7 +1,65 @@
 {
  "_comment": "One entry per club night, newest first. Written by the admin console (Post a night) or by hand. build/build_nights.py turns these into /nights/<date>/ pages, the archive, the RSS feed and the sitemap. 'line' is Harold's own sentence about the night; 'commentary' is the write-up of the numbers.",
- "updated": "2026-10-04",
+ "updated": "2026-10-05",
  "nights": [
+  {
+   "date": "2026-10-04",
+   "type": "social",
+   "played": 22,
+   "title": "Twenty-two on the patio",
+   "title_es": "Veintidós en el patio",
+   "line": "Less than a day after Tampa, 22 players packed the patio. Our biggest Sunday in months.",
+   "line_es": "Menos de un día después de Tampa, 22 jugadores llenaron el patio. Nuestro domingo más grande en meses.",
+   "commentary": "Less than 24 hours after Battle for the Bay, the back patio at Kava Social filled up and kept filling. Twenty-two players, boards end to end, every table taken. Our biggest social night in months. 🔥\nSunday is free play: no brackets, no ratings on the line. Pull up a chair, find a game, then find another. One long table under the lights, games at every other table too, and at least one player with a chess book open between rounds. ♟️\nThis is the part of the club no scoreboard shows. Saturday told us we have work to do. Sunday showed us who we get to do it with. A chess board is still the easiest way to meet a stranger, and twenty-two people choosing to spend a Sunday night across from each other is the whole point. 🤝\nTuesday is study night at 8. Next Sunday the club goes to the movies for Grandmasters at 6, then a late bracket at 9:15. Vote below and tell us if you're in. 🎬",
+   "commentary_es": "Menos de 24 horas después del Battle for the Bay, el patio de atrás de Kava Social se llenó y se siguió llenando. Veintidós jugadores, tableros de punta a punta, todas las mesas ocupadas. Nuestra noche social más grande en meses. 🔥\nEl domingo es juego libre: sin brackets, sin rating en juego. Toma una silla, busca una partida, y después otra. Una mesa larga bajo las luces, partidas en todas las demás mesas, y al menos un jugador con un libro de ajedrez abierto entre rondas. ♟️\nEsta es la parte del club que ningún marcador muestra. El sábado nos dijo que tenemos trabajo por hacer. El domingo nos mostró con quién lo vamos a hacer. Un tablero sigue siendo la forma más fácil de conocer a un desconocido, y veintidós personas eligiendo pasar un domingo por la noche frente a frente es exactamente la idea. 🤝\nEl martes es noche de estudio a las 8. El próximo domingo el club va al cine a ver Grandmasters a las 6, y luego un bracket tarde a las 9:15. Vota abajo y dinos si vienes. 🎬",
+   "photo": "img/nights/2026-10-04.jpg",
+   "photo_alt": "Players along the long table on the back patio at Kava Social, looking up from their games under red and blue lights",
+   "photo_alt_es": "Jugadores a lo largo de la mesa larga en el patio de atrás de Kava Social, levantando la vista de sus partidas bajo luces rojas y azules",
+   "gallery": [
+    {
+     "img": "img/nights/2026-10-04-patio.jpg",
+     "w": 1600,
+     "h": 739,
+     "alt": "Wide view of the back patio with a game going at every table and an open chess book beside one board",
+     "alt_es": "Vista amplia del patio de atrás con una partida en cada mesa y un libro de ajedrez abierto junto a un tablero",
+     "caption": "Every table taken.",
+     "caption_es": "Todas las mesas ocupadas."
+    }
+   ],
+   "poll": {
+    "id": "movie-2026-10",
+    "label": "Next Sunday",
+    "label_es": "El próximo domingo",
+    "q": "Grandmasters at 6, then the bracket at 9:15. Are you in?",
+    "q_es": "Grandmasters a las 6, luego el bracket a las 9:15. ¿Vienes?",
+    "options": [
+     [
+      "both",
+      "Movie and bracket",
+      "Película y bracket"
+     ],
+     [
+      "movie",
+      "Just the movie",
+      "Solo la película"
+     ],
+     [
+      "bracket",
+      "Just the bracket",
+      "Solo el bracket"
+     ],
+     [
+      "out",
+      "Can't make it",
+      "No puedo"
+     ]
+    ],
+    "thanks": "Thanks, you're counted. Results update about every half hour.",
+    "thanks_es": "Gracias, ya te contamos. Los resultados se actualizan cada media hora.",
+    "closes": "2026-10-11T18:00:00-04:00"
+   },
+   "updated": "2026-10-05"
+  },
   {
    "date": "2026-10-03",
    "type": "battle",
@@ -155,7 +213,7 @@
     "subject": "Battle for the Bay: we came home hungry",
     "preheader": "A queen, a rookie's section and a win over a National Master. Now we train.",
     "title": "Battle for the Bay: we came home hungry",
-    "intro": "Saturday night we took the club on the road for the first Battle for the Bay. Tampa Knights won the match on their home boards, and they earned it. Here is what came home with us.",
+    "intro": "Saturday we took the club on the road for the first Battle for the Bay. Tampa Knights won the match at home. Here is what came back with us.",
     "wins_label": "What we brought home",
     "wins": [
      [
@@ -164,7 +222,7 @@
       "The queen trophy is hers, and it looks right in front of our sign."
      ],
      [
-      "Section winner · Best Rookie",
+      "Won his section · Best Rookie",
       "Toska",
       "His first club battle. He won his whole section."
      ],
@@ -175,11 +233,17 @@
      ]
     ],
     "body": [
-     "To everyone who made the trip: thank you. It is easy to stay on our own patio, where we know every opening our friends play. You went and sat across from strangers, some of them masters, and you played anyway. That takes nerve, and it is exactly how players get better. We are proud of this team.",
-     "The score told us the truth, too. To win one of these we need more training, and we are going to do it together. Study night is Tuesday at 8. Intermediate+ study is Thursday at 7 at Adobe Kava. Bring your games from Saturday, the losses most of all. Those are the best lessons we have.",
-     "We are not giving up on this. Battle for the Bay 2 is coming, and this time it is on our turf. We stay hungry for knowledge, we keep showing up for each other, and we will be ready when the bay comes to us."
+     "Thank you to everyone who made the trip and sat across from strangers, masters included. That takes nerve, and it is exactly how players get better.",
+     "The score was honest with us: we need more training, and we will do it together. Bring your games from Saturday to study night, the losses most of all. Battle for the Bay 2 is on our turf. We are staying hungry, and we will be ready."
     ],
-    "button": "Recap and photos"
+    "button": "Recap and photos",
+    "also": 2,
+    "comeback": {
+     "label": "Haven’t played lately",
+     "title": "Room for 23",
+     "text": "Sunday we had 22 players, and there is a chair for you. Every level plays here, and nobody keeps track of how long you were gone. Sundays and Tuesdays at 8, same back patio.",
+     "button": "Come back this week"
+    }
    }
   },
   {

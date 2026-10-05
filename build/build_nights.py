@@ -219,7 +219,7 @@ POLL_JS = ('<script>(function(){var box=document.getElementById("npoll");if(!box
 
 
 def poll_html(n, es):
-    """A one-question prediction under the write-up, and where the conversation is."""
+    """A one-question poll under the write-up (a prediction unless it says otherwise), and where the conversation is."""
     talk = ('<p class="cap ntalk">%s <a href="%s" target="_blank" rel="noopener">%s</a>.</p>'
             % ('¿Tienes algo que decir? La conversación está en' if es else 'Got a take? The conversation is on',
                DISCORD, 'el Discord del club' if es else 'the club Discord'))
@@ -232,12 +232,14 @@ def poll_html(n, es):
             '<div class="m">%s</div><h2 class="d">%s</h2><div class="npo">%s</div>'
             '<p class="cap npm" aria-live="polite"><span>%s</span><span class="npn"></span></p></section>%s%s'
             % (esc(p.get('id') or n['date']), esc(p.get('closes', '')),
+               esc(loc(p, 'thanks', es)) if p.get('thanks') else
                'Gracias. Tu predicción quedó registrada. Los resultados se actualizan cada media hora.' if es
                else 'Thanks. Your prediction is in. Results update about every half hour.',
                'La votación cerró.' if es else 'Voting has closed.',
                '1 voto hasta ahora.' if es else '1 vote so far.',
                '{n} votos hasta ahora.' if es else '{n} votes so far.',
-               'Tu predicción' if es else 'Your prediction', esc((p.get('q_es') if es else None) or p['q']), buttons,
+               esc(loc(p, 'label', es)) if p.get('label') else 'Tu predicción' if es else 'Your prediction',
+               esc((p.get('q_es') if es else None) or p['q']), buttons,
                'Toca tu elección. Un voto por persona.' if es else 'Tap your pick. One vote each.', talk, POLL_JS))
 
 
