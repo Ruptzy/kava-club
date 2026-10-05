@@ -7,7 +7,7 @@ REM Discord webhook stays a GitHub secret. The workflow still applies its own ru
 REM nothing is posted twice and nothing is posted on a night with nothing on.
 REM
 REM It also starts the weekly email workflow, which hands the email to Brevo; Brevo sends
-REM it at 6pm on Monday. The Brevo key stays a GitHub secret.
+REM it at 3pm on Monday. The Brevo key stays a GitHub secret.
 REM
 REM Each job is tried up to six times, a minute apart, because a PC that has just woken
 REM up may not have its network back yet. What happened is written to the log below.

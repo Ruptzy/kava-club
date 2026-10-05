@@ -417,7 +417,7 @@ def build(send_day, out_dir):
     open(os.path.join(out_dir, 'email.html'), 'w', encoding='utf-8').write(doc)
     open(os.path.join(out_dir, 'email.txt'), 'w', encoding='utf-8').write('\n'.join(txt) + '\n')
     meta = {'subject': subject, 'preheader': preheader, 'campaign': campaign, 'from_name': 'Kava Social Chess Club',
-            'send_at': '%sT18:00:00 America/New_York' % send_day.isoformat(), 'bytes': size, 'lead': lead['date'],
+            'send_at': '%sT15:00:00 America/New_York' % send_day.isoformat(), 'bytes': size, 'lead': lead['date'],
             'photo': photo}
     json.dump(meta, open(os.path.join(out_dir, 'meta.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     print('subject   (%d chars) %s' % (len(subject), subject))

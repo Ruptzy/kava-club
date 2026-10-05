@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-"""Hand the weekly email to Brevo, scheduled for Monday 6pm in Bradenton.
+"""Hand the weekly email to Brevo, scheduled for Monday 3pm in Bradenton.
 
     python build/send_email.py            the normal run: schedules or updates the coming Monday's email
     python build/send_email.py --dry      build it and say what would happen; contacts nobody
     python build/send_email.py --test=me@example.com   send the built email to one address, now
 
 Brevo does the timekeeping and the tracking. This only has to run at some point on
-Monday before six, which is as much as GitHub's scheduler can be trusted with.
+Monday before three, which is as much as GitHub's scheduler can be trusted with.
 
 The API key is the BREVO_API_KEY secret and is never written in this repository. The
 member list lives only inside Brevo; this script never sees an address. It asks Brevo
@@ -19,6 +19,7 @@ It is safe to run as often as anything likes to run it, on any day. Each run wor
 towards the coming Monday, so the campaign is usually with Brevo days ahead:
   nothing scheduled yet      create the campaign, then read it back to see Brevo queued it
   scheduled, recap added     put the newer recap into the campaign already waiting
+  scheduled, time changed    move the waiting campaign to SEND_HOUR
   scheduled, nothing new     do nothing
   past the send time         ask Brevo whether it went out, and fail if it did not
 A run that fails makes GitHub email the repository owner.
@@ -41,7 +42,7 @@ OUT = E.OUT
 LEDGER = os.path.join(OUT, 'email-sent.json')
 API = 'https://api.brevo.com/v3'
 LIST_NAME = 'Club members'        # the list Harold imported the members into
-SEND_HOUR = 18                    # 6pm, Bradenton time
+SEND_HOUR = 15                    # 3pm, Bradenton time
 LAST_HOUR = 21                    # after 9pm on Monday it is too late to be "Monday's email"
 CLOSE = 10                        # minutes before the send when the email stops being changed
 WAITING = ('queued', 'in_process')
@@ -119,25 +120,31 @@ def went_out(mine, key, now):
     return 1
 
 
-def keep_current(mine, meta, html, mark, key):
-    """A campaign is already waiting. If a recap has been posted since, put it in."""
+def keep_current(mine, meta, html, mark, key, when):
+    """A campaign is already waiting. If a recap has been posted since, put it in; if the send time
+    was changed here, move it."""
     status = call('GET', '/emailCampaigns/%s' % mine['id'], key).get('status')
     if status not in WAITING:
         print('Campaign %s should be waiting to send and Brevo reports it as "%s".' % (mine['id'], status))
         return 0 if status in GONE else 1
-    if mine.get('mark') == mark:
+    moved = mine.get('scheduled') != when
+    if mine.get('mark') == mark and not moved:
         print('This week is already with Brevo, unchanged, for %s (campaign %s).' % (mine['scheduled'], mine['id']))
         return 0
     if meta.get('photo') and not wait_for(meta['photo']):
         print('A newer recap was posted but its photo is not live, so the scheduled email was left as it was.')
         return 1
-    # only the words change; the time and the list stay as scheduled. If Brevo refuses,
-    # the campaign already waiting still goes out, so the worst case is an older recap.
-    call('PUT', '/emailCampaigns/%s' % mine['id'], key, {
-        'subject': meta['subject'], 'previewText': meta['preheader'], 'htmlContent': html})
-    remember(mine['last'], mine['id'], mine['scheduled'], mark)
-    print('A newer recap was posted, so the scheduled email now leads with "%s". Still going at %s.'
-          % (meta['subject'], mine['scheduled']))
+    # the words, and the time if SEND_HOUR changed; the list stays. If Brevo refuses, the
+    # campaign already waiting still goes out, so the worst case is an older recap or the old time.
+    body = {'subject': meta['subject'], 'previewText': meta['preheader'], 'htmlContent': html}
+    if moved:
+        body['scheduledAt'] = when
+    call('PUT', '/emailCampaigns/%s' % mine['id'], key, body)
+    remember(mine['last'], mine['id'], when if moved else mine['scheduled'], mark)
+    if moved:
+        print('The scheduled email was moved from %s to %s.' % (mine['scheduled'], when))
+    if mine.get('mark') != mark:
+        print('The scheduled email now leads with "%s". Going at %s.' % (meta['subject'], when if moved else mine['scheduled']))
     return 0
 
 
@@ -262,7 +269,7 @@ def main(argv):
         return 0
 
     if mine and not test:
-        return keep_current(mine, meta, html, mark, key)
+        return keep_current(mine, meta, html, mark, key, when)
 
     senders = [s for s in call('GET', '/senders', key).get('senders', []) if s.get('active')]
     if not senders:

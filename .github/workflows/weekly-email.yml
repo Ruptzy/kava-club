@@ -4,9 +4,10 @@ on:
   schedule:
     # A backstop only. GitHub runs this repository's schedules hours late or not at all,
     # so nothing here depends on them. The email is handed to Brevo when a recap is posted
-    # (below), days before it is due, and Brevo sends it at 6pm on Monday. The 3pm task on
+    # (below), days before it is due, and Brevo sends it at 3pm on Monday. The 3pm task on
     # Harold's PC starts this workflow daily as well. Every run is safe to repeat.
-    - cron: "23 3,15,19,21 * * *"
+    # In UTC: late evening, then late morning and early afternoon before the send, and one after.
+    - cron: "23 3,15,17,21 * * *"
   workflow_run:
     # a recap being posted is what schedules the coming Monday's email, or updates it
     workflows: ["Night recaps"]
