@@ -186,9 +186,10 @@ def call(method, url, payload=None, photo=None):
 
 
 def poll_message(n):
-    """A recap's prediction as a Discord poll, open until the recap says it closes."""
+    """A recap's poll as a Discord poll, open until the recap says it closes. Only when the poll
+    says "discord": true: Harold asks for a Discord poll recap by recap; the site's poll is the default."""
     p = n.get('poll') or {}
-    if not p.get('q') or not p.get('options'):
+    if not p.get('q') or not p.get('options') or not p.get('discord'):
         return None
     hours = 48
     if p.get('closes'):

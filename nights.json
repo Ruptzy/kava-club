@@ -280,7 +280,8 @@
       "Demasiado parejo"
      ]
     ],
-    "closes": "2026-10-03T19:00:00-04:00"
+    "closes": "2026-10-03T19:00:00-04:00",
+    "discord": true
    },
    "updated": "2026-10-02"
   },
