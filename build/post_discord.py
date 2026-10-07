@@ -154,6 +154,25 @@ def _multipart(payload, photo):
     return b''.join(parts), 'multipart/form-data; boundary=' + boundary
 
 
+def live(url, minutes=15):
+    """Wait for a new recap's page to be on the site. The pages are pushed a moment before this
+    runs, but GitHub Pages takes a minute or more to publish them, and a "Read the full recap"
+    link that 404s is worse than a post that arrives a little later. After the wait it posts
+    anyway: a late page beats no post at all."""
+    for i in range(minutes * 3):
+        try:
+            req = urllib.request.Request('%s?live=%d' % (url, int(time.time())), method='HEAD')
+            req.add_header('User-Agent', UA)
+            with urllib.request.urlopen(req, timeout=20) as r:
+                if r.status == 200:
+                    return True
+        except Exception:
+            pass
+        time.sleep(20)
+    print('Discord: %s was still not live after %d minutes; posting anyway.' % (url, minutes))
+    return False
+
+
 def call(method, url, payload=None, photo=None):
     """One webhook request, waiting out a rate limit once. Returns the parsed reply."""
     if payload is not None:
@@ -246,6 +265,7 @@ def main(dry=False):
             if dry:
                 print('DRY post  %s  %s' % (d, payload['embeds'][0]['title']))
                 continue
+            live(payload['embeds'][0]['url'])
             msg = call('POST', base + '?wait=true', payload, photo)
             posted[d] = {'id': msg.get('id'), 'fp': fp}
             did.append('posted ' + d)
