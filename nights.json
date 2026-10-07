@@ -1,7 +1,21 @@
 {
  "_comment": "One entry per club night, newest first. Written by the admin console (Post a night) or by hand. build/build_nights.py turns these into /nights/<date>/ pages, the archive, the RSS feed and the sitemap. 'line' is Harold's own sentence about the night; 'commentary' is the write-up of the numbers.",
- "updated": "2026-10-05",
+ "updated": "2026-10-07",
  "nights": [
+  {
+   "date": "2026-10-06",
+   "type": "study",
+   "title": "Rolling centers under the tiki",
+   "title_es": "Centros en marcha bajo el tiki",
+   "line": "Rain outside, pawn centers on the move under the tiki. Spirits high, three days after Tampa.",
+   "line_es": "Lluvia afuera, centros de peones en marcha bajo el tiki. Los ánimos en alto, tres días después de Tampa.",
+   "commentary": "Chapter 33 of 40 Lessons for the Club Player: the mobile pawn center. Two central pawns side by side, still free to advance, and a simple question with no simple answer: when do you push? Too early and they become targets. Too late and the moment is gone. Played right, the center rolls forward, takes space and shoves the enemy pieces out of the way. 📚\nWe worked both sides of the board. With the center, you prepare the push until it lands with tempo. Against it, you put pieces on the squares in front of the pawns, hit them with breaks from the side, and make them commit before they are ready. ♟️\nThe sky opened up again, so the boards moved under the tiki and the lesson carried on. Three days after Tampa, nobody is sulking. The table was loud, the questions were good, and the hunger to get better is real. That is how you answer a loss. 🌧️🔥\nSeven chapters left in the book. Thursday is Intermediate+ study at Adobe Kava, and Sunday the club goes to the movies for Grandmasters at 6, then the bracket at 9:15. See you on the patio. 🌴",
+   "commentary_es": "Capítulo 33 de 40 Lessons for the Club Player: el centro de peones móvil. Dos peones centrales lado a lado, todavía libres para avanzar, y una pregunta simple sin respuesta simple: ¿cuándo empujar? Demasiado pronto y se vuelven blancos. Demasiado tarde y el momento se pierde. Bien jugado, el centro avanza, gana espacio y echa a las piezas rivales del camino. 📚\nTrabajamos los dos lados del tablero. Con el centro, preparas el avance hasta que llegue con tempo. Contra él, pones piezas en las casillas frente a los peones, los atacas con rupturas desde el lado y los obligas a comprometerse antes de tiempo. ♟️\nEl cielo se abrió otra vez, así que los tableros se movieron bajo el tiki y la lección siguió. Tres días después de Tampa, nadie está cabizbajo. La mesa estaba animada, las preguntas fueron buenas y las ganas de mejorar son reales. Así se responde a una derrota. 🌧️🔥\nQuedan siete capítulos del libro. El jueves hay estudio Intermedio+ en Adobe Kava, y el domingo el club va al cine a ver Grandmasters a las 6, y luego el bracket a las 9:15. Nos vemos en el patio. 🌴",
+   "photo": "img/nights/2026-10-06.jpg",
+   "photo_alt": "A smiling selfie down the long table under the tiki at Kava Social on a rainy study night, players and boards end to end",
+   "photo_alt_es": "Una selfie sonriente a lo largo de la mesa larga bajo el tiki en Kava Social en una noche de estudio lluviosa, jugadores y tableros de punta a punta",
+   "updated": "2026-10-07"
+  },
   {
    "date": "2026-10-04",
    "type": "social",
