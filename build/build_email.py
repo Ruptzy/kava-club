@@ -50,6 +50,9 @@ SOCIAL = [('Instagram', 'https://www.instagram.com/kavasocialchessclub/'),
           ('Facebook', 'https://www.facebook.com/KavaSocialChessClub'),
           ('Discord', 'https://discord.gg/sYCb7RnTgZ'),
           ('Directions', MAPS)]
+# the Gmail app in dark mode flips any picture that is mostly black, so the map pin sits on a
+# white tile like the Maps app icon (checked on Harold's Android phone, 2026-10-09)
+ICON = {'Directions': 'directions-tile'}
 ADDRESS = 'Kava Social Chess Club · Kava Social Club, 540 13th St W, Bradenton, FL 34205'
 MAX_BYTES = 80 * 1024
 COMEBACK = {'label': 'Haven’t played lately', 'title': 'Been a while?',
@@ -361,7 +364,7 @@ def build(send_day, out_dir):
         '<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-top:12px"><tr>%s</tr></table>' % ''.join(
             '<td style="padding-right:22px"><a href="%s" style="text-decoration:none"><img src="%simg/email/%s.png" width="36" '
             'height="36" alt="%s" style="display:block;border:0;font-family:%s;font-size:11px;color:%s"></a></td>'
-            % (href, SITE, name.lower(), name, FM, CREAM) for name, href in SOCIAL),
+            % (href, SITE, ICON.get(name, name.lower()), name, FM, CREAM) for name, href in SOCIAL),
         '34px 28px 0'))
     P.append(row(
         '<div style="font-family:%s;font-size:12px;line-height:20px;letter-spacing:.5px;color:%s">'
