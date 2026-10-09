@@ -51,7 +51,8 @@ SOCIAL = [('Instagram', 'https://www.instagram.com/kavasocialchessclub/'),
           ('Discord', 'https://discord.gg/sYCb7RnTgZ'),
           ('Directions', MAPS)]
 # the Gmail app in dark mode flips any picture that is mostly black, so the map pin sits on a
-# white tile like the Maps app icon (checked on Harold's Android phone, 2026-10-09)
+# white tile like the Maps app icon and the logo on a red one (both checked on Harold's Android
+# phone, 2026-10-09; the plain dark badge came out as a white negative)
 ICON = {'Directions': 'directions-tile'}
 ADDRESS = 'Kava Social Chess Club · Kava Social Club, 540 13th St W, Bradenton, FL 34205'
 MAX_BYTES = 80 * 1024
@@ -65,7 +66,9 @@ VOID, PANEL, CREAM, INK2, INK3, SCARLET, RULE, GOLD = (
 # Gmail ignores web fonts, so each stack has to look right on its second name
 FD = "Archivo,'Arial Black','Helvetica Neue',Arial,sans-serif"
 FS = "Newsreader,Georgia,'Times New Roman',serif"
-FM = "'JetBrains Mono','Courier New',Courier,monospace"
+# sans-serif-monospace is Android's name for its plain monospace; without it Android swaps
+# Courier New for a wide typewriter face that pushed buttons onto two lines. Desktops skip it.
+FM = "'JetBrains Mono',sans-serif-monospace,'Courier New',Courier,monospace"
 
 DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
@@ -290,7 +293,7 @@ def build(send_day, out_dir):
     P = []
     P.append(row(
         '<table role="presentation" width="100%%" cellpadding="0" cellspacing="0" border="0"><tr>'
-        '<td width="52" valign="middle"><a href="%s"><img src="%simg/email/logo.png" width="44" height="44" alt="Kava Social Chess Club" '
+        '<td width="52" valign="middle"><a href="%s"><img src="%simg/email/logo-tile.png" width="44" height="44" alt="Kava Social Chess Club" '
         'style="display:block;border:0"></a></td>'
         '<td valign="middle" style="font-family:%s;font-size:17px;font-weight:900;line-height:20px;letter-spacing:.3px;'
         'text-transform:uppercase;color:%s">Kava Social<br>Chess Club</td>'
