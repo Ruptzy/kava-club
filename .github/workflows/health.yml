@@ -1,0 +1,29 @@
+name: Health check
+
+# Every key and connection the club automation depends on, asked a read-only question.
+# Nothing is posted or sent. A failure makes GitHub email the owner, so a key that expires
+# or a webhook that gets deleted is found on a Sunday morning, not on a club night.
+on:
+  schedule:
+    - cron: "37 12 * * 0"   # Sundays, about 8:37am Bradenton
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check every key and connection
+        env:
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          REPLY_TO: ${{ secrets.REPLY_TO }}
+          NIGHT_RECAPS: ${{ secrets.NIGHT_RECAPS }}
+          SCHEDULE_FOR_DAY: ${{ secrets.SCHEDULE_FOR_DAY }}
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          GOOGLE_PLACES_KEY: ${{ secrets.GOOGLE_PLACES_KEY }}
+          GOOGLE_PLACE_ID: ${{ secrets.GOOGLE_PLACE_ID }}
+        run: python build/health_check.py
