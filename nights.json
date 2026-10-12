@@ -191,7 +191,15 @@
      "And a goodbye: Steve is moving to Colorado after four years with us. In his words: “If you win, I win… let’s have a fun game.” We’re proud of you, Steve."
     ],
     "also": 1,
-    "notes": "booked"
+    "notes": "booked",
+    "press": [
+     {
+      "source": "The Bradenton Times",
+      "title": "Why Bradenton needs its third spaces",
+      "url": "https://thebradentontimes.com/stories/across-the-board-why-bradenton-needs-its-third-spaces,215920",
+      "note": "Harold’s guest column on our patio, and why a town needs places like it."
+     }
+    ]
    },
    "updated": "2026-10-12",
    "tiebreak": "points; at equal points, more wins (a bye is not a win); the same record shares the place"

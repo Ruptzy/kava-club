@@ -29,7 +29,8 @@ Why it is built the way it is
   subject, preheader, title, intro, wins ([award, name, note] rows), body (a list of
   paragraphs) and button replace what would otherwise be taken from the recap; also (how many other
   recaps to list, 3 by default) and comeback ({label, title, text, button}) trim and reword the rest;
-  intro "" drops the opening paragraph, and notes "booked" keeps calendar notes only for one-off events.
+  intro "" drops the opening paragraph, and notes "booked" keeps calendar notes only for one-off events;
+  press ([{source, title, url, note}]) adds a small "In the press" item under the standings.
 """
 import html
 import json
@@ -334,6 +335,14 @@ def build(send_day, out_dir):
             % (FD, CREAM, esc(v), FM, INK3, k) for v, k in facts), '24px 28px 0'))
     P.append(row(btn(mail.get('button') or 'Read the full recap', recap_url), '28px 28px 36px'))
     P.append(leaders(lead, campaign))
+    # the club in the paper: one linked headline per piece, nothing more
+    if mail.get('press'):
+        P.append(row(label('In the press', tag='h2') + ''.join(
+            '<div style="padding-top:14px">%s<div style="padding-top:4px"><a href="%s" style="font-family:%s;font-size:19px;font-weight:900;'
+            'line-height:24px;text-transform:uppercase;color:%s;text-decoration:none">%s&nbsp;&rarr;</a></div>'
+            '<div style="font-family:%s;font-size:16px;line-height:24px;color:%s;padding-top:4px">%s</div></div>'
+            % (label(x['source'], INK3), esc(x['url']), FD, CREAM, esc(x['title']), FS, INK2, esc(x.get('note', '')))
+            for x in mail['press']), '30px 28px 4px'))
 
     if rest:
         items = ''.join(
@@ -412,6 +421,8 @@ def build(send_day, out_dir):
     for t in said:
         txt += [t, '']
     txt += ['%s: %s' % (mail.get('button') or 'Read the full recap', recap_url), '']
+    if mail.get('press'):
+        txt += ['IN THE PRESS'] + ['- %s, %s: %s' % (x['source'], x['title'], x['url']) for x in mail['press']] + ['']
     if rest:
         txt += ['ALSO LAST WEEK'] + ['- %s: %s' % (n.get('title'), link('nights/%s/' % n['date'], 'also-%s' % n['date'], campaign)) for n in rest[:mail.get('also', 3)]] + ['']
     if coming:
