@@ -352,9 +352,10 @@ def night_body(n, es, prev_n, next_n):
     # a night with many pictures: a two-column strip under the write-up, each one opening the full photo
     if n.get('gallery'):
         comm += '<div class="ngal">' + ''.join(
-            '<figure><a href="%s" target="_blank" rel="noopener"><img src="%s" alt="%s" width="%d" height="%d" '
+            '<figure%s><a href="%s" target="_blank" rel="noopener"><img src="%s" alt="%s" width="%d" height="%d" '
             'loading="lazy" decoding="async"></a><figcaption class="cap">%s</figcaption></figure>'
-            % (esc(g['img']), esc(g['img']), esc((g.get('alt_es') if es else None) or g.get('alt', '')), g.get('w', 1600), g.get('h', 1200),
+            % (' class="tall"' if g.get('h', 0) > g.get('w', 1) else '', esc(g['img']), esc(g['img']),
+               esc((g.get('alt_es') if es else None) or g.get('alt', '')), g.get('w', 1600), g.get('h', 1200),
                esc((g.get('caption_es') if es else None) or g.get('caption', '')))
             for g in n['gallery']) + '</div>'
     comm += poll_html(n, es)
