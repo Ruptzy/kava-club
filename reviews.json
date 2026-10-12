@@ -1,10 +1,31 @@
 {
  "name": "Kava Social Chess Club",
  "rating": 5,
- "count": 22,
+ "count": 25,
  "url": "https://maps.google.com/?cid=5077918318847267088&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA",
  "placeId": "ChIJ-bv_E6gXw4gREBFXmc5jeEY",
  "reviews": [
+  {
+   "author": "Vincent Jones",
+   "rating": 5,
+   "text": "Stumbled upon this club a few months ago as a beginner to chess. This environment has allowed me to forge deep, enriching connections, and I continue to build more every week.",
+   "time": "2026-10-12",
+   "when": "in the last week"
+  },
+  {
+   "author": "Ben Sisler",
+   "rating": 5,
+   "text": "Best chess club in SWFL! Beginner friendly environment where friends are made and chess improves",
+   "time": "2026-10-12",
+   "when": "in the last week"
+  },
+  {
+   "author": "Joe",
+   "rating": 5,
+   "text": "Love the club everyone is friendly, relaxed and helpful. Great for players of every level!",
+   "time": "2026-10-12",
+   "when": "in the last week"
+  },
   {
    "author": "joylove",
    "rating": 5,
@@ -18,27 +39,6 @@
    "text": "Great place to play chess and meet other players. The atmosphere is relaxed, the people are friendly, and there’s a good mix of skill levels. It’s nice having a place where you can sit down, play a few games, and enjoy the game without it feeling overly competitive. I’ll definitely be back.",
    "time": "2026-09-24",
    "when": "2 weeks ago"
-  },
-  {
-   "author": "Madison Dennis",
-   "rating": 5,
-   "text": "Side effects: may leave you feeling an obsessive attachment to chess tactics and falling in love with Harold the club manager 💚",
-   "time": "2026-09-21",
-   "when": "2 weeks ago"
-  },
-  {
-   "author": "Chase Callahan",
-   "rating": 5,
-   "text": "This chess club has taught me more and more about the best ways to play chess, at a great location, and with great instructors and team! I %100 recommend attending any of the club nights either on Sunday or Tuesday nights, as well as any of the big tournaments!",
-   "time": "2026-09-18",
-   "when": "3 weeks ago"
-  },
-  {
-   "author": "FemYoga Taylor",
-   "rating": 5,
-   "text": "Love this space and this group of people! It really helps develop your chess game, regardless of skill level. Beginners are welcome!",
-   "time": "2026-09-18",
-   "when": "3 weeks ago"
   },
   {
    "author": "Diego Davila",
