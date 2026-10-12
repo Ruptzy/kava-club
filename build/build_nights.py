@@ -301,12 +301,13 @@ def standings_html(n, es):
     out = []
     for b in n.get('standings') or []:
         rows = b.get('rows') or []
-        # shared places: equal points share a rank
+        # a row's own place wins (ties broken: points, fewer byes, opponents' scores);
+        # without one, equal points share a rank
         ranks, last_pts, rank = [], None, 0
         for i, r in enumerate(rows):
             if r.get('pts') != last_pts:
                 rank = i + 1; last_pts = r.get('pts')
-            ranks.append(rank)
+            ranks.append(r.get('place') or rank)
         li = []
         for r, rk in zip(rows, ranks):
             medal = ' m%d' % rk if rk <= 3 else ''

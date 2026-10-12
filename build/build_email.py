@@ -168,7 +168,7 @@ def leaders(n, campaign):
     cells = []
     for b in st:
         top = b['rows'][0]['pts']
-        names = [r['name'] for r in b['rows'] if r['pts'] == top]
+        names = [r['name'] for r in b['rows'] if (r.get('place') == 1 if r.get('place') else r['pts'] == top)]
         pts = ('%g' % top).replace('.5', '½') if isinstance(top, (int, float)) else str(top)
         cells.append(
             '<tr><td style="padding:12px 0;border-top:1px solid %s">%s'

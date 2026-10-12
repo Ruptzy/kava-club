@@ -10,7 +10,7 @@
   var WORDS=['','ONE','TWO','THREE','FOUR','FIVE','SIX','SEVEN','EIGHT','NINE','TEN','ELEVEN','TWELVE'];
 
   function longDate(d){ var p=d.split('-'), dt=new Date(+p[0],+p[1]-1,+p[2]); return DAYS[dt.getDay()]+' '+dt.getDate()+' '+MONTHS[dt.getMonth()]+' '+dt.getFullYear(); }
-  function ranks(rows){ var out=[],rank=0,prev=null; rows.forEach(function(r,i){ if(r.pts!==prev){rank=i+1;prev=r.pts;} out.push(rank); }); return out; }
+  function ranks(rows){ var out=[],rank=0,prev=null; rows.forEach(function(r,i){ if(r.pts!==prev){rank=i+1;prev=r.pts;} out.push(r.place||rank); }); return out; }
   function pts(v){ return (typeof v==='number'&&v%1)?String(Math.floor(v))+'½':String(v); }
   function wrap(c,text,x,y,maxW,lh){ var words=String(text).split(' '),line=''; words.forEach(function(w){ var t=line?line+' '+w:w; if(c.measureText(t).width>maxW&&line){c.fillText(line,x,y);y+=lh;line=w;}else line=t; }); if(line)c.fillText(line,x,y); return y+lh; }
 
