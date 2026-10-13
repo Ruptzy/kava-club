@@ -1,10 +1,17 @@
 {
  "name": "Kava Social Chess Club",
  "rating": 5,
- "count": 25,
+ "count": 26,
  "url": "https://maps.google.com/?cid=5077918318847267088&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA",
  "placeId": "ChIJ-bv_E6gXw4gREBFXmc5jeEY",
  "reviews": [
+  {
+   "author": "Anton Pham",
+   "rating": 5,
+   "text": "Harold, the organizer, is super friendly and really gives great insights on how to play chess well! His lessons are super useful and I have used them to win many chess games! I highly recommend joining this chess club if you’re interested on playing chess!",
+   "time": "2026-10-12",
+   "when": "in the last week"
+  },
   {
    "author": "Vincent Jones",
    "rating": 5,
@@ -32,13 +39,6 @@
    "text": "The chess club here has been open quite a long time and it’s pretty vibrant with people. They’re all welcoming to all levels and and helpful with many pro tips.",
    "time": "2026-10-07",
    "when": "in the last week"
-  },
-  {
-   "author": "Israel Carromero",
-   "rating": 5,
-   "text": "Great place to play chess and meet other players. The atmosphere is relaxed, the people are friendly, and there’s a good mix of skill levels. It’s nice having a place where you can sit down, play a few games, and enjoy the game without it feeling overly competitive. I’ll definitely be back.",
-   "time": "2026-09-24",
-   "when": "2 weeks ago"
   },
   {
    "author": "Diego Davila",
