@@ -14,12 +14,12 @@ TYPE_COLOUR = {
     'social': (59, 199, 154), 'league': (196, 26, 43), 'study': (79, 134, 232),
     'adobe': (240, 136, 62), 'tournament': (254, 39, 58), 'lecture': (255, 246, 232),
     'simul': (255, 246, 232), 'special': (254, 39, 58),
-    'battle': (167, 139, 250), 'outing': (228, 176, 47),
+    'battle': (167, 139, 250), 'outing': (228, 176, 47), 'theme': (244, 114, 182),
 }
 TYPE_LABEL = {
     'social': 'Social', 'league': 'League', 'study': 'Study', 'adobe': 'Int+',
     'tournament': 'Tournament', 'lecture': 'Lecture', 'simul': 'Simul', 'special': 'Special',
-    'battle': 'Club battle', 'outing': 'Club outing',
+    'battle': 'Club battle', 'outing': 'Club outing', 'theme': 'Theme night',
 }
 MONTHS = ['January', 'February', 'March', 'April', 'May', 'June',
           'July', 'August', 'September', 'October', 'November', 'December']
@@ -106,19 +106,19 @@ def draw_month(year, month, root, path):
                 text = label if d.textlength(label, font=f_chip) < CELL_W - 34 else label[:14] + '…'
                 tw = d.textlength(text, font=f_chip)
                 d.rounded_rectangle([x + 10, cy, x + 12 + tw + 12, cy + 28], radius=3, fill=col)
-                ink = VOID if t in ('social', 'study', 'adobe', 'lecture', 'simul', 'battle', 'outing') else CREAM
+                ink = VOID if t in ('social', 'study', 'adobe', 'lecture', 'simul', 'battle', 'outing', 'theme') else CREAM
                 d.text((x + 16, cy + 5), text, font=f_chip, fill=ink)
                 cy += 34
 
     ly = H - LEGEND_H + 24
     d.line([(PAD, ly - 18), (W - PAD, ly - 18)], fill=RULE, width=1)
     lx = PAD
-    for t in ['social', 'league', 'study', 'adobe', 'battle', 'outing', 'tournament']:
+    for t in ['social', 'league', 'study', 'adobe', 'battle', 'outing', 'theme', 'tournament']:
         d.rounded_rectangle([lx, ly + 3, lx + 16, ly + 19], radius=2, fill=TYPE_COLOUR[t])
         label = {'social': 'Social Sunday', 'league': 'League night', 'study': 'Study · Tue',
-                 'adobe': 'Int+ · Thu', 'tournament': 'Event', 'battle': 'Club battle', 'outing': 'Club outing'}[t]
+                 'adobe': 'Int+ · Thu', 'tournament': 'Event', 'battle': 'Club battle', 'outing': 'Club outing', 'theme': 'Theme night'}[t]
         d.text((lx + 24, ly + 2), label, font=f_legend, fill=INK2)
-        lx += 26 + int(d.textlength(label, font=f_legend)) + 30
+        lx += 26 + int(d.textlength(label, font=f_legend)) + 22
     im.save(path, optimize=True)
     return path
 

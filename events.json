@@ -1,5 +1,5 @@
 {
- "_comment": "Booked one-off events. The recurring club nights are generated in the page itself, not listed here; an entry here of a regular night's own type (league, social, study, adobe) replaces that night on that date. Types and their colours: battle = club against club (violet) | outing = the club somewhere else, not chess at the club (gold) | tournament, lecture, simul, special (scarlet) | league | social | study | adobe.",
+ "_comment": "Booked one-off events. The recurring club nights are generated in the page itself, not listed here; an entry here of a regular night's own type (league, social, study, adobe) replaces that night on that date. Types and their colours: battle = club against club (violet) | outing = the club somewhere else, not chess at the club (gold) | theme = a club night with a theme, like costume night (pink) | tournament, lecture, simul, special (scarlet) | league | social | study | adobe.",
  "updated": "2026-09-29",
  "events": [
   {
@@ -38,12 +38,13 @@
   },
   {
    "date": "2026-11-01",
-   "type": "social",
+   "type": "theme",
    "title": "Costume Chess Night",
    "title_es": "Noche de ajedrez con disfraces",
    "time": "8:00 PM",
    "note": "Halloween weekend on the patio. Come dressed up and play; every level welcome, costume or not.",
-   "note_es": "Fin de semana de Halloween en el patio. Ven disfrazado y juega; todos los niveles son bienvenidos, con disfraz o sin él."
+   "note_es": "Fin de semana de Halloween en el patio. Ven disfrazado y juega; todos los niveles son bienvenidos, con disfraz o sin él.",
+   "replaces": "social"
   },
   {
    "date": "2026-11-15",

@@ -45,7 +45,6 @@ LOCATION:Kava Social Club\, 540 13th St W\, Bradenton\, FL 34205
 DESCRIPTION:Every other Sunday. Free play: come and play\, hang out\, talk. 21+.
 URL:https://kavasocialchessclub.com/calendar/
 RRULE:FREQ=WEEKLY;INTERVAL=2;BYDAY=SU
-EXDATE;TZID=America/New_York:20261101T200000
 END:VEVENT
 BEGIN:VEVENT
 UID:study@kavasocialchessclub.com
