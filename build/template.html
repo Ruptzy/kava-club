@@ -335,7 +335,7 @@ var soc=document.querySelector("#navbar .soc"),lang=document.querySelector("#nav
       return out;
     }
     function eventsOn(d){var k=iso(d); var b=stored.filter(function(e){return e.date===k;});
-      return recurring(d).filter(function(r){return !b.some(function(e){return e.type===r.type;});}).concat(b);}
+      return recurring(d).filter(function(r){return !b.some(function(e){return e.type===r.type||e.replaces===r.type;});}).concat(b);}
     function gcal(e,d){
       var ds=iso(d).replace(/-/g,""); var hh=(e.venue==="Adobe Kava")?["T190000","T230000"]:["T200000","T235900"];
       var tm=String(e.time||"").match(/(\d{1,2}):(\d{2})\s*([AP])M/gi);

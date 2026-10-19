@@ -96,7 +96,7 @@ def draw_month(year, month, root, path):
                 continue
             mine = booked.get(day.isoformat(), [])
             # a booked entry of a regular night's own type replaces it, as on the site
-            chips = [(t, TYPE_LABEL[t]) for t in recurring(day) if t not in [e.get('type') for e in mine]]
+            chips = [(t, TYPE_LABEL[t]) for t in recurring(day) if t not in [e.get('type') for e in mine] + [e.get('replaces') for e in mine]]
             for e in sorted(mine, key=lambda e: e.get('type') in TYPE_LABEL and e.get('type') in ('league', 'social', 'study', 'adobe')):
                 t = e.get('type', 'special')
                 chips.append((t, (e.get('title') or TYPE_LABEL.get(t, 'Event'))))

@@ -1,7 +1,42 @@
 {
  "_comment": "One entry per club night, newest first. Written by the admin console (Post a night) or by hand. build/build_nights.py turns these into /nights/<date>/ pages, the archive, the RSS feed and the sitemap. 'line' is Harold's own sentence about the night; 'commentary' is the write-up of the numbers.",
- "updated": "2026-10-14",
+ "updated": "2026-10-19",
  "nights": [
+  {
+   "date": "2026-10-18",
+   "type": "social",
+   "title": "Hot chocolate and bughouse",
+   "title_es": "Chocolate caliente y bughouse",
+   "line": "A full house, a cold breeze, and two dates for the calendar.",
+   "line_es": "Lleno total, brisa fría y dos fechas para el calendario.",
+   "commentary": "Full house on the patio, and the first properly chilly night of the season. 🧣 Cool breeze, clear sky, hot chocolate on the tables.\nSocial Sunday means anything goes, so we went for chaos: hand and brain bughouse. Two boards, captured pieces passed to your partner to drop back in, and on every board one player calls the piece while the other has to find the move. Nobody is fully in control, and everybody is talking. ♟️🔥\nThen the announcements. 🎃 Sunday 1 November is Costume Chess Night: come dressed up and play. ⚔️ Sunday 15 November is Battle for the Bay 2, and this time Tampa Knights come to us.\nTuesday is study night, with five chapters left before the rematch. See you on the patio. 🌴",
+   "commentary_es": "Lleno total en el patio, y la primera noche de verdad fresca de la temporada. 🧣 Brisa fría, cielo despejado, chocolate caliente en las mesas.\nEl domingo social es para todo, así que fuimos por el caos: bughouse de mano y cerebro. Dos tableros, las piezas capturadas pasan a tu compañero para que las vuelva a poner, y en cada tablero un jugador dice la pieza y el otro tiene que encontrar la jugada. Nadie tiene el control completo, y todos están hablando. ♟️🔥\nLuego los anuncios. 🎃 El domingo 1 de noviembre es la Noche de ajedrez con disfraces: ven disfrazado y juega. ⚔️ El domingo 15 de noviembre es el Battle for the Bay 2, y esta vez los Tampa Knights vienen a nosotros.\nEl martes es noche de estudio, con cinco capítulos antes de la revancha. Nos vemos en el patio. 🌴",
+   "photo": "img/nights/2026-10-18.jpg",
+   "photo_alt": "A full long table on the back patio at Kava Social, players turning to the camera from their boards under purple and red lights",
+   "photo_alt_es": "Una mesa larga llena en el patio de atrás de Kava Social, jugadores girándose a la cámara desde sus tableros bajo luces moradas y rojas",
+   "email": {
+    "subject": "Battle for the Bay 2 is set, plus costume night",
+    "preheader": "A full house, hot chocolate, hand and brain bughouse, and two dates for your calendar.",
+    "intro": "A full house on the first chilly night of the season: hot chocolate on the tables and hand and brain bughouse on the boards.",
+    "wins_label": "Mark your calendar",
+    "wins": [
+     [
+      "Sunday 1 November",
+      "Costume Chess Night",
+      "Come dressed up and play."
+     ],
+     [
+      "Sunday 15 November",
+      "Battle for the Bay 2",
+      "Round two, on our patio. Tampa comes to us."
+     ]
+    ],
+    "button": "Read the recap",
+    "also": 1,
+    "notes": "booked"
+   },
+   "updated": "2026-10-19"
+  },
   {
    "date": "2026-10-13",
    "type": "study",

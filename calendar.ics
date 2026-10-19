@@ -45,6 +45,7 @@ LOCATION:Kava Social Club\, 540 13th St W\, Bradenton\, FL 34205
 DESCRIPTION:Every other Sunday. Free play: come and play\, hang out\, talk. 21+.
 URL:https://kavasocialchessclub.com/calendar/
 RRULE:FREQ=WEEKLY;INTERVAL=2;BYDAY=SU
+EXDATE;TZID=America/New_York:20261101T200000
 END:VEVENT
 BEGIN:VEVENT
 UID:study@kavasocialchessclub.com
@@ -85,6 +86,26 @@ DTEND;TZID=America/New_York:20261011T235900
 SUMMARY:League night\, late start - Kava Social Chess Club
 LOCATION:Kava Social Club\, 540 13th St W\, Bradenton\, FL 34205
 DESCRIPTION:Bracket starts at 9:15 PM\, after movie night. Want to warm up first? Boards are open from 8.
+URL:https://kavasocialchessclub.com/calendar/
+END:VEVENT
+BEGIN:VEVENT
+UID:booked-2026-11-01-costume-chess-night@kavasocialchessclub.com
+DTSTAMP:20260910T000000Z
+DTSTART;TZID=America/New_York:20261101T200000
+DTEND;TZID=America/New_York:20261101T230000
+SUMMARY:Costume Chess Night - Kava Social Chess Club
+LOCATION:Kava Social Club\, 540 13th St W\, Bradenton\, FL 34205
+DESCRIPTION:Halloween weekend on the patio. Come dressed up and play\; every level welcome\, costume or not.
+URL:https://kavasocialchessclub.com/calendar/
+END:VEVENT
+BEGIN:VEVENT
+UID:booked-2026-11-15-battle-for-the-bay-2-bradenton-vs-tampa@kavasocialchessclub.com
+DTSTAMP:20260910T000000Z
+DTSTART;TZID=America/New_York:20261115T200000
+DTEND;TZID=America/New_York:20261115T230000
+SUMMARY:Battle for the Bay 2: Bradenton vs Tampa - Kava Social Chess Club
+LOCATION:Kava Social Club\, 540 13th St W\, Bradenton\, FL 34205
+DESCRIPTION:Round two\, on our patio. Tampa Knights come to Kava Social for the rematch. Details to follow.
 URL:https://kavasocialchessclub.com/calendar/
 END:VEVENT
 END:VCALENDAR

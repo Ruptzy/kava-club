@@ -35,6 +35,25 @@
    "note": "Bracket starts at 9:15 PM, after movie night. Want to warm up first? Boards are open from 8.",
    "note_es": "El bracket empieza a las 9:15 PM, después de la noche de cine. ¿Quieres calentar antes? Tableros abiertos desde las 8.",
    "age": "21+"
+  },
+  {
+   "date": "2026-11-01",
+   "type": "social",
+   "title": "Costume Chess Night",
+   "title_es": "Noche de ajedrez con disfraces",
+   "time": "8:00 PM",
+   "note": "Halloween weekend on the patio. Come dressed up and play; every level welcome, costume or not.",
+   "note_es": "Fin de semana de Halloween en el patio. Ven disfrazado y juega; todos los niveles son bienvenidos, con disfraz o sin él."
+  },
+  {
+   "date": "2026-11-15",
+   "type": "battle",
+   "replaces": "social",
+   "title": "Battle for the Bay 2: Bradenton vs Tampa",
+   "title_es": "Battle for the Bay 2: Bradenton vs Tampa",
+   "time": "Time TBA",
+   "note": "Round two, on our patio. Tampa Knights come to Kava Social for the rematch. Details to follow.",
+   "note_es": "Segunda ronda, en nuestro patio. Los Tampa Knights vienen a Kava Social por la revancha. Detalles pronto."
   }
  ]
 }
