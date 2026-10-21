@@ -285,6 +285,7 @@ var soc=document.querySelector("#navbar .soc"),lang=document.querySelector("#nav
       var pic=document.getElementById("latestPic"); pic.href=href; pic.setAttribute("aria-label",(L(n,"title")||t)+(ES?" \u2014 leer el resumen":" \u2014 read the recap"));
       if(n.photo){ var im=new Image(), jp="{{DEPTH}}"+n.photo; im.alt=""; im.loading="lazy";
         im.onerror=function(){ if(!im.dataset.fb){ im.dataset.fb=1; im.src=jp; } };   // no WebP on this browser
+        if(typeof n.focus==="number") im.style.objectPosition="50% "+n.focus+"%";
         im.src=jp.replace(/\.(jpe?g|png)$/i,".webp"); pic.appendChild(im); } else pic.hidden=true;
       box.hidden=false;
     }).catch(function(){});

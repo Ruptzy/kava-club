@@ -23,7 +23,8 @@
     "w": 800,
     "h": 800
    },
-   "updated": "2026-10-21"
+   "updated": "2026-10-21",
+   "focus": 18
   },
   {
    "date": "2026-10-18",
@@ -814,7 +815,8 @@
    "photo": "img/nights/2026-09-20.jpg",
    "photo_alt": "Mel, the club's newest member, deep in thought over the board under the tiki at Kava Social on a rainy free play night",
    "photo_alt_es": "Mel, el miembro más nuevo del club, concentrado frente al tablero bajo el tiki de Kava Social en una noche lluviosa de juego libre",
-   "updated": "2026-09-21"
+   "updated": "2026-09-21",
+   "focus": 8
   },
   {
    "date": "2026-09-17",

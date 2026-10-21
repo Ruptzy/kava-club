@@ -244,6 +244,13 @@ def poll_html(n, es):
                'Toca tu elección. Un voto por persona.' if es else 'Tap your pick. One vote each.', talk, POLL_JS))
 
 
+def focus_style(n):
+    """A recap's "focus" (0 = top, 100 = bottom) is where its faces are; wider crops of the photo
+    centre on that line rather than the middle, so nobody loses the top of their head."""
+    f = n.get('focus')
+    return ' style="object-position:50%% %g%%"' % f if isinstance(f, (int, float)) else ''
+
+
 def slug(n, es):
     return ('es/noches/' if es else 'nights/') + n['date']
 
@@ -361,8 +368,8 @@ def night_body(n, es, prev_n, next_n):
                esc((g.get('caption_es') if es else None) or g.get('caption', '')))
             for g in n['gallery']) + '</div>'
     comm += poll_html(n, es)
-    photo = ('<figure class="nphoto"><img src="%s" alt="%s" width="1600" height="1600" decoding="async" fetchpriority="high"></figure>'
-             % (esc(n['photo']), esc(loc(n, 'photo_alt', es)))) if n.get('photo') else ''
+    photo = ('<figure class="nphoto"><img src="%s" alt="%s" width="1600" height="1600" decoding="async" fetchpriority="high"%s></figure>'
+             % (esc(n['photo']), esc(loc(n, 'photo_alt', es)), focus_style(n))) if n.get('photo') else ''
     facts_block = ('<div class="nfacts">%s</div>' % ''.join(facts)) if facts else ''
     standings = standings_html(n, es)
     st_block = ('<h2 class="d sub">%s</h2><div class="nstand stg">%s</div><p class="cap">%s</p>'
@@ -465,7 +472,7 @@ def archive_body(nights, es):
         line = loc(n, 'line', es) or loc(n, 'commentary', es)
         if len(line) > 180:
             line = line[:177].rsplit(' ', 1)[0] + '…'
-        img = ('<img src="%s" alt="" loading="lazy" decoding="async">' % esc(n['photo'])) if n.get('photo') else '<div class="noimg"></div>'
+        img = ('<img src="%s" alt="" loading="lazy" decoding="async"%s>' % (esc(n['photo']), focus_style(n))) if n.get('photo') else '<div class="noimg"></div>'
         meta = ' &middot; '.join(x for x in [esc(t), ('%d %s' % (n['played'], 'jugadores' if es else 'players')) if n.get('played') else '',
                                               ('%d %s' % (n['rounds'], 'rondas' if es else 'rounds')) if n.get('rounds') else ''] if x)
         cards.append('<a class="ncard" style="--i:%d" href="/%s/">%s<div class="nc"><div class="m">%s &middot; %s</div><h2 class="d">%s</h2>'
