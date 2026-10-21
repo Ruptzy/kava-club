@@ -1,7 +1,30 @@
 {
  "_comment": "One entry per club night, newest first. Written by the admin console (Post a night) or by hand. build/build_nights.py turns these into /nights/<date>/ pages, the archive, the RSS feed and the sitemap. 'line' is Harold's own sentence about the night; 'commentary' is the write-up of the numbers.",
- "updated": "2026-10-19",
+ "updated": "2026-10-21",
  "nights": [
+  {
+   "date": "2026-10-20",
+   "type": "study",
+   "title": "One last Tuesday, Mathew",
+   "title_es": "Un último martes, Mathew",
+   "line": "Chapter 36 done, a Réti vs Capablanca position, and a send-off for Mathew.",
+   "line_es": "Capítulo 36 terminado, una posición de Réti vs Capablanca y una despedida para Mathew.",
+   "commentary": "Chapter 36 of 40 Lessons for the Club Player, done. Four to go, and fall finally showed up: cool air, clear sky, good weather for long thinks. 🍂\nIt was also Mathew's last Tuesday study night with us. He is moving to Texas to start a new job, and we could not be prouder. That is the book in his hands in the photo, the one we have worked through together all season. Congratulations, Mathew, and thank you. ❤️\nIt has been a bittersweet month of goodbyes to long-time regulars. Every one of them helped make this table what it is, and we are grateful for the time they spent at it. 🤝\nWe ended on a positional game, Réti vs Capablanca, played out from the position below. No cheap tricks, just slow plans and better squares. Stockfish calls it dead level, which is exactly why it is hard. ♟️\nFour chapters left, then two big nights: Costume Chess Night on 1 November and Battle for the Bay 2 on 15 November. 🎃⚔️",
+   "commentary_es": "Capítulo 36 de 40 Lessons for the Club Player, terminado. Quedan cuatro, y por fin llegó el otoño: aire fresco, cielo despejado, buen clima para pensar largo. 🍂\nTambién fue la última noche de estudio de martes de Mathew con nosotros. Se muda a Texas para empezar un nuevo trabajo, y no podríamos estar más orgullosos. Ese es el libro en sus manos en la foto, el que hemos trabajado juntos toda la temporada. Felicidades, Mathew, y gracias. ❤️\nHa sido un mes agridulce de despedidas a habituales de muchos años. Cada uno ayudó a hacer de esta mesa lo que es, y agradecemos el tiempo que pasaron en ella. 🤝\nTerminamos con una partida posicional, Réti vs Capablanca, jugada desde la posición de abajo. Sin trucos baratos, solo planes lentos y mejores casillas. Stockfish la ve completamente igualada, y justo por eso es difícil. ♟️\nQuedan cuatro capítulos, y después dos noches grandes: la Noche de ajedrez con disfraces el 1 de noviembre y el Battle for the Bay 2 el 15 de noviembre. 🎃⚔️",
+   "photo": "img/nights/2026-10-20.jpg",
+   "photo_alt": "Brian, on the left, and Mathew, on the right holding 40 Lessons for the Club Player, on the back patio at Kava Social",
+   "photo_alt_es": "Brian, a la izquierda, y Mathew, a la derecha con 40 Lessons for the Club Player en las manos, en el patio de atrás de Kava Social",
+   "diagram": {
+    "img": "img/nights/2026-10-20-position.png",
+    "alt": "Chess diagram: a closed position with White pawns on b5, c4 and d3 against Black pawns on a5, c5 and e5, both sides fianchettoed. White to move.",
+    "alt_es": "Diagrama de ajedrez: una posición cerrada con peones blancos en b5, c4 y d3 contra peones negros en a5, c5 y e5, ambos lados con fianchetto. Juegan blancas.",
+    "caption": "Réti vs Capablanca: the position we played out. White to move.",
+    "caption_es": "Réti vs Capablanca: la posición que jugamos. Juegan blancas.",
+    "w": 800,
+    "h": 800
+   },
+   "updated": "2026-10-21"
+  },
   {
    "date": "2026-10-18",
    "type": "social",
