@@ -100,11 +100,11 @@ END:VEVENT
 BEGIN:VEVENT
 UID:booked-2026-11-15-battle-for-the-bay-2-bradenton-vs-tampa@kavasocialchessclub.com
 DTSTAMP:20260910T000000Z
-DTSTART;TZID=America/New_York:20261115T200000
-DTEND;TZID=America/New_York:20261115T230000
+DTSTART;TZID=America/New_York:20261115T190000
+DTEND;TZID=America/New_York:20261115T220000
 SUMMARY:Battle for the Bay 2: Bradenton vs Tampa - Kava Social Chess Club
 LOCATION:Kava Social Club\, 540 13th St W\, Bradenton\, FL 34205
-DESCRIPTION:Round two\, on our patio. Tampa Knights come to Kava Social for the rematch. Details to follow.
+DESCRIPTION:Round two\, on our patio: Tampa Knights against Kava Social. A Swiss-style team battle in four sections\, every win a point for your team. Section prizes of $100\, $60\, $40 and $30\, a trophy for every section winner and a Best Female Player trophy. All levels welcome\, 21+.
 URL:https://kavasocialchessclub.com/calendar/
 END:VEVENT
 END:VCALENDAR

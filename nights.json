@@ -1,7 +1,26 @@
 {
  "_comment": "One entry per club night, newest first. Written by the admin console (Post a night) or by hand. build/build_nights.py turns these into /nights/<date>/ pages, the archive, the RSS feed and the sitemap. 'line' is Harold's own sentence about the night; 'commentary' is the write-up of the numbers.",
- "updated": "2026-10-21",
+ "updated": "2026-10-22",
  "nights": [
+  {
+   "date": "2026-10-22",
+   "type": "battle",
+   "venue": "Kava Social Club, Bradenton",
+   "venue_es": "Kava Social Club, Bradenton",
+   "title": "Battle for the Bay 2: Tampa comes to us",
+   "title_es": "Battle for the Bay 2: Tampa viene a nosotros",
+   "line": "Sunday 15 November, 7 PM, on our patio. Every board counts.",
+   "line_es": "Domingo 15 de noviembre, 7 PM, en nuestro patio. Cada tablero cuenta.",
+   "commentary": "It's official. ⚔️ Battle for the Bay 2 is Sunday 15 November at 7 PM, and this time Tampa Knights are crossing the bay to play on our patio.\nRound one was theirs. We came home with a queen, a rookie's section and a National Master's scalp, and we have been training every week since. Round two is on our boards, under our lights. 🔥\nThe format: a Swiss-style team battle, club against club. Four sections, each split into sub-sections, and every win scores a point for your team. Individual prizes too: $100, $60, $40 and $30 across the four sections, a trophy for every section winner, and a Best Female Player trophy. 🏆\nEvery level is welcome, and every board counts the same, so you do not need to be strong to score for Kava. It's a 21+ night. Register at https://chess67.com/club/kava-social-chess-club and bring everyone. 👊\nKava Social, show up. Tampa, bring your best. ♟️",
+   "commentary_es": "Es oficial. ⚔️ El Battle for the Bay 2 es el domingo 15 de noviembre a las 7 PM, y esta vez los Tampa Knights cruzan la bahía para jugar en nuestro patio.\nLa primera ronda fue suya. Volvimos con una dama, la sección de un novato y la cabeza de un Maestro Nacional, y hemos entrenado cada semana desde entonces. La segunda ronda es en nuestros tableros, bajo nuestras luces. 🔥\nEl formato: una batalla por equipos tipo suizo, club contra club. Cuatro secciones, cada una dividida en subsecciones, y cada victoria suma un punto para tu equipo. También hay premios individuales: $100, $60, $40 y $30 en las cuatro secciones, un trofeo para cada ganador de sección y un trofeo a la Mejor Jugadora. 🏆\nTodos los niveles son bienvenidos, y cada tablero cuenta igual, así que no hace falta ser fuerte para sumar por Kava. Es una noche 21+. Inscríbete en https://chess67.com/club/kava-social-chess-club y trae a todos. 👊\nKava Social, a presentarse. Tampa, traigan lo mejor que tengan. ♟️",
+   "photo": "img/nights/2026-10-22.jpg",
+   "photo_alt": "Battle for the Bay 2 flyer: Kava Social Chess Club vs Tampa Knights Chess Club, Sunday November 15, 7 PM, Kava Social Club, 540 13th St W, Bradenton. Four sections with prizes of $100, $60, $40 and $30.",
+   "photo_alt_es": "Cartel del Battle for the Bay 2: Kava Social Chess Club vs Tampa Knights Chess Club, domingo 15 de noviembre, 7 PM, Kava Social Club, 540 13th St W, Bradenton. Cuatro secciones con premios de $100, $60, $40 y $30.",
+   "email": {
+    "button": "Details and sign-up"
+   },
+   "updated": "2026-10-22"
+  },
   {
    "date": "2026-10-20",
    "type": "study",
