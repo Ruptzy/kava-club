@@ -368,8 +368,8 @@ def night_body(n, es, prev_n, next_n):
                esc((g.get('caption_es') if es else None) or g.get('caption', '')))
             for g in n['gallery']) + '</div>'
     comm += poll_html(n, es)
-    photo = ('<figure class="nphoto"><img src="%s" alt="%s" width="1600" height="1600" decoding="async" fetchpriority="high"%s></figure>'
-             % (esc(n['photo']), esc(loc(n, 'photo_alt', es)), focus_style(n))) if n.get('photo') else ''
+    photo = ('<figure class="nphoto%s"><img src="%s" alt="%s" width="1600" height="1600" decoding="async" fetchpriority="high"%s></figure>'
+             % (' whole' if n.get('whole') else '', esc(n['photo']), esc(loc(n, 'photo_alt', es)), focus_style(n))) if n.get('photo') else ''
     facts_block = ('<div class="nfacts">%s</div>' % ''.join(facts)) if facts else ''
     standings = standings_html(n, es)
     st_block = ('<h2 class="d sub">%s</h2><div class="nstand stg">%s</div><p class="cap">%s</p>'
