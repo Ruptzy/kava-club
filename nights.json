@@ -1,7 +1,200 @@
 {
  "_comment": "One entry per club night, newest first. Written by the admin console (Post a night) or by hand. build/build_nights.py turns these into /nights/<date>/ pages, the archive, the RSS feed and the sitemap. 'line' is Harold's own sentence about the night; 'commentary' is the write-up of the numbers.",
- "updated": "2026-10-22",
+ "updated": "2026-10-26",
  "nights": [
+  {
+   "date": "2026-10-25",
+   "type": "league",
+   "played": 19,
+   "rounds": 5,
+   "season": 10,
+   "title": "Five upsets and a deck of cards",
+   "title_es": "Cinco sorpresas y una baraja de cartas",
+   "line": "Nineteen players, five upsets, two perfect nights, and trading cards for the top three.",
+   "line_es": "Diecinueve jugadores, cinco sorpresas, dos noches perfectas y cartas coleccionables para los tres primeros.",
+   "commentary": "Full house again: nineteen players, five rounds, forty-three games, and league night four of Season 10. 🔥\nTwo perfect nights. Benji and Gabe both went 5 from 5 in Over 1400, and Gabe's sweep came with a personal-best rating of 1504 and the biggest climb of the night, +151. 🧹\nThen the upsets, all five of them. ⚡ Vinny over Jenny at 5%, a 536-point gap and the upset of the night. Diego over Toska at 7%. Joe over Josh at 8%. Anton over Omar Cruz at 26%. And Vinny again, over Maddie at 35%. Under 1000 came to fight.\nJoe (+135) and Anton both climbed past 1000 on the night. Welcome to Brett and Dustin on their first night, with Brett going 3-0-2 straight into Over 1400. 🌱\nNew tonight: official Kava Social chess trading cards. 🃏 The top three in each section took cards home, and there are more to earn at study nights, bracket nights and for attendance. Collect them all, trade them, or play for keeps.\nNext Sunday is Costume Chess Night, then Battle for the Bay 2 on 15 November. 🎃⚔️",
+   "commentary_es": "Lleno total otra vez: diecinueve jugadores, cinco rondas, cuarenta y tres partidas, y la cuarta noche de liga de la Temporada 10. 🔥\nDos noches perfectas. Benji y Gabe hicieron 5 de 5 en Más de 1400, y el pleno de Gabe vino con su mejor rating personal, 1504, y la mayor subida de la noche, +151. 🧹\nLuego las sorpresas, las cinco. ⚡ Vinny sobre Jenny con un 5%, una diferencia de 536 puntos y la sorpresa de la noche. Diego sobre Toska con un 7%. Joe sobre Josh con un 8%. Anton sobre Omar Cruz con un 26%. Y Vinny otra vez, sobre Maddie con un 35%. Menos de 1000 vino a pelear.\nJoe (+135) y Anton pasaron los 1000 en la noche. Bienvenidos Brett y Dustin en su primera noche, con Brett haciendo 3-0-2 directo en Más de 1400. 🌱\nNuevo esta noche: cartas coleccionables oficiales de ajedrez de Kava Social. 🃏 Los tres primeros de cada sección se llevaron cartas, y hay más para ganar en las noches de estudio, las noches de bracket y por asistencia. Colecciónalas todas, cámbialas o juega por ellas.\nEl próximo domingo es la Noche de ajedrez con disfraces, y luego el Battle for the Bay 2 el 15 de noviembre. 🎃⚔️",
+   "photo": "img/nights/2026-10-25.jpg",
+   "whole": true,
+   "photo_alt": "Eleven club members under the tiki holding up their new Kava Social chess trading cards",
+   "photo_alt_es": "Once miembros del club bajo el tiki mostrando sus nuevas cartas coleccionables de ajedrez de Kava Social",
+   "gallery": [
+    {
+     "img": "img/nights/2026-10-25-table.jpg",
+     "w": 1200,
+     "h": 1600,
+     "alt": "The full long table on the patio on league night, players turning to the camera from their boards",
+     "alt_es": "La mesa larga llena en el patio en noche de liga, jugadores girándose a la cámara desde sus tableros",
+     "caption": "Nineteen players, one long table.",
+     "caption_es": "Diecinueve jugadores, una mesa larga."
+    }
+   ],
+   "standings": [
+    {
+     "bracket": "Over 1400",
+     "bracket_es": "Más de 1400",
+     "rows": [
+      {
+       "name": "Benji",
+       "pts": 5,
+       "rec": "5-0-0",
+       "place": 1
+      },
+      {
+       "name": "Gabe",
+       "pts": 5,
+       "rec": "5-0-0",
+       "place": 1
+      },
+      {
+       "name": "Harold",
+       "pts": 4,
+       "rec": "4-0-1",
+       "place": 3
+      },
+      {
+       "name": "Brett",
+       "pts": 3,
+       "rec": "3-0-2",
+       "place": 4
+      },
+      {
+       "name": "Mathew",
+       "pts": 2,
+       "rec": "2-0-1",
+       "place": 5,
+       "note": "left early"
+      },
+      {
+       "name": "Josh",
+       "pts": 2,
+       "rec": "2-0-3",
+       "place": 5
+      },
+      {
+       "name": "Toska",
+       "pts": 2,
+       "rec": "2-0-3",
+       "place": 5
+      }
+     ]
+    },
+    {
+     "bracket": "Under 1400",
+     "bracket_es": "Menos de 1400",
+     "rows": [
+      {
+       "name": "Brian O",
+       "pts": 3,
+       "rec": "3-0-2",
+       "place": 1
+      },
+      {
+       "name": "Jenny",
+       "pts": 3,
+       "rec": "3-0-2",
+       "place": 1
+      },
+      {
+       "name": "Omar Cruz",
+       "pts": 2,
+       "rec": "2-0-3",
+       "place": 3
+      },
+      {
+       "name": "Sam",
+       "pts": 2,
+       "rec": "2-0-1",
+       "place": 3,
+       "note": "left early"
+      },
+      {
+       "name": "Sonny",
+       "pts": 1,
+       "rec": "1-0-4",
+       "place": 5
+      }
+     ]
+    },
+    {
+     "bracket": "Under 1000",
+     "bracket_es": "Menos de 1000",
+     "rows": [
+      {
+       "name": "Anton",
+       "pts": 2,
+       "rec": "2-0-3",
+       "place": 1
+      },
+      {
+       "name": "Joe",
+       "pts": 2,
+       "rec": "2-0-3",
+       "place": 1
+      },
+      {
+       "name": "Vinny",
+       "pts": 2,
+       "rec": "2-0-3",
+       "place": 1
+      },
+      {
+       "name": "Diego",
+       "pts": 1,
+       "rec": "1-0-2",
+       "place": 4,
+       "note": "left early"
+      },
+      {
+       "name": "Dustin",
+       "pts": 1,
+       "rec": "1-0-1",
+       "place": 4
+      },
+      {
+       "name": "Maddie",
+       "pts": 1,
+       "rec": "1-0-4",
+       "place": 4
+      },
+      {
+       "name": "Cody",
+       "pts": 0,
+       "rec": "0-0-5",
+       "place": 7
+      }
+     ]
+    }
+   ],
+   "upsets": [
+    [
+     "Vinny",
+     "Jenny",
+     "5%"
+    ],
+    [
+     "Diego",
+     "Toska",
+     "7%"
+    ],
+    [
+     "Joe",
+     "Josh",
+     "8%"
+    ],
+    [
+     "Anton",
+     "Omar Cruz",
+     "26%"
+    ],
+    [
+     "Vinny",
+     "Maddie",
+     "35%"
+    ]
+   ],
+   "updated": "2026-10-26"
+  },
   {
    "date": "2026-10-22",
    "type": "battle",
