@@ -1,7 +1,51 @@
 {
  "_comment": "One entry per club night, newest first. Written by the admin console (Post a night) or by hand. build/build_nights.py turns these into /nights/<date>/ pages, the archive, the RSS feed and the sitemap. 'line' is Harold's own sentence about the night; 'commentary' is the write-up of the numbers.",
- "updated": "2026-10-26",
+ "updated": "2026-10-28",
  "nights": [
+  {
+   "date": "2026-10-27",
+   "type": "study",
+   "title": "The case of the missing bishop",
+   "title_es": "El caso del alfil desaparecido",
+   "line": "A missing bishop and knight, a welcome back for Bob, and chapter 37 on the seventh rank.",
+   "line_es": "Un alfil y un caballo perdidos, la vuelta de Bob y el capítulo 37 sobre la séptima fila.",
+   "commentary": "Tuesday opened with a mystery. 🕵️ A bishop and a knight went missing from one of the sets, and what followed was a full manhunt: pockets checked, camera footage reviewed, phone calls made. Then, just as mysteriously, both pieces turned up back in the sets. Case closed, nobody charged. 😂\nWelcome back, Bob, home for the winter season. Good to have you back at the boards. 👋\nThen chapter 37 of 40 Lessons for the Club Player: invading the seventh rank, and the space advantage that gets you there. A rook on your opponent's second rank eats pawns, pins the king to the back row and ties every defender down. Win space first, and the invasion squares open up. ♜\nWe sparred from the position below. With White to move, Stockfish's verdict is blunt: take the knight on e5 right now. Anything slower and Black is better by almost five pawns. ♟️\nThe end of the book is in sight. Coming up: Costume Chess Night this Sunday, 1 November, and Battle for the Bay 2 on Sunday 15 November at 7 PM. 🎃⚔️",
+   "commentary_es": "El martes empezó con un misterio. 🕵️ Un alfil y un caballo desaparecieron de uno de los juegos, y lo que siguió fue una búsqueda completa: bolsillos revisados, cámaras revisadas, llamadas hechas. Y luego, igual de misteriosamente, las dos piezas aparecieron de vuelta en los juegos. Caso cerrado, sin acusados. 😂\nBienvenido de vuelta, Bob, en casa para la temporada de invierno. Qué bueno tenerte otra vez en los tableros. 👋\nLuego el capítulo 37 de 40 Lessons for the Club Player: invadir la séptima fila, y la ventaja de espacio que te lleva ahí. Una torre en la segunda fila del rival se come peones, encierra al rey en la última fila y amarra a cada defensor. Gana espacio primero, y las casillas de invasión se abren. ♜\nHicimos práctica desde la posición de abajo. Si juegan blancas, el veredicto de Stockfish es claro: toma el caballo de e5 ya. Cualquier cosa más lenta y las negras quedan casi cinco peones mejor. ♟️\nEl final del libro ya se ve. Lo que viene: la Noche de ajedrez con disfraces este domingo 1 de noviembre, y el Battle for the Bay 2 el domingo 15 de noviembre a las 7 PM. 🎃⚔️",
+   "photo": "img/nights/2026-10-27.jpg",
+   "focus": 45,
+   "photo_alt": "Players deep in their games along the long tables on the patio at Kava Social on a Tuesday study night",
+   "photo_alt_es": "Jugadores concentrados en sus partidas a lo largo de las mesas del patio de Kava Social en una noche de estudio de martes",
+   "gallery": [
+    {
+     "img": "img/nights/2026-10-27-found.jpg",
+     "w": 1200,
+     "h": 1600,
+     "alt": "A club member holding up the missing black knight and bishop on the patio",
+     "alt_es": "Una miembro del club mostrando el caballo y el alfil negros que faltaban en el patio",
+     "caption": "The missing bishop and knight, back where they belong.",
+     "caption_es": "El alfil y el caballo perdidos, de vuelta en su lugar."
+    },
+    {
+     "img": "img/nights/2026-10-27-bob.jpg",
+     "w": 1200,
+     "h": 1600,
+     "alt": "Bob, in the blue shirt, smiling at his board on the patio",
+     "alt_es": "Bob, con camisa azul, sonriendo frente a su tablero en el patio",
+     "caption": "Welcome back, Bob.",
+     "caption_es": "Bienvenido de vuelta, Bob."
+    }
+   ],
+   "diagram": {
+    "img": "img/nights/2026-10-27-position.png",
+    "alt": "Chess diagram: a black knight on e5 attacked by White’s bishop on f4 and pawn on d4, black queen on b6, both kings uncastled. White to move.",
+    "alt_es": "Diagrama de ajedrez: un caballo negro en e5 atacado por el alfil blanco de f4 y el peón de d4, dama negra en b6, ambos reyes sin enrocar. Juegan blancas.",
+    "caption": "The sparring position. White to move.",
+    "caption_es": "La posición de práctica. Juegan blancas.",
+    "w": 800,
+    "h": 800
+   },
+   "updated": "2026-10-28"
+  },
   {
    "date": "2026-10-25",
    "type": "league",
