@@ -402,7 +402,7 @@ TEXT = {
     "540 13th St W, Bradenton FL &middot; Open 24/7": "540 13th St W, Bradenton FL &middot; Abierto 24/7",
     "Kava &middot; K-Teas &middot; Cold brew &middot; Soft drinks &middot; Second location opening in Pinellas Park": "Kava &middot; K-Teas &middot; Cold brew &middot; Refrescos &middot; Pronto segunda sede en Pinellas Park",
     "Visit Kava Social Club": "Visita Kava Social Club", "Clubs we play with": "Clubes con los que jugamos", "Members travel to tournaments around the state": "Nuestros miembros viajan a torneos por todo el estado",
-    "St. Petersburg": "St. Petersburg", "Platforms that support us": "Plataformas que nos apoyan", "People who have helped the club, and the tools they build": "Personas que han ayudado al club, y las herramientas que crean",
+    "St. Petersburg": "St. Petersburg", "Platforms that support us": "Plataformas que nos apoyan", "The chess coaching app, formerly Chesslinebook.": "La app de entrenamiento de ajedrez, antes Chesslinebook.", "People who have helped the club, and the tools they build": "Personas que han ayudado al club, y las herramientas que crean",
     "Clubs &middot; Tournaments &middot; Coaching": "Clubes &middot; Torneos &middot; Entrenamiento",
     "Chess software for clubs, tournaments and coaching &mdash; registration, pairings, payments, members and events in one place. Our club listing, event sign-ups and lesson bookings all run through it.":
         "Software de ajedrez para clubes, torneos y entrenamiento &mdash; inscripciones, emparejamientos, pagos, miembros y eventos en un solo lugar. Nuestro perfil de club, las inscripciones a eventos y las reservas de clases pasan por ahí.",
