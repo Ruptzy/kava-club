@@ -3,6 +3,24 @@
  "updated": "2026-10-28",
  "nights": [
   {
+   "date": "2026-10-28",
+   "type": "theme",
+   "venue": "Kava Social Club, Bradenton",
+   "venue_es": "Kava Social Club, Bradenton",
+   "title": "Costume Chess Night: Halloween Bracket",
+   "title_es": "Noche de ajedrez con disfraces: bracket de Halloween",
+   "line": "Sunday 1 November, 8 PM. Come in costume, play the bracket, win the costume contest.",
+   "line_es": "Domingo 1 de noviembre, 8 PM. Ven disfrazado, juega el bracket, gana el concurso de disfraces.",
+   "commentary": "Trick or checkmate. 🎃 This Sunday, 1 November, is usually free play, but for Halloween we're running a bracket: Costume Chess Night.\nCome dressed up and play the bracket, every level welcome. There's a costume contest judged on the night with a prize for the best costume, and the bracket winners take prizes too. 👻♟️\n8 PM at Kava Social Club, 540 13th St W, Bradenton. 21+. See you on the patio. 🦇",
+   "commentary_es": "Truco o jaque mate. 🎃 Este domingo, 1 de noviembre, suele ser de juego libre, pero por Halloween vamos a jugar un bracket: la Noche de ajedrez con disfraces.\nVen disfrazado y juega el bracket, todos los niveles son bienvenidos. Habrá un concurso de disfraces juzgado esa noche con premio al mejor disfraz, y los ganadores del bracket también se llevan premios. 👻♟️\n8 PM en Kava Social Club, 540 13th St W, Bradenton. 21+. Nos vemos en el patio. 🦇",
+   "photo": "img/nights/2026-10-28.jpg",
+   "whole": true,
+   "focus": 28,
+   "photo_alt": "Costume Chess Night flyer: chess pieces dressed as a vampire king, a witch queen, a mummy bishop, a headless-horseman knight, a haunted-castle rook and ghost pawns. Halloween Bracket Night, Sunday November 1, 8 PM, Kava Social Club, 540 13th St W, Bradenton. Costume contest with a prize.",
+   "photo_alt_es": "Cartel de la Noche de ajedrez con disfraces: piezas de ajedrez disfrazadas de rey vampiro, reina bruja, alfil momia, caballo jinete sin cabeza, torre castillo embrujado y peones fantasma. Noche de bracket de Halloween, domingo 1 de noviembre, 8 PM, Kava Social Club, 540 13th St W, Bradenton. Concurso de disfraces con premio.",
+   "updated": "2026-10-28"
+  },
+  {
    "date": "2026-10-27",
    "type": "study",
    "title": "The case of the missing bishop",
