@@ -88,13 +88,13 @@ DESCRIPTION:Bracket starts at 9:15 PM\, after movie night. Want to warm up first
 URL:https://kavasocialchessclub.com/calendar/
 END:VEVENT
 BEGIN:VEVENT
-UID:booked-2026-11-01-costume-chess-night@kavasocialchessclub.com
+UID:booked-2026-11-01-costume-chess-night-halloween-bracket@kavasocialchessclub.com
 DTSTAMP:20260910T000000Z
 DTSTART;TZID=America/New_York:20261101T200000
 DTEND;TZID=America/New_York:20261101T230000
-SUMMARY:Costume Chess Night - Kava Social Chess Club
+SUMMARY:Costume Chess Night: Halloween Bracket - Kava Social Chess Club
 LOCATION:Kava Social Club\, 540 13th St W\, Bradenton\, FL 34205
-DESCRIPTION:Halloween bracket night. Come in costume and play the bracket\, every level welcome. Costume contest with a prize for the best costume\, plus bracket winners.
+DESCRIPTION:Holiday special: this Sunday is usually free play\, but for Halloween we are running a bracket. Come in costume\, every level welcome. Costume contest with a prize for the best costume\, plus prizes for the bracket winners.
 URL:https://kavasocialchessclub.com/calendar/
 END:VEVENT
 BEGIN:VEVENT

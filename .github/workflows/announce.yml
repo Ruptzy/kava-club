@@ -1,0 +1,26 @@
+name: Announce on Discord
+
+# A one-off message from Lenny in the channel the 3pm posts go to: a schedule change, a
+# special night. Type the text when starting the workflow; \n starts a new line.
+on:
+  workflow_dispatch:
+    inputs:
+      text:
+        description: "The announcement. Use \n for a new line."
+        required: true
+        type: string
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Post it
+        env:
+          CLUB_SCHEDULE: ${{ secrets.SCHEDULE_FOR_DAY }}
+          ANNOUNCE: ${{ inputs.text }}
+        run: python build/announce.py
