@@ -52,8 +52,8 @@ SOCIAL = [('Instagram', 'https://www.instagram.com/kavasocialchessclub/'),
           ('Discord', 'https://discord.gg/sYCb7RnTgZ'),
           ('Directions', MAPS)]
 # the Gmail app in dark mode flips any picture that is mostly black, so the map pin sits on a
-# white tile like the Maps app icon and the club's badge sits large on a red tile (the plain dark
-# badge came out as a white negative on Harold's Android phone; small on red it was hard to see)
+# white tile like the Maps app icon. The logo is the club's own badge on its cream, rounded to a
+# circle in the email: Harold picked this on his Android phone in dark mode, 2026-11-02.
 ICON = {'Directions': 'directions-tile'}
 ADDRESS = 'Kava Social Chess Club · Kava Social Club, 540 13th St W, Bradenton, FL 34205'
 MAX_BYTES = 80 * 1024
@@ -308,8 +308,8 @@ def build(send_day, out_dir):
 
     P = []
     P.append(row(
-        GRID + '<tr><td width="74" valign="middle"><a href="%s"><img src="%simg/email/logo-badge.png" width="64" height="64" alt="Kava Social Chess Club" '
-        'style="display:block;border:0;border-radius:10px"></a></td>'
+        GRID + '<tr><td width="74" valign="middle"><a href="%s"><img src="%simg/email/logo-round.png" width="64" height="64" alt="Kava Social Chess Club" '
+        'style="display:block;width:64px;height:64px;border:0;border-radius:50%%"></a></td>'
         '<td valign="middle" style="font-family:%s;font-size:16px;font-weight:800;line-height:20px;color:%s">Kava Social Chess Club</td>'
         '<td align="right" valign="middle" style="font-family:%s;font-size:13px;font-weight:600;color:%s;white-space:nowrap">%s %d</td></tr></table>'
         % (link('', 'masthead', campaign), SITE, FD, CREAM, FM, INK3, MONTHS[send_day.month - 1][:3], send_day.day),
