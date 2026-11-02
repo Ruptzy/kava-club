@@ -373,22 +373,35 @@ def build(send_day, out_dir):
         '<div style="padding-top:16px">%s</div>' % btn(back['button'], link('beginners/', 'comeback', campaign)),
         border=SCARLET))
 
+    # the way out of the email: four matching tiles, two slim link rows, then the small print
+    tiles = []
+    for i, (name, href) in enumerate(SOCIAL):
+        if i:
+            tiles.append('<td width="8" style="font-size:0;line-height:0">&nbsp;</td>')
+        tiles.append(
+            '<td width="25%%" align="center" bgcolor="%s" style="background:%s;border:1px solid %s;border-radius:14px;padding:12px 2px 10px">'
+            '<a href="%s" style="display:block;text-decoration:none"><img src="%simg/email/tile-%s.png" width="40" height="40" alt="%s" '
+            'style="display:block;margin:0 auto;width:40px;height:40px;border:0;border-radius:11px;font-family:%s;font-size:11px;color:%s">'
+            '<div style="padding-top:7px;font-family:%s;font-size:11px;font-weight:600;line-height:14px;color:%s">%s</div></a></td>'
+            % (TILE, TILE, RULE, esc(href), SITE, name.lower(), name, FM, CREAM, FM, INK2, name))
+    slim = lambda emoji, words, href: (
+        '<div style="padding-top:8px">' + GRID + '<tr><td bgcolor="%s" style="background:%s;border:1px solid %s;border-radius:12px">'
+        '<a href="%s" style="display:block;padding:11px 14px;font-family:%s;font-size:13px;font-weight:600;line-height:18px;color:%s;text-decoration:none">'
+        '%s&nbsp; %s</a></td></tr></table></div>' % (TILE, TILE, RULE, esc(href), FM, CREAM, emoji, esc(words)))
+    P.append(card(
+        heading('\U0001F4CD', 'Find the club') +
+        '<div style="padding-top:14px">' + GRID + '<tr>' + ''.join(tiles) + '</tr></table></div>' +
+        slim('\U0001F310', 'kavasocialchessclub.com', link('', 'footer', campaign)) +
+        slim('\U0001F5FA\ufe0f', '540 13th St W, Bradenton, FL 34205', MAPS)))
+    pill = lambda words, href: ('<td style="padding:0 4px"><a href="%s" style="display:inline-block;padding:7px 14px;border:1px solid %s;border-radius:999px;'
+                                'font-family:%s;font-size:12px;font-weight:600;line-height:16px;color:%s;text-decoration:none;white-space:nowrap">%s</a></td>'
+                                % (href, RULE, FM, INK2, words))
     P.append(row(
-        PLAIN + '<tr>%s</tr></table>' % ''.join(
-            '<td style="padding-right:14px"><a href="%s" style="text-decoration:none"><img src="%simg/email/%s.png" width="32" '
-            'height="32" alt="%s" style="display:block;border:0;font-family:%s;font-size:11px;color:%s"></a></td>'
-            % (href, SITE, ICON.get(name, name.lower()), name, FM, CREAM) for name, href in SOCIAL),
-        '10px 4px 14px'))
-    P.append(row(
-        '<div style="font-family:%s;font-size:12px;line-height:19px;color:%s">'
-        '\U0001F4CD <a href="%s" style="color:%s;text-decoration:underline">kavasocialchessclub.com</a> &nbsp;&middot;&nbsp; '
-        '<a href="%s" style="color:%s;text-decoration:underline">Directions</a><br><br>'
-        'You\u2019re a member of Kava Social Chess Club. One email a week.<br>'
-        '%s<br><br>'
-        '<a href="{{ unsubscribe }}" style="color:%s;text-decoration:underline">Unsubscribe</a> &nbsp;&middot;&nbsp; '
-        '<a href="{{ mirror }}" style="color:%s;text-decoration:underline">View in your browser</a></div>'
-        % (FM, INK3, link('', 'footer', campaign), INK2, MAPS, INK2, esc(ADDRESS), INK2, INK2),
-        '0 4px 28px'))
+        '<div style="text-align:center;font-family:%s;font-size:12px;line-height:18px;color:%s">'
+        'You\u2019re a member of Kava Social Chess Club. One email a week.<br>%s</div>'
+        '<table role="presentation" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:12px auto 0"><tr>%s%s</tr></table>'
+        % (FM, INK3, esc(ADDRESS), pill('Unsubscribe', '{{ unsubscribe }}'), pill('View in browser', '{{ mirror }}')),
+        '6px 4px 28px'))
 
     doc = (
         '<!doctype html>\n<html lang="en" xmlns="http://www.w3.org/1999/xhtml">\n<head>\n<meta charset="utf-8">\n'
