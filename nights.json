@@ -225,25 +225,26 @@
     "subject": "🎃 Trick or checkmate: costume night winners",
     "title": "Trick or checkmate",
     "preheader": "Twenty-one players in costume, a sweep from Scott, and a 2% upset from Vinny.",
-    "intro": "The Halloween bracket was a hit: knights, ghosts, prisoners and one very suspicious pizza delivery. Thank you to everyone who dressed up.",
+    "intro": "The Halloween bracket was a hit 🎃 Knights, ghosts, prisoners and one very suspicious pizza delivery. Thank you to everyone who dressed up!",
     "wins_label": "The winners",
     "wins": [
      [
-      "Costume contest",
+      "🚓 Costume contest",
       "Arabella and Joey",
-      "A cop and robber routine nobody could top. Welcome back, Arabella, one of the OGs."
+      "A cop and robber routine nobody could top. Welcome back, Arabella, one of the OGs!"
      ],
      [
-      "Upset of the night",
+      "⚡ Upset of the night",
       "Vinny",
       "Over Bob at 2%, a 723-point gap."
      ]
     ],
     "body": [
-     "Next up: Battle for the Bay 2, Sunday 15 November at 7 PM, on our patio. Tampa Knights come to us."
+     "⚔️ Next up: Battle for the Bay 2, Sunday 15 November at 7 PM, on our patio. Tampa Knights come to us."
     ],
     "also": 1,
-    "notes": "booked"
+    "notes": "booked",
+    "wins_emoji": "🏅"
    },
    "updated": "2026-11-02"
   },

@@ -63,13 +63,15 @@ COMEBACK = {'label': 'Haven’t played lately', 'title': 'Been a while?',
             'button': 'Come back this week'}
 
 VOID, PANEL, CREAM, INK2, INK3, SCARLET, RULE, GOLD = (
-    '#0C0D0E', '#151618', '#FFF6E8', '#C9C1B5', '#8E877D', '#FE273A', '#2A2C2F', '#E4B02F')
-# Gmail ignores web fonts, so each stack has to look right on its second name
-FD = "Archivo,'Arial Black','Helvetica Neue',Arial,sans-serif"
-FS = "Newsreader,Georgia,'Times New Roman',serif"
-# sans-serif-monospace is Android's name for its plain monospace; without it Android swaps
-# Courier New for a wide typewriter face that pushed buttons onto two lines. Desktops skip it.
-FM = "'JetBrains Mono',sans-serif-monospace,'Courier New',Courier,monospace"
+    '#0C0D0E', '#17181B', '#FFF6E8', '#C9CCD1', '#9A9DA3', '#FE273A', '#2A2C31', '#E4B02F')
+TILE = '#222428'
+# Gmail drops web fonts, and its serif and typewriter fallbacks are what made this look old,
+# so everything is the phone's own sans. FD, FS and FM stay separate names for the jobs they do.
+FD = FS = FM = "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif"
+KIND_EMOJI = {'league': '\u265f\ufe0f', 'social': '\u2615', 'study': '\U0001F4DA', 'adobe': '\U0001F9E0', 'battle': '\u2694\ufe0f',
+              'theme': '\U0001F389', 'outing': '\U0001F3AC'}
+GRID = '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">'
+PLAIN = '<table role="presentation" cellpadding="0" cellspacing="0" border="0">'
 
 DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
@@ -140,57 +142,78 @@ def email_photo(n):
 # ------------------------------------------------------------------ pieces
 
 def btn(label, href, primary=True):
-    bg, fg, bd = (SCARLET, VOID, SCARLET) if primary else (VOID, CREAM, '#5A5F66')
-    return ('<table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>'
-            '<td bgcolor="%s" style="background:%s;border:1px solid %s;border-radius:999px">'
-            '<a href="%s" style="display:inline-block;padding:16px 30px;font-family:%s;font-size:13px;'
-            'font-weight:700;letter-spacing:2px;line-height:16px;text-transform:uppercase;color:%s;'
-            'text-decoration:none;border-radius:999px">%s&nbsp;&rarr;</a></td></tr></table>'
+    """A full-width rounded button: the easiest thing to hit with a thumb."""
+    bg, fg, bd = (SCARLET, VOID, SCARLET) if primary else (TILE, CREAM, RULE)
+    return (GRID + '<tr><td align="center" bgcolor="%s" style="background:%s;border:1px solid %s;border-radius:12px">'
+            '<a href="%s" style="display:block;padding:14px 18px;font-family:%s;font-size:15px;font-weight:700;line-height:20px;'
+            'color:%s;text-decoration:none;border-radius:12px">%s&nbsp;&rarr;</a></td></tr></table>'
             % (bg, bg, bd, esc(href), FM, fg, esc(label)))
 
 
-def label(text, color=SCARLET, tag='div'):
-    return ('<%s style="margin:0;font-family:%s;font-size:12px;font-weight:700;letter-spacing:3px;line-height:18px;'
-            'text-transform:uppercase;color:%s">%s</%s>' % (tag, FM, color, esc(text), tag))
+def label(text, color=INK3, tag='div'):
+    """A small quiet line above a name: what it is, before who."""
+    return ('<%s style="margin:0;font-family:%s;font-size:13px;font-weight:600;line-height:18px;color:%s">%s</%s>'
+            % (tag, FM, color, esc(text), tag))
 
 
-def row(inner, pad='0 28px', bg=VOID):
-    return '<tr><td bgcolor="%s" style="background:%s;padding:%s">%s</td></tr>' % (bg, bg, pad, inner)
+def heading(emoji, text):
+    return ('<h2 style="margin:0;font-family:%s;font-size:18px;font-weight:800;line-height:24px;letter-spacing:-.2px;color:%s">%s&nbsp; %s</h2>'
+            % (FD, CREAM, emoji, esc(text)))
 
 
-def rule():
-    return row('<div style="border-top:1px solid %s;font-size:0;line-height:0">&nbsp;</div>' % RULE, '0 28px')
+def chips(items):
+    """Small rounded tags in a row; the first one in the club's red."""
+    return PLAIN + '<tr>' + ''.join(
+        '<td style="padding:0 6px 6px 0"><div style="display:inline-block;padding:4px 10px;border-radius:999px;background:%s;'
+        'font-family:%s;font-size:12px;font-weight:700;line-height:16px;color:%s;white-space:nowrap">%s</div></td>'
+        % (SCARLET if i == 0 else TILE, FM, VOID if i == 0 else INK2, esc(t)) for i, t in enumerate(items)) + '</tr></table>'
+
+
+def row(inner, pad='0 4px 12px', bg=None):
+    """One line of the page, outside any card."""
+    return '<tr><td style="padding:%s">%s</td></tr>' % (pad, inner)
+
+
+def card(inner, pad='20px', border=RULE, top=''):
+    """A rounded panel. Everything in the email sits on one of these, 12px apart."""
+    return ('<tr><td style="padding:0 0 12px">' + GRID.replace('border="0">', 'border="0" bgcolor="%s" style="background:%s;border:1px solid %s;'
+            'border-radius:16px;border-collapse:separate">' % (PANEL, PANEL, border)) +
+            top + '<tr><td style="padding:%s">%s</td></tr></table></td></tr>' % (pad, inner))
+
+
+def text(t, size=16, color=INK2, pad='0'):
+    return ('<p style="margin:0;padding:%s;font-family:%s;font-size:%dpx;line-height:%dpx;color:%s">%s</p>'
+            % (pad, FS, size, round(size * 1.5), color, esc(t)))
+
+
+def divided(rows):
+    """Rows in a card, a hairline between them and none above the first."""
+    return GRID + ''.join('<tr><td style="padding:%s;%s">%s</td></tr>'
+                          % ('12px 0' if i else '0 0 12px', 'border-top:1px solid %s' % RULE if i else '', r)
+                          for i, r in enumerate(rows)) + '</table>'
 
 
 def leaders(n, campaign):
     st = n.get('standings') or []
     if not st:
         return ''
-    cells = []
+    rows = []
     for b in st:
         top = b['rows'][0]['pts']
         names = [r['name'] for r in b['rows'] if (r.get('place') == 1 if r.get('place') else r['pts'] == top)]
         pts = ('%g' % top).replace('.5', '½') if isinstance(top, (int, float)) else str(top)
-        cells.append(
-            '<tr><td style="padding:12px 0;border-top:1px solid %s">%s'
-            '<div style="font-family:%s;font-size:19px;font-weight:900;line-height:24px;color:%s;padding-top:4px">%s</div></td>'
-            '<td align="right" valign="bottom" style="padding:12px 0;border-top:1px solid %s;font-family:%s;font-size:22px;'
-            'font-weight:900;color:%s;white-space:nowrap">%s<span style="font-family:%s;font-size:11px;font-weight:400;'
-            'letter-spacing:1px;color:%s">&nbsp;/ %s</span></td></tr>'
-            % (RULE, label(b.get('bracket', ''), INK3), FD, CREAM, esc(', '.join(names)), RULE, FD, GOLD, esc(pts), FM, INK3,
-               esc(n.get('rounds', ''))))
+        rows.append(GRID + '<tr><td>%s<div style="font-family:%s;font-size:17px;font-weight:800;line-height:22px;color:%s;padding-top:2px">%s</div></td>'
+                    '<td align="right" valign="middle" style="font-family:%s;font-size:20px;font-weight:800;color:%s;white-space:nowrap;padding-left:12px">%s'
+                    '<span style="font-size:12px;font-weight:600;color:%s">&nbsp;/ %s</span></td></tr></table>'
+                    % (label(b.get('bracket', '')), FD, CREAM, esc(', '.join(names)), FD, GOLD, esc(pts), INK3, esc(n.get('rounds', ''))))
     ups = n.get('upsets') or []
     upset = ''
     if ups:
-        upset = ('<tr><td colspan="2" style="padding:14px 0 0;font-family:%s;font-size:16px;line-height:24px;color:%s">'
-                 '<span style="color:%s;font-family:%s;font-size:12px;font-weight:700;letter-spacing:3px">UPSETS&nbsp;&nbsp;</span>%s</td></tr>'
-                 % (FS, INK2, SCARLET, FM, esc(' · '.join('%s over %s' % (u[0], u[1]) for u in ups))))
-    return row(
-        label('Top of the table', tag='h2') +
-        '<table role="presentation" width="100%%" cellpadding="0" cellspacing="0" border="0" style="margin-top:10px">%s%s</table>'
-        '<div style="padding-top:18px">%s</div>'
-        % (''.join(cells), upset, btn('Full standings', link(LADDER, 'standings', campaign), primary=False)),
-        '30px 28px 34px', PANEL)
+        upset = ('<div style="margin-top:4px;padding:12px 14px;border-radius:12px;background:%s;font-family:%s;font-size:14px;line-height:21px;color:%s">'
+                 '<b style="color:%s">\u26a1 Upsets</b>&nbsp; %s</div>'
+                 % (TILE, FS, INK2, CREAM, esc(' \u00b7 '.join('%s over %s' % (u[0], u[1]) for u in ups))))
+    return card(heading('\U0001F3C6', 'Top of the table') + '<div style="padding-top:14px">%s</div>%s<div style="padding-top:14px">%s</div>'
+                % (divided(rows), upset, btn('Full standings', link(LADDER, 'standings', campaign), primary=False)))
 
 
 def wins(mail):
@@ -198,17 +221,12 @@ def wins(mail):
     rows = mail.get('wins') or []
     if not rows:
         return ''
-    cells = ''.join(
-        '<tr><td style="padding:14px 0;border-top:1px solid %s">%s'
-        '<div style="font-family:%s;font-size:22px;font-weight:900;line-height:26px;text-transform:uppercase;color:%s;padding-top:4px">%s</div>'
-        '%s</td></tr>'
-        % (RULE, label(r[0], GOLD), FD, CREAM, esc(r[1]),
-           ('<div style="font-family:%s;font-size:16px;line-height:24px;color:%s;padding-top:4px">%s</div>'
-            % (FS, INK2, esc(r[2]))) if len(r) > 2 and r[2] else '')
-        for r in rows)
-    return row(label(mail.get('wins_label') or 'What we brought home', tag='h2') +
-               '<table role="presentation" width="100%%" cellpadding="0" cellspacing="0" border="0" style="margin-top:10px">%s</table>'
-               % cells, '28px 28px 18px', PANEL)
+    cells = [label(r[0], GOLD) +
+             '<div style="font-family:%s;font-size:18px;font-weight:800;line-height:24px;color:%s;padding-top:2px">%s</div>%s'
+             % (FD, CREAM, esc(r[1]), text(r[2], 15, INK2, '2px 0 0') if len(r) > 2 and r[2] else '')
+             for r in rows]
+    return card(heading(mail.get('wins_emoji') or '\U0001F3C5', mail.get('wins_label') or 'What we brought home') +
+                '<div style="padding-top:14px">%s</div>' % divided(cells))
 
 
 def week_ahead(send_day, events, campaign, notes='all'):
@@ -234,31 +252,27 @@ def week_ahead(send_day, events, campaign, notes='all'):
             (special if booked else rows).append(item)
     out = []
     for it in sorted(special + rows, key=lambda i: i['day']):
-        edge = SCARLET if it['booked'] else RULE
         extra = ''
         if it['booked'] and it['url']:
-            extra = ('<div style="padding-top:8px"><a href="%s" style="font-family:%s;font-size:12px;font-weight:700;'
-                     'letter-spacing:2px;text-transform:uppercase;color:%s;text-decoration:underline">%s&nbsp;&rarr;</a></div>'
+            extra = ('<div style="padding-top:6px"><a href="%s" style="font-family:%s;font-size:14px;font-weight:700;color:%s;text-decoration:underline">%s&nbsp;&rarr;</a></div>'
                      % (esc(it['url']), FM, CREAM, 'Get tickets' if it['kind'] == 'outing' else 'Register'))
         out.append(
-            '<tr><td width="76" valign="top" style="padding:16px 0;border-top:1px solid %s">'
-            '<div style="font-family:%s;font-size:11px;font-weight:700;letter-spacing:2px;color:%s">%s</div>'
-            '<div style="font-family:%s;font-size:34px;font-weight:900;line-height:36px;color:%s">%d</div></td>'
-            '<td valign="top" style="padding:16px 0;border-top:1px solid %s">'
-            '<div style="font-family:%s;font-size:19px;font-weight:900;line-height:24px;text-transform:uppercase;color:%s">%s</div>'
-            '<div style="font-family:%s;font-size:12px;letter-spacing:1px;line-height:20px;color:%s;padding-top:2px">%s &middot; %s</div>'
-            '%s%s</td></tr>'
-            % (edge, FM, SCARLET if it['booked'] else INK3, DAYS[it['day'].weekday()][:3].upper(), FD, CREAM, it['day'].day,
-               edge, FD, CREAM, esc(it['title']), FM, INK3, esc(it['when'].upper()), esc(it['where']),
-               ('<div style="font-family:%s;font-size:16px;line-height:24px;color:%s;padding-top:6px">%s</div>'
-                % (FS, INK2, esc(it['blurb']))) if it['blurb'] else '', extra))
+            GRID + '<tr><td width="56" valign="top"><table role="presentation" width="56" cellpadding="0" cellspacing="0" border="0"><tr>'
+            '<td align="center" bgcolor="%s" style="background:%s;border-radius:12px;padding:8px 0 7px;%s">'
+            '<div style="font-family:%s;font-size:11px;font-weight:700;line-height:13px;color:%s">%s</div>'
+            '<div style="font-family:%s;font-size:22px;font-weight:800;line-height:26px;color:%s">%d</div></td></tr></table></td>'
+            '<td valign="top" style="padding-left:14px">'
+            '<div style="font-family:%s;font-size:16px;font-weight:800;line-height:21px;color:%s">%s&nbsp; %s</div>'
+            '<div style="font-family:%s;font-size:13px;line-height:19px;color:%s;padding-top:2px">%s &middot; %s</div>%s%s</td></tr></table>'
+            % (TILE, TILE, ('border:1px solid %s' % SCARLET) if it['booked'] else 'border:1px solid %s' % TILE,
+               FM, SCARLET if it['booked'] else INK3, DAYS[it['day'].weekday()][:3].upper(), FD, CREAM, it['day'].day,
+               FD, CREAM, KIND_EMOJI.get(it['kind'], '\U0001F4CC'), esc(it['title']), FM, INK3, esc(it['when'].upper()), esc(it['where']),
+               text(it['blurb'], 14, INK2, '4px 0 0') if it['blurb'] else '', extra))
     if not out:
         return '', []
-    body = (label('This week at the club', tag='h2') +
-            '<table role="presentation" width="100%%" cellpadding="0" cellspacing="0" border="0" style="margin-top:12px">%s</table>'
-            '<div style="padding-top:22px">%s</div>'
-            % (''.join(out), btn('See the calendar', link('calendar/', 'calendar', campaign), primary=False)))
-    return row(body, '34px 28px 36px'), sorted(special + rows, key=lambda i: i['day'])
+    body = (heading('\U0001F4C5', 'This week at the club') + '<div style="padding-top:14px">%s</div><div style="padding-top:6px">%s</div>'
+            % (divided(out), btn('See the calendar', link('calendar/', 'calendar', campaign), primary=False)))
+    return card(body), sorted(special + rows, key=lambda i: i['day'])
 
 
 # ------------------------------------------------------------------ the email
@@ -294,120 +308,103 @@ def build(send_day, out_dir):
 
     P = []
     P.append(row(
-        '<table role="presentation" width="100%%" cellpadding="0" cellspacing="0" border="0"><tr>'
-        '<td width="52" valign="middle"><a href="%s"><img src="%simg/email/logo-tile.png" width="44" height="44" alt="Kava Social Chess Club" '
-        'style="display:block;border:0"></a></td>'
-        '<td valign="middle" style="font-family:%s;font-size:17px;font-weight:900;line-height:20px;letter-spacing:.3px;'
-        'text-transform:uppercase;color:%s">Kava Social<br>Chess Club</td>'
-        '<td align="right" valign="middle" style="font-family:%s;font-size:11px;letter-spacing:2px;line-height:16px;'
-        'text-transform:uppercase;color:%s">The week<br>%d %s</td></tr></table>'
-        % (link('', 'masthead', campaign), SITE, FD, CREAM, FM, INK3, send_day.day, MONTHS[send_day.month - 1][:3]),
-        '22px 28px 22px'))
+        GRID + '<tr><td width="48" valign="middle"><a href="%s"><img src="%simg/email/logo-tile.png" width="38" height="38" alt="Kava Social Chess Club" '
+        'style="display:block;border:0;border-radius:10px"></a></td>'
+        '<td valign="middle" style="font-family:%s;font-size:16px;font-weight:800;line-height:20px;color:%s">Kava Social Chess Club</td>'
+        '<td align="right" valign="middle" style="font-family:%s;font-size:13px;font-weight:600;color:%s;white-space:nowrap">%s %d</td></tr></table>'
+        % (link('', 'masthead', campaign), SITE, FD, CREAM, FM, INK3, MONTHS[send_day.month - 1][:3], send_day.day),
+        '6px 4px 14px'))
+
+    hero = ''
     if photo:
-        P.append(row('<a href="%s"><img src="%s" width="600" alt="%s" style="display:block;width:100%%;max-width:600px;'
-                     'height:auto;border:0"></a>' % (esc(recap_url), esc(photo), esc(lead.get('photo_alt') or subject)), '0'))
-    P.append(row(label('%s · %s · %s' % (B.night_tag(lead, False), kind, nice(d8(B.when(lead))))), '30px 28px 0'))
-    P.append(row('<h1 style="margin:0;font-family:%s;font-size:34px;font-weight:900;line-height:36px;letter-spacing:-.4px;'
-                 'text-transform:uppercase;color:%s"><a href="%s" style="color:%s;text-decoration:none">%s</a></h1>'
-                 % (FD, CREAM, esc(recap_url), CREAM, esc(mail.get('title') or lead.get('title') or kind)), '12px 28px 0'))
-    if lead.get('line'):
-        P.append(row('<table role="presentation" width="100%%" cellpadding="0" cellspacing="0" border="0"><tr>'
-                     '<td width="3" bgcolor="%s" style="background:%s;font-size:0;line-height:0">&nbsp;</td>'
-                     '<td style="padding:2px 0 2px 18px;font-family:%s;font-size:21px;font-style:italic;line-height:29px;color:%s">'
-                     '&ldquo;%s&rdquo;<div style="font-family:%s;font-size:11px;font-style:normal;font-weight:700;letter-spacing:2px;'
-                     'text-transform:uppercase;color:%s;padding-top:8px">Harold Gonzalez &middot; Club director</div></td></tr></table>'
-                     % (SCARLET, SCARLET, FS, CREAM, esc(lead['line']), FM, INK3), '24px 28px 0'))
-    para = lambda t, pad='22px 28px 0': row('<p style="margin:0;font-family:%s;font-size:17px;line-height:27px;color:%s">%s</p>'
-                                            % (FS, INK2, esc(t)), pad)
+        hero = ('<tr><td style="padding:0"><a href="%s"><img src="%s" width="600" alt="%s" style="display:block;width:100%%;max-width:600px;'
+                'height:auto;border:0;border-radius:15px 15px 0 0"></a></td></tr>' % (esc(recap_url), esc(photo), esc(lead.get('photo_alt') or subject)))
     opening = mail['intro'] if 'intro' in mail else first_sentences(lead.get('commentary'))
-    if opening:
-        P.append(para(opening, '22px 28px 28px' if mail.get('wins') else '22px 28px 0'))
-    elif mail.get('wins'):
-        P.append(row('', '28px 0 0'))
+    facts = [('\U0001F465', lead.get('played'), 'players'), ('\U0001F501', lead.get('rounds'), 'rounds'),
+             ('\U0001F3C6', len(lead.get('standings') or []) or None, 'brackets')]
+    facts = [f for f in facts if f[1]]
+    stats = ''
+    if facts:
+        cells = []
+        for i, (em, v, k) in enumerate(facts):
+            if i:
+                cells.append('<td width="8" style="font-size:0;line-height:0">&nbsp;</td>')
+            cells.append('<td align="center" bgcolor="%s" style="background:%s;border-radius:12px;padding:10px 4px">'
+                         '<div style="font-family:%s;font-size:20px;font-weight:800;line-height:24px;color:%s">%s</div>'
+                         '<div style="font-family:%s;font-size:12px;font-weight:600;line-height:16px;color:%s">%s %s</div></td>'
+                         % (TILE, TILE, FD, CREAM, esc(v), FM, INK3, em, k))
+        stats = '<div style="padding-top:16px">' + GRID + '<tr>' + ''.join(cells) + '</tr></table></div>'
+    P.append(card(
+        chips([B.night_tag(lead, False), kind, '%s %d %s' % (DAYS[d8(B.when(lead)).weekday()][:3], d8(B.when(lead)).day, MONTHS[d8(B.when(lead)).month - 1][:3])]) +
+        '<h1 style="margin:0;padding-top:6px;font-family:%s;font-size:28px;font-weight:800;line-height:33px;letter-spacing:-.6px;color:%s">'
+        '<a href="%s" style="color:%s;text-decoration:none">%s</a></h1>' % (FD, CREAM, esc(recap_url), CREAM, esc(mail.get('title') or lead.get('title') or kind)) +
+        (text(lead['line'], 17, CREAM, '10px 0 0') if lead.get('line') else '') +
+        (text(opening, 16, INK2, '10px 0 0') if opening else '') +
+        stats + '<div style="padding-top:16px">%s</div>' % btn(mail.get('button') or 'Read the full recap', recap_url),
+        top=hero))
     P.append(wins(mail))
     said = list(mail.get('body') or [])
-    P += [para(t, ('26px 28px 0' if i == 0 and mail.get('wins') else '18px 28px 0')) for i, t in enumerate(said)]
-    facts = [(lead.get('played'), 'players'), (lead.get('rounds'), 'rounds'), (len(lead.get('standings') or []) or None, 'brackets')]
-    facts = [f for f in facts if f[0]]
-    if facts:
-        P.append(row('<table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>%s</tr></table>' % ''.join(
-            '<td style="padding-right:30px"><div style="font-family:%s;font-size:30px;font-weight:900;line-height:32px;color:%s">%s</div>'
-            '<div style="font-family:%s;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:%s">%s</div></td>'
-            % (FD, CREAM, esc(v), FM, INK3, k) for v, k in facts), '24px 28px 0'))
-    P.append(row(btn(mail.get('button') or 'Read the full recap', recap_url), '28px 28px 36px'))
+    if said:
+        P.append(card(''.join(text(t, 16, INK2, '0' if i == 0 else '10px 0 0') for i, t in enumerate(said))))
     P.append(leaders(lead, campaign))
     # the club in the paper: one linked headline per piece, nothing more
     if mail.get('press'):
-        P.append(row(label('In the press', tag='h2') + ''.join(
-            '<div style="padding-top:14px">%s<div style="padding-top:4px"><a href="%s" style="font-family:%s;font-size:19px;font-weight:900;'
-            'line-height:24px;text-transform:uppercase;color:%s;text-decoration:none">%s&nbsp;&rarr;</a></div>'
-            '<div style="font-family:%s;font-size:16px;line-height:24px;color:%s;padding-top:4px">%s</div></div>'
-            % (label(x['source'], INK3), esc(x['url']), FD, CREAM, esc(x['title']), FS, INK2, esc(x.get('note', '')))
-            for x in mail['press']), '30px 28px 4px'))
+        P.append(card(heading('\U0001F4F0', 'In the press') + '<div style="padding-top:14px">%s</div>' % divided([
+            label(x['source']) +
+            '<div style="padding-top:2px"><a href="%s" style="font-family:%s;font-size:16px;font-weight:800;line-height:21px;color:%s;text-decoration:none">%s&nbsp;&rarr;</a></div>%s'
+            % (esc(x['url']), FD, CREAM, esc(x['title']), text(x.get('note', ''), 14, INK2, '4px 0 0')) for x in mail['press']])))
 
     if rest:
-        items = ''.join(
-            '<tr><td style="padding:14px 0;border-top:1px solid %s">%s'
-            '<div style="padding-top:4px"><a href="%s" style="font-family:%s;font-size:18px;font-weight:900;line-height:23px;'
-            'text-transform:uppercase;color:%s;text-decoration:none">%s&nbsp;&rarr;</a></div>'
-            '<div style="font-family:%s;font-size:16px;line-height:24px;color:%s;padding-top:4px">%s</div></td></tr>'
-            % (RULE, label('%s · %s' % (DAYS[d8(B.when(n)).weekday()], B.night_type(n, False)), INK3),
-               esc(link('nights/%s/' % n['date'], 'also-%s' % n['date'], campaign)), FD, CREAM,
-               esc(n.get('title') or B.night_type(n, False)), FS, INK2, esc(n.get('line') or first_sentences(n.get('commentary'), 110)))
-            for n in rest[:mail.get('also', 3)])
-        P.append(row(label('Also last week', tag='h2') + '<table role="presentation" width="100%%" cellpadding="0" cellspacing="0" border="0" '
-                     'style="margin-top:12px">%s</table>' % items, '34px 28px 8px'))
+        P.append(card(heading('\U0001F4D6', 'Also last week') + '<div style="padding-top:14px">%s</div>' % divided([
+            label('%s \u00b7 %s' % (DAYS[d8(B.when(n)).weekday()], B.night_type(n, False))) +
+            '<div style="padding-top:2px"><a href="%s" style="font-family:%s;font-size:16px;font-weight:800;line-height:21px;color:%s;text-decoration:none">%s&nbsp;&rarr;</a></div>%s'
+            % (esc(link('nights/%s/' % n['date'], 'also-%s' % n['date'], campaign)), FD, CREAM, esc(n.get('title') or B.night_type(n, False)),
+               text(n.get('line') or first_sentences(n.get('commentary'), 110), 14, INK2, '4px 0 0'))
+            for n in rest[:mail.get('also', 3)]])))
     if body_week:
-        P.append(rule())
         P.append(body_week)
 
-    # for anyone who has drifted: inverted, so it is the one block that looks different
+    # for anyone who has drifted: the one card with a red edge
     back = dict(COMEBACK, **(mail.get('comeback') or {}))
-    P.append(row(
-        '%s<h2 style="margin:0;font-family:%s;font-size:28px;font-weight:900;line-height:30px;letter-spacing:-.3px;text-transform:uppercase;'
-        'color:%s;padding-top:10px">%s</h2>'
-        '<p style="margin:0;padding-top:12px;font-family:%s;font-size:17px;line-height:27px;color:#3A3631">%s</p>'
-        '<div style="padding-top:22px">%s</div>'
-        % (label(back['label']), FD, VOID, esc(back['title']), FS, esc(back['text']),
-           btn(back['button'], link('beginners/', 'comeback', campaign))),
-        '34px 28px 38px', CREAM))
+    P.append(card(
+        label(back['label'], SCARLET) +
+        '<h2 style="margin:0;padding-top:2px;font-family:%s;font-size:22px;font-weight:800;line-height:28px;letter-spacing:-.3px;color:%s">\U0001F44B&nbsp; %s</h2>'
+        % (FD, CREAM, esc(back['title'])) + text(back['text'], 16, INK2, '8px 0 0') +
+        '<div style="padding-top:16px">%s</div>' % btn(back['button'], link('beginners/', 'comeback', campaign)),
+        border=SCARLET))
 
     P.append(row(
-        label('Find the club', INK3) +
-        '<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-top:12px"><tr>%s</tr></table>' % ''.join(
-            '<td style="padding-right:22px"><a href="%s" style="text-decoration:none"><img src="%simg/email/%s.png" width="36" '
-            'height="36" alt="%s" style="display:block;border:0;font-family:%s;font-size:11px;color:%s"></a></td>'
+        PLAIN + '<tr>%s</tr></table>' % ''.join(
+            '<td style="padding-right:14px"><a href="%s" style="text-decoration:none"><img src="%simg/email/%s.png" width="32" '
+            'height="32" alt="%s" style="display:block;border:0;font-family:%s;font-size:11px;color:%s"></a></td>'
             % (href, SITE, ICON.get(name, name.lower()), name, FM, CREAM) for name, href in SOCIAL),
-        '34px 28px 0'))
+        '10px 4px 14px'))
     P.append(row(
-        '<div style="font-family:%s;font-size:12px;line-height:20px;letter-spacing:.5px;color:%s">'
-        '<a href="%s" style="color:%s;text-decoration:underline">kavasocialchessclub.com</a> &nbsp;&middot;&nbsp; '
+        '<div style="font-family:%s;font-size:12px;line-height:19px;color:%s">'
+        '\U0001F4CD <a href="%s" style="color:%s;text-decoration:underline">kavasocialchessclub.com</a> &nbsp;&middot;&nbsp; '
         '<a href="%s" style="color:%s;text-decoration:underline">Directions</a><br><br>'
-        'You’re a member of Kava Social Chess Club. One email a week.<br>'
+        'You\u2019re a member of Kava Social Chess Club. One email a week.<br>'
         '%s<br><br>'
         '<a href="{{ unsubscribe }}" style="color:%s;text-decoration:underline">Unsubscribe</a> &nbsp;&middot;&nbsp; '
         '<a href="{{ mirror }}" style="color:%s;text-decoration:underline">View in your browser</a></div>'
         % (FM, INK3, link('', 'footer', campaign), INK2, MAPS, INK2, esc(ADDRESS), INK2, INK2),
-        '30px 28px 40px'))
+        '0 4px 28px'))
 
     doc = (
         '<!doctype html>\n<html lang="en" xmlns="http://www.w3.org/1999/xhtml">\n<head>\n<meta charset="utf-8">\n'
         '<meta name="viewport" content="width=device-width,initial-scale=1">\n<meta name="x-apple-disable-message-reformatting">\n<meta name="format-detection" content="telephone=no,date=no,address=no,email=no">\n'
         '<meta name="color-scheme" content="dark">\n<meta name="supported-color-schemes" content="dark">\n'
         '<title>%s</title>\n'
-        '<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@900&family=Newsreader:ital,wght@0,400;1,400&'
-        'family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">\n'
         '<style>:root{color-scheme:dark}body{margin:0;padding:0;background:%s}a{color:%s}img{-ms-interpolation-mode:bicubic}'
         'a[x-apple-data-detectors]{color:inherit !important;text-decoration:none !important;font:inherit !important}'
-        'u+#body a{color:inherit}'
-        '@media (max-width:480px){.px h1{font-size:30px !important;line-height:32px !important}}</style>\n</head>\n'
+        'u+#body a{color:inherit}</style>\n</head>\n'
         '<body id="body" style="margin:0;padding:0;background:%s">\n'
         '<div style="display:none;max-height:0;overflow:hidden;opacity:0;color:%s;font-size:1px;line-height:1px">%s%s</div>\n'
         '<table role="presentation" width="100%%" cellpadding="0" cellspacing="0" border="0" bgcolor="%s" style="background:%s">'
-        '<tr><td align="center" style="padding:0">\n'
+        '<tr><td align="center" style="padding:10px 10px 0">\n'
         '<table role="presentation" class="px" width="600" cellpadding="0" cellspacing="0" border="0" '
-        'style="width:100%%;max-width:600px;background:%s">\n%s\n</table>\n</td></tr></table>\n</body>\n</html>\n'
-        % (esc(subject), VOID, CREAM, VOID, VOID, esc(preheader), '&nbsp;&zwnj;' * 40, VOID, VOID, VOID, '\n'.join(p for p in P if p)))
+        'style="width:100%%;max-width:600px">\n%s\n</table>\n</td></tr></table>\n</body>\n</html>\n'
+        % (esc(subject), VOID, CREAM, VOID, VOID, esc(preheader), '&nbsp;&zwnj;' * 40, VOID, VOID, '\n'.join(p for p in P if p)))
 
     size = len(doc.encode('utf-8'))
     assert size < MAX_BYTES, 'email is %d bytes; Gmail clips at 102KB' % size
