@@ -10,10 +10,10 @@
    "season": 10,
    "title": "Trick or checkmate",
    "title_es": "Truco o jaque mate",
-   "line": "Twenty-one players in costume, a sweep from Scott, and a 2% upset from Vinny.",
-   "line_es": "Veintiún jugadores disfrazados, un pleno de Scott y una sorpresa de Vinny con un 2%.",
-   "commentary": "The Halloween bracket was a hit. 🎃 Twenty-one players, fifty games, and a patio full of knights, ghosts, prisoners and one very suspicious pizza delivery. Thank you to everyone who dressed up.\nCostume contest: congratulations to Arabella and Joey, our winners, with a cop and robber routine nobody could top. 🚓 And welcome back, Arabella, one of the OGs.\nThe bracket: Scott swept Over 1400, 5 from 5, with a personal-best 1932. Gabe took Under 1400 on 4 with a new high of 1549, and Joe won Under 1000 on 3. The winners took home Chess Trading Cards from @chesstradingcards. 🃏\nUpset of the night: Vinny over Bob at 2%, a 723-point gap. ⚡ Harold over Benji and Diego over Anton both came in at 36%, and Bob held Benji to a draw at 25%.\nNew on the ladder: Charlie, Bella, Shawn A and Joey G. Milestones: Benji passed 200 games, Bob 50 and Gabe 25. 🌱\nNext up: Battle for the Bay 2, Sunday 15 November at 7 PM, on our patio. Tampa Knights come to us. Register at https://chess67.com/club/kava-social-chess-club ⚔️",
-   "commentary_es": "El bracket de Halloween fue un éxito. 🎃 Veintiún jugadores, cincuenta partidas, y un patio lleno de caballeros, fantasmas, presos y un repartidor de pizza muy sospechoso. Gracias a todos los que se disfrazaron.\nConcurso de disfraces: felicidades a Arabella y Joey, nuestros ganadores, con una rutina de policía y ladrón que nadie pudo superar. 🚓 Y bienvenida de vuelta, Arabella, una de las veteranas del club.\nEl bracket: Scott arrasó en Más de 1400, 5 de 5, con su mejor rating personal, 1932. Gabe ganó Menos de 1400 con 4 y un nuevo récord de 1549, y Joe ganó Menos de 1000 con 3. Los ganadores se llevaron cartas de Chess Trading Cards, de @chesstradingcards. 🃏\nLa sorpresa de la noche: Vinny sobre Bob con un 2%, una diferencia de 723 puntos. ⚡ Harold sobre Benji y Diego sobre Anton llegaron con un 36%, y Bob le sacó tablas a Benji con un 25%.\nNuevos en la escalera: Charlie, Bella, Shawn A y Joey G. Hitos: Benji pasó las 200 partidas, Bob las 50 y Gabe las 25. 🌱\nLo que viene: Battle for the Bay 2, domingo 15 de noviembre a las 7 PM, en nuestro patio. Los Tampa Knights vienen a nosotros. Inscríbete en https://chess67.com/club/kava-social-chess-club ⚔️",
+   "line": "Twenty-one players in costume, a sweep from Scott, and a costume crown for Arabella and Joey.",
+   "line_es": "Veintiún jugadores disfrazados, un pleno de Scott y la corona de disfraces para Arabella y Joey.",
+   "commentary": "The Halloween bracket was a hit. 🎃 Twenty-one players, fifty games, and a patio full of knights, ghosts, prisoners and one very suspicious pizza delivery. Thank you to everyone who dressed up.\nCostume contest: congratulations to Arabella and Joey, our winners, with a cop and robber routine nobody could top. 🚓 And welcome back, Arabella, one of the OGs.\nThe bracket: Scott swept Over 1400, 5 from 5, with a personal-best 1932. Gabe took Under 1400 on 4 with a new high of 1549, and Joe won Under 1000 on 3. The winners took home Chess Trading Cards from @chesstradingcards. 🃏\nUpsets of the night: Harold over Benji and Diego over Anton, both at 36%. ⚡ Bob held Benji to a draw at 25% and finished on 3.5.\nNew on the ladder: Charlie, Bella, Shawn A and Joey G. Milestones: Benji passed 200 games, Bob 50 and Gabe 25. 🌱\nNext up: Battle for the Bay 2, Sunday 15 November at 7 PM, on our patio. Tampa Knights come to us. Register at https://chess67.com/club/kava-social-chess-club ⚔️",
+   "commentary_es": "El bracket de Halloween fue un éxito. 🎃 Veintiún jugadores, cincuenta partidas, y un patio lleno de caballeros, fantasmas, presos y un repartidor de pizza muy sospechoso. Gracias a todos los que se disfrazaron.\nConcurso de disfraces: felicidades a Arabella y Joey, nuestros ganadores, con una rutina de policía y ladrón que nadie pudo superar. 🚓 Y bienvenida de vuelta, Arabella, una de las veteranas del club.\nEl bracket: Scott arrasó en Más de 1400, 5 de 5, con su mejor rating personal, 1932. Gabe ganó Menos de 1400 con 4 y un nuevo récord de 1549, y Joe ganó Menos de 1000 con 3. Los ganadores se llevaron cartas de Chess Trading Cards, de @chesstradingcards. 🃏\nLas sorpresas de la noche: Harold sobre Benji y Diego sobre Anton, ambas con un 36%. ⚡ Bob le sacó tablas a Benji con un 25% y terminó con 3.5.\nNuevos en la escalera: Charlie, Bella, Shawn A y Joey G. Hitos: Benji pasó las 200 partidas, Bob las 50 y Gabe las 25. 🌱\nLo que viene: Battle for the Bay 2, domingo 15 de noviembre a las 7 PM, en nuestro patio. Los Tampa Knights vienen a nosotros. Inscríbete en https://chess67.com/club/kava-social-chess-club ⚔️",
    "photo": "img/nights/2026-11-01.jpg",
    "whole": true,
    "focus": 30,
@@ -81,34 +81,34 @@
        "place": 2
       },
       {
+       "name": "Bob",
+       "pts": 3.5,
+       "rec": "3-1-1",
+       "place": 4
+      },
+      {
        "name": "Brett",
        "pts": 3,
        "rec": "3-0-2",
-       "place": 4
+       "place": 5
       },
       {
        "name": "Charlie",
        "pts": 3,
        "rec": "3-0-2",
-       "place": 4
+       "place": 5
       },
       {
        "name": "Toska",
        "pts": 3,
        "rec": "3-0-2",
-       "place": 4
+       "place": 5
       },
       {
        "name": "Benji",
        "pts": 2.5,
        "rec": "2-1-2",
-       "place": 7
-      },
-      {
-       "name": "Bob",
-       "pts": 2.5,
-       "rec": "2-1-2",
-       "place": 7
+       "place": 8
       }
      ]
     },
@@ -165,34 +165,34 @@
        "place": 2
       },
       {
-       "name": "Vinny",
-       "pts": 2,
-       "rec": "1-0-3",
-       "place": 5
-      },
-      {
        "name": "Anton",
        "pts": 1,
        "rec": "1-0-4",
-       "place": 6
+       "place": 5
       },
       {
        "name": "Bella",
        "pts": 1,
        "rec": "1-0-4",
-       "place": 6
+       "place": 5
       },
       {
        "name": "Joey G",
        "pts": 1,
        "rec": "1-0-4",
-       "place": 6
+       "place": 5
       },
       {
        "name": "Shawn A",
        "pts": 1,
        "rec": "1-0-4",
-       "place": 6
+       "place": 5
+      },
+      {
+       "name": "Vinny",
+       "pts": 1,
+       "rec": "0-0-4",
+       "place": 9
       },
       {
        "name": "Thomas",
@@ -205,11 +205,6 @@
     }
    ],
    "upsets": [
-    [
-     "Vinny",
-     "Bob",
-     "2%"
-    ],
     [
      "Harold",
      "Benji",
@@ -224,7 +219,7 @@
    "email": {
     "subject": "🎃 Arabella and Joey win costume night",
     "title": "Arabella and Joey take costume night",
-    "preheader": "Twenty-one players in costume, a sweep from Scott, and a 2% upset from Vinny.",
+    "preheader": "Twenty-one players in costume, a sweep from Scott, and a costume crown for Arabella and Joey.",
     "intro": "The Halloween bracket was a hit 🎃 Knights, ghosts, prisoners and one very suspicious pizza delivery. Thank you to everyone who dressed up!",
     "wins_label": "The winners",
     "wins": [
@@ -234,9 +229,9 @@
       "A cop and robber routine nobody could top. Welcome back, Arabella, one of the OGs!"
      ],
      [
-      "⚡ Upset of the night",
-      "Vinny",
-      "Over Bob at 2%, a 723-point gap."
+      "⚡ Upsets of the night",
+      "Harold and Diego",
+      "Over Benji and Anton, both at 36%."
      ]
     ],
     "body": [
