@@ -52,14 +52,9 @@ SOCIAL = [('Instagram', 'https://www.instagram.com/kavasocialchessclub/'),
           ('Discord', 'https://discord.gg/sYCb7RnTgZ'),
           ('Directions', MAPS)]
 # the Gmail app in dark mode flips any picture that is mostly black, so the icons are bright
-# full-colour tiles (img/email/tile-*.png). The logo is the club's own badge on its cream, rounded to a
-# circle in the email: Harold picked this on his Android phone in dark mode, 2026-11-02.
-ADDRESS = 'Kava Social Chess Club · Kava Social Club, 540 13th St W, Bradenton, FL 34205'
-MAX_BYTES = 80 * 1024
-COMEBACK = {'label': 'Haven’t played lately', 'title': 'Been a while?',
-            'text': 'Nothing has changed. No dues, nothing to bring, and nobody keeps track of how long you were gone. '
-                    'Sundays and Tuesdays at eight, same back patio. Pull up a chair.',
-            'button': 'Come back this week'}
+# full-colour tiles (img/email/tile-*.png), and the logo, the club's own badge rounded to a circle,
+# sits inside a thin dark-red edge: with any colour at its rim Gmail leaves it alone, and this one
+# reads as black. Harold picked it on his Android phone in dark mode, 2026-11-02 (logo check 3).
 
 VOID, PANEL, CREAM, INK2, INK3, SCARLET, RULE, GOLD = (
     '#0C0D0E', '#17181B', '#FFF6E8', '#C9CCD1', '#9A9DA3', '#FE273A', '#2A2C31', '#E4B02F')
@@ -307,7 +302,7 @@ def build(send_day, out_dir):
 
     P = []
     P.append(row(
-        GRID + '<tr><td width="74" valign="middle"><a href="%s"><img src="%simg/email/logo-round.png" width="64" height="64" alt="Kava Social Chess Club" '
+        GRID + '<tr><td width="74" valign="middle"><a href="%s"><img src="%simg/email/logo-email.png" width="64" height="64" alt="Kava Social Chess Club" '
         'style="display:block;width:64px;height:64px;border:0;border-radius:50%%"></a></td>'
         '<td valign="middle" style="font-family:%s;font-size:16px;font-weight:800;line-height:20px;color:%s">Kava Social Chess Club</td>'
         '<td align="right" valign="middle" style="font-family:%s;font-size:13px;font-weight:600;color:%s;white-space:nowrap">%s %d</td></tr></table>'
