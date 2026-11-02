@@ -51,10 +51,9 @@ SOCIAL = [('Instagram', 'https://www.instagram.com/kavasocialchessclub/'),
           ('Facebook', 'https://www.facebook.com/KavaSocialChessClub'),
           ('Discord', 'https://discord.gg/sYCb7RnTgZ'),
           ('Directions', MAPS)]
-# the Gmail app in dark mode flips any picture that is mostly black, so the map pin sits on a
-# white tile like the Maps app icon. The logo is the club's own badge on its cream, rounded to a
+# the Gmail app in dark mode flips any picture that is mostly black, so the icons are bright
+# full-colour tiles (img/email/tile-*.png). The logo is the club's own badge on its cream, rounded to a
 # circle in the email: Harold picked this on his Android phone in dark mode, 2026-11-02.
-ICON = {'Directions': 'directions-tile'}
 ADDRESS = 'Kava Social Chess Club · Kava Social Club, 540 13th St W, Bradenton, FL 34205'
 MAX_BYTES = 80 * 1024
 COMEBACK = {'label': 'Haven’t played lately', 'title': 'Been a while?',
@@ -377,9 +376,9 @@ def build(send_day, out_dir):
     tiles = []
     for i, (name, href) in enumerate(SOCIAL):
         if i:
-            tiles.append('<td width="8" style="font-size:0;line-height:0">&nbsp;</td>')
+            tiles.append('<td width="2%" style="width:2%;font-size:0;line-height:0">&nbsp;</td>')
         tiles.append(
-            '<td width="25%%" align="center" bgcolor="%s" style="background:%s;border:1px solid %s;border-radius:14px;padding:12px 2px 10px">'
+            '<td width="23%%" align="center" bgcolor="%s" style="width:23%%;background:%s;border:1px solid %s;border-radius:14px;padding:12px 2px 10px">'
             '<a href="%s" style="display:block;text-decoration:none"><img src="%simg/email/tile-%s.png" width="40" height="40" alt="%s" '
             'style="display:block;margin:0 auto;width:40px;height:40px;border:0;border-radius:11px;font-family:%s;font-size:11px;color:%s">'
             '<div style="padding-top:7px;font-family:%s;font-size:11px;font-weight:600;line-height:14px;color:%s">%s</div></a></td>'
@@ -391,8 +390,7 @@ def build(send_day, out_dir):
     P.append(card(
         heading('\U0001F4CD', 'Find the club') +
         '<div style="padding-top:14px">' + GRID + '<tr>' + ''.join(tiles) + '</tr></table></div>' +
-        slim('\U0001F310', 'kavasocialchessclub.com', link('', 'footer', campaign)) +
-        slim('\U0001F5FA\ufe0f', '540 13th St W, Bradenton, FL 34205', MAPS)))
+        slim('\U0001F310', 'kavasocialchessclub.com', link('', 'footer', campaign))))
     pill = lambda words, href: ('<td style="padding:0 4px"><a href="%s" style="display:inline-block;padding:7px 14px;border:1px solid %s;border-radius:999px;'
                                 'font-family:%s;font-size:12px;font-weight:600;line-height:16px;color:%s;text-decoration:none;white-space:nowrap">%s</a></td>'
                                 % (href, RULE, FM, INK2, words))
