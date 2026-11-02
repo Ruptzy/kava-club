@@ -55,6 +55,12 @@ SOCIAL = [('Instagram', 'https://www.instagram.com/kavasocialchessclub/'),
 # full-colour tiles (img/email/tile-*.png), and the logo, the club's own badge rounded to a circle,
 # sits inside a thin dark-red edge: with any colour at its rim Gmail leaves it alone, and this one
 # reads as black. Harold picked it on his Android phone in dark mode, 2026-11-02 (logo check 3).
+ADDRESS = 'Kava Social Chess Club · Kava Social Club, 540 13th St W, Bradenton, FL 34205'
+MAX_BYTES = 80 * 1024
+COMEBACK = {'label': 'Haven’t played lately', 'title': 'Been a while?',
+            'text': 'Nothing has changed. No dues, nothing to bring, and nobody keeps track of how long you were gone. '
+                    'Sundays and Tuesdays at eight, same back patio. Pull up a chair.',
+            'button': 'Come back this week'}
 
 VOID, PANEL, CREAM, INK2, INK3, SCARLET, RULE, GOLD = (
     '#0C0D0E', '#17181B', '#FFF6E8', '#C9CCD1', '#9A9DA3', '#FE273A', '#2A2C31', '#E4B02F')
