@@ -314,6 +314,12 @@ def build(send_day, out_dir):
         % (link('', 'masthead', campaign), SITE, FD, CREAM, FM, INK3, MONTHS[send_day.month - 1][:3], send_day.day),
         '6px 4px 14px'))
 
+    # a gentle tip for Gmail readers, not a demand: where to put us so the email is easy to find
+    P.append(row(
+        '<div style="padding:9px 14px;border-radius:12px;background:%s;font-family:%s;font-size:13px;line-height:19px;color:%s">'
+        '💡 Reading in Gmail? If this lands in Promotions, you can drag it to <b style="color:%s">Primary</b> so it’s easy to find each week.</div>'
+        % (TILE, FM, INK2, CREAM), '0 0 12px'))
+
     hero = ''
     if photo:
         hero = ('<tr><td style="padding:0"><a href="%s"><img src="%s" width="600" alt="%s" style="display:block;width:100%%;max-width:600px;'
@@ -424,6 +430,7 @@ def build(send_day, out_dir):
     if lead.get('line'):
         txt += ['"%s"' % lead['line'], '']
     txt += [opening, ''] if opening else []
+    txt = ['Tip: reading in Gmail? If this lands in Promotions, you can drag it to Primary so it is easy to find each week.', ''] + txt
     if mail.get('wins'):
         txt += [(mail.get('wins_label') or 'What we brought home').upper()] + [
             ('- %s: %s. %s' % (r[1], r[0], r[2] if len(r) > 2 else '')).rstrip() for r in mail['wins']] + ['']
