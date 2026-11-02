@@ -1,7 +1,252 @@
 {
  "_comment": "One entry per club night, newest first. Written by the admin console (Post a night) or by hand. build/build_nights.py turns these into /nights/<date>/ pages, the archive, the RSS feed and the sitemap. 'line' is Harold's own sentence about the night; 'commentary' is the write-up of the numbers.",
- "updated": "2026-10-28",
+ "updated": "2026-11-02",
  "nights": [
+  {
+   "date": "2026-11-01",
+   "type": "theme",
+   "played": 21,
+   "rounds": 5,
+   "season": 10,
+   "title": "Trick or checkmate",
+   "title_es": "Truco o jaque mate",
+   "line": "Twenty-one players in costume, a sweep from Scott, and a 2% upset from Vinny.",
+   "line_es": "Veintiún jugadores disfrazados, un pleno de Scott y una sorpresa de Vinny con un 2%.",
+   "commentary": "The Halloween bracket was a hit. 🎃 Twenty-one players, fifty games, and a patio full of knights, ghosts, prisoners and one very suspicious pizza delivery. Thank you to everyone who dressed up.\nCostume contest: congratulations to Arabella and Joey, our winners, with a cop and robber routine nobody could top. 🚓 And welcome back, Arabella, one of the OGs.\nThe bracket: Scott swept Over 1400, 5 from 5, with a personal-best 1932. Gabe took Under 1400 on 4 with a new high of 1549, and Joe won Under 1000 on 3. The winners took home Chess Trading Cards from @chesstradingcards. 🃏\nUpset of the night: Vinny over Bob at 2%, a 723-point gap. ⚡ Harold over Benji and Diego over Anton both came in at 36%, and Bob held Benji to a draw at 25%.\nNew on the ladder: Charlie, Bella, Shawn A and Joey G. Milestones: Benji passed 200 games, Bob 50 and Gabe 25. 🌱\nNext up: Battle for the Bay 2, Sunday 15 November at 7 PM, on our patio. Tampa Knights come to us. Register at https://chess67.com/club/kava-social-chess-club ⚔️",
+   "commentary_es": "El bracket de Halloween fue un éxito. 🎃 Veintiún jugadores, cincuenta partidas, y un patio lleno de caballeros, fantasmas, presos y un repartidor de pizza muy sospechoso. Gracias a todos los que se disfrazaron.\nConcurso de disfraces: felicidades a Arabella y Joey, nuestros ganadores, con una rutina de policía y ladrón que nadie pudo superar. 🚓 Y bienvenida de vuelta, Arabella, una de las veteranas del club.\nEl bracket: Scott arrasó en Más de 1400, 5 de 5, con su mejor rating personal, 1932. Gabe ganó Menos de 1400 con 4 y un nuevo récord de 1549, y Joe ganó Menos de 1000 con 3. Los ganadores se llevaron cartas de Chess Trading Cards, de @chesstradingcards. 🃏\nLa sorpresa de la noche: Vinny sobre Bob con un 2%, una diferencia de 723 puntos. ⚡ Harold sobre Benji y Diego sobre Anton llegaron con un 36%, y Bob le sacó tablas a Benji con un 25%.\nNuevos en la escalera: Charlie, Bella, Shawn A y Joey G. Hitos: Benji pasó las 200 partidas, Bob las 50 y Gabe las 25. 🌱\nLo que viene: Battle for the Bay 2, domingo 15 de noviembre a las 7 PM, en nuestro patio. Los Tampa Knights vienen a nosotros. Inscríbete en https://chess67.com/club/kava-social-chess-club ⚔️",
+   "photo": "img/nights/2026-11-01.jpg",
+   "whole": true,
+   "focus": 30,
+   "photo_alt": "The whole crew in costume against the patio wall: a knight in armour, a ghost, a masked slasher, prisoners in stripes, a cop and a pizza delivery",
+   "photo_alt_es": "Todo el grupo disfrazado contra la pared del patio: un caballero con armadura, un fantasma, un asesino enmascarado, presos a rayas, una policía y un repartidor de pizza",
+   "gallery": [
+    {
+     "img": "img/nights/2026-11-01-robbery.jpg",
+     "w": 1538,
+     "h": 1600,
+     "alt": "Costume contest winners Arabella and Joey acting out a robbery: a robber in stripes with a money bag, a cop aiming finger guns",
+     "alt_es": "Los ganadores del concurso de disfraces, Arabella y Joey, actuando un robo: un ladrón a rayas con una bolsa de dinero y una policía apuntando con los dedos",
+     "caption": "Costume contest winners: Arabella and Joey, caught in the act.",
+     "caption_es": "Ganadores del concurso de disfraces: Arabella y Joey, en plena acción."
+    },
+    {
+     "img": "img/nights/2026-11-01-winners.jpg",
+     "w": 1364,
+     "h": 1600,
+     "alt": "Arabella and Joey in their cop and robber costumes against the patio wall",
+     "alt_es": "Arabella y Joey con sus disfraces de policía y ladrón contra la pared del patio",
+     "caption": "Arabella and Joey.",
+     "caption_es": "Arabella y Joey."
+    },
+    {
+     "img": "img/nights/2026-11-01-cards.jpg",
+     "w": 1600,
+     "h": 1200,
+     "alt": "The bracket winners in costume on the patio, holding up their Chess Trading Cards",
+     "alt_es": "Los ganadores del bracket disfrazados en el patio, mostrando sus cartas de Chess Trading Cards",
+     "caption": "The bracket winners and their Chess Trading Cards.",
+     "caption_es": "Los ganadores del bracket y sus cartas de Chess Trading Cards."
+    },
+    {
+     "img": "img/nights/2026-11-01-table.jpg",
+     "w": 1508,
+     "h": 1600,
+     "alt": "The long table on Halloween bracket night, with a ghost in a sheet and players in costume at their boards",
+     "alt_es": "La mesa larga en la noche de bracket de Halloween, con un fantasma en sábana y jugadores disfrazados en sus tableros",
+     "caption": "Even the ghost had a board.",
+     "caption_es": "Hasta el fantasma tenía tablero."
+    }
+   ],
+   "standings": [
+    {
+     "bracket": "Over 1400",
+     "bracket_es": "Más de 1400",
+     "rows": [
+      {
+       "name": "Scott",
+       "pts": 5,
+       "rec": "5-0-0",
+       "place": 1
+      },
+      {
+       "name": "Harold",
+       "pts": 4,
+       "rec": "4-0-1",
+       "place": 2
+      },
+      {
+       "name": "Josh",
+       "pts": 4,
+       "rec": "4-0-1",
+       "place": 2
+      },
+      {
+       "name": "Brett",
+       "pts": 3,
+       "rec": "3-0-2",
+       "place": 4
+      },
+      {
+       "name": "Charlie",
+       "pts": 3,
+       "rec": "3-0-2",
+       "place": 4
+      },
+      {
+       "name": "Toska",
+       "pts": 3,
+       "rec": "3-0-2",
+       "place": 4
+      },
+      {
+       "name": "Benji",
+       "pts": 2.5,
+       "rec": "2-1-2",
+       "place": 7
+      },
+      {
+       "name": "Bob",
+       "pts": 2.5,
+       "rec": "2-1-2",
+       "place": 7
+      }
+     ]
+    },
+    {
+     "bracket": "Under 1400",
+     "bracket_es": "Menos de 1400",
+     "rows": [
+      {
+       "name": "Gabe",
+       "pts": 4,
+       "rec": "4-0-1",
+       "place": 1
+      },
+      {
+       "name": "Brian O",
+       "pts": 3,
+       "rec": "3-0-2",
+       "place": 2
+      },
+      {
+       "name": "Jenny",
+       "pts": 2,
+       "rec": "2-0-3",
+       "place": 3
+      }
+     ]
+    },
+    {
+     "bracket": "Under 1000",
+     "bracket_es": "Menos de 1000",
+     "rows": [
+      {
+       "name": "Joe",
+       "pts": 3,
+       "rec": "3-0-2",
+       "place": 1
+      },
+      {
+       "name": "Diego",
+       "pts": 2,
+       "rec": "2-0-3",
+       "place": 2
+      },
+      {
+       "name": "Maddie",
+       "pts": 2,
+       "rec": "2-0-3",
+       "place": 2
+      },
+      {
+       "name": "Sam",
+       "pts": 2,
+       "rec": "2-0-3",
+       "place": 2
+      },
+      {
+       "name": "Vinny",
+       "pts": 2,
+       "rec": "1-0-3",
+       "place": 5
+      },
+      {
+       "name": "Anton",
+       "pts": 1,
+       "rec": "1-0-4",
+       "place": 6
+      },
+      {
+       "name": "Bella",
+       "pts": 1,
+       "rec": "1-0-4",
+       "place": 6
+      },
+      {
+       "name": "Joey G",
+       "pts": 1,
+       "rec": "1-0-4",
+       "place": 6
+      },
+      {
+       "name": "Shawn A",
+       "pts": 1,
+       "rec": "1-0-4",
+       "place": 6
+      },
+      {
+       "name": "Thomas",
+       "pts": 0,
+       "rec": "0-0-1",
+       "place": 10,
+       "note": "left early"
+      }
+     ]
+    }
+   ],
+   "upsets": [
+    [
+     "Vinny",
+     "Bob",
+     "2%"
+    ],
+    [
+     "Harold",
+     "Benji",
+     "36%"
+    ],
+    [
+     "Diego",
+     "Anton",
+     "36%"
+    ]
+   ],
+   "email": {
+    "subject": "🎃 Trick or checkmate: costume night winners",
+    "title": "Trick or checkmate",
+    "preheader": "Twenty-one players in costume, a sweep from Scott, and a 2% upset from Vinny.",
+    "intro": "The Halloween bracket was a hit: knights, ghosts, prisoners and one very suspicious pizza delivery. Thank you to everyone who dressed up.",
+    "wins_label": "The winners",
+    "wins": [
+     [
+      "Costume contest",
+      "Arabella and Joey",
+      "A cop and robber routine nobody could top. Welcome back, Arabella, one of the OGs."
+     ],
+     [
+      "Upset of the night",
+      "Vinny",
+      "Over Bob at 2%, a 723-point gap."
+     ]
+    ],
+    "body": [
+     "Next up: Battle for the Bay 2, Sunday 15 November at 7 PM, on our patio. Tampa Knights come to us."
+    ],
+    "also": 1,
+    "notes": "booked"
+   },
+   "updated": "2026-11-02"
+  },
   {
    "date": "2026-10-28",
    "type": "theme",
@@ -18,7 +263,10 @@
    "focus": 28,
    "photo_alt": "Costume Chess Night flyer: chess pieces dressed as a vampire king, a witch queen, a mummy bishop, a headless-horseman knight, a haunted-castle rook and ghost pawns. Halloween Bracket Night, Sunday November 1, 8 PM, Kava Social Club, 540 13th St W, Bradenton. Costume contest with a prize.",
    "photo_alt_es": "Cartel de la Noche de ajedrez con disfraces: piezas de ajedrez disfrazadas de rey vampiro, reina bruja, alfil momia, caballo jinete sin cabeza, torre castillo embrujado y peones fantasma. Noche de bracket de Halloween, domingo 1 de noviembre, 8 PM, Kava Social Club, 540 13th St W, Bradenton. Concurso de disfraces con premio.",
-   "updated": "2026-10-28"
+   "updated": "2026-10-28",
+   "email": {
+    "skip": true
+   }
   },
   {
    "date": "2026-10-27",

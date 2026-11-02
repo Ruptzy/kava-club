@@ -274,7 +274,8 @@ def build(send_day, out_dir):
         return None
     # the newest recap leads, unless one of the week's recaps is marked to hold the top
     lead = next((n for n in fresh if (n.get('email') or {}).get('lead')), fresh[0])
-    rest = [n for n in fresh if n is not lead]
+    # a promotion for a night that has since happened ("email": {"skip": true}) is not news any more
+    rest = [n for n in fresh if n is not lead and not (n.get('email') or {}).get('skip')]
     mail = lead.get('email') or {}
     campaign = 'weekly-%s' % send_day.isoformat()
     no = B.night_number(B.when(lead))
