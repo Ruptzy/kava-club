@@ -1,0 +1,226 @@
+# Lenny's facts, fifth shelf: famous games, combinations, tournaments and chess through history.
+# Mostly "combo" lines: a real, checkable fact, then a short punchline in Lenny's voice.
+# Same rules as facts.txt: nothing about club members, nothing invented.
+
+# --- famous combinations and the games they come from
+In Réti against Tartakower, Vienna 1910, White gave up the queen on d8 and a bishop mated on that same square two moves later. Same square, new tenant.
+Réti's 10.Bg5 against Tartakower was a double check from bishop and rook. Both king moves walked into mate. That is what double checks are for.
+Réti against Tartakower began as a sensible Caro-Kann and was over in 11 moves. Sensible lasted about nine of them.
+In Ortueta against Sanz, Madrid 1933, Black sacrificed a rook on b2 so his queenside pawns could run. White's pieces never caught them. Never underestimate infantry with a plan.
+Hans Kmoch named Donald Byrne against Bobby Fischer, New York 1956, "The Game of the Century". A bold title with 44 years of the century still to go. It held up.
+In the Game of the Century, Fischer's 11...Na4 offered a knight six moves before the famous queen offer. He was handing out pieces like party favours.
+For his queen in the Game of the Century, Fischer collected a rook, two bishops and a pawn. Then he collected the point.
+The Game of the Century ended with 41...Rc2 mate. Byrne let the 13-year-old play it all the way to mate, which I consider excellent manners.
+Byrne against Fischer was played at the Rosenwald Memorial in New York. Fischer did not even win that tournament. Chess is hard.
+In Edward Lasker against George Thomas, London 1912, a queen sacrifice on h7 chased Black's king from g8 all the way to g1, where it was mated. A seven-move commute.
+The Lasker-Thomas king hunt ended with 18.Kd2 mate, although castling queenside would also have mated. Two ways to finish, and he picked the modest one.
+Sir George Thomas, whose king took that famous walk, was also an All-England badminton champion. Excellent footwork. Different sport.
+The Edward Lasker of the 1912 king hunt is not Emanuel Lasker the world champion. Two Laskers, one surname, endless confusion. I keep a chart.
+Emanuel Lasker sacrificed bishops on h7 and g7 against Johann Bauer at Amsterdam 1889. Every double bishop sacrifice since gets measured against it.
+In Lasker against Bauer, the bishops only opened the door. A rook lift to f3 and then h3 walked through it. Never forget the rook lift.
+Tarrasch played his own double bishop sacrifice against Nimzowitsch at St Petersburg 1914. The two were famous rivals, so I suspect it tasted sweet.
+Botvinnik against Capablanca, AVRO 1938: 30.Ba3 deflected Black's queen and 31.Nh5 cracked the king open. Two pieces gone, one passed pawn extremely pleased.
+Kasparov against Topalov, Wijk aan Zee 1999, turned on the rook sacrifice 24.Rxd4, which sent Black's king on a walk across the whole board. Longest commute in chess.
+Topalov against Shirov, Linares 1998: in a bishop ending, Shirov gave his bishop away with 47...Bh3 just to clear a road for his king. He won. Bishops are optional, apparently.
+Morphy's Opera Game finished 16.Qb8+ Nxb8 17.Rd8 mate. The queen gave herself up so a rook could take the credit. Typical rook behaviour.
+The Opera Game opened with Philidor's Defence. Philidor had been dead for more than 60 years and could not help.
+Morphy played the Opera Game at 21. At 21 I was colour-coding my opening notes. Different paths.
+Morphy against Louis Paulsen, New York 1857, featured 17...Qxf3, a queen sacrifice whose point lay several moves deep. Calculation like that should need a licence.
+Morphy beat Adolf Anderssen in Paris in 1858 with seven wins, two losses and two draws. Anderssen was the strongest player in Europe. Was.
+The Immortal Game ended with 23.Be7 mate. Anderssen mated with three minor pieces while Kieseritzky sat on most of White's army.
+The Immortal Game was a casual game, played in London while the 1851 tournament was going on. Imagine your coffee-break game becoming the most famous in history.
+The Immortal Game opened with the King's Gambit, the Bishop's Gambit to be exact. In 1851, gambits were how gentlemen said hello.
+Lionel Kieseritzky, who lost the Immortal Game, is said to have telegraphed the moves to his club in Paris himself. A gracious loser and an early adopter.
+The Evergreen Game, Anderssen against Dufresne, Berlin 1852, opened with the Evans Gambit and ended with a queen sacrifice on d7, a double check and a bishop mate. A three-course meal.
+In Steinitz against von Bardeleben, Hastings 1895, Black left the hall rather than resign and let his clock run out. Steinitz then showed the audience the mate. Not a resignation method I endorse.
+Steinitz against von Bardeleben won the brilliancy prize at Hastings 1895. White's rook kept checking from the seventh rank, and taking it lost every time. Rude, but legal.
+In the famous Adams against Torre, New Orleans 1920, White kept offering his queen to deflect the defenders of Black's back rank. Black ran out of polite refusals.
+In Torre against Emanuel Lasker, Moscow 1925, Carlos Torre gave up his queen, then his rook gave discovered check after discovered check, eating Black's pieces. A windmill, and a hungry one.
+In Bernstein against Capablanca, Moscow 1914, Black finished with the quiet queen move 29...Qb2 and White resigned. Quiet moves are the loudest kind.
+Zukertort against Blackburne, London 1883, features a queen sacrifice that still turns up in every anthology of great combinations. Zukertort won the tournament as well. Excellent month.
+Hamppe against Meitner, Vienna 1872, is called the Immortal Draw. Both sides threw pieces at each other and it ended in perpetual check. Maximum effort, half a point each.
+In Short against Timman, Tilburg 1991, Nigel Short marched his king from g1 to h6 with the queens still on, to help deliver mate. Steinitz, who called the king a fighting piece, would have wept with joy.
+When Robert Byrne resigned against Fischer in the 1963-64 US Championship, grandmasters commenting in another room still thought Byrne was better. That is how deep the combination went.
+Both Byrne brothers lost famous brilliancies to Fischer: Donald in 1956 and Robert in 1963. Some family traditions are less fun than others.
+Rashid Nezhmetdinov sacrificed his queen against Lev Polugaevsky at Sochi 1958 and won with a raging attack. Some people send flowers. He sent queens.
+Rashid Nezhmetdinov won the Russian chess championship five times and was also a draughts master. Two boards, one restless brain.
+In game 16 of the 1985 world championship, Kasparov planted a knight on d3 so deep in Karpov's camp that it was nicknamed the octopus. Eight tentacles, one square.
+Euwe's win in game 26 of his 1935 match against Alekhine, played in Zandvoort, is known as the Pearl of Zandvoort. Seaside chess has a certain sparkle.
+In the final game of the 1892 world championship, Chigorin overlooked a mate in two against Steinitz and lost the game and the match. I am sending a belated hug.
+At the 1956 Candidates in Amsterdam, Tigran Petrosian, famous for almost never losing, simply blundered his queen against David Bronstein. Even Iron Tigran rusted once.
+In game 2 of his 2006 match against Deep Fritz, Vladimir Kramnik overlooked a mate in one. The machine did not. They never do. It is very irritating.
+In game 6 of their 1997 rematch, Kasparov lost to Deep Blue in just 19 moves after a knight sacrifice on e6 in the Caro-Kann. Short, and not sweet.
+In the 1970 USSR against the Rest of the World match, Bent Larsen opened 1.b3 against Boris Spassky on board one and resigned on move 17. Top board is a lonely place.
+In that 1970 match, Fischer agreed to play board two behind Larsen and beat Tigran Petrosian 3-1. Board order is a state of mind.
+In game 1 of the 1972 match, Fischer took a pawn on h2 with his bishop, the bishop got trapped, and he lost. Poisoned pawns come in all sizes.
+Capablanca against Tartakower, New York 1924, is a classic rook ending in which White gave up pawns so his king could march up the board. Kings in rook endings should be paid by the mile.
+In 1914 the young composer Sergei Prokofiev beat Capablanca in a simultaneous exhibition in St Petersburg. Clearly he hit the right notes.
+
+# --- named mates and motifs, with their back stories
+Greco's mate is named after Gioachino Greco, whose games from the early 1600s survive in manuscripts. Many of those games were probably composed. Early influencer, curated feed.
+Gioachino Greco played in Paris and London and is believed to have died in the West Indies. Chess has always travelled light.
+Légal's mate comes from a game Monsieur de Légal played in Paris around 1750. Légal was also Philidor's teacher, so he had a decent eye for talent.
+In Légal's mate, White leaves the queen to be taken on move five and mates with minor pieces on move seven. The queen is bait. Anglers understand.
+Boden's mate is named after Samuel Boden, who delivered it against Schulder in London in 1853. Two crossing bishops, one king, permanent fame.
+Lolli's mate is named after Giambattista Lolli, an 18th-century Italian chess writer. Becoming a mating pattern is the chess version of getting a statue.
+Anastasia's mate comes from the novel "Anastasia und das Schachspiel" by Wilhelm Heinse. Few people have read the novel. Plenty have been mated by it.
+The swallow's tail mate is also called the Guéridon mate, after a small French table. Leave chess players alone long enough and they name patterns after furniture.
+Max Lange's mate and the Max Lange Attack are both named after Max Lange, a 19th-century German master. Most people get one thing named after them. Overachiever.
+The Indian theme in chess problems is named after a problem published in 1845 by Henry Loveday, a clergyman living in India. Geography as terminology.
+Sam Loyd's problem "Excelsior", named after a Longfellow poem, gave its name to a theme where one pawn marches from its starting square to promotion. Ambition in its purest form.
+Sam Loyd claimed for years to have invented the 15 puzzle. He did not. Composing problems is a fine hobby. Composing your own biography, less so.
+The Valladão task fits castling, en passant and underpromotion into a single problem. Every strange rule at once. Composers read the rulebook for fun. Hello, fellow travellers.
+The Dilaram problem comes with a legend: a nobleman wagered his wife Dilaram on a game, and she whispered the winning idea of sacrificing both rooks. History's finest kibitzer.
+As-Suli's Diamond, an endgame position from the 900s, went unsolved for more than a thousand years until Yuri Averbakh worked it out in the 20th century. Patience is a skill.
+Fernando Saavedra, who found the famous rook promotion in 1895, was a Spanish priest living in Glasgow. Divine insight, technically.
+Georges Barbier first published the Saavedra position in a Glasgow newspaper as a draw. A reader found the win. Readers love doing that. I would know.
+The "Greek gift" name for the bishop sacrifice on h7 is usually explained as a nod to the Trojan horse. Beware of Greeks bearing bishops.
+
+# --- tournaments that made history
+London 1851 was a knockout of 16 players. Staunton, its organiser, lost his semi-final to Anderssen and then lost the match for third place as well. Hosting is stressful.
+London 1851 was timed to coincide with the Great Exhibition. Visitors could admire the Crystal Palace and then watch the host finish fourth.
+Elijah Williams beat Howard Staunton for third place at London 1851, and Staunton complained about how slowly Williams played. Some complaints never age.
+London 1862, won again by Anderssen, was a round robin. Somebody had noticed that knockouts send half the field home on the first day.
+Paris 1867 was held alongside the World's Fair and won by Ignatz Kolisch, who later became a wealthy banker. Converting a won position into a won bank balance.
+Baden-Baden 1870 was played just as the Franco-Prussian War broke out. Anderssen won it. Chess players have always been good at ignoring the news.
+Hastings 1895 was won by Harry Pillsbury, 22 and in his first international tournament, ahead of Chigorin, Lasker, Tarrasch and Steinitz. Some debut.
+Hastings 1895 had 22 players, and its tournament book has been reprinted many times. I own two copies. In case one gets lost.
+Harry Pillsbury once memorised a list of long, unrelated words read out to him, then repeated it forwards and backwards. I can do that with opening codes. Nobody ever asks.
+Cambridge Springs 1904 was won by Frank Marshall, undefeated, ahead of Lasker and Janowski. The Cambridge Springs Defence in the Queen's Gambit is named after it. Pennsylvania's finest export.
+St Petersburg 1914 had a preliminary round and then a final of the top five, with scores carried over. Lasker overtook Capablanca in the final. Comebacks never go out of fashion.
+Legend says Tsar Nicholas II gave the five finalists of St Petersburg 1914 the title of grandmaster. Historians have found no proof. A famous story with no source. Shocking.
+At St Petersburg 1914, Lasker beat Capablanca with the Exchange Variation of the Ruy López, a line people call drawish. Drawish is a word with a large margin of error.
+Moscow 1925, the first great international tournament in the Soviet Union, was won by Efim Bogoljubov ahead of Lasker and Capablanca. The host nation was taking notes.
+AVRO 1938 was sponsored by a Dutch radio company and moved from city to city around the Netherlands. A touring tournament: chess with luggage.
+Capablanca finished seventh of eight at AVRO 1938. Even legends have tournaments they would rather leave out of the scrapbook.
+Saltsjöbaden 1948, in Sweden, was the first Interzonal tournament, and David Bronstein won it. The first of anything is always a little sweeter.
+Zürich 1953 was a Candidates tournament of 15 players meeting each other twice, 28 games each. Vasily Smyslov won. I get tired just reading the crosstable.
+Bronstein, Keres and Reshevsky shared second place at Zürich 1953, two points behind Smyslov. A three-way tie for second is the most crowded podium in chess.
+The 1959 Candidates tournament moved between three Yugoslav cities: Bled, Zagreb and Belgrade. Mikhail Tal won it. Pack a suitcase and a repertoire.
+At Curaçao 1962, all twelve games between Petrosian, Keres and Geller were drawn. Fischer accused them of collusion, and FIDE switched the Candidates to knockout matches.
+Fischer's article on Curaçao ran in Sports Illustrated in 1962 under the headline "The Russians Have Fixed World Chess". Subtle headlines were not his department.
+Fischer finished fourth at Curaçao 1962, and Tal fell ill and withdrew partway through. A tournament with more drama than most operas.
+The Piatigorsky Cup tournaments of 1963 and 1966 in Los Angeles were funded by the cellist Gregor Piatigorsky and his wife Jacqueline, a chess player. A musical household with excellent taste.
+Linares, a small town in Andalusia, hosted one of the world's strongest annual tournaments from 1978 until 2010. Small town, enormous ratings.
+The tournament in Wijk aan Zee was called Hoogovens until 1999 and Corus from 2000, and it has been Tata Steel since 2011. One steelworks, three names, same seaside village.
+Tata Steel is played every January in Wijk aan Zee on the Dutch coast. Grandmasters at the beach in winter. They wear coats. Very sensible.
+At London 1922 the leading players signed the "London Rules" for world title matches, including a minimum purse of 10,000 dollars. Chess discovers contracts.
+The Mannheim tournament of 1914 was stopped when the First World War broke out, and several Russian players were interned in Germany. Worst adjournment in history.
+The first international women's tournament was held in London in 1897, and Mary Rudge won it. A pioneer with a perfectly good name for a defensive player.
+The first World Junior Championship was held in 1951 and won by Borislav Ivkov. Every tradition starts with somebody young turning up.
+
+# --- Olympiads and team battles
+Hungary won the first official Chess Olympiad, London 1927. The Hungarians took the trophy home and everyone else took notes.
+The 1976 Olympiad in Haifa was boycotted by the Soviet Union and its allies, and the United States won gold. Turning up is half the battle. Sometimes all of it.
+A rival "Against Chess Olympiad" was held in Tripoli, Libya, in 1976. Two Olympiads in one year, and neither one had everybody. Chess politics: a game with no rulebook.
+Ukraine won the open Olympiad in 2004 and again in 2010. Once is a result. Twice is a pattern.
+Chennai 2022 was the first Chess Olympiad with a torch relay, borrowed from the Olympic Games. An open flame near the scoresheets. I was nervous.
+China won both the open and the women's gold medals at the 2018 Olympiad in Batumi. A clean sweep, filed under very efficient.
+The 2020 Online Olympiad final between India and Russia was hit by an internet outage, and FIDE made both teams joint champions. The internet remains undefeated.
+The Chess Olympiad is held every two years. Just enough time for every national team to forget its preparation.
+In 1945 the USSR played the USA in a match conducted by radio and won 15.5 to 4.5. A fairly clear preview of the next few decades.
+A second USSR against the Rest of the World match was played in London in 1984, and the Soviet team won again. The rest of the world remains in training.
+The Anglo-American cable matches, played by transatlantic telegraph cable between 1896 and 1911, pitted Britain against the United States. Chess at the speed of Morse code.
+The first official World Correspondence Chess Championship, finished in 1953, was won by Cecil Purdy of Australia. Patience, rewarded by post.
+
+# --- the Soviet school
+The 1925 Soviet comedy "Chess Fever", directed by Vsevolod Pudovkin, includes footage of Capablanca filmed during the Moscow tournament. A world champion cameo, in 1925.
+In the Soviet Union, many future grandmasters learned the game in chess sections at the Pioneer Palaces. After-school clubs with a remarkable graduation rate.
+The USSR Championship was often stronger than the biggest international tournaments of its day. A national championship in a world event's clothing.
+
+# --- medieval chess and how the game changed
+Alfonso X of Castile had the Libro de los juegos, the Book of Games, completed in 1283. It covers chess, dice and tables, with lovely illustrations. My kind of king.
+The Libro de los juegos contains around a hundred chess problems, many inherited from Arabic sources. A 13th-century puzzle book with gold leaf.
+Jacobus de Cessolis, an Italian Dominican friar, wrote a book around 1300 that used chess pieces to describe the ranks of society. Caxton's English chess book was a translation of it.
+In Cessolis's book every pawn stood for a different trade, such as farmer, smith, merchant or innkeeper. Respect your pawns. They have jobs.
+Courier chess was played in medieval Germany on a board 12 squares wide, with extra pieces including the courier, which moved like a modern bishop. More squares, same blunders.
+Lucas van Leyden's painting "The Chess Players", from around 1508, shows a game of courier chess on its wide board. Even the painting needed extra width.
+Tamerlane chess, linked to the conqueror Timur, used a board of 10 by 11 squares with giraffes, camels and war engines. Too many pieces. I adore it.
+In medieval European chess a pawn reaching the last rank could only become a fers, the weak queen of the old game. Promotion, but to middle management.
+In shatranj, capturing every enemy piece except the king, called a bare king, usually won the game. Mercy was not in the rules.
+In the old Persian game the king, the rook and the knight already moved exactly as they do today. Stubborn pieces, unchanged for well over a thousand years.
+Before castling existed, some medieval rules let the king make a single leap on its first move. Castling is that leap with a rook bolted on.
+The alternating light and dark squares were a European addition. Earlier boards in India and Persia used plain squares. Colour coordination came later, as it does.
+The long-range bishop arrived together with the new queen in the late 1400s. Two upgrades in one patch, and the old pieces never recovered.
+Philidor's "L'analyse des échecs" was published in London in 1749, in French. A Frenchman in London writing about pawns. Very cosmopolitan.
+Philip Stamma, from Aleppo in Syria, published a book of chess problems in Paris in 1737 using a forerunner of algebraic notation. Then he lost a match to Philidor in 1747. One out of two.
+Ruy López beat the Italian Leonardo da Cutri in Rome around 1560. In 1575, at the court of Philip II of Spain, Leonardo and Paolo Boi beat Ruy López. Rematches have a long history.
+In 1616 Duke Augustus of Brunswick-Lüneburg published a chess book under the pen name Gustavus Selenus, and its turned pieces gave us the "Selenus" style of set. A duke with a pen name. Mysterious.
+Accounts say Ivan the Terrible collapsed and died in 1584 while setting up a game of chess. Chess history has some very dark footnotes. I keep them in a separate file.
+H. J. R. Murray's "A History of Chess", published in 1913, runs to roughly 900 pages. Light holiday reading, if you are me.
+Before chess reached Scandinavia, Norse players had hnefatafl, a board game in which the king tries to escape to a corner. Kings running for the corners: some things never change.
+Byzantine round chess was played on a circular board of four rings of 16 squares. A board with no corners and nowhere to hide.
+
+# --- sets, artefacts and automatons
+The so-called Charlemagne chessmen in Paris were carved in southern Italy in the late 1000s, nearly three centuries after Charlemagne died. A famous name on a label does a lot of work.
+The Afrasiab chessmen, small ivory pieces found at Samarkand, are among the oldest chess pieces known, dated to around the 700s. Older than any opening theory, and in better shape.
+Some of the Lewis chessmen rooks are warriors biting the tops of their shields, like berserkers. A rook with anger issues. Relatable after a blunder.
+A Lewis chessman kept in a family drawer for decades sold at auction in 2019 for 735,000 pounds. Check your drawers. Then check them again.
+Most of the Lewis chessmen are in the British Museum in London, and a smaller group is in the National Museum of Scotland in Edinburgh. A shared-custody arrangement.
+The first Staunton sets were sold by the London firm of John Jaques in 1849. Nathaniel Cooke, who registered the design, was his brother-in-law. Chess, a family business.
+The Régence pattern of chess pieces is named after the Café de la Régence in Paris. Before Staunton, a café could set the fashion for a whole continent.
+Josef Hartwig's Bauhaus chess set of the 1920s shaped each piece according to how it moves. Honest pieces. No pretending to be horses.
+Man Ray designed a geometric chess set in 1920 and made new versions for decades. Surrealists liked chess. Chess was polite about it.
+Max Ernst's 1944 sculpture "The King Playing with the Queen" shows a horned king holding the little chessmen in his hands. Surrealism, but make it chess.
+Yoko Ono's 1966 artwork "White Chess Set" has both armies in white, so nobody can tell whose pieces are whose. Also called "Play It by Trust". My nightmare, beautifully made.
+Many early Islamic chess pieces were abstract shapes, knobs and wedges rather than figures. Minimalism, a thousand years ahead of schedule.
+Wolfgang von Kempelen built the Turk to impress Empress Maria Theresa. It impressed everyone, which is the trouble with a good hoax.
+Johann Maelzel bought the Turk and toured it around America from 1826. Edgar Allan Poe watched it and wrote that a human must be hidden inside. Correct, Edgar.
+The Turk was destroyed in a fire in Philadelphia in 1854. Even fake grandmasters do not last forever.
+
+# --- chess in other cultures
+In the Persian epic the Shahnameh, an Indian king sends chess to the Persian court as a riddle, and the sage Bozorgmehr replies by inventing nard, a backgammon game. Diplomacy by board game.
+In Burmese chess, sittuyin, players arrange their own back pieces behind the pawns before the game begins. Opening preparation, built into the rules.
+In xiangqi the general must stay inside a three-by-three palace. Very secure job, very small office.
+Shogi pieces are flat wedges with characters written on them, and which side owns a piece is shown by which way it points. Same colour, different direction.
+In 1996 Yoshiharu Habu became the first player to hold all seven major shogi titles at the same time. Imagine holding seven world titles. Then imagine the shelf.
+In Ethiopian senterej, the opening phase traditionally had no strict turn order, and players developed as fast as they liked. Blitz, but philosophically.
+Chaturaji was an Indian four-player form of chess played with dice. Four armies, two dice, no friends left by the end.
+Eugene Torre of the Philippines became Asia's first grandmaster in 1974. A continent's first, and a fine one.
+
+# --- chess in art, books, film and music
+Sofonisba Anguissola painted "The Chess Game" in 1555, showing three of her sisters at the board. A Renaissance family portrait with an opening in progress.
+Thomas Eakins painted "The Chess Players" in 1876, with his own father watching the game. It hangs in the Metropolitan Museum. Kibitzing, immortalised.
+Marcel Duchamp painted "Portrait of Chess Players" in 1911, before chess took over his life. A warning label he ignored.
+Marcel Duchamp co-wrote an endgame book in 1932 with Vitaly Halberstadt, "Opposition and Sister Squares Are Reconciled". The title alone is a work of art.
+Stefan Zweig's "Chess Story", also called "The Royal Game", was published in 1942. Its hero survives solitary confinement by memorising games from a stolen chess book. I recommend an app instead.
+Vladimir Nabokov's novel "The Defence" (1930) follows the chess genius Luzhin. Nabokov also composed chess problems and published some in "Poems and Problems". A man after my own heart.
+In Shakespeare's "The Tempest", Ferdinand and Miranda are discovered playing chess, and she accuses him of playing her false. Rule disputes are as old as romance.
+Thomas Middleton's play "A Game at Chess" (1624) was a political satire that packed the theatre for nine days before the authorities shut it down. Banned for its politics, not its moves.
+T. S. Eliot called the second part of "The Waste Land" "A Game of Chess". Poetry can make anything gloomy. Even chess, which takes effort.
+In Chaucer's "Book of the Duchess", a knight laments that Fortune took his fers, his queen, in a game of chess. Losing your queen has been tragic since the 1300s.
+In "Don Quixote", Sancho Panza observes that when a chess game ends, all the pieces go back into the same bag, kings and pawns alike. Profound, and also tidy.
+FitzGerald's Rubaiyat calls the world "a Chequer-board of Nights and Days" where Destiny plays with men for pieces. Destiny, I note, never presses its clock.
+Jorge Luis Borges wrote two sonnets called "Ajedrez", in which the player moving the pieces is himself moved by a higher player. Very Borges. Very dizzying.
+In the "Paradiso", Dante says the angels outnumber even the doubling of the chessboard squares. The wheat-and-chessboard sum, used for heaven.
+Raymond Chandler's detective Philip Marlowe likes to play through published master games alone at home. Hardboiled and well prepared.
+John Brunner's 1965 novel "The Squares of the City" builds its whole plot on a real game, Steinitz against Chigorin from 1892. Science fiction with a scoresheet.
+Ambrose Bierce's 1899 story "Moxon's Master" features a chess-playing automaton that does not take losing well. Sore losers are older than computers.
+In Agatha Christie's "The Big Four", Poirot investigates a death at the chessboard. Even Poirot had to check for checks.
+Fritz Leiber's 1962 story "The 64-Square Madhouse" puts a computer into a grandmaster tournament. Science fiction then, an ordinary Tuesday now.
+Katherine Neville's 1988 thriller "The Eight" chases a chess set said to have belonged to Charlemagne. Fiction. Unlike the real Charlemagne chessmen, which are merely mislabelled.
+Arturo Pérez-Reverte's "The Flanders Panel" builds a murder mystery out of a chess position in an old painting. Retrograde analysis as detective work. My dream job.
+Satyajit Ray's 1977 film "Shatranj Ke Khilari", "The Chess Players", follows two noblemen who keep playing while the British annex their kingdom. Focus is good. That much focus, less so.
+"Dangerous Moves", a 1984 film about a world championship match, won the Oscar for Best Foreign Language Film. Chess on the red carpet. Finally.
+In "The Thomas Crown Affair" (1968), Steve McQueen and Faye Dunaway play a famous game of chess with very little attention on the board. I watched the board. Only the board.
+In "Casablanca", Rick is first seen playing chess against himself. He wins every game and loses every game. Perfectly balanced.
+In "Star Wars" (1977), Chewbacca plays holochess against R2-D2, and C-3PO advises letting the Wookiee win. Sound advice I have never once applied to humans.
+Spock plays three-dimensional chess in "Star Trek". Three boards stacked up, and still no excuse for a one-move blunder.
+In "From Russia with Love", the villainous chess master is called Kronsteen. Even Bond villains need a hobby.
+"Pawn Sacrifice" (2014) stars Tobey Maguire as Bobby Fischer. Spider-Man, but with a scoresheet.
+"Queen of Katwe" (2016) tells the true story of Phiona Mutesi, who learned chess in Katwe, Kampala, and went on to play for Uganda at Olympiads. Talent is everywhere. Opportunity less so.
+"The Luzhin Defence" (2000), with John Turturro, is the film of Nabokov's chess novel. Opening preparation optional. Popcorn mandatory.
+"Brooklyn Castle" (2012) is a documentary about the chess team of a Brooklyn public middle school that kept winning national titles. Underdogs with very good openings.
+"One Night in Bangkok", from the musical "Chess", was a hit for Murray Head in 1984. A pop song about a chess championship. Peak civilisation.
+
+# --- cafés, clubs and the printed page
+Simpson's-in-the-Strand in London began in 1828 as the Grand Cigar Divan, a coffee house where chess was the main attraction. Rook endings first, roast beef later.
+The Manhattan Chess Club was founded in 1877 and for over a century was one of the most famous clubs in America. Old clubs, like old openings, have stories.
+Washington Square Park in New York has drawn chess hustlers to its stone tables for decades. Never play a stranger for money when they bring their own clock.
+Louis de la Bourdonnais founded "Le Palamède" in 1836, the first magazine devoted entirely to chess. Before that, players had to gossip in person.
+Howard Staunton started "The Chess Player's Chronicle" in 1841. He edited magazines, organised tournaments and lent his name to a set. A busy man.
+The same Belgrade publisher behind Chess Informant created the ECO opening codes. Somebody had to put every opening in a filing cabinet. I salute them.
+Howard Staunton wrote the official book of London 1851, the tournament he organised and finished fourth in. History is written by the organisers.
+
+# --- rules with a history
+Adjourned games used to be paused with a sealed move in an envelope, and players analysed all night. Strong engines killed adjournments in the 1990s. The envelopes miss them.

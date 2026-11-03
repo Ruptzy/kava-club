@@ -1,0 +1,74 @@
+# Lenny's takes, fourth notebook: tournament life, the board itself, and more unsolicited wisdom.
+# Opinions and jokes only. Cheeky, never cruel, never about a real member.
+
+# --- tournament life
+A weekend Swiss is three days of chess and two nights of replaying the same rook ending on the ceiling.
+Round one of a Swiss is where favourites learn humility and underdogs learn hope.
+Checking the pairings sheet is the most nervous anyone ever looks at a piece of paper taped to a wall.
+Bring two pens to a tournament. The first one is for writing moves. The second is for when the first one betrays you.
+Your scoresheet is a legal document. Write like a lawyer, not like a doctor.
+Nothing is quieter than a tournament hall, and nothing is louder than a wrapper being opened in one.
+The last round of a tournament is where everyone discovers exactly how much they care about prize money.
+A bye in the last round is like leaving a party before the cake. Sensible, and slightly sad.
+Analysing in the skittles room is a time-honoured tradition. Analysing loudly next to a game in progress is not.
+If you finish a tournament with a plus score, you are a success. If you finish with stories, you are a regular.
+
+# --- the board, the box and the set-up
+Setting up the board wrong is the only blunder you can make before move one. Light square on the right. Queen on her colour.
+The king and queen swap places in about half of all beginner set-ups. The pieces have never complained. The opponents have.
+Every chess box has one pawn that rolls under the table at the start of the night. It is always the a-pawn. Nobody knows why.
+A missing piece replaced by a coin is a time-honoured club tradition. A coin promoted to queen is a sign of a long night.
+Weighted pieces feel like a decision. Light plastic pieces feel like a suggestion.
+A wobbly table is the only opponent that gets worse as the night goes on.
+Never put your cup on the edge of the board. The board has enough threats on it already.
+The best chess sets are the ones that have been played on. The scuffs are just annotations.
+Coordinates printed on the board are not cheating. They are subtitles.
+A board with the wrong number of squares is not a variant. Please return it.
+
+# --- habits worth breaking
+Moving a piece, letting go, and then saying "wait" is not a rule anywhere. It is a wish.
+Staring at the clock does not make it slower. I have tried. Science has tried.
+The phrase "it was a draw anyway" has never once been said by the player who was winning.
+Resigning by shaking hands is fine. Resigning by sweeping the pieces off the board is a different sport.
+Holding a piece in the air while you think is a cry for help. Put it down, or put it back.
+Asking your opponent "are you sure?" is not friendly. It is psychological warfare with a smile.
+If you blunder, sit with it for one move. Panicking costs a second piece.
+Repeating the same opening trap every week works until the week it doesn't, and then everyone knows.
+Do not narrate your own game out loud. Your opponent can hear the commentary.
+If you play the same move every time without knowing why, you are not loyal to it. You are stuck with it.
+
+# --- rapid and No Blunder November, part two
+Fifteen plus ten is rapid. So is ten plus five. Choose whichever gives you enough time to check for blunders, then actually check.
+There is no such thing as a meaningless daily game. There are only games you did not learn from yet.
+The best part of a daily challenge is day fifteen, when you realise you have stopped hanging pieces and nobody told you.
+If you are losing every daily game at midnight, the problem is not your opening. It is midnight.
+Sharing your games in the Discord means someone else gets to find your blunders. It is cheaper than a coach and kinder than an engine.
+A new peak rating is not luck. It is thirty boring blunder checks wearing a party hat.
+Lose a daily game, post it, learn one thing. That is a better day than winning one and learning nothing.
+If your game looks clean in the engine review, frame it. Then play another one tomorrow.
+A month without blunders is a myth. A month with fewer blunders is a plan.
+
+# --- the nerd, still at the desk
+My opening repertoire is colour-coded, cross-referenced and mostly unused.
+I tried to explain the Elo formula at a party once. The party had other plans.
+When the engine says +0.00, I hear applause.
+I have strong opinions about piece weight. I keep them to myself until someone asks. Someone always asks. Usually me.
+I don't have bad days. I have high-variance days.
+I like a quiet move the way other people like a quiet evening. Both are underrated.
+I read the FIDE Laws of Chess on holiday. The appendices were the best part.
+If you ever need a fun fact at short notice, I have about two thousand. You have been warned.
+
+# --- assorted wisdom, freshly filed
+Every won position has a trapdoor. Your job is to step around it, not to stand on it and admire the view.
+A piece trade is a handshake. Make sure you count your fingers afterwards.
+Your opponent's best move is the one you should look for first, not the one you hope they miss.
+An attack without enough pieces is a parade. Fun to watch, easy to stop.
+A position with no weaknesses is like a castle with no doors. Lovely to defend, impossible to leave.
+A good knight is worth a bad bishop. A good habit is worth a good knight.
+When you are completely lost, look for checks. Somewhere in there is a perpetual with your name on it.
+If the position is quiet, improve a piece. If it is loud, calculate. If it is on fire, check your king.
+Openings are learned, middlegames are understood and endgames are earned.
+Draws are the board's way of telling both players to come back next week.
+A strong move played with doubt is still a strong move. A weak move played with confidence is still weak. Check the board, not your mood.
+Every master has lost a game in fewer moves than you would believe. They just kept turning up afterwards.
+The pieces go back in the box at the end of the night, but the lessons go home with you.

@@ -1,0 +1,277 @@
+# Lenny's facts, fourth shelf: world champions and famous players, as combo lines.
+# Each line is one real, checkable fact followed by a short punchline in Lenny's voice.
+# Same rules as facts.txt: nothing about club members, and no fact repeated from the other shelves.
+
+# --- the 1800s
+Wilhelm Steinitz was nicknamed "the Austrian Morphy" early in his career. Being compared to someone more famous is how every career starts. Mine included.
+Steinitz beat Adolf Anderssen in a match in London in 1866. Beating the man who played the Immortal Game is the sort of thing I would mention at parties. Constantly.
+Wilhelm Steinitz is often called the father of positional chess. Before him, most masters attacked first and asked questions never.
+In the first official title match, in 1886, Zukertort won four of the first five games and Steinitz still won the match. Remember that the next time you resign on move twelve.
+The 1886 Steinitz-Zukertort match was played in New York, St. Louis and New Orleans. Even the first world championship was a road trip. I would have packed an endgame manual for each city.
+Steinitz became an American citizen and changed his first name from Wilhelm to William. I once tried changing mine to "Grandmaster". The paperwork was rejected.
+Steinitz beat Mikhail Chigorin in two world title matches in Havana, in 1889 and 1892. Two trips to Havana to defend a title. I go to Havana in my dreams and lose on time there too.
+Steinitz ran his own publication, the International Chess Magazine, in the 1880s. A world champion with a newsletter. I feel seen.
+Steinitz is credited with the idea that the best way to refute a sacrifice is to accept it. Easy to say when you are Steinitz. Less easy when it is your queen on the line.
+In the Steinitz Gambit of the Vienna Game, Black gives an early check and White's king simply walks up the board. Do not try this with your king. Your king is not Steinitz's king.
+Johannes Zukertort won London 1883 three points ahead of Steinitz. My biggest winning margins are measured in seconds on the clock.
+1.Nf3 is also known as the Zukertort Opening. Same move, two names. Chess has more aliases than a spy novel.
+Isidor Gunsberg, who later challenged Steinitz for the title, was once the hidden player inside the chess automaton Mephisto. There is always a person inside the machine. These days it is me.
+Joseph Henry Blackburne was nicknamed "the Black Death" for his attacking chess. My nickname at school was "the Footnote". It did not strike the same fear.
+Adolf Anderssen won Baden-Baden 1870 at the age of 52, ahead of Steinitz. Proof that you are never too old to annoy a future world champion.
+Adolf Anderssen began as a problem composer and published a book of chess problems in 1842. Even the Immortal Game started as homework.
+Lionel Kieseritzky, who lost the Immortal Game, also gave his name to the Kieseritzky Gambit. Lose the most famous game ever and still get an opening. There is hope for all of us.
+The loser of the Evergreen Game was Jean Dufresne. Every evergreen needs someone to water it.
+Paul Morphy won the First American Chess Congress in New York in 1857, at 20. At 20 I was still double-checking which way round the board goes. Light on the right, for the record.
+Paul Morphy crossed the Atlantic hoping for a match with Howard Staunton, and the match never happened. Some opponents are like that. They always have a prior engagement.
+Paul Morphy has been called "the pride and the sorrow of chess", the title of a 1976 biography. My biography will be called "Actually". It will have footnotes.
+Siegbert Tarrasch was a practising physician as well as a chess master. A real doctor. I am a doctor of nothing, but my prescriptions are excellent: more endgames.
+Tarrasch was nicknamed "Praeceptor Germaniae", the teacher of Germany. I would settle for "teacher of this Discord", engraved on a small plaque.
+Tarrasch is credited with the line "Before the endgame, the gods have placed the middlegame." And before the middlegame they placed the opening, which some of you skipped.
+The Chigorin Defence, 1.d4 d5 2.c4 Nc6, is named after Mikhail Chigorin, a founding figure of Russian chess. A knight in front of the c-pawn. Bold. I would have added a footnote.
+Frank Marshall published a book of his own escapes called "Marshall's Chess Swindles". Most people hide their swindles. He sold them in hardback.
+Frank Marshall held the US Championship from 1909 to 1936. Twenty-seven years, the same length as Lasker's world title reign. Coincidence. I checked anyway.
+
+# --- Emanuel Lasker
+Emanuel Lasker beat Frank Marshall for the world title in 1907 without losing a game. Marshall was famous for swindles. Lasker was famous for not being swindled.
+Lasker beat Siegbert Tarrasch for the world title in 1908, by eight wins to three. Two doctors at the board, and only one of them wrote the prescription.
+In 1910 Carl Schlechter drew a world title match with Lasker 5-5, so Lasker kept the crown. A tie keeps the champion. Draws have consequences, people.
+Lasker won St. Petersburg 1914 ahead of Capablanca and Alekhine. Two future world champions behind him. I once finished ahead of my own expectations. It was a low bar.
+Lasker won New York 1924 at the age of 55, with Capablanca second and Alekhine third, the same top three in the same order as St. Petersburg 1914. Some people really commit to a bit.
+Emanuel Lasker finished third at Moscow 1935 without losing a game, at the age of 66. At 66 I plan to be undefeated at crosswords. Ambition comes in sizes.
+Emanuel Lasker invented a board game of his own, called Lasca. World champion, mathematician, philosopher and game designer. Some of us struggle to finish one hobby.
+Lasker's book "Common Sense in Chess" was published in 1896. Common sense in chess is rarer than you would think. Look at your last blitz game.
+Lasker resigned the 1921 title match in Havana after 14 games. Knowing when to stop is a real skill. I am told I do not have it.
+
+# --- Capablanca
+Capablanca enrolled at Columbia University and soon spent more of his time at the Manhattan Chess Club than in class. Do not tell your professors. Actually, do. They might understand.
+Capablanca beat Frank Marshall in a 1909 match by eight wins to one, with 14 draws. One loss in 23 games. I lose more often than that to my own coffee table.
+Capablanca won San Sebastián 1911, his first major international tournament. First big invitation, first place. My first big invitation was to leave the room during a lecture.
+Capablanca was nicknamed "the Human Chess Machine". I am nicknamed "the Human Footnote". We both earned it.
+Capablanca proposed a bigger game on a 10 by 8 board with two new pieces, now called Capablanca Chess. Sixty-four squares were not enough for him. Most of us cannot handle sixty-four.
+Capablanca is credited with saying "I see only one move ahead, but it is always the correct one." I see several moves ahead. They are mostly wrong, in great detail.
+Capablanca's book "Chess Fundamentals" first came out in 1921. A century later it is still assigned reading, and still unread by the people who need it most.
+Capablanca won New York 1927, months before losing his title to Alekhine. Being in form guarantees nothing. Ask anyone who has ever said "I feel good about tonight."
+Capablanca beat the Cuban champion Juan Corzo in a match in 1901, when Capablanca was still a boy. At that age I was losing arguments with a calculator.
+Capablanca is credited with saying you can learn much more from a game you lose than from a game you win. By that measure, some of you are extremely well educated.
+The 1927 Capablanca-Alekhine match went to whoever first won six games, with draws not counting. Which is how a match ends up lasting more than two months. Pack a lunch.
+
+# --- Alekhine and Euwe
+Alexander Alekhine played 32 blindfold games at once in Chicago in 1933. Thirty-two games without looking. I struggle with one while looking very hard.
+Two rooks stacked behind the queen on a file are called "Alekhine's Gun", after his win over Nimzowitsch at San Remo 1930. A firing squad of heavy pieces. Rude, but effective.
+Alekhine won San Remo 1930 with 14 points out of 15. My best score out of 15 was a spelling test, and I appealed two of the answers.
+Alekhine beat Efim Bogoljubov in world title matches in 1929 and 1934. Two chances, the same answer twice. Some lessons need repeating. Ask my students.
+Alexander Alekhine was born in Moscow in 1892 and later became a French citizen. Two countries, one world title, zero patience for bad moves.
+Max Euwe won the 1935 world title match by a single point, 15.5 to 14.5. One point decided it. Every half point you give away matters. I am just saying.
+In 1929 Max Euwe used the Thue-Morse sequence to prove that an endless chess game was possible under the repetition rules of the time. Some of your games are still trying to prove it.
+Max Euwe finished last in the 1948 world championship match tournament. Last place in a field of world title contenders. I would still frame the certificate.
+Max Euwe later worked in computing and became a professor in the field. He saw the machines coming long before the rest of us started losing to our phones.
+Max Euwe is still the only Dutch world chess champion. One is a perfectly good number. There is only one of me and I have no complaints.
+
+# --- Botvinnik to Petrosian
+Mikhail Botvinnik was nicknamed "the Patriarch" of Soviet chess. If you have ever been told to prepare properly, somewhere a Patriarch is nodding.
+David Bronstein drew his 1951 title match with Botvinnik 12-12, and a drawn match meant the champion stayed champion. The scoreboard looked perfectly fair and still said no.
+Vasily Smyslov played Botvinnik in three world title matches in a row: 1954, 1957 and 1958. Three matches against the same person. I have friendships with less commitment.
+Smyslov won the Candidates tournaments of 1953 and 1956. Two in a row. Most people are relieved to survive one.
+When Petrosian beat Botvinnik in 1963 there was no rematch, because FIDE had abolished the champion's right to one. Botvinnik's rematch rights expired. So did my library card. Different stakes.
+Late in life Botvinnik worked on a chess program meant to think like a human master. Engineer, world champion and programmer. My CV says "fact checker" and has a typo.
+Mikhail Tal beat Botvinnik 12.5 to 8.5 to win the world title in 1960. The Magician made a world champion disappear. Temporarily.
+Mikhail Tal won all four of his games against Bobby Fischer at the 1959 Candidates tournament. Four out of four against Fischer. I would have it embroidered on a cushion.
+Mikhail Tal went 95 games without a loss in 1973 and 1974. The most daring attacker of his era also knew how not to lose. Write that down, sacrificers.
+Mikhail Tal won a world blitz championship in Saint John in 1988, at 51, ahead of Kasparov. Old magicians keep their best tricks for the speed rounds.
+Mikhail Tal is credited with saying there are two kinds of sacrifices: correct ones and his. Mine come in one kind: the kind I explain afterwards at length.
+Mikhail Tal studied literature at university in Riga. He wrote fiction on the chessboard and then studied it properly. I study footnotes, which is literature for the patient.
+Mikhail Tal won the Soviet Championship six times. Six national titles in the strongest chess country on earth. I have six library cards. Not the same.
+Nimzowitsch and Tal were both born in Riga. One wrote about restraint and blockades, the other set the board on fire. Riga clearly has range.
+Tigran Petrosian was famous for exchange sacrifices made purely for positional reasons. Giving up a rook for a minor piece with nothing attacked takes nerve. Or a misclick.
+Petrosian was hard of hearing and is said to have switched off his hearing aid during games. The original noise-cancelling headphones. I would like a pair for blitz tournaments.
+Petrosian's win over Spassky in 1966 was the first time a reigning champion had won a title match since Alekhine in 1934. Thirty-two years. Defending is hard. Ask your king.
+Tigran Petrosian earned a degree in philosophy, with a thesis on chess logic. Philosophy and Petrosian go together: both can spend hours deciding not to do anything rash.
+Petrosian ended Bobby Fischer's run of 20 straight wins in 1971, in game two of their Candidates final. Twenty wins, then somebody finally said no. Be the somebody.
+
+# --- Spassky and Fischer
+Boris Spassky won the World Junior Championship in 1955. Junior champion first, world champion later. There is a pipeline and it is called homework.
+Boris Spassky became a grandmaster in 1955 at 18, the youngest in the world at the time. At 18 I earned the title of assistant librarian. Same energy, fewer trophies.
+Spassky beat Fischer with the King's Gambit at Mar del Plata in 1960, and Fischer went home and wrote "A Bust to the King's Gambit". The healthiest way to handle a loss is to publish a refutation.
+Fischer beat Spassky 12.5 to 8.5 in Reykjavik in 1972. A four-point margin over the reigning champion. My biggest margin over anyone is in footnotes per paragraph.
+Boris Spassky moved to France in 1976 and later played for France at Chess Olympiads. A former world champion as your teammate. Imagine the team chat.
+Bobby Fischer learned chess at six, from the instructions in a set his sister bought at a candy store. Some of you learned from videos. Fischer learned from a sweet shop. No excuses.
+Bobby Fischer's peak rating was 2785, in 1972. People have argued ever since about how it compares with modern ratings. I will happily restart that argument. Pull up a chair.
+Fischer won the 1970 Interzonal in Palma de Mallorca by three and a half points. My largest winning margin is in "most facts recited". Nobody else entered.
+Fischer beat Tigran Petrosian 6.5 to 2.5 in the 1971 Candidates final. Iron Tigran, briefly rusted.
+In game 6 of the 1972 match, Fischer opened 1.c4, a move he had almost never played. A lifelong 1.e4 man switching on the biggest stage. Respect, and mild panic.
+Game 3 of the 1972 match was played in a small back room, away from the cameras Fischer objected to. It was his first ever win against Spassky. Sometimes you just need a quieter room.
+The 1972 prize fund was doubled to $250,000 when the British financier Jim Slater put up his own money. A man who paid for a chess match to happen. My kind of hero.
+Henry Kissinger telephoned Bobby Fischer in 1972 to urge him to play the match. My phone mostly rings with people asking me to stop explaining the Lucena position.
+Bobby Fischer was born in Chicago and grew up in Brooklyn. Two cities, one Fischer, and an argument about who gets to claim him.
+Fischer's "My 60 Memorable Games" was published in 1969. Sixty games, carefully annotated. I have annotated sixty of my losses, mostly with question marks.
+"Bobby Fischer Teaches Chess", from 1966, asks one question per page in a programmed-learning format. It became one of the best-selling chess books ever. Private lessons, paperback edition.
+Bobby Fischer qualified for the Candidates at 15, at the 1958 Interzonal in Portorož. Too young to drive, old enough to chase a world title. Priorities.
+In 1975 Fischer demanded the title match be played to ten wins with draws not counting. FIDE refused part of it and he never played. Ten wins? Some of my games are long enough already.
+Bobby Fischer was granted Icelandic citizenship in 2005. Iceland hosted his greatest match and then gave him a passport. My last tournament gave me a lanyard.
+Bent Larsen played top board for the Rest of the World against the USSR in 1970, with Fischer agreeing to play board two. Fischer on board two. History's most surprising seating plan.
+The USSR beat the Rest of the World 20.5 to 19.5 in 1970. Forty games, decided by one point. Every board counts. Yes, even yours.
+
+# --- Karpov and Kasparov
+Anatoly Karpov won the World Junior Championship in 1969. Six years later he was world champion. Show me your six-year plan. Mine is mostly footnotes.
+Anatoly Karpov is one of the best-known stamp collectors in the world. Chess and stamps: two hobbies where patience is mandatory and sudden movements are frowned upon.
+Karpov beat Viktor Korchnoi in Baguio in 1978 by six wins to five, in a 32-game match lasting three months. Three months for one point. I lose patience over a slow-loading puzzle.
+During the 1978 match, Korchnoi's team protested when Karpov was handed a blueberry yogurt during a game, in case it was a coded message. I have eyed yogurt with suspicion ever since.
+Karpov's team in 1978 included a parapsychologist, Vladimir Zukhar, and Korchnoi protested about his staring from the audience. Please do not stare at your opponent. It is not a strategy.
+Karpov beat Korchnoi again in Merano in 1981, this time by six wins to two. Rematches are rarely kinder than the original.
+Anatoly Karpov held the FIDE world title again from 1993 to 1999, while the title was split. Champion in two separate eras. Most of us manage one era of anything.
+Karpov won Linares 1994 with 11 out of 13, two and a half points clear of Kasparov. My best 11 out of 13 was a crossword, and two of the clues were contested.
+In the 1984-85 match, Karpov led 5-0 in a race to six wins and never got the sixth. The last win is the hardest. Anyone who has ever been winning knows this pain.
+Anatoly Karpov's style is often compared to a boa constrictor: slow, polite, and then nothing can move. I attempt this. I run out of time first.
+Garry Kasparov beat Karpov 13 to 11 in 1985 to take the world title. That made 72 title games between them before anyone actually won a match. Patience is a virtue. So is stamina.
+Kasparov kept his title in Seville in 1987 by winning the very last game to tie the match 12-12. A must-win under maximum pressure. Some of us crumble when our coffee goes cold.
+The 1990 Kasparov-Karpov title match was split between New York and Lyon. Two cities, one rivalry, and very little left to say to each other.
+Kasparov beat Nigel Short 12.5 to 7.5 in London in 1993. Short was the first English player to reach a world title match. England waited a long time, and then it was over quite quickly.
+Kasparov defended his title against Anand in 1995 on the 107th floor of the World Trade Center's South Tower. High-level chess, in the most literal sense available.
+Garry Kasparov was nicknamed "the Beast of Baku". I am "the Beast of the Bibliography". Less catchy. Equally feared at quiz night.
+Kasparov wrote a multi-volume series on the champions before him, called "My Great Predecessors". Thousands of pages of annotations. I felt a kinship. Then I felt tired.
+Garry Kasparov is credited with the line "Chess is mental torture." And yet here we all are, voluntarily, week after week.
+In 2003 Kasparov drew a six-game match against the program Deep Junior, 3-3. A draw with a machine. I draw with my toaster most mornings, if you count burnt toast as a draw.
+
+# --- Kramnik and the split title
+Kramnik kept his title against Péter Leko in 2004 by winning the final game to tie the match 7-7. A must-win last game, won. Seville 1987 would like its plot back.
+Vladimir Kramnik retired from professional classical chess in January 2019. In chess a retirement announcement is like a draw offer. You never quite trust it.
+In 2020 Kramnik worked with DeepMind researchers using AlphaZero to test chess variants, such as chess without castling. A world champion asking a machine to break chess on purpose. I approve.
+Veselin Topalov won the 2005 FIDE world championship tournament in San Luis, scoring 6.5 out of 7 in the first half. Some people peak at exactly the right moment. I peak at trivia.
+The "Sofia rules", first used at a tournament in Sofia in 2005, stop players agreeing draws between themselves. Someone finally made draws ask permission.
+Ruslan Ponomariov won the FIDE knockout world championship in 2002, at 18. Teenage world champion, knockout edition. At 18 I was knocked out by a calculus exam.
+Alexander Khalifman won the FIDE knockout world championship in Las Vegas in 1999. A world title won in Las Vegas. For once the house did not win.
+Rustam Kasimdzhanov of Uzbekistan won the FIDE knockout world championship in Tripoli in 2004. Knockouts produce surprises. That is the whole point of knockouts, and of my facts.
+Botvinnik's win over Capablanca at AVRO 1938 is one of the most celebrated games of its era. A future champion beating a former one. The changing of the guard, with a combination.
+
+# --- Anand
+Viswanathan Anand won the World Junior Championship in 1987. The junior title, and then the grown-up ones. Collect the whole set.
+Anand is the only player to have won the world title in knockout, tournament and match formats. One world title in one format is plenty for most people. He wanted the whole menu.
+In 2010 a volcanic ash cloud grounded Anand's flight, so he travelled to his title match in Sofia by road, about 40 hours. I complain about a twenty-minute drive and parking.
+Anand won the World Rapid Championship in 2017, at 48. Rapid is supposedly a young person's game. Nobody told Anand, and I am not going to.
+Viswanathan Anand was nicknamed "the Tiger of Madras". The city changed its name to Chennai. The nickname stayed.
+Viswanathan Anand learned chess from his mother. Thank your first teacher. Mine was a library book with a broken spine and a missing page 47.
+Viswanathan Anand became deputy president of FIDE in 2022. From the board to the boardroom. I would accept any committee, honestly.
+Anand's chess academy has mentored several of India's top young players, including Gukesh and Praggnanandhaa. Teaching your successors. Generous, and slightly dangerous.
+
+# --- Carlsen
+Magnus Carlsen was born in Tønsberg, Norway, in 1990. Long Norwegian winters are excellent for studying endgames. I assume that is the secret.
+At 13, Magnus Carlsen drew a rapid game against Garry Kasparov in Reykjavik in 2004. At 13 I drew a picture of a knight. It looked like a seahorse.
+Magnus Carlsen modelled for G-Star Raw alongside the actor Liv Tyler in 2010. Chess players can be models. I have modelled correct posture at the board, unpaid.
+In 2014 Magnus Carlsen held the world classical, rapid and blitz titles at the same time. The triple crown. I hold the triple crown of facts, footnotes and unsolicited advice.
+In December 2019 Magnus Carlsen briefly ranked first in the world at Fantasy Premier League, out of about seven million players. Some of you cannot pick an opening.
+Magnus Carlsen has won the Tata Steel tournament in Wijk aan Zee a record eight times. Some people collect stamps. He collects trophies from a seaside village in January.
+Magnus Carlsen has been called "the Mozart of chess". I have been called "the Wikipedia of the Discord". Not quite the same ring to it.
+Carlsen clinched the 2016 title tiebreak with a queen sacrifice, Qh6+, on his 26th birthday. Most people get cake. He got a mating pattern.
+Carlsen beat Ian Nepomniachtchi 7.5 to 3.5 in Dubai in 2021. The match was scheduled for 14 games and needed only 11. My facts, by contrast, always run long.
+Carlsen first won the world title in 2013, a week before his 23rd birthday. An early birthday present to himself. I gave myself socks.
+Carlsen beat Anand again in 2014, in Sochi. Same players, same result. In science we call that a replicated finding.
+At the 2024 World Rapid in New York, Magnus Carlsen was fined for wearing jeans and left the event. A world champion versus a dress code. For the record, I wear a tie to blitz.
+Carlsen and Ian Nepomniachtchi agreed to share the 2024 World Blitz title after a long run of drawn tiebreak games. Sharing is caring, apparently, even at three minutes a side.
+
+# --- Ding and Gukesh
+Ding Liren went 100 classical games without a loss in 2017 and 2018. A hundred games unbeaten. I cannot go a hundred minutes without an inaccuracy.
+Ding Liren won the Chinese Championship in 2009, at 16. At 16 I was champion of nothing, but my pencil case was immaculately organised.
+Ding Liren's 2023 title match against Nepomniachtchi was played in Astana, Kazakhstan. Two challengers, no defending champion, and one very neutral venue.
+Gukesh Dommaraju passed Viswanathan Anand as India's top-rated player in 2023, ending a run of more than three decades. The quietest changing of the guard: a rating list.
+Gukesh clinched the 2024 world title by winning the 14th and final classical game. Avoiding tiebreaks was very considerate. Everyone got to bed on time.
+Before his title run, Gukesh worked with the mental conditioning coach Paddy Upton, known for his work with India's cricket team. Chess and cricket: both have long pauses and tea.
+Gukesh won the individual gold medal on board one at the 2024 Chess Olympiad in Budapest. Some people warm up for a world title match with puzzles. He warmed up with gold.
+Gukesh is the 18th undisputed world champion, counting from Steinitz. Eighteen members in 138 years. The most exclusive club in chess, and the entry fee is brutal.
+
+# --- women's champions
+Vera Menchik won the first women's world championship, a tournament held alongside the 1927 Olympiad in London. The first ever champion. No pressure. Just history watching.
+The women's Chess Olympiad trophy is the Vera Menchik Cup. Having a trophy named after you is the chess version of a statue, with fewer pigeons.
+The open Chess Olympiad trophy is the Hamilton-Russell Cup, donated by Frederick Hamilton-Russell. Donate a trophy and get your name on it forever. I am saving up.
+Elisaveta Bykova won the women's world championship twice, in 1953 and 1958. Losing a title and taking it back is a rare skill. Most of us cannot even take back a move.
+Olga Rubtsova won the women's world title in 1956, in a three-player event against Bykova and Rudenko. Three world champions at one small table. Crowded podium.
+Nona Gaprindashvili shared first place at Lone Pine 1977, a strong open event full of male grandmasters. She was making the point decades before anyone wrote a television show about it.
+In 2021 Nona Gaprindashvili sued Netflix over a line in "The Queen's Gambit" saying she had never faced men. The case was settled in 2022. Fact-checking matters. I have been saying so for years.
+Maia Chiburdanidze held the women's world title from 1978 to 1991. Thirteen years at the top. My longest streak is thirteen days of puzzles, and I counted every one.
+Maia Chiburdanidze became the second woman awarded the grandmaster title, in 1984. Second is a lonely number in chess. Ask Paul Keres.
+Xie Jun became the first Chinese women's world champion in 1991, beating Chiburdanidze. China has produced several more women's champions since. She opened the door.
+Susan Polgár is credited as the first woman to earn the grandmaster title the regular way, through norms and rating, in 1991. The regular way. Like taking the stairs to the top floor.
+Hungary won the 1988 women's Olympiad with all three Polgár sisters on the team, ahead of the Soviet Union. A family business with a gold medal. My family business is unsolicited advice.
+László Polgár compiled a puzzle book of 5,334 problems, combinations and games. Some of you have done thirty puzzles and called it a training regime.
+Sofia Polgár, the middle sister, became an International Master. In that family an IM title counts as the quiet option.
+Judit Polgár beat Boris Spassky in a match in Budapest in 1993, at 16. A former world champion against a teenager, and the teenager won. Do not underestimate the young ones.
+Judit Polgár was the world's top-rated woman for about 25 years, starting in 1989 when she was 12. At 12 I was the top-rated reader at my library. Nobody else was competing.
+Hou Yifan became a grandmaster in 2008 at 14, then the youngest woman ever to earn the title. At 14 I earned a merit badge in knot-tying. It is not a norm.
+Hou Yifan became a Rhodes Scholar at Oxford in 2018. Women's world champion and Rhodes Scholar. I once got a library card with my middle name spelt correctly.
+Hou Yifan became a professor at Shenzhen University. From world champion to professor. My dream career path, minus the world champion part.
+At Gibraltar in 2017, Hou Yifan resigned after five moves in protest at being paired against women in most of her rounds. Five moves, one clear message. Brevity is underrated.
+Xu Yuhua won the 2006 women's world championship while pregnant. Two of them at the board, and only one was allowed to touch the pieces.
+Antoaneta Stefanova became women's world champion in 2004, the first Bulgarian to hold the title. Bulgarian chess had quite a decade.
+Anna and Mariya Muzychuk are sisters and both grandmasters, and Mariya won the women's world title in 2015. Some siblings fight over the remote. These two fight over the e-file.
+Humpy Koneru became a grandmaster in 2002 at 15, beating Judit Polgár's record as the youngest woman by about three months. Records are broken by inches. Or months.
+Humpy Koneru won the women's World Rapid Championship in 2019 and again in 2024. Five years apart, same result. Consistency is the most boring superpower and the most useful.
+Ju Wenjun has won the women's world championship several times since 2018. Repeat champion. Some of us cannot repeat a good opening twice in one night.
+In 2025 Divya Deshmukh, aged 19, won the Women's World Cup, beating Humpy Koneru in the final and earning the grandmaster title. Arrived as a contender, left as a grandmaster.
+
+# --- the greats who never wore the crown
+Akiba Rubinstein won five major tournaments in 1912 alone. Five in one year. I did five puzzles in one day and needed a lie down.
+A world title match between Rubinstein and Lasker was being arranged for 1914 and never happened, because of the First World War. Most of my plans are interrupted by snacks. History had bigger reasons.
+There are Rubinstein Variations in both the French Defence and the Nimzo-Indian. Some players get one opening line named after them. Rubinstein got a collection.
+Rubinstein played top board for Poland when it won the 1930 Olympiad in Hamburg. Poland's gold, Rubinstein's board. Best seat in the house.
+Aron Nimzowitsch's "My System" was first published in 1925 and is still in print. A hundred-year-old book with stronger opinions than most comment sections.
+Nimzowitsch won Carlsbad 1929 ahead of Capablanca. The prophet of prevention prevented a world champion from winning. Very on brand.
+Nimzowitsch's win over Sämisch at Copenhagen 1923 is known as the "Immortal Zugzwang Game". White resigned with plenty of pieces and not one good move. I know that feeling. It is called Tuesday.
+Richard Réti played 29 blindfold games at once in São Paulo in 1925, a world record at the time. Records are rentals. Someone always wants the flat after you.
+Richard Réti wrote "Modern Ideas in Chess", a key book of the hypermodern movement. A manifesto with diagrams. My favourite genre.
+Paul Keres finished second in four Candidates tournaments in a row, from 1953 to 1962, and was called "the eternal second". Silver is a fine colour. Ask any rook ending.
+Paul Keres was pictured on Estonia's five kroon banknote. Most chess players' faces end up on profile pictures, not currency.
+Paul Keres won AVRO 1938 on tiebreak, sharing first with Reuben Fine, ahead of the strongest field of the era. Tiebreaks: the polite way of saying "we had to do maths".
+Paul Keres beat nine different world champions during his career. Nine. I have corrected nine different crossword editors, and I am almost as proud.
+Paul Keres won his last tournament, Vancouver 1975. Going out with a first place. Most of us go out with a blunder and a long walk to the car.
+David Bronstein's book on the Zurich 1953 Candidates tournament is still read as a classic. A tournament book people read for fun. Imagine. I can, every night.
+The "Bronstein delay" timing method is named after David Bronstein, who is credited with inventing it. The clock waits a few seconds before it starts counting. So do I, before I correct you.
+Viktor Korchnoi defected from the Soviet Union in 1976, after a tournament in Amsterdam. Some players leave a tournament with a trophy. He left with a new life.
+From 1985 Viktor Korchnoi played a correspondence game against a medium who claimed to channel the late Géza Maróczy. Korchnoi won. Even the afterlife could not hold a draw against him.
+Viktor Korchnoi was nicknamed "Viktor the Terrible". My nickname is "Lenny the Thorough". Fewer people run away. More people sigh.
+Viktor Korchnoi won the Soviet Championship four times. Four national titles in the hardest chess country in the world. I have four bookshelves. They are full.
+Viktor Korchnoi won the World Senior Championship in 2006, at 75. Most people slow down at 75. He just kept calculating.
+Bent Larsen became Denmark's first grandmaster in 1956. Somebody always has to go first. Usually the brave one. Occasionally the stubborn one. Often both.
+Mir Sultan Khan won the British Championship three times, in 1929, 1932 and 1933. Three national titles in a country that was not his own. Some people adapt quickly.
+Mir Sultan Khan beat Capablanca at Hastings 1930-31, having learned the game under Indian rules. Different rules, same result: a former world champion in trouble.
+Samuel Reshevsky toured the United States giving simultaneous exhibitions at the age of eight. At eight I gave lectures on dinosaurs. Nobody paid.
+Samuel Reshevsky worked as an accountant. Chess and accounting both reward people who count carefully. I respect this enormously.
+Reuben Fine, one of the strongest players of the 1930s, became a psychologist and wrote "The Psychology of the Chess Player". He studied chess players' minds for a living. Brave man.
+Edward Lasker, an engineer and chess master, invented a breast pump. Not every chess player's invention is an opening. Some are genuinely useful.
+Richard Teichmann was nicknamed "Richard the Fifth" because he so often finished fifth. Fifth is respectable. I just would not want it printed on a mug.
+Géza Maróczy gives his name to the Maróczy Bind, White pawns on c4 and e4 against the Sicilian. A bind slowly squeezes the life out of a position. Like my explanations.
+Botvinnik and Capablanca shared first place at Nottingham 1936, ahead of Lasker, Euwe and Alekhine. Five world champions in one tournament. That room was full of crowns.
+Savielly Tartakower served with the Free French in the Second World War under the name "Lieutenant Cartier". A grandmaster with a code name. Mine is Lenny. It is not very secret.
+Tartakower is credited with saying an isolated pawn spreads gloom all over the chessboard. He was right. Look at your d4 pawn. It is sad.
+Alexander Kotov's book "Think Like a Grandmaster" introduced the idea of a "tree of analysis". Many readers came away thinking like a confused lumberjack.
+Lajos Portisch was nicknamed "the Hungarian Botvinnik". Being named after another champion is a compliment and a burden. Ask the Austrian Morphy.
+Jan Timman was known as "the Best of the West" in the 1980s, meaning the best outside the Soviet Union. A title with a geography clause.
+Vasyl Ivanchuk won the World Rapid Championship in 2016, at 47. Proof that speed and experience can share a chair.
+Sergey Karjakin was nicknamed "the Minister of Defence" for how hard he was to beat. My defence is less ministerial. More like a sternly worded letter.
+Levon Aronian led Armenia to Chess Olympiad gold in 2006, 2008 and 2012. A country of about three million winning three times. Impressive per capita, and per capita is my favourite unit.
+Yuri Averbakh, the great endgame theorist, lived to 100. Endgame study as a route to long life. Not scientifically proven. Do not cite me.
+
+# --- the modern elite
+Fabiano Caruana was born in Miami, switched from the US federation to Italy, and later switched back. Moving federations twice is like moving house twice. Exhausting, but the view improved.
+Fabiano Caruana won the 2018 Candidates tournament in Berlin to earn a world title match. Earning a title shot is hard. Earning it in Berlin in March is cold, too.
+Hikaru Nakamura was born in Japan and moved to the United States at the age of two. Two years old and already making the big moves.
+Hikaru Nakamura's stepfather, Sunil Weeramantry, is a FIDE Master and chess educator. A chess coach at the dinner table. Imagine the post-mortems over breakfast.
+Wesley So won the first official Fischer Random world championship in 2019, beating Magnus Carlsen in the final. Shuffle the pieces and the champion still has to beat the champion.
+Anish Giri became a grandmaster in 2009 at 14, the youngest in the world at the time. At 14 some of you could not find both shoes.
+Anish Giri won the Tata Steel tournament in 2023. Winning Wijk aan Zee is a career highlight. Winning it as a Dutch player is a career highlight with home cooking.
+Alireza Firouzja won the Iranian Championship in 2015, at 12. A national champion at 12. At 12 I was the national champion of reading the instructions.
+Alireza Firouzja won the FIDE Grand Swiss in 2021, in a field of more than a hundred players. That is a lot of handshakes before the trophy.
+Praggnanandhaa became the youngest International Master in history in 2016, at 10. My first title, also at 10, was "Most Questions Asked". It was not FIDE-rated.
+Praggnanandhaa reached the final of the 2023 World Cup at 18, where he lost to Magnus Carlsen. Losing a final to Carlsen is like losing a staring contest to the sun.
+Praggnanandhaa and his sister Vaishali became the first brother and sister both to hold the grandmaster title, in 2023. Family game night at their house must be terrifying.
+Praggnanandhaa won the 2025 Tata Steel tournament after beating Gukesh in a tiebreak. Beating the reigning world champion to lift the trophy. Efficient.
+In 2022 a 16-year-old Praggnanandhaa beat Magnus Carlsen in an online rapid event. Teenagers unsettling world champions is one of chess's oldest traditions.
+In 2024 Arjun Erigaisi became only the second Indian, after Anand, to pass a 2800 rating. Very few people get there. I have reached 2800 words in a single footnote.
+Nodirbek Abdusattorov won the World Rapid Championship in 2021, at 17. At 17 I was world champion of nothing, but I already had opinions.
+Uzbekistan won the open section of the 2022 Chess Olympiad in Chennai. A young team, a gold medal and a room full of surprised favourites.
+Nodirbek Abdusattorov became a grandmaster at 13. Thirteen. I was thirteen and still arguing that the knight should be called the horsey in official notation.
+Ian Nepomniachtchi won the Candidates tournament in both 2021 and 2022. Two in a row. Most of us cannot win two blitz games in a row.
+Maxime Vachier-Lagrave won the World Blitz Championship in 2021. France's fastest export since the TGV.
+
+# --- credited quotes
+Emanuel Lasker is credited with the line "On the chessboard, lies and hypocrisy do not survive long." This is why I never bluff. Also why I am never invited to poker.
+Max Euwe is credited with saying "Strategy requires thought, tactics require observation." Most of us are short of one or the other on any given night. Which one is yours?
+Bobby Fischer is credited with the line "Chess is life." Some days it feels the other way round: life is chess, and I am in zugzwang.

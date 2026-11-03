@@ -1,0 +1,36 @@
+# Lenny's facts, seventh shelf: tournament life, first moves and odd corners, as combo lines.
+# Same rules as facts.txt: real and checkable, nothing about club members.
+
+# --- tournament life
+A quad is a four-player section where everyone plays everyone: three games, no byes and nowhere to hide.
+In a Swiss, the top half of each score group is paired against the bottom half. So round one is the top seed against the middle of the field, not the bottom. Brace yourself.
+In a Swiss, an odd player out gets a full-point bye. A bye you ask for usually scores half. Neither one comes with a handshake.
+Swiss pairings try to alternate your colours from round to round. Three Blacks in a row means something went wrong, and it was probably the maths.
+US Chess certifies tournament directors at levels from Club TD up to National TD. Yes, there are exams. Yes, I have opinions on them.
+The US Open was first held in 1900, as the Western Chess Association championship. It has been running for well over a century. So has my grudge against the London System.
+The World Open in Philadelphia was first held in 1973. It has since spent half a century separating people from their sleep.
+The green and white vinyl roll-up board is the unofficial uniform of American weekend tournaments. Fold it wrong and it remembers forever.
+Many tournament scoresheets come with a carbon copy, so the organiser and the player each keep one. Your blunders, in duplicate.
+A good Staunton set often comes with two extra queens, because promotion happens. Optimism, included in the box.
+The knight is traditionally the hardest piece to carve. That is why cheap sets have such sad horses.
+"Mate in two" in a chess problem counts White's moves only. Black's moves are not counted, which is exactly how Black feels about it.
+In chess problem diagrams, White plays up the board unless the problem says otherwise. Everyone agrees on this. It is the only thing problemists agree on.
+A "twin" in chess problems is a second version of the same problem with one small change. The sequel nobody asked for, but it is usually better.
+The Carlsen-Karjakin title match of 2016 was played in New York, the first world championship match in the city since 1995. New York, where even the pawns walk fast.
+The Halloween Gambit's older and less spooky name is the Müller-Schulze Gambit. Same knight sacrifice, less costume.
+
+# --- every first move has a name
+1.e4 e5 2.Qh5 is called the Parham Attack, or the Wayward Queen Attack. The second name is a review.
+1.f3 is called the Barnes Opening, after the same Thomas Barnes as the Barnes Defence. One man, two insults to the f-pawn.
+1.e3 is the Van 't Kruijs Opening, 1.d3 is the Mieses and 1.c3 is the Saragossa. Twenty first moves, and every one has a name tag.
+1.g3 is sometimes called the Benko Opening, after Pal Benko. He has a gambit too. Some people collect stamps.
+1.Nc3 is called the Van Geet Opening, or the Dunst. Two names for a knight that just wanted to go to c3.
+1.h3 is called the Clemenz Opening, after Hermann Clemenz. I could list names all night. I am told I should not.
+
+# --- odd corners and numbers
+A queen is worth about 9 points and two rooks about 10. In practice the rooks want to work as a team and the queen wants to give checks. Both are correct, about half the time.
+Castling queenside moves the king two squares and the rook three. The rook does most of the walking, as usual.
+The Ruy López is named after the 1561 book, but the opening already appears in the Göttingen manuscript from around 1500. Even Ruy López got scooped.
+"En prise" is pronounced roughly "on preez". You will now hear everyone at the club say it wrong, including, possibly, me.
+The Elo system treats a draw as exactly half a win, whatever happened on the board. A draw with three pieces hanging and a draw by fortress cost the same.
+Opposite-coloured bishops cannot even attack each other. They spend the whole game on separate dance floors.

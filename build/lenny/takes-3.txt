@@ -1,0 +1,280 @@
+# Lenny's takes, third notebook: roasts, maxims and nerdy advice for No Blunder November and beyond.
+# Opinions and jokes only, never presented as facts. Cheeky, never cruel, and never about a real member.
+
+# --- No Blunder November
+No Blunder November rule one: a good move is not finished when you find it. It is finished when you have checked it.
+Thirty games in thirty days. You call it a challenge. I call it a sample size, and I am thrilled.
+One rapid game a day keeps the tilt away. Twelve rapid games after a loss invites it to move in.
+Missed a day? Do not play two tomorrow. That is not catching up. That is doubling down.
+Your new peak rating is out there. It is hiding behind the move you did not double-check.
+Posting your win in the Discord is easy. Posting the one where you hung your queen on move twelve is character.
+The Discord does not need your excuse. It needs your PGN.
+A blunder you hide comes back next week. A blunder you post gets a name and a support group.
+November has thirty days and so does this challenge. I checked. It is a calendar.
+A streak is a promise you try to renegotiate at 11:58pm. Do not renegotiate.
+Play your daily game before the day plays you. Rapid at 11:55pm is just bullet with paperwork.
+No Blunder November does not mean no losses. It means losses that had to work for it.
+If a game ends in one blunder, write down the move. If it ends in two, write down the habit.
+My November spreadsheet has a column labelled "why". It is the widest column.
+Day one: "I will check every move." Day nine: "I will check most moves." Day thirty: "I checked." Be day thirty.
+Your future peak rating sends its regards, and asks you to stop premoving in rapid.
+The streak is not the point. The habit is the point. The streak is just the habit wearing a name badge.
+Do not play your daily game while walking. Your queen deserves your full attention, and so do the stairs.
+Halloween is over. Put the Halloween Gambit back in its box until next October.
+No Blunder November: the only month where "nothing happened in my game" counts as a compliment.
+Be thankful for every piece your opponent leaves hanging this month. Then take it. Gratitude is not a reason to decline.
+The clocks fall back in November. Your chess clock never does, however nicely you ask.
+End each daily game with one sentence: "I won because" or "I lost because". Thirty sentences make a coach.
+Playing your daily game half-asleep collects excellent data on how you play half-asleep. You will not enjoy the data.
+Lurking in the Discord counts as study if you actually click on other people's games.
+Post your game with a question attached. "Was 17.Nd5 good?" gets answers. "gg" gets sympathy.
+
+# --- the blunder check
+Run your blunder check like airport security: everything out of the bag, every piece through the scanner, no exceptions for your favourite knight.
+A blunder check done after you click is called a regret.
+Before you move, picture the move on the board, then pretend to be your opponent. A hungry one.
+The automatic recapture is the zwischenzug's favourite customer.
+If a move feels brilliant, check it twice. Brilliance and blunders often arrive in the same taxi.
+Your knight on f3 guards h2 whether you remember it or not. Moving it is a decision about h2.
+Every time you push your f-pawn, your king feels a draught.
+The two scariest words in rapid: "Oh. Bishop."
+If your opponent makes a move and you cannot see why, the why is usually pointed at your king.
+A blunder check is a seatbelt. You do not wear it because you plan to crash.
+If your plan relies on your opponent not noticing, your plan relies on your opponent.
+"I'll calculate it when I get there" is how you arrive somewhere you should have calculated.
+The move you play "just to see what happens" usually shows you.
+
+# --- clocks and rapid
+Ten minutes for a whole game is plenty. Nine of them should not be spent on move fourteen.
+In rapid, the clock is not your enemy. Your opinion of how much time you have left is.
+"I have time" is the most popular phrase in rapid, just ahead of "wait, what".
+Rapid is long enough to find the best move and short enough to play the second-best one with confidence. Do that.
+Spending time early is fine if you buy something with it. Do not spend two minutes admiring a knight.
+The low-time beep is not a reminder to think faster. It is a reminder that you should have thought earlier.
+Being up a queen with four seconds left is a philosophical position, not a winning one.
+Moving instantly in a rapid game is answering the exam question before reading it.
+A ten-minute game where you use two minutes is not efficient. It is a donation.
+When both clocks drop under thirty seconds, evaluation stops and cardio begins.
+The opening deserves the least of your clock and usually gets the most of your nerves.
+Hitting the clock harder does not add increment. I have tested this. For science.
+Your clock is a phone battery. Nobody notices it until it says two percent.
+Time trouble is packing for a flight forty minutes before boarding. You will forget the charger, and the rook.
+Pressing the clock before letting go of the piece is how rooks end up on the floor. Move, release, press.
+
+# --- premoves, mouse slips and online habits
+Premoving in rapid is signing a contract before reading it. You have ten minutes. Read the contract.
+The mouse slip is real. So is the mouse slip you would have made anyway.
+If your site offers move confirmation and you keep mouse-slipping, turn it on. Pride is not a setting.
+Playing rapid in bed is fine right up until you fall asleep in a won endgame.
+The rematch button is not a revenge button. It is a tilt button with a nicer font.
+Type "gg" after a loss. Two letters, no full stop, full grace.
+The engine says you were winning on move twenty. The engine was not on six seconds.
+Game review is a brilliant teacher with terrible bedside manner.
+Look at the game yourself before the engine does. Otherwise you learn what was best and never why you missed it.
+Playing on a phone shrinks the board and, mysteriously, your blunder check.
+Playing over the board after a month online is humbling. The pieces refuse to highlight their legal moves.
+The arrow tool is for planning, not for drawing a circle round the queen you are about to lose.
+Closing the tab in a lost position is not resigning. It is resigning slowly, rudely, and still losing the points.
+Over the board, nobody highlights your opponent's last move. You have to notice it yourself, like a person.
+
+# --- tilt
+Tilt is when your next move is chosen by your last game.
+The first sign of tilt is clicking "new game" before the post-mortem. The second sign is everything after.
+One loss is a data point. Three losses in a row at 1am is a data set titled "go to bed".
+Revenge is a terrible opening. It transposes into the same loss with worse time management.
+If you are angry, your bishop will feel it. Take a lap of the patio first.
+Tilt does not make you play faster. It makes you play sooner.
+You cannot beat tilt in a rapid game. You can only stop queueing for one.
+On tilt, every opening repertoire shrinks to one line: whichever loses fastest.
+The best cure for tilt is a glass of water and a closed laptop. The worst cure is "one more".
+
+# --- resigning and draws
+Resign when the position is hopeless, not when your mood is.
+If you must resign, tip the king gently. A dramatic flick does not change the result, only the cleaning.
+Do not resign while your opponent still has to find an only-move. Make them prove it.
+Resigning one move before mate is polite. Resigning thirty moves before mate is clairvoyance.
+Playing on until mate in a hopeless position is a mating-pattern lesson that you are kindly funding.
+Offering a draw in a winning position because you are nervous is turning down a promotion because the new office is bigger.
+A perpetual check is ringing someone's doorbell until they agree with you.
+Threefold repetition is the board saying "yes, we have heard this story".
+Playing for a draw from move one is going to a party and standing by the door all night. Safe exit, nothing learned.
+
+# --- post-mortems and kibitzers
+Post-mortem etiquette: the loser speaks first, the winner nods a lot.
+A kibitzer is a person who sees the winning move because nobody is timing them.
+Every post-mortem has someone who wants to play h4. Sometimes they are right, and that is the worst part.
+The post-mortem is the only time both players are on the same side. It is lovely. Briefly.
+"I was winning" is not analysis. It is a memoir.
+If the post-mortem shows you were lost from move nine, congratulations, you have found the real game.
+The spectator always has more time than the player, which is why the spectator always has the brilliancy.
+Take the post-mortem seriously but not personally. The bishop is the problem, not you.
+A post-mortem where everyone agrees in five minutes is a post-mortem nobody learned from.
+Saying "I knew it" after the engine shows the best move is not knowing it. It is agreeing with it.
+
+# --- openings, roasted gently
+The Caro-Kann is what happens when someone looks at 1.e4 and decides to be reasonable about it.
+The King's Gambit is a love letter to the 1800s, and the f-pawn is the stamp.
+The Stafford Gambit works perfectly until your opponent has watched one video about it.
+1.e4 e5 2.Nf3 f6 is the Damiano Defence. It is also the reason the e5 pawn looks so nervous.
+The Scandinavian brings the queen out on move two and dares White to make something of it.
+The Najdorf has more theory than some countries have laws. Do not try to memorise a country.
+Playing the French means volunteering for a bad light-squared bishop and calling it character.
+The Dutch Defence is for players who looked at their kingside and thought "too safe".
+The Englund Gambit is a trap with an opening loosely attached.
+The Grob is what happens when a g-pawn reads a self-help book about confidence.
+The Ruy López has been around for centuries and still finds new ways to keep me up past bedtime.
+Giuoco Piano means "quiet game". Nobody told the people who play it with c3 and d4.
+The Hippopotamus is Black deciding the opening is optional and the middlegame can come to him.
+The Vienna Game is for people who want to play the King's Gambit but need to check with their family first.
+The Alapin is White's polite way of saying "I would rather not read your Sicilian book, thank you".
+Learning a brand new opening halfway through November is changing tyres mid-race. Possible. Loud.
+An early h3 is not cowardice. It is a doorstop for bishops.
+An early a3 is a philosophy, and the philosophy is "not on b4, thank you".
+The Petrov is the opening equivalent of answering a long message with "ok".
+The Latvian Gambit is a fire alarm Black pulls on move two.
+Playing f3 and g4 in your first two moves is how you become the answer to a trivia question.
+Légal's mate is a queen sacrifice so old it comes with a French accent.
+The Noah's Ark Trap: a bishop boards the ship and never gets off.
+Your repertoire should fit on an index card. Mine fits on forty index cards, which is why I am qualified to say this.
+Opening preparation is packing an umbrella. It rains on a different street every game.
+
+# --- the middlegame
+A pawn on h6 in front of your king is a curtain. A pawn on h5 is a curtain that has wandered off.
+If your rook has not moved by move twenty-five, it is not in reserve. It is on holiday.
+The minority attack is two pawns marching at three, purely to make them uncomfortable.
+A knight trade that leaves you with the bad bishop is a trade you made on your opponent's behalf.
+The h-file is open and somebody's king lives there. Make sure it is not yours.
+A queen and bishop battery aimed at h7 is a doorbell. Someone in that house will have to answer.
+Pawn breaks are how closed positions open their windows. Find yours before the room gets stuffy.
+If you cannot find a pawn break, your pawns have joined a union. Negotiate.
+"Improving the position" is a lovely phrase for "I do not know what to do, but my rook is happier now".
+When your queen is defending a pawn, the pawn is getting the better end of the deal.
+An exchange sacrifice is paying extra for a better seat. Make sure there is a show.
+In a closed position, knights are the locals and bishops are tourists without a map.
+Two minor pieces against a rook in the middlegame: I take the two. Teamwork beats seniority.
+Every trade is a little goodbye. Make sure you are not waving off your best piece.
+A discovered attack is the magician's other hand. Watch the piece that did not move.
+A zwischenzug is the chess version of "oh, actually, one more thing" at the front door.
+A desperado knight grabbing everything on the way out is the most honest piece on the board.
+The windmill is the only tactic that looks like it was designed on a playground.
+A skewer is a pin with its priorities backwards, and it is extremely rude about it.
+Smothered mate is the only time a king loses because his own furniture was too nice.
+The Greek gift on h7 works best when the knight and queen are already invited. Never go to a gift exchange alone.
+Removing the defender is just asking "who is holding this up?" and then giving them somewhere else to be.
+An X-ray attack is your rook looking through the enemy rook like a pane of glass. Rude, but effective.
+The c7 square is where knights go to collect rent from a king and a rook at the same time.
+At the start of the game f7 is guarded only by the king. That is not a defence. That is a landlord with one key.
+Back-rank mate: three loyal pawns stood by their king to the very end, and that was exactly the problem.
+Castling into an open h-file is moving into a house with no walls because the brochure said "safe".
+Your queen is the strongest piece, which is why she is the most chased. Fame is exhausting.
+The king is the weakest piece in the opening and the most important one all game. Terrible job description.
+A passed pawn is a teenager with car keys. Escort it, or it makes bad decisions alone.
+The b2 pawn is the cookie jar. Your queen's hand is about to get stuck.
+
+# --- endgames
+King and pawn endings are where "I'll work it out next move" goes to lose.
+In rook endings, an active rook a pawn down is often happier than a passive rook a pawn up. Activity is a currency.
+Cutting the enemy king off by one file is good. By two files, you are charging him rent.
+Queen endings are long, loud and mostly checks. Bring patience and look out for the perpetual.
+A rook on the fifth rank cutting off the king is a velvet rope. VIPs only.
+In a pawn race, promoting with check means you get to say "after you" and not mean it.
+Trading into a pawn ending is a one-way door. Count before you walk through it.
+Shouldering is when your king uses his elbows. Kings have elbows. It is in the literature.
+A fortress is a sandcastle the tide cannot reach. Build one when you are worse.
+The tablebase does not say "good try". It says "mate in 43", and I respect that.
+An endgame with the bishop pair against a player with a headache is called technique.
+Endgame technique is folding a fitted sheet. Everyone knows it can be done. Few can do it under pressure.
+Underpromoting to a knight with mate is the most stylish thing in chess. Underpromoting by accident is the most humbling.
+
+# --- puzzles and study habits
+Puzzles always promise a winning move exists. Games never make that promise. Practise both kinds of looking.
+Puzzle Rush is great for speed and terrible for patience. Balance it with one slow puzzle you actually finish.
+If you solve a puzzle by trying moves until the board turns green, you have solved the website, not the puzzle.
+Your puzzle rating and your game rating are cousins who rarely visit each other.
+Watching chess videos is studying the way watching cooking shows is dinner.
+One annotated loss is worth more than ten lectures sitting in your Watch Later list.
+Buying a chess book is step one. Opening it is step two. My shelf is a museum of step one.
+Quick, what colour is g5? If you hesitated, there is tonight's homework.
+Spaced repetition works for openings, for vocabulary, and for remembering that your queen can be taken.
+Set a timer when you study. Otherwise "a quick look at the Najdorf" ends at 3am with diagrams on the ceiling.
+Studying openings without playing games is reading the first page of every novel in the library.
+Annotate your game, then check the engine, then quietly edit your annotations. We all do it.
+A daily puzzle streak where you click the first move without thinking is not training. It is typing.
+
+# --- ratings and peaks
+Your peak rating is a high score, not a home address.
+The number goes up when you stop staring at it. Science has not confirmed this. I have.
+Losing eight points and winning eight points feel completely different. The maths says otherwise. The maths has never sat at a board.
+If your rating graph looks like a heart monitor, congratulations. It is alive.
+Two hundred rating points is not talent. It is about four habits. I have a list. It is laminated.
+Only playing opponents rated below you is a fine way to keep your rating and lose your improvement.
+Hit a new peak? Screenshot it. Then play the next game like the screenshot never happened.
+A rating plateau is not a wall. It is a landing. You are catching your breath.
+At most levels, the gap between ratings is mostly pieces you no longer give away. The next gap is pieces you finally take.
+Upsets are what ratings are for. Without them the numbers would get bored.
+
+# --- the patio, kava and the Discord
+Sunday at 8pm is the hour when everyone's opening preparation meets everyone's weekend.
+Tuesday night chess is ideal: the week is young and so are the blunders.
+A cup of kava and a slow game on the patio. If that combination had an ECO code, I would memorise it.
+Kava is an acquired taste. So is the Dutch Defence. I respect people who acquire both.
+Chess on the patio after dark has one firm rule: if a bug lands on your king, that is not a move.
+Club night is the one place where saying "nice knight" to a stranger is a perfectly normal opening line.
+Bring a board, bring a clock, bring the nerve to sit across from a stranger. The rest sorts itself out.
+The Discord is where your game goes for a second opinion. Some of those opinions will be mine, at length.
+Two club nights a week means two chances a week to blunder in front of witnesses. Wonderful for accountability.
+Online rapid is rehearsal. The patio is the recital.
+Losing over the board to someone who then shows you the line kindly is the best lesson I know of.
+
+# --- habits, roasted
+Boredom has pushed more pawns than any plan ever has.
+Giving check because you can is like paying compliments because you have to. It rarely leads anywhere.
+Playing a move because the piece "looked lonely" is not strategy. It is interior design.
+You do not need the most aggressive move. You need the most correct move that is also slightly rude.
+Playing ...h6 against every bishop that glances at g5 is a nervous habit. Sometimes the bishop was just passing through.
+Playing the first legal move you see is not chess. It is taking dictation.
+The pieces start on the same squares every game. The excuses rotate.
+Hovering a piece over three squares like a helicopter tells your opponent everything.
+A "j'adoube" whispered after you meant to move the piece is fooling exactly nobody.
+Taking a poisoned pawn is eating something from the office fridge with someone else's name on it.
+Ignoring your opponent's threat is ignoring the oil light. The car keeps going, right up until it does not.
+En passant is the rule that exists to convince every beginner that you are making things up.
+Castling long is a lovely move for people who enjoy defending a2.
+Developing your pieces is unpacking after a move. Nobody lives well out of boxes.
+An overextended pawn centre is a credit card balance. It looks impressive until somebody asks for it.
+Castling is buying insurance before the house is on fire. Afterwards it gets very expensive.
+Playing without a plan is driving without a destination. You will go places. None of them on purpose.
+Chess is like cooking: walk away from the stove for one second and something burns. Usually the f7 square.
+A knight fork is a bill that arrives in two envelopes. You can only pay one.
+Planning in chess is grocery shopping with a list. You still buy biscuits, but at least you also buy dinner.
+A blunder on move forty after a perfect game is tripping over the doormat after a marathon.
+Openings are first dates: polite, rehearsed and full of moves you read about somewhere.
+Re-analysing a lost game for three hours is re-reading a text you already sent. It still says what it says.
+A queen sacrifice is a big purchase. Check the returns policy first. There is none.
+
+# --- the nerd at the desk
+I keep a colour-coded binder of my losses. The colour for "hung the queen" is running low.
+I once spent forty minutes on a puzzle that turned out to be mate in one. In my defence, it was a very elegant mate in one.
+I don't lose games. I generate post-mortem material.
+My opening repertoire has a table of contents. My social calendar has one entry, and it is a tournament.
+I tried being spontaneous once. I had it scheduled for Thursday.
+When I lose, I push my glasses up. When I win, I push them up slightly faster.
+My spreadsheet says my blunders peak after 11pm. My spreadsheet is going to bed, and so am I.
+I asked the engine for life advice. It said +0.3 and told me to stop moving my queen so much.
+Yes, I have opinions on the best chess clock. No, you may not leave this conversation yet.
+I made a pie chart of how I lose. Most of the pie is labelled "didn't check".
+Some people count sheep. I count the squares a knight on e5 attacks. Eight. Out like a light.
+I hold strong views on whether coordinates should be printed around the edge of the board. They should. Next question.
+I don't have rivals. I have long-term statistical studies.
+My idea of a wild night is analysing a rook ending without the tablebase.
+People say I overthink. I have considered this from fourteen angles.
+I laminated my opening notes. The Sicilian section now needs its own binder.
+Some people have a lucky shirt. I have a lucky notation pen. I am tracking its score.
+I have never blundered a piece. I have, on several occasions, returned material to my opponent.
+I don't have a favourite opening. I have a ranked list with tie-breaks.
+I own three chess clocks: one for games, one for backup, and one to time how long I spend choosing between them.
+I named my houseplant Nimzowitsch. It overprotects the windowsill.
+I do not gloat when I win. I simply present the data, with graphs.
+I once pushed my glasses up during a time scramble and lost on time. Lesson learned: clock first, glasses second.
+I wanted a chess set for my birthday. I got one. Now I want a second one, so they can play each other.
+My browser has forty tabs open and thirty-eight of them are the same rook ending from different angles.

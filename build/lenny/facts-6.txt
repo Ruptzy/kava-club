@@ -1,0 +1,265 @@
+# Lenny's facts, sixth shelf: rules, openings, endgames, tactics, engines, ratings, numbers and odd corners.
+# Mostly combo lines: a real, checkable fact, then a short punchline in Lenny's voice.
+# Same rules as facts.txt: nothing about club members, no invented numbers.
+
+# --- touch-move, castling and the fine print
+If you touch your king meaning to castle and castling turns out to be illegal, FIDE says you must make another legal king move, and castling the other way counts. The king was touched. The king must go somewhere.
+Under FIDE rules, using two hands to make a single move, such as castling or a capture, is penalised as an illegal move. Chess is officially a one-handed sport.
+Under FIDE rules, pressing the clock without making a move is penalised as an illegal move. The clock is not a stress ball.
+Push a pawn to the last rank and press the clock without swapping it for a piece, and FIDE treats it as an illegal move. The pawn becomes a queen anyway, and the penalty still applies.
+Under FIDE rules, your choice of promotion piece is final only once that piece touches the promotion square. Until then you are allowed to dither. Savour it.
+Under FIDE rules, an illegal move only counts as completed when you press the clock. Catch it before then and you simply make a legal move, with the same piece if it has one.
+When an illegal move is discovered in a FIDE game, the position goes back to the one just before it. It is the only time travel the rulebook permits.
+You may only adjust your pieces with "j'adoube" on your own turn. On your opponent's turn it is just fiddling with their furniture.
+FIDE does not require you to say "check". Your opponent is expected to notice. Saying it every move mostly tells the room you are excited.
+Under FIDE rules, a draw offer is recorded on the scoresheet with the symbol (=). Even peace treaties need paperwork.
+There is one time FIDE lets you write a move before playing it: when you claim a draw because that move would repeat the position a third time. The fine print has fine print.
+Claim a draw wrongly under FIDE rules and your opponent gets two extra minutes. If you wrote down a move for the claim, you still have to play it. Doubly humbling.
+If a FIDE game turns out to have started from a wrongly set-up position, it is cancelled and a new game is played. Swap a knight and a bishop, lose an evening.
+If the board is found to be turned the wrong way during a FIDE game, play continues, with the position moved to a correctly placed board. The pieces move house. The game keeps its score.
+If a FIDE event's regulations do not set a default time, it is zero. Not at the board when the clocks start means you have lost. My watch runs two minutes fast on purpose.
+A FIDE arbiter must not tell you that your opponent has moved or that you forgot to press your clock. Arbiters are referees, not butlers.
+Under FIDE rules, a player whose game has finished counts as a spectator, with all of a spectator's restrictions. Your victory lap is silent.
+Under FIDE rules, with less than five minutes left and no increment of 30 seconds or more, you may stop writing your moves for the rest of that period. Your handwriting was suffering anyway.
+In 1972 a published problem castled vertically, with a rook promoted on e8 and the king on e1. FIDE then amended the Laws: the rook must be on the same rank as the king. Loophole closed.
+The FIDE Laws state that a promoted pawn becomes a new piece of the same colour. Somebody, at some point, needed that in writing.
+The 50-move rule means 50 moves by each player, so a hundred turns in a row without a capture or a pawn move. That is a lot of shuffling.
+FIDE once allowed longer limits than 50 moves for certain endgames that need more moves to win. It dropped the exceptions in 1992 and went back to a flat 50.
+There is no rule called perpetual check. A perpetual ends in a draw by repetition or by agreement. It is a habit, not a law.
+King and knight cannot mate a lone king, but they can mate a king that still has a pawn, because the pawn can block its own king. So under FIDE rules, the knight can win on time.
+If en passant is your only legal move, you have to play it. The most suspicious rule in chess can also be compulsory.
+A position with locked pawns and nothing else but kings can be a dead position, ending the game on the spot. Even the pawns have given up.
+Under US Chess rules, the player with the black pieces chooses which side of the board the clock goes on. White gets the first move. Black gets the furniture.
+US Chess has an "insufficient losing chances" claim for a player under two minutes in a game with no delay or increment. You must convince the director you cannot lose. Confidence is not evidence.
+Under FIDE rules, if you knock pieces over, you must put them back on your own time. Gravity is billed to your clock.
+In a FIDE event, a player needs the arbiter's permission to leave the playing venue during a game. Fresh air requires a hall pass.
+Some elite events have used football scoring: three points for a win and one for a draw. It is often called Bilbao scoring, after the tournament that made it famous.
+
+# --- clocks and equipment
+Simple delay holds your clock for a few seconds before it starts running. Bronstein delay gives back the time you used, up to the same few seconds. Different maths, same result.
+With increment, your clock can end up showing more time than you started with. With delay, it never can. Generosity has limits.
+On an analogue clock the flag is a small red lever. The minute hand lifts it as the hour approaches, and it drops the instant your time runs out. A lot of drama for a bit of plastic.
+Some early chess clocks were two ordinary clocks on a rocking frame. Tipping it your opponent's way stopped your clock and started theirs. Physics as timekeeping.
+Officially the sides are White and Black, even when the pieces are cream and red. The rules do not care about your decor.
+In chess jargon, "pieces" often means everything except the pawns. Pawns are used to being left out of the group photo.
+Unicode has a symbol for every chess piece, all twelve, from U+2654 to U+265F. I know the code points by heart. Nobody has ever asked.
+
+# --- openings and their traps
+The Stafford Gambit goes 1.e4 e5 2.Nf3 Nf6 3.Nxe5 Nc6. Black is a pawn down on move three and somehow looks pleased about it.
+One famous Stafford trap runs 4.Nxc6 dxc6 5.d3 Bc5 6.Bg5 Nxe4 7.Bxd8 Bxf2+ 8.Ke2 Bg4 mate. Taking the queen was the expensive part.
+The Blackburne Shilling Gambit is 1.e4 e5 2.Nf3 Nc6 3.Bc4 Nd4. Legend says Blackburne used it to win shillings from amateurs. Inflation has not been kind to the stakes.
+The main Blackburne Shilling trap: 4.Nxe5 Qg5 5.Nxf7 Qxg2 6.Rf1 Qxe4+ 7.Be2 Nf3 mate. The bishop on e2 is pinned and the king has nowhere to go. Greed, punished in seven moves.
+In the Caro-Kann, 1.e4 c6 2.d4 d5 3.Nc3 dxe4 4.Nxe4 Nd7 5.Qe2 Ngf6 6.Nd6 is smothered mate. The e7 pawn cannot take, because it is pinned to its own king.
+In Petrov's Defence, 3.Nxe5 Nxe4 4.Qe2 Nf6 5.Nc6+ uncovers check from the queen and wins Black's queen. Copying your opponent has limits.
+The Damiano Defence, 1.e4 e5 2.Nf3 f6, fails to 3.Nxe5 fxe5 4.Qh5+, and the black king starts a long walk. It is named after Pedro Damiano, who wrote that it was bad. Credit where it is undue.
+In the Queen's Gambit Accepted, clinging to the c4 pawn with ...b5 often runs into a4 and Qf3, hitting the rook on a8. The extra pawn was bait all along.
+The Fishing Pole trap in the Berlin has Black put a knight on g4 and a pawn on h5. If White grabs the knight, the h-file opens straight at White's king. Do not take the worm.
+Légal's mate in its usual form: 1.e4 e5 2.Nf3 d6 3.Bc4 Bg4 4.Nc3 g6 5.Nxe5 Bxd1 6.Bxf7+ Ke7 7.Nd5 mate. White gives away the queen and three minor pieces do the rest.
+White's fastest possible checkmate takes three moves, for example 1.e4 g5 2.Nc3 f5 3.Qh5 mate. Black has to help twice, which is generous even by beginner standards.
+There are exactly eight ways for Black to deliver checkmate on move two. Every one of them needs White's enthusiastic cooperation.
+Every one of White's 20 first moves has a name. 1.Na3 is the Durkin, also called the Sodium Attack, because Na is the chemical symbol for sodium.
+1.Nh3 is the Amar Opening, 1.a4 is the Ware and 1.h4 is the Desprez. Somebody named all of these, and I respect the commitment.
+1.a3 is called Anderssen's Opening because Adolf Anderssen played it against Paul Morphy in 1858. Waiting moves have a long pedigree.
+1.e4 f6 is the Barnes Defence, after Thomas Barnes, who beat Paul Morphy with it. Even bad openings get one good day.
+The St. George Defence, 1.e4 a6, became famous when Tony Miles beat the reigning world champion Anatoly Karpov with it in 1980. One a-pawn, many headlines.
+The Frankenstein-Dracula Variation is a real line of the Vienna Game: 1.e4 e5 2.Nc3 Nf6 3.Bc4 Nxe4 4.Qh5. It is exactly as wild as the name promises.
+The Muzio Gambit gives up a whole knight on move five: 1.e4 e5 2.f4 exf4 3.Nf3 g5 4.Bc4 g4 5.O-O. Nineteenth-century players considered this a normal Tuesday.
+The Falkbeer Countergambit answers the King's Gambit with 2...d5. A gambit answered by a gambit. Very nineteenth century.
+The Schliemann Gambit, 1.e4 e5 2.Nf3 Nc6 3.Bb5 f5, is also called the Jaenisch Gambit, after Carl Jaenisch. A counterpunch with two names and a lot of nerve.
+The Meran Variation of the Semi-Slav is named after a 1924 tournament in Merano, Italy. Openings are mostly souvenirs from tournaments.
+The English Attack against the Najdorf, with Be3, f3, Qd2 and g4, is named after the English grandmasters who developed it in the 1980s. Polite name, impolite attack.
+The Yugoslav Attack against the Dragon puts White's bishop on e3 and queen on d2, castles queenside, then sends the h-pawn. Dragons get slain by pawns surprisingly often.
+The Grand Prix Attack against the Sicilian is named after the British weekend Grand Prix tournaments of the 1980s, where it was popular. Weekend chess, weekend aggression.
+3...a6 in the Ruy López is called the Morphy Defence. It is the main line by a mile, which is a fine legacy for one pawn move.
+In the Ruy López, White is not yet threatening e5: after 3...a6 4.Bxc6 dxc6 5.Nxe5, Black plays Qd4 and wins the pawn back with a fork. The threat arrives later.
+In the Berlin endgame the queens come off on move eight and Black's king has already lost the right to castle. It is still notoriously hard to beat. Comfort is overrated.
+The fork trick: after 1.e4 e5 2.Nf3 Nc6 3.Bc4 Nf6 4.Nc3, Black can play 4...Nxe4 5.Nxe4 d5, and the pawn fork wins the piece back. It looks like a blunder and is not.
+The Traxler Counterattack is also called the Wilkes-Barre Variation, after the Pennsylvania city whose players analysed it. Black ignores the attack on f7 and goes for f2.
+In the Nimzo-Indian, ...Bb4 pins the knight on c3 so it cannot help control e4. An entire opening built on one well-placed pin.
+The Four Pawns Attack against Alekhine's Defence puts White's pawns on c4, d4, e4 and f4. Alekhine's Defence dares White to advance, and White takes the dare.
+The Najdorf was the main weapon of both Bobby Fischer and Garry Kasparov. Two world champions trusting one modest pawn move.
+The Kieninger Trap in the Budapest Gambit ends with a knight mate on d3 while White's e2 pawn is pinned to its own king. A German name and a very cramped king.
+The Evans Gambit is 1.e4 e5 2.Nf3 Nc6 3.Bc4 Bc5 4.b4. White gives up a pawn to gain time for c3 and d4. The 1800s found that trade irresistible.
+The Kan Variation of the Sicilian, with an early ...a6 and ...e6, is named after the Soviet master Ilya Kan. Short name, long theory.
+The Open Variation of the Ruy López is 5...Nxe4, when Black grabs the e4 pawn and dares White to win it back. Openness, as a lifestyle.
+The Siberian Trap in the Smith-Morra Gambit ends with ...Nd4, hitting White's queen while ...Qh2 mate is threatened. It catches anyone who plays h3 on autopilot.
+Chess Informant, first published in Belgrade in 1966, annotates games with symbols instead of words, so any player can read it in any language. It is the reason everyone knows what +- means.
+
+# --- endgames and tablebases
+The Lucena position does not appear in Lucena's book. It was first published by Alessandro Salvio in 1634. Credit in chess works like credit in academia.
+In rook endings, defend from the long side: your rook needs about three files between it and the pawn to check usefully from the side. Short-side defences tend to have short lives.
+In the bishop and knight mate, the king must be driven into a corner of the bishop's colour. The other two corners are very scenic dead ends.
+The knight's route in the bishop and knight mate is called the W manoeuvre, after the shape it traces. Even endgame technique has handwriting.
+Two bishops on the same colour cannot force mate against a lone king. You would have to underpromote just to be disappointed.
+Three knights can force mate against a lone king. Two cannot. The third knight is apparently the one with initiative.
+In rook against bishop, the defending king should head for the corner the bishop cannot cover. In the other corner it usually loses. Corners have opinions.
+The Lasker-Reichhelm position of 1901 has a single winning first move, a quiet king step. It became a classic test for chess programs. Quiet moves are hard for everyone.
+The trébuchet is a mutual zugzwang in king and pawn endings: whoever has to move loses a pawn, and usually the game. It is named after a siege engine. Of course it is.
+In 1978 grandmaster Walter Browne tried to beat Ken Thompson's queen against rook database, which defended perfectly. He failed within 50 moves the first time and managed it after studying. Respect the rook.
+The longest forced mate in the six-piece tablebases takes 262 moves. Bring snacks. Bring several snacks.
+Syzygy tablebases measure the distance to the next capture or pawn move, so they respect the 50-move rule. Some positions are "cursed wins": won in theory, drawn by the rules.
+The first endgame tablebases were computed by Thomas Ströhlein in 1970, for his doctoral thesis. Some people write novels. Some people solve rook endings.
+The seven-piece tablebases finished in 2012 at Moscow State University are named after the Lomonosov supercomputer that computed them. A supercomputer, for endgames. Correct priorities.
+In king and pawn endings, getting your king to a key square in front of the pawn wins no matter who is to move. Real estate decides endgames.
+Corresponding squares are pairs of squares the defending king must mirror to hold the draw. Miss one and the whole system collapses. Like my filing, but with consequences.
+An Allumwandlung is a chess problem with promotions to queen, rook, bishop and knight. The German word means "all promotions". Problemists love a complete set.
+
+# --- tactics and mating patterns
+A relative pin is a pin against something other than the king. The pinned piece may legally move. It will just regret it.
+A clearance sacrifice gives up a piece just to empty a square or a line for another piece. Sometimes the most useful thing a piece can do is leave.
+In chess problems, a Grimshaw is a mutual interference between two black pieces on one square: whichever lands there blocks the other. Named after Walter Grimshaw. Teammates, getting in each other's way.
+The Novotny is a problem theme where White puts a piece where two black line pieces cross, so either capture blocks the other. It is named after Antonin Nowotny. The spelling wandered off.
+A decoy sacrifice lures an enemy piece, often the king, onto a fatal square. It takes the bait because it has to, which is the cruel part.
+A knight fork of king and queen is often called a royal fork. Add a rook and it becomes a family fork. The knight does not care about anyone's family.
+Philidor's Legacy is the smothered mate with a queen sacrifice on g8 followed by a knight on f7. It already appears in Lucena's book of 1497, long before Philidor was born.
+The epaulette mate has the king mated by a queen from directly in front, with its own pieces sitting on both sides like shoulder pads. Fashion as a cause of death.
+The dovetail mate has a protected queen right next to the king on a diagonal, while the king's own pieces block its escape. The swallow's tail is a different mate. Chess names its mates like a bird watcher.
+Damiano's mate, with a queen and a pawn against the castled king, is named after Pedro Damiano, whose chess book appeared in 1512. Older than most furniture.
+The hook mate uses a rook, a knight and a pawn that all protect each other in a little chain. Teamwork, with sharp edges.
+Blackburne's mate uses two bishops and a knight against a castled king. Named after Joseph Blackburne, the shilling gambit man. He collected patterns as well as coins.
+The Opera mate, a rook on the back rank protected by a bishop, is named after Morphy's Opera Game. Some games end up as entire chapters.
+A knight is the only underpromotion that can do something a queen cannot. Rook and bishop promotions exist mostly to dodge stalemate.
+A rook that keeps offering itself with check to force stalemate is called a desperado rook, or a mad rook. Take it and it is stalemate. Ignore it and it keeps checking.
+A bishop that grabs a pawn on a7 or h7 can be trapped by a single pawn move, b6 or g6. Some pawns are lunch. Some are bait.
+A mating net is a position where the king cannot escape mate, even though no check has been given yet. The trap is closed. The door is just being polite.
+A pawn fork is the cheapest fork in chess. The pawn costs almost nothing, and the bill comes to a whole piece.
+An "only move" is a position where every other legal move loses. Annotators love them. Players in time trouble do not.
+The "Lucena" and the "Philidor" are endgames, but the "Lolli" is a mate: a queen on g7 backed by a pawn on f6. Names that sound like pasta, results that sound like funerals.
+
+# --- engines and computer chess
+Alan Turing's paper chess program was called Turochamp, written with David Champernowne. In 2012 it was finally run on a real computer and played Garry Kasparov. It lost in 16 moves.
+In his 1950 paper, Claude Shannon split chess programs into Type A, which look at every move, and Type B, which only look at promising ones. Engines have been arguing about it ever since.
+In 1951 Dietrich Prinz wrote a program on the Ferranti Mark 1 that could solve mate-in-two problems. It could not play a game, but nobody is perfect.
+In 1956 the MANIAC I computer at Los Alamos played chess on a 6x6 board with no bishops. Even the earliest computers found bishops too complicated.
+Alex Bernstein's program, written for an IBM 704 in 1957, is generally credited as the first to play a complete game of chess. It took about eight minutes a move. Some of my opponents too.
+In 1966 and 1967, a program from Stanford played a correspondence match against one from Moscow's ITEP institute. The Soviet program won 3-1. Cold War, slow moves.
+The philosopher Hubert Dreyfus argued that computers could not play good chess. In 1967 he lost a game to Mac Hack. Philosophy, meet empirical data.
+In 1968 International Master David Levy bet that no computer would beat him in a match within ten years. He collected in 1978. Deep Thought beat him 4-0 in 1989.
+The first World Computer Chess Championship, in Stockholm in 1974, was won by Kaissa, a Soviet program. The robots had a federation before they had a rating.
+Belle, which won the 1980 World Computer Chess Championship, was built by Ken Thompson and Joe Condon. Thompson also co-created Unix. Some people have two careers. He had two revolutions.
+Cray Blitz won the World Computer Chess Championship in 1983 and 1986. Its author, Robert Hyatt, later wrote Crafty, which is open source. Generosity, compiled.
+Deep Thought was named after the computer in "The Hitchhiker's Guide to the Galaxy". It did not answer 42, but it did beat grandmasters.
+Deep Thought won the World Computer Chess Championship in Edmonton in 1989. Before Deep Blue, there was a slightly shallower blue.
+Garry Kasparov beat Deep Thought 2-0 in 1989. The machines took notes.
+After Deep Blue won in 1997, Kasparov asked for a rematch. IBM declined and retired the machine. Leaving at the top is a strategy.
+In 2002, in the "Brains in Bahrain" match, Vladimir Kramnik and Deep Fritz drew 4-4. Diplomacy, in eight games.
+In 2003 Kasparov drew a four-game match with X3D Fritz 2-2, wearing 3D glasses to see a virtual board. Peak 2003.
+In 2005 the computer Hydra beat grandmaster Michael Adams 5.5 to 0.5. Half a point from six games. Michael Adams is a superb player. That was the point.
+The engine Fritz was originally written by Frans Morsch and is sold by ChessBase in Hamburg. A household name, if your household is like mine.
+Rybka won four World Computer Chess Championships, from 2007 to 2010. In 2011 it was stripped of the titles after the governing body found it had copied code from other programs. Plagiarism has a horizon effect too.
+Fruit, an open-source engine by Fabien Letouzey, influenced a whole generation of engines. Sharing code: the most powerful move in computer chess.
+The engine Houdini was written by a Belgian programmer called Robert Houdart. I could not have scripted that better.
+Komodo was created by Don Dailey and Larry Kaufman. Kaufman also earned the grandmaster title, by winning the World Senior Championship in 2008. He built engines and still did it the hard way.
+Stockfish began in 2008 as a fork of an engine called Glaurung. Fishtest, its testing network, plays huge numbers of games on volunteers' computers before any change is accepted. Peer review, with pawns.
+NNUE stands for "Efficiently Updatable Neural Network", written backwards. Programmers are not allowed to name things normally. It is in the contract.
+Stockfish has since dropped its old hand-written evaluation entirely and relies on its neural network. Decades of human chess knowledge, politely retired.
+Leela Chess Zero was started in 2018 by Gary Linscott, building on Leela Zero, a Go engine by Gian-Carlo Pascutto. Chess borrowing from Go. Again.
+Leela Chess Zero won the TCEC superfinal in 2019. A volunteer project beat the reigning champion. Somewhere a committee frowned.
+TCEC, the Top Chess Engine Championship, was founded in 2010 by Martin Thoresen. Engines needed a world championship of their own, with commentary.
+AlphaZero did not use alpha-beta search. It used Monte Carlo tree search guided by a neural network. The name is a coincidence, which I find personally upsetting.
+Stockfish does most of its thinking on an ordinary CPU, while Leela runs best on a graphics card. One engine, two very different electricity bills.
+The Universal Chess Interface, UCI, was released in 2000 by Rudolf Huber and Stefan Meyer-Kahlen. It is why almost any engine plugs into almost any chess program. Standards are love letters to the future.
+Zobrist hashing, published by Albert Zobrist in 1970, lets an engine recognise a position it has already seen in a fraction of the time. Even engines hate repeating themselves.
+Quiescence search makes an engine keep looking at captures at the end of its search, so it does not stop in the middle of an exchange. Never evaluate mid-trade. Good advice for humans too.
+Null-move pruning has an engine pretend to pass its turn. If it is still winning after giving away a move, it stops worrying about that line. Arrogance, used scientifically.
+"Contempt" is a real engine setting. It makes the engine avoid draws against opponents it considers weaker. Engines can be snobs, officially.
+On most sites, engine evaluations are shown from White's point of view, so a minus sign means Black is better. Everyone reads it backwards once. I managed it twice.
+An engine line marked M5 or #5 means forced mate in five. If it is your opponent's mate, the engine is very calm about it.
+CCRL, the Computer Chess Rating Lists, rates engines by playing them against each other thousands of times. Engines get Elo too. It just goes up faster.
+Ajeeb, a chess automaton built in 1868, was another hoax with a person hidden inside. Harry Pillsbury was one of the people who operated it. Imagine that interview.
+The Fidelity Chess Challenger, launched in 1977, is generally credited as the first dedicated chess computer sold to the public. It could not drink kava, so it was not a full partner.
+Sargon, one of the most famous early home chess programs, was written by Dan and Kathe Spracklen in 1978. A husband and wife team. Domestic bliss, alpha-beta pruned.
+Battle Chess, released in 1988, animated every capture as a fight scene. Rules unchanged, drama tripled.
+Correspondence chess under ICCF allows players to use engines. The skill is in steering them. It is chess as management consulting.
+
+# --- online chess
+The Internet Chess Server became the commercial Internet Chess Club in 1995. Unhappy users founded FICS, the Free Internet Chess Server, the same year. Paywalls inspire volunteers.
+Lichess was founded by Thibault Duplessis and is written in the programming language Scala. Yes, I have read some of it. Yes, for fun.
+Lichess publishes every rated game ever played on the site as a free download. That is billions of games. Bring a large hard drive.
+Lichess puzzles are taken from real games played on the site and checked by Stockfish. Somebody's real blunder is your daily exercise. Pay it forward.
+In a Lichess arena, a win scores 2 and a draw 1, and after two wins in a row your points double. Win streaks are literally on fire.
+Berserk in a Lichess arena halves your clock and removes your increment, and in return a win scores one extra point. A trade I do not recommend for anxious people.
+On Lichess, a new account starts at a rating of 1500, and a question mark follows the rating until the system is confident about you. Very reasonable. I wish people came with that.
+Lichess sorts time controls by estimated length: the base time plus 40 times the increment. It assumes a game lasts 40 moves. Optimistic for some of us.
+Lichess has an UltraBullet category, for games with less than 30 seconds a side. Thinking is optional and also impossible.
+Chess.com was founded by Erik Allebest and Jay Severson. Two people, one domain name, a great many blunders since.
+In 2022 Chess.com agreed to buy the Play Magnus Group, the company built around Magnus Carlsen's apps. The world's biggest chess site bought the world's best player's company. Even companies capture pieces.
+Titled Tuesday is a weekly online blitz tournament on Chess.com for titled players. Grandmasters, every Tuesday, without fail. I barely manage laundry.
+A 1500 rating on one site is not a 1500 on another. Different pools, different systems, same feelings.
+
+# --- ratings and titles
+The Elo expected score is 1 divided by 1 plus 10 to the power of minus the rating gap over 400. I will be taking questions afterwards. Please do not ask questions.
+A 100-point rating gap gives the stronger player an expected score of about 64 percent. At 300 points it is about 85 percent.
+An 800-point gap gives the stronger player an expected score of about 99 percent. That last 1 percent is where upsets live.
+An Elo expected score is not a win probability. A draw counts as half a point, so 75 percent can come from lots of draws. Statistics are sneaky like that.
+For FIDE rating purposes, any rating gap bigger than 400 points is counted as 400. Even the maths gives the underdog a little hope.
+FIDE uses a K-factor of 40 for new players and for juniors under 2300, 20 for everyone else under 2400, and 10 once you have reached 2400. Strong players' ratings move like glaciers.
+With a K-factor of 20, beating an equally rated player earns you exactly 10 points. Losing costs exactly 10. The universe balances its books.
+Arpad Elo explained his system in a 1978 book, "The Rating of Chessplayers, Past and Present". I own it. I have notes in the margins.
+The "algorithm of 400" estimates a performance rating as the average opponent rating plus 400 times wins minus losses, divided by games played. Quick, rough and great on a napkin.
+Elo ratings only mean something relative to each other. Only the gaps predict results. Your rating is a distance, not a location.
+Before Elo, US Chess used the Harkness system, devised by Kenneth Harkness. Ratings have been annoying people for longer than you think.
+West Germany long used the Ingo system, where a lower number meant a stronger player. Golf rules, applied to chess.
+There is no official title called super grandmaster. "Super GM" is informal shorthand for the very top players. Fans hand out titles faster than FIDE does.
+FIDE awards online "Arena" titles for internet play: Arena Grandmaster, Arena International Master, Arena FIDE Master and Arena Candidate Master. Same prestige, more pyjamas.
+FIDE also awards titles for problem composers and arbiters, including Grandmaster of Chess Composition and International Arbiter. You can become a grandmaster without playing a single game.
+A grandmaster norm needs at least nine games and a performance of 2600. An IM norm needs 2450. Nine games of overachieving, three times over.
+Some events award a title outright. Win the World Junior Championship and you become a grandmaster on the spot. No norms, no waiting room.
+Glicko-2, used by Lichess, adds a volatility number that tracks how erratic your results are. Your mood swings are measurable. Mine are documented.
+
+# --- chess maths and puzzles
+After three moves each there are 119,060,324 possible games. I counted. Well, a computer counted. I watched.
+After four moves each there are 84,998,978,956 possible games. That is about ten games for every person on Earth. Get started.
+Programmers call counting every legal move sequence to a fixed depth "perft". It is how engine authors check their move generators are not lying.
+Warnsdorff's rule, from 1823, finds knight's tours by always moving to the square with the fewest onward moves. Go where you have the fewest options. Terrible life advice, great tour advice.
+A closed knight's tour is impossible on any board with an odd number of squares, because every knight move switches colour. Parity: undefeated since forever.
+There is no knight's tour on a 4x4 board at all. The knight needs room to be weird.
+In 2003 a computer search proved there is no fully magic knight's tour on a chessboard, one where every row, column and long diagonal adds up the same. It found 140 semi-magic ones instead. Close enough for me.
+Five queens are enough to attack or occupy every square of the board. You would need eight rooks, eight bishops or nine kings to do the same.
+Twelve knights are the minimum needed to attack or occupy every square on the board. That is a lot of horses.
+You can place 32 knights on a chessboard so that none attacks another. Just put them all on one colour. Knights get along best when they never meet.
+There are 40,320 ways to place eight rooks on a chessboard so that none attacks another. That is 8 factorial, and it is very satisfying to say.
+You can place 14 bishops on a board without any of them attacking each other, and 16 kings. The kings need personal space.
+The mutilated chessboard puzzle: remove two opposite corners and you cannot cover the remaining 62 squares with dominoes, because both missing squares are the same colour. Colouring arguments: elegant and smug.
+In the wheat and chessboard story, the last square alone holds more grains than all 63 squares before it put together. Compound interest is terrifying.
+64 is both a perfect square and a perfect cube: 8 squared and 4 cubed. The chessboard is mathematically showing off.
+There are 3,612 ways to put a white king and a black king legally on an empty board. I subtracted the touching ones so you would not have to.
+Added up over every square of an empty board, a knight has 336 possible moves. A rook has 896, a bishop 560 and a queen 1,456. I had a free evening.
+The logician Raymond Smullyan wrote "The Chess Mysteries of Sherlock Holmes", a book of retrograde analysis puzzles. Deducing the past from the board. My kind of detective.
+In 2007 a team led by Jonathan Schaeffer proved that checkers is a draw with perfect play. Chess remains unsolved. So do I.
+Go has roughly 2 times 10 to the 170 legal positions, far more than chess. Chess players like to ignore this.
+
+# --- variants and relatives
+Grand Chess, invented by Christian Freeling, is played on a 10x10 board. Bigger board, same blunders.
+Seirawan Chess adds a hawk and an elephant that enter the board when a back-rank piece first moves. Yasser Seirawan co-invented it. Pieces arriving mid-game, like latecomers to a party.
+In Duck Chess, after every move you must also move a rubber duck to an empty square, and nobody can pass through it. There is no check: you win by capturing the king. It is exactly as chaotic as it sounds.
+Alice Chess, invented by V. R. Parton in 1953, uses two boards: every piece that moves passes through the looking-glass to the other board. Named after Alice, of course.
+In Marseillais chess, each player makes two moves per turn. Twice the moves, twice the blunders, same number of excuses.
+In progressive chess, White makes one move, Black two, White three and so on. By turn six it is chaos with notation.
+In Monster chess, White has only a king and four pawns but makes two moves every turn. It is surprisingly hard for Black. Speed is a material advantage.
+Glinski's hexagonal chess, from 1949, is played on 91 hexagons, and each side has three bishops, one for each colour of cell. Three colours, three bishops. Perfectly logical, deeply confusing.
+Raumschach, a three-dimensional chess on a 5x5x5 cube, was invented by Ferdinand Maack in 1907. Space chess, long before Star Trek.
+The tri-dimensional chess on "Star Trek" was a prop with no rules. Fans later wrote real rules for it. Nerds finish what television starts.
+The standard starting position is one of the 960 Chess960 positions. It is number 518. The most famous position has a catalogue number.
+In standard bughouse you may not drop a pawn on the first or last rank. No instant promotions, no matter how nicely you ask your partner.
+Antichess has been solved: in 2016 Mark Watkins showed that White wins with 1.e3. Losing on purpose, done perfectly, is still a win.
+In crazyhouse, a promoted piece turns back into a pawn when it is captured. Promotion is temporary. Very relatable.
+In atomic chess the two kings may stand next to each other, because a king cannot capture: the explosion would take out its own king. Personal space is optional when everyone is a bomb.
+Shogi is played on a 9x9 board, with 20 pieces each, and pieces can promote when they enter the last three ranks. Shogi pieces have career progression.
+In xiangqi, the cannon moves like a rook but can only capture by jumping over exactly one piece. It needs a screen to fire. Very modest artillery.
+In xiangqi the elephants may not cross the river. In Korean janggi there is no river at all. Elephants everywhere have strong opinions about water.
+In Japanese, checkmate is "tsumi", and mating problems are called tsume-shogi. Every chess culture needs a word for "it is over".
+
+# --- chess and the mind
+In the 1940s, Adriaan de Groot found that masters do not look at more moves than weaker players. They look at better ones. Quality over quantity, now with research.
+In 1973 William Chase and Herbert Simon showed that masters can rebuild a real position after a glance far better than novices, but lose most of that edge with random positions. It is patterns, not photographic memory.
+The Einstellung effect: in a 2008 eye-tracking study, strong players kept looking at a familiar winning idea and missed a faster one on the same board. Knowing things can blind you. I am at risk.
+Large reviews of the research by Giovanni Sala and Fernand Gobet found little evidence that learning chess makes children better at maths or school in general. Chess makes you better at chess. That is enough.
+The claim that grandmasters burn 6,000 calories a day during tournaments is widely repeated and poorly supported. Sitting still and worrying is not a marathon. Sadly.
+In large databases of master games, White scores a little over half the points, usually put at around 54 to 56 percent. Moving first is worth something. Not as much as you hope.
+The share of draws rises as the level of play rises. Strong players make fewer mistakes, and mistakes are what decide games. Perfection is boring.
+
+# --- words and odd corners
+"Stalemate" moved from chess into everyday English to mean any deadlock. Chess vocabulary escapes the board regularly. "Checkmate" got out too.
+In Russian, the rook is "ladya", which means a boat. Chess pieces have sailed, ridden and marched in every language.
+In Dutch the bishop is "loper", a runner, and in Polish it is "goniec", a messenger. Every language has its own idea of what that piece is for.
