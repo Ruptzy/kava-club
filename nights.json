@@ -1,7 +1,25 @@
 {
  "_comment": "One entry per club night, newest first. Written by the admin console (Post a night) or by hand. build/build_nights.py turns these into /nights/<date>/ pages, the archive, the RSS feed and the sitemap. 'line' is Harold's own sentence about the night; 'commentary' is the write-up of the numbers.",
- "updated": "2026-11-02",
+ "updated": "2026-11-03",
  "nights": [
+  {
+   "date": "2026-11-02",
+   "type": "challenge",
+   "venue": "Online, all of November",
+   "venue_es": "En línea, todo noviembre",
+   "title": "No Blunder November",
+   "title_es": "No Blunder November: el reto del mes",
+   "line": "One 10+0 game a day, 30 games, one new peak. Share every game in the Discord.",
+   "line_es": "Una partida 10+0 al día, 30 partidas, un nuevo récord. Comparte cada partida en el Discord.",
+   "commentary": "No Blunder November is on. ♟️ The club challenge for the whole month: one 10+0 game every day, 30 games, and a new peak rating by the 30th.\nTen minutes, no increment. Take your time, check every move before you play it, and keep the pieces you'd normally hang. 🎯\nShare every day's game in the Discord: the wins, the losses and the ugly ones. Post it, talk it through, and watch the whole club get sharper. 📈\nWho hits a new peak by 30 November? Join us at https://discord.gg/sYCb7RnTgZ and play today's game. 🔥",
+   "commentary_es": "No Blunder November ya empezó. ♟️ El reto del club para todo el mes: una partida 10+0 cada día, 30 partidas, y un nuevo récord de rating para el día 30.\nDiez minutos, sin incremento. Tómate tu tiempo, revisa cada jugada antes de hacerla y quédate con las piezas que normalmente regalarías. 🎯\nComparte la partida de cada día en el Discord: las victorias, las derrotas y también las feas. Publícala, coméntala y verás cómo todo el club se afina. 📈\n¿Quién llega a un nuevo récord antes del 30 de noviembre? Únete en https://discord.gg/sYCb7RnTgZ y juega la partida de hoy. 🔥",
+   "photo": "img/nights/2026-11-02.jpg",
+   "whole": true,
+   "focus": 30,
+   "photo_alt": "No Blunder November flyer: a glowing black king with a neon crown on a checkered patio by the bay at night, the Kava Social Bradenton sign behind it. 10+0 daily, 30 games, new peak. Share every day's game in the Discord.",
+   "photo_alt_es": "Cartel de No Blunder November: un rey negro brillante con una corona de neón sobre un patio de cuadros junto a la bahía de noche, con el letrero de Kava Social Bradenton detrás. 10+0 diario, 30 partidas, nuevo récord. Comparte cada partida en el Discord.",
+   "updated": "2026-11-03"
+  },
   {
    "date": "2026-11-01",
    "type": "theme",

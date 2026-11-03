@@ -57,5 +57,19 @@
    "note_es": "Segunda ronda, en nuestro patio: Tampa Knights contra Kava Social. Una batalla por equipos tipo suizo en cuatro secciones, cada victoria un punto para tu equipo. Premios por sección de $100, $60, $40 y $30, un trofeo para cada ganador de sección y un trofeo a la Mejor Jugadora. Todos los niveles son bienvenidos, 21+.",
    "url": "https://chess67.com/club/kava-social-chess-club"
   }
+ ],
+ "_comment_marks": "Month-long challenges. Every day from \"from\" to \"to\" gets a tiny pawn on the calendar; tapping a day shows \"Day N of M\" with the note and links.",
+ "marks": [
+  {
+   "from": "2026-11-01",
+   "to": "2026-11-30",
+   "title": "No Blunder November",
+   "title_es": "No Blunder November",
+   "note": "One 10+0 game a day, 30 games, chase a new peak. Share every day's game in the Discord.",
+   "note_es": "Una partida 10+0 al día, 30 partidas, a por un nuevo récord. Comparte cada partida en el Discord.",
+   "url": "/nights/2026-11-02/",
+   "url_es": "/es/noches/2026-11-02/",
+   "discord": "https://discord.gg/sYCb7RnTgZ"
+  }
  ]
 }

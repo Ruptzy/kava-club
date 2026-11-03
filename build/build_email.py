@@ -69,7 +69,7 @@ TILE = '#222428'
 # so everything is the phone's own sans. FD, FS and FM stay separate names for the jobs they do.
 FD = FS = FM = "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif"
 KIND_EMOJI = {'league': '\u265f\ufe0f', 'social': '\u2615', 'study': '\U0001F4DA', 'adobe': '\U0001F9E0', 'battle': '\u2694\ufe0f',
-              'theme': '\U0001F389', 'outing': '\U0001F3AC'}
+              'theme': '\U0001F389', 'outing': '\U0001F3AC', 'challenge': '\U0001F3AF'}
 GRID = '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">'
 PLAIN = '<table role="presentation" cellpadding="0" cellspacing="0" border="0">'
 

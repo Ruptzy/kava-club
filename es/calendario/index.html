@@ -103,7 +103,8 @@ a.tile{display:block;color:inherit;transition:transform .35s var(--ease)}a.tile:
 .dow{padding:12px 0;font-size:11.5px}
 .cday{min-height:92px;border-top:1px solid var(--rule);padding:10px 8px;display:flex;flex-direction:column;gap:6px;cursor:pointer;transition:background-color .2s ease}.cday:hover{background:var(--panel)}
 .cday:nth-child(7n+1){padding-left:0}.cday.out{opacity:.3}.cday.now{border-top-color:var(--scarlet);animation:breathe 2.4s ease-in-out infinite}.cday.now .dn{color:var(--cream)}.cday.sel{background:var(--panel-2)}
-.cday .dn{font-family:var(--fm);font-weight:700;font-size:12px;color:var(--ink-3)}
+.cday .dn{font-family:var(--fm);font-weight:700;font-size:12px;color:var(--ink-3);display:flex;align-items:center;gap:4px}
+.mk{display:inline-flex;flex:none;width:9px;height:9px;color:#F472B6}.mk svg{width:100%;height:100%;display:block}.legend .mk{width:11px;height:11px}.evi.mkr .t{color:#F472B6}
 @keyframes breathe{0%,100%{box-shadow:inset 0 1px 0 var(--scarlet)}50%{box-shadow:inset 0 3px 0 var(--scarlet),0 0 24px rgba(254,39,58,.25)}}
 .chip{font-family:var(--fm);font-weight:700;font-size:12px;letter-spacing:.04em;text-transform:uppercase;padding:4px 7px;border-radius:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:transform .2s ease,filter .2s ease}.chip:hover{transform:translateY(-2px);filter:brightness(1.12)}
 .t-social{background:#3BC79A;color:var(--void)}.t-league{background:var(--scarlet-dim);color:#fff}.t-study{background:#4F86E8;color:#fff}.t-adobe{background:#F0883E;color:var(--void)}.t-battle{background:#A78BFA;color:var(--void)}.t-outing{background:#E4B02F;color:var(--void)}.t-theme{background:#F472B6;color:var(--void)}.t-tournament{background:var(--scarlet);color:#fff}.t-lecture,.t-simul{background:var(--scarlet);color:#fff}.t-special,.t-lecture{background:var(--scarlet);color:#fff}
@@ -163,7 +164,7 @@ html.js .ln>span{transform:translateY(110%);animation:rise 1s var(--ease) forwar
   .pair{grid-template-columns:1fr !important}.night .nm{font-size:30px;margin-top:18px}
   .upnext{grid-template-columns:1fr;margin-top:28px}.upnext>div{display:grid;grid-template-columns:64px 1fr;gap:16px;padding:18px 0 !important;border-right:0;border-bottom:1px solid var(--rule);align-items:center}.upnext .dd{font-size:44px}.upnext .w{font-size:11px;margin-top:4px}.upnext h3{font-size:19px;margin-top:0}.upnext .meta{font-size:11.5px;letter-spacing:.06em}.upnext p{display:none}
   .calhead{margin-top:40px}.calhead h3{font-size:20px}.calnav{gap:18px}
-  .cday{min-height:58px;padding:6px 3px;gap:4px}.cday .dn{font-size:11.5px}.chip{font-size:0;height:6px;padding:0;border-radius:1px}.legend span{font-size:11px;letter-spacing:.1em}
+  .cday{min-height:58px;padding:6px 3px;gap:4px}.cday .dn{font-size:11.5px;gap:2px}.cday .mk{width:7px;height:7px}.chip{font-size:0;height:6px;padding:0;border-radius:1px}.legend span{font-size:11px;letter-spacing:.1em}
   .stats{margin-top:28px}.stats .v{font-size:34px}.brackets{gap:20px 16px;margin-top:36px}
   .cream{padding:36px 24px}.cream img{width:200px}
   .sponsor{grid-template-columns:1fr;gap:28px}.sponsor .h{font-size:30px}.subh{margin-top:56px;flex-direction:column;align-items:flex-start;gap:6px}
@@ -232,7 +233,7 @@ var soc=document.querySelector("#navbar .soc"),lang=document.querySelector("#nav
     <div class="grid7 m" id="calDow"></div>
     <div class="grid7" id="calGrid"></div>
     <div class="legend">
-      <span><i style="background:#3BC79A"></i>Domingo social</span><span><i style="background:var(--scarlet-dim)"></i>Noche de liga</span><span><i style="background:#4F86E8"></i>Noche de estudio</span><span><i style="background:#F0883E"></i>Intermedio+</span><span><i style="background:#A78BFA"></i>Batalla de clubes</span><span><i style="background:#E4B02F"></i>Salida del club</span><span><i style="background:#F472B6"></i>Noche temática</span><span><i style="background:var(--scarlet)"></i>Evento</span><a class="feed" href="/calendar.ics">Agrega el club a tu calendario &rarr;</a>
+      <span><i style="background:#3BC79A"></i>Domingo social</span><span><i style="background:var(--scarlet-dim)"></i>Noche de liga</span><span><i style="background:#4F86E8"></i>Noche de estudio</span><span><i style="background:#F0883E"></i>Intermedio+</span><span><i style="background:#A78BFA"></i>Batalla de clubes</span><span><i style="background:#E4B02F"></i>Salida del club</span><span><i style="background:#F472B6"></i>Noche temática</span><span><i style="background:var(--scarlet)"></i>Evento</span><span id="calMarks" hidden></span><a class="feed" href="/calendar.ics">Agrega el club a tu calendario &rarr;</a>
     </div>
     <div class="hint m">Toca un día para ver los detalles</div>
     <div class="callist" id="calList"></div>
@@ -250,7 +251,9 @@ var soc=document.querySelector("#navbar .soc"),lang=document.querySelector("#nav
     var EVENTS_URL="../../events.json";
     var today=new Date(); today.setHours(0,0,0,0);
     var view=new Date(today.getFullYear(),today.getMonth(),1);
-    var sel=null, stored=[];
+    var sel=null, stored=[], marks=[];
+    // a month-long challenge marks every day it runs with a tiny pawn (events.json "marks")
+    var PAWN='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="6" r="3.8"/><path d="M8.4 11.2h7.2l-1.3 1.6c.5 2.5 1.5 4.6 3.1 6.3H6.6c1.6-1.7 2.6-3.8 3.1-6.3z"/><rect x="4.8" y="19.6" width="14.4" height="2.6" rx="1"/></svg>';
     function iso(d){return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");}
     function recurring(d){
       var dow=d.getDay(); var out=[];
@@ -263,6 +266,8 @@ var soc=document.querySelector("#navbar .soc"),lang=document.querySelector("#nav
       if(dow===4 && d>=new Date(2026,8,10)){out.push({type:"adobe",title:"Noche de estudio intermedio+",time:"7:00 PM – 11:00 PM",note:"Para nivel intermedio en adelante. Material más exigente que el martes: estudio más profundo, posiciones más difíciles, menos ayuda. Escríbele a Harold antes de venir — esta no es de entrada libre.",age:"21+",venue:"Adobe Kava",addr:VENUE2});}
       return out;
     }
+    function ymd(s){var p=s.split("-"); return new Date(+p[0],p[1]-1,+p[2]);}
+    function marksOn(d){var k=iso(d); return marks.filter(function(m){return m.from<=k&&k<=m.to;});}
     function eventsOn(d){var k=iso(d); var b=stored.filter(function(e){return e.date===k;});
       return recurring(d).filter(function(r){return !b.some(function(e){return e.type===r.type||e.replaces===r.type;});}).concat(b);}
     function gcal(e,d){
@@ -282,6 +287,8 @@ var soc=document.querySelector("#navbar .soc"),lang=document.querySelector("#nav
       document.getElementById("calTitle").textContent=MONTHS[view.getMonth()]+" "+view.getFullYear();
       document.getElementById("calDow").innerHTML=DOW.map(function(x){return '<div class="dow">'+x+'</div>';}).join("");
       g.innerHTML="";
+      var ym=iso(view).slice(0,7), ml=document.getElementById("calMarks"), on=marks.filter(function(m){return m.from.slice(0,7)<=ym&&ym<=m.to.slice(0,7);});
+      if(ml){ml.hidden=!on.length; ml.innerHTML=on.map(function(m){return '<b class="mk">'+PAWN+'</b>'+esc(loc(m,"title"));}).join(" ");}
       var start=new Date(view); start.setDate(1-view.getDay());
       for(var i=0;i<42;i++){
         var d=new Date(start); d.setDate(start.getDate()+i);
@@ -289,7 +296,7 @@ var soc=document.querySelector("#navbar .soc"),lang=document.querySelector("#nav
         if(d.getMonth()!==view.getMonth()) cell.className+=" out";
         if(d.getTime()===today.getTime()) cell.className+=" now";
         if(sel && d.getTime()===sel.getTime()) cell.className+=" sel";
-        var evs=eventsOn(d); var html='<div class="dn">'+d.getDate()+'</div>';
+        var evs=eventsOn(d); var html='<div class="dn">'+d.getDate()+marksOn(d).map(function(m){return '<b class="mk" title="'+esc(loc(m,"title"))+'">'+PAWN+'</b>';}).join("")+'</div>';
         evs.slice(0,3).forEach(function(e){var t=loc(e,"title");html+='<div class="chip t-'+e.type+'" title="'+esc(t)+'">'+esc(t)+'</div>';});
         if(evs.length>3) html+='<div class="chip t-study">+'+(evs.length-3)+' more</div>';
         cell.innerHTML=html;
@@ -301,10 +308,13 @@ var soc=document.querySelector("#navbar .soc"),lang=document.querySelector("#nav
       var t=document.getElementById("sideTitle"), l=document.getElementById("sideList"); if(!t||!l) return;
       if(!sel){t.textContent="Elige un día"; l.innerHTML='<div class="empty">Toca cualquier fecha para ver qué hay.</div>'; return;}
       t.textContent=DOW[sel.getDay()]+", "+MS[sel.getMonth()]+" "+sel.getDate();
-      var evs=eventsOn(sel);
-      if(!evs.length){l.innerHTML='<div class="empty">Nada programado. El club se reúne domingos y martes.</div>'; return;}
+      var evs=eventsOn(sel), mk=marksOn(sel);
+      if(!evs.length&&!mk.length){l.innerHTML='<div class="empty">Nada programado. El club se reúne domingos y martes.</div>'; return;}
       l.innerHTML=evs.map(function(e){
         return '<div class="evi"><div class="m t">'+label(e.type)+(e.age?' · '+e.age:'')+'</div><b>'+esc(loc(e,"title"))+'</b><div class="m meta">'+esc(e.time||"")+(e.venue?' · '+esc(e.venue):'')+(e.addr?'<br>'+esc(e.addr.replace(/^Adobe Kava, /,""))    :'')+'</div>'+(loc(e,"note")?'<p>'+esc(loc(e,"note"))+'</p>':'')+'<div class="acts">'+(e.type==="adobe"?'<a href="tel:+17862508993">Escríbele o llámale a Harold primero · (786) 250-8993</a>':'<a href="'+gcal(e,sel)+'" target="_blank" rel="noopener">Agregar a Google Calendar</a>')+(e.url?'<a href="'+esc(e.url)+'" target="_blank" rel="noopener">Detalles del evento</a>':'')+'</div></div>';
+      }).join("")+mk.map(function(m){
+        var n=Math.round((sel-ymd(m.from))/86400000)+1, of=Math.round((ymd(m.to)-ymd(m.from))/86400000)+1, u=loc(m,"url");
+        return '<div class="evi mkr"><div class="m t">'+(ES?'Reto del mes · Día ':'Monthly challenge · Day ')+n+(ES?' de ':' of ')+of+'</div><b>'+esc(loc(m,"title"))+'</b>'+(loc(m,"note")?'<p>'+esc(loc(m,"note"))+'</p>':'')+'<div class="acts">'+(u?'<a href="'+esc(u)+'">'+(ES?'Ver el reto':'See the challenge')+'</a>':'')+(m.discord?'<a href="'+esc(m.discord)+'" target="_blank" rel="noopener">'+(ES?'Comparte tu partida en el Discord':'Share your game in the Discord')+'</a>':'')+'</div></div>';
       }).join("");
     }
     function renderUpNext(){
@@ -329,7 +339,7 @@ var soc=document.querySelector("#navbar .soc"),lang=document.querySelector("#nav
       for(var i=0;i<60&&rows.length<10;i++){ var d=new Date(today); d.setDate(today.getDate()+i); var evs=eventsOn(d); if(evs.length) rows.push({d:d,evs:evs}); }
       box.innerHTML=rows.map(function(r){
         var w=(r.d.getTime()===today.getTime())?"Esta noche":DOW[r.d.getDay()];
-        return '<div class="lrow" data-t="'+r.d.getTime()+'"><div class="ld"><div class="d dd">'+r.d.getDate()+'</div><div class="m w">'+w+' \u00b7 '+MS[r.d.getMonth()]+'</div></div><div class="lc">'+r.evs.map(function(e){return '<div class="chip t-'+e.type+'">'+esc(loc(e,"title"))+'</div>';}).join("")+'</div></div>';
+        return '<div class="lrow" data-t="'+r.d.getTime()+'"><div class="ld"><div class="d dd">'+r.d.getDate()+'</div><div class="m w">'+w+' \u00b7 '+MS[r.d.getMonth()]+marksOn(r.d).map(function(m){return ' <b class="mk" title="'+esc(loc(m,"title"))+'">'+PAWN+'</b>';}).join("")+'</div></div><div class="lc">'+r.evs.map(function(e){return '<div class="chip t-'+e.type+'">'+esc(loc(e,"title"))+'</div>';}).join("")+'</div></div>';
       }).join("");
       [].slice.call(box.querySelectorAll(".lrow")).forEach(function(row){ row.addEventListener("click",function(){ sel=new Date(parseInt(row.getAttribute("data-t"),10)); renderSide(); openSide(); }); });
     }
@@ -341,7 +351,7 @@ var soc=document.querySelector("#navbar .soc"),lang=document.querySelector("#nav
     }
     sel=new Date(today); renderAll();
     // booked events (tournaments, lectures, simuls) come from events.json, written by the admin console
-    if(window.fetch){fetch(EVENTS_URL,{cache:"no-cache"}).then(function(r){return r.ok?r.json():null;}).then(function(j){ if(j&&j.events){stored=j.events; renderAll();} }).catch(function(){});}
+    if(window.fetch){fetch(EVENTS_URL,{cache:"no-cache"}).then(function(r){return r.ok?r.json():null;}).then(function(j){ if(j&&j.events){stored=j.events; marks=j.marks||[]; renderAll();} }).catch(function(){});}
   })();
   </script>
 </section>
