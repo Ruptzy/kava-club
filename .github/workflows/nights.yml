@@ -21,7 +21,11 @@ jobs:
     if: github.actor != 'nights-bot'
     runs-on: ubuntu-latest
     steps:
+      # the latest main, not the commit this run was triggered at: a run queued behind another
+      # must see what that run recorded, or it posts the same thing again
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"

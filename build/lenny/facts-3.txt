@@ -1,0 +1,230 @@
+# Lenny's facts, third shelf: openings, rules, endgames, words, machines and odd corners.
+# Same rules as facts.txt: real and checkable, no opinions, nothing about club members.
+
+# --- openings and their names
+1.e4 and 1.d4 are by far the two most played first moves in chess.
+Bobby Fischer called 1.e4 "best by test".
+The Berlin Defence begins 1.e4 e5 2.Nf3 Nc6 3.Bb5 Nf6.
+The Marshall Attack is a pawn sacrifice for Black in the Ruy López: 8.c3 d5.
+The Grünfeld begins 1.d4 Nf6 2.c4 g6 3.Nc3 d5.
+The Nimzo-Indian begins 1.d4 Nf6 2.c4 e6 3.Nc3 Bb4.
+The King's Indian begins 1.d4 Nf6 2.c4 g6, with Black's bishop going to g7.
+The Slav Defence begins 1.d4 d5 2.c4 c6.
+The Semi-Slav combines ...c6 and ...e6 against the Queen's Gambit.
+"Benoni" comes from Hebrew. It means "son of my sorrow", from the title of an 1825 book.
+Bird's Opening, 1.f4, is named after the English player Henry Bird.
+The Latvian Gambit begins 1.e4 e5 2.Nf3 f5.
+The Two Knights Defence begins 1.e4 e5 2.Nf3 Nc6 3.Bc4 Nf6.
+The Fried Liver Attack is the knight sacrifice on f7 after 4.Ng5 d5 5.exd5 Nxd5 6.Nxf7.
+The Philidor Defence begins 1.e4 e5 2.Nf3 d6.
+The Danish Gambit offers two pawns: 1.e4 e5 2.d4 exd4 3.c3.
+The Halloween Gambit is a real opening. White gives up a knight on e5 on move four.
+The Jerome Gambit gives up a bishop on f7 and then a knight on e5. It is considered unsound.
+The Polish Opening, 1.b4, is also known as the Sokolsky.
+The Alapin Variation of the Sicilian is 2.c3.
+The Ponziani Opening is 1.e4 e5 2.Nf3 Nc6 3.c3.
+Petrov's Defence begins 1.e4 e5 2.Nf3 Nf6.
+Owen's Defence is 1.e4 b6.
+The Modern Defence begins 1.e4 g6.
+The Albin Countergambit is 1.d4 d5 2.c4 e5.
+The Trompowsky, 1.d4 Nf6 2.Bg5, is named after the Brazilian master Octávio Trompowsky.
+The Colle System is named after the Belgian master Edgard Colle.
+The Torre Attack is named after the Mexican grandmaster Carlos Torre.
+The Bogo-Indian Defence is named after Efim Bogoljubov.
+1.b3 is called the Larsen Opening, after Bent Larsen.
+The Benko Gambit is also called the Volga Gambit.
+The Elephant Gambit begins 1.e4 e5 2.Nf3 d5.
+The Traxler Counterattack answers 4.Ng5 in the Two Knights with 4...Bc5.
+The Sveshnikov Sicilian is named after Evgeny Sveshnikov.
+The Scheveningen Sicilian is named after a Dutch seaside town that hosted a tournament in 1923.
+The Stonewall puts pawns on c3, d4, e3 and f4, or the mirror image for Black.
+In the Hedgehog, Black's pawns sit on a6, b6, d6 and e6 and wait.
+The Scotch Game begins 1.e4 e5 2.Nf3 Nc6 3.d4.
+The Four Knights Game begins 1.e4 e5 2.Nf3 Nc6 3.Nc3 Nf6.
+The Queen's Indian Defence begins 1.d4 Nf6 2.c4 e6 3.Nf3 b6.
+The Tarrasch Defence is named after Siegbert Tarrasch, who said it was the only correct answer to the Queen's Gambit.
+The Leningrad Dutch combines ...f5 with a kingside fianchetto.
+The Rossolimo Sicilian, 1.e4 c5 2.Nf3 Nc6 3.Bb5, is named after Nicolas Rossolimo.
+Nicolas Rossolimo ran a chess studio in New York and also drove a taxi.
+The Wing Gambit against the Sicilian is 2.b4.
+The Center Game begins 1.e4 e5 2.d4 exd4 3.Qxd4, bringing the queen out on move three.
+The Accelerated Dragon plays ...g6 before ...d6 in the Sicilian.
+The Najdorf starts with 5...a6, a pawn move that looks like it does nothing and does a lot.
+The Exchange Variation of the French, 3.exd5 exd5, is famous for its symmetry.
+The Winawer French begins 1.e4 e6 2.d4 d5 3.Nc3 Bb4.
+The Advance Caro-Kann is 1.e4 c6 2.d4 d5 3.e5.
+The Panov Attack against the Caro-Kann often leads to an isolated queen's pawn.
+The Ruy López Exchange Variation, 4.Bxc6, was a favourite weapon of Bobby Fischer.
+The Smith-Morra Gambit is named after Pierre Morra of France and Ken Smith of Texas.
+Ken Smith, of the Smith-Morra Gambit, was a professional poker player.
+The Göring Gambit is the Scotch with 4.c3.
+Paul Morphy played the Evans Gambit often.
+The Dutch Defence was recommended by Elias Stein in 1789.
+The Catalan combines d4 and c4 with a bishop on g2.
+The English Opening begins 1.c4.
+The Réti Opening begins 1.Nf3 and often waits to see what Black does.
+The King's Indian Attack is White playing the King's Indian setup with an extra move.
+The Pirc Defence begins 1.e4 d6 2.d4 Nf6 3.Nc3 g6.
+The Scandinavian is also called the Centre Counter Defence.
+The Nimzowitsch Defence begins 1.e4 Nc6.
+The Englund Gambit has a well-known trap that mates White on move eight.
+The Blackmar-Diemer Gambit begins 1.d4 d5 2.e4.
+The Staunton Gambit against the Dutch is 1.d4 f5 2.e4.
+ECO codes A00 to A99 are the flank openings. B is semi-open games, C is open games and French, D is closed games, E is Indian defences.
+
+# --- rules and procedure
+Under FIDE rules, your first illegal move in a standard game gives your opponent two extra minutes. The second one loses.
+Under FIDE rules, if you deliberately touch an opponent's piece, you must capture it if you legally can.
+Once you let go of a piece on a legal square, the move stands.
+Under FIDE rules you must press the clock with the same hand you moved with.
+Under FIDE rules an upside-down rook is a rook, not a queen.
+If there is no spare queen when a pawn promotes, you stop the clock and ask the arbiter for one.
+An arbiter is the official who runs a chess game or tournament and enforces the rules.
+A draw by threefold repetition is claimed with the arbiter, not just announced to your opponent.
+In descriptive notation, 1.e4 was written P-K4: pawn to king four.
+In descriptive notation each player counts the ranks from their own side of the board.
+Long algebraic notation writes both squares: 1.e2-e4.
+PGN, Portable Game Notation, was created in 1993. Almost every chess program reads it.
+FEN, Forsyth-Edwards Notation, describes a whole position in one line of text. David Forsyth devised it in 1883.
+The International Correspondence Chess Federation was founded in 1951.
+In Armageddon, White gets more time and Black wins the match with a draw.
+The Buchholz tiebreak adds up the scores of everyone you played. Bruno Buchholz devised it.
+The Sonneborn-Berger tiebreak rewards points scored against the strongest finishers.
+In a double round robin, everyone plays everyone twice, once with each colour.
+In a Scheveningen-system team match, each player plays every member of the other team.
+A forfeit win counts as a win in the standings but is not rated.
+Resigning is done by stopping the clock, saying so, or tipping your king over.
+Offering a draw is done on your own move, after you play it and before you press the clock.
+A draw offer stays open until your opponent accepts it, rejects it, or touches a piece.
+Under FIDE rules, a mobile phone ringing in the playing hall can lose you the game.
+In a rapid game under FIDE rules, you do not have to write your moves down.
+The pawn is the only piece that captures differently from how it moves.
+The king is the only piece that can never give check.
+
+# --- endgames and theory
+King and queen against a lone king can always be mated in ten moves or fewer.
+King and rook against a lone king can always be mated in 16 moves or fewer.
+Two bishops can always force mate against a lone king, in 19 moves or fewer.
+Queen against rook is a theoretical win, and it is famously hard to win in practice.
+Rook and bishop against rook is generally a draw, though some positions win.
+Computers showed in the 1980s that two bishops usually beat a lone knight, overturning a century of theory.
+A bishop and a rook pawn cannot win if the bishop does not control the promotion square and the defending king reaches the corner.
+In king and pawn against king, the defending king usually draws by getting in front of the pawn with the opposition.
+The Vančura position is a drawing method for rook against rook and a-pawn, named after Josef Vančura.
+The Troitzky line marks how far back a pawn must be blocked for two knights to win against it.
+Mutual zugzwang is a position where whichever side has to move loses.
+A rook pawn is the hardest pawn to win with, because the defending king can hide in the corner.
+Building a bridge, from the Lucena position, means using your rook to shield your king from checks.
+Two connected passed pawns on the sixth rank usually beat a lone rook.
+The "rule of the square" lets you check whether a king catches a passed pawn by drawing a square on the board.
+Knight endings are said to be like pawn endings, because the knight cannot lose a move.
+Queen against a pawn on the seventh rank wins, except that a rook pawn or a bishop pawn can often draw.
+
+# --- words and phrases
+"Kibitzer" comes from the German Kiebitz, a lapwing, a bird known for its noisy chatter.
+A "woodpusher" is a weak player who moves pieces without much of a plan.
+A "swindle" is escaping from a lost position by setting a trap.
+"Coffeehouse chess" means tricky, risky play aimed at the opponent rather than the position.
+"Hanging pawns" are two pawns side by side on the c and d files with no friendly pawns beside them.
+The "minority attack" uses fewer pawns to attack more pawns, creating a weakness in the pawn chain.
+The Carlsbad structure is named after tournaments held in Karlsbad.
+The "hypermodern" school, led by Réti and Nimzowitsch, controlled the centre from a distance instead of occupying it.
+The "romantic era" of the 1800s was full of gambits, sacrifices and attacks on the king.
+"Blunder" probably comes from an Old Norse word for shutting your eyes. Very fitting.
+In Spanish, check is "jaque" and checkmate is "jaque mate".
+In French a draw is "nulle". In German it is "remis".
+In German, castling is "Rochade".
+"Pawn" comes from an old French word for foot soldier.
+In French the bishop is "fou": the fool, or the jester.
+In Russian the bishop is "slon", which means elephant.
+The Russian word for the queen, "ferz", comes from the Persian word for a royal adviser.
+In Spanish and Italian the rook is "torre", a tower.
+"Elo" is pronounced "ee-low", like the first syllable of "eel".
+"Zeitnot" is German, but "time trouble" in any language makes your hands shake the same way.
+"Fish" is chess slang for an easy opponent. Do not use it at the club.
+A "rook lift" is moving a rook up the board and across to the attack.
+"Poisoned pawn" describes any pawn that looks free and is not.
+A "quiet move" is one with no check, capture or direct threat, often the hardest kind to find.
+A "zwischenzug" is also called an intermezzo.
+A "pawn break" is the pawn move that opens the position for your pieces.
+"Blockade" was one of Nimzowitsch's favourite words. He wrote a whole book on it.
+"Bishop pair" means having both bishops when your opponent does not.
+The "Dragon bishop" is Black's bishop on g7 in the Sicilian Dragon.
+A "theoretical novelty" in an annotation is usually marked with N or TN.
+
+# --- machines and online
+Chess has been called the drosophila of artificial intelligence: the fruit fly the field experiments on.
+In 2006 Vladimir Kramnik lost a six-game match to the program Deep Fritz.
+AlphaZero beat Stockfish in a 100-game match in 2017 without losing a game.
+TCEC, the Top Chess Engine Championship, has been won by Stockfish more times than by any other engine.
+NNUE, the neural network inside modern Stockfish, was first invented for shogi programs.
+Garry Kasparov invented "Advanced Chess", where humans play with computer help, in 1998.
+A modern phone runs chess engines far stronger than Deep Blue was.
+Engines measure their search in nodes per second. A node is one position looked at.
+Opening books for engines are lists of prepared moves, just like a human's repertoire.
+Chess.com and Lichess both rate players with versions of the Glicko system.
+In daily chess each player has a day or more for every move.
+Puzzle Rush, Puzzle Storm and Puzzle Streak are all timed puzzle modes on chess sites.
+Lichess runs on donations. Every feature is free for everyone.
+Chess.com reported more than 100 million members in 2022.
+Online chess boomed during 2020, helped by lockdowns and "The Queen's Gambit".
+Stockfish is named after dried cod, a Norwegian staple. Its first author, Tord Romstad, is Norwegian.
+Komodo and Houdini were two of the strongest commercial engines of the 2010s.
+"Centaur" is the name for a human and a computer playing together as a team.
+
+# --- variants and relatives
+Bughouse is played by teams of two on two boards. Pieces you capture go to your partner.
+Crazyhouse is the one-board version of bughouse: you can drop captured pieces back on the board.
+In atomic chess, a capture explodes every piece around it except pawns.
+In three-check, you win by giving check three times.
+In King of the Hill, you win by walking your king to one of the four central squares.
+In Horde chess, White has 36 pawns and no king at all.
+In antichess, captures are compulsory and you win by losing all your pieces.
+In Racing Kings, nobody may give check, and the first king to reach the eighth rank wins.
+In shogi, Japanese chess, captured pieces can be dropped back on the board as your own.
+Xiangqi, Chinese chess, is played on the points of the lines, with a river across the middle.
+Makruk, Thai chess, is one of the closest living relatives of the original Indian game.
+In Kriegspiel you cannot see your opponent's pieces. An umpire tells you what is legal.
+In xiangqi the two generals may not face each other on an open file.
+In shogi a pawn may not be dropped to give immediate checkmate.
+Chess960 was first played in a big event at Mainz in 2001.
+In Chess960 the king always starts between the rooks, so castling still works.
+The Freestyle Chess events of the 2020s use Chess960 starting positions.
+
+# --- problems and studies
+A helpmate is a problem where both sides cooperate to checkmate Black.
+A selfmate is a problem where White forces Black to deliver mate.
+Retrograde analysis works backward to find which moves must have led to a position.
+The World Chess Solving Championship is a contest for solving composed problems against the clock.
+A chess study is a composed position where White must win or draw, with no fixed number of moves.
+A "key" in a chess problem is its first move. Good keys are hard to guess.
+A "cook" is a second solution the composer did not intend. Composers hate them.
+The Babson task, a set of matching underpromotions, was thought impossible until Leonid Yarosh composed it in 1983.
+
+# --- odd corners
+With the 50-move rule, the longest possible chess game is 5,949 moves.
+The knight is the only piece that can jump over others.
+A pawn that reaches the far side of the board is promoted on the same move. It never waits a turn.
+FIDE recommends a tournament king about 9.5 centimetres tall.
+FIDE recommends board squares between 5 and 6 centimetres wide.
+The Staunton knight is said to be modelled on a horse's head from the Elgin Marbles.
+Chess sets made of wood are usually boxwood for the light pieces and ebony or rosewood for the dark ones.
+Weighted pieces have lead or steel in the base so they stand firm and feel solid.
+In 1965 Bobby Fischer played the Capablanca Memorial in Havana by teletype, from the Marshall Chess Club in New York.
+The first chess game played by telegraph was between Washington and Baltimore in 1844.
+A board's light square in the bottom right is the rule. "Light on right" is how players remember it.
+The 1924 Paris Olympics included an unofficial chess olympiad.
+Chessboxing alternates rounds of chess with rounds of boxing. You can win by knockout or by checkmate.
+The International Olympic Committee recognised chess as a sport in 1999.
+FIDE has more than 190 member federations.
+Chess clocks were sand-glasses before they were mechanical.
+Digital clocks with increment became standard in top events in the 1990s.
+The DGT digital clock and electronic board are why broadcasts can show moves live.
+Sound-deadening felt under the pieces is called baize.
+
+# --- moved here from topical.txt, which is gone (its lines repeated the main pools)
+The Woodpecker Method is named after one of its authors, Hans Tikkanen. "Tikka" is Finnish for woodpecker.
+The Taimanov Variation is named after Mark Taimanov, a grandmaster who was also a concert pianist.
+In a Swiss tournament, players on the same score are paired against each other each round.
+The four central squares are d4, e4, d5 and e5. Every opening fights over them.
+Round-robin, Swiss and knockout are the three classic tournament formats.

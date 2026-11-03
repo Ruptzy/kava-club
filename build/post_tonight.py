@@ -20,6 +20,7 @@ import json
 import os
 import random
 import re
+import subprocess
 import sys
 import time
 import urllib.error
@@ -327,6 +328,12 @@ def draw(pool, fallback=None):
     return random.choice(pool) if pool else fallback
 
 
+def once(pool, name, k, fallback=None):
+    """The k-th line of a pool in a fixed shuffled order, so a line cannot come round again
+    until the whole pool has been used. Random draws repeated themselves within days."""
+    return L.pick(pool, 'tonight-' + name, k) if pool else fallback
+
+
 def chance(one_in):
     return random.randrange(one_in) == 0
 
@@ -360,22 +367,26 @@ def message(day, on, events=()):
     e = on[0]
     kind = e.get('type', '')
     when = time_words(e.get('time'))
-    hello, bye = draw(GREETINGS), draw(SIGNOFFS)
+    # each part steps once per post of its kind: greetings daily, a night's own lines weekly
+    # (league and social alternate Sundays, so fortnightly)
+    k = day.toordinal()
+    turn = k // (14 if kind in ('league', 'social') else 7)
+    hello, bye = once(GREETINGS, 'greeting', k), once(SIGNOFFS, 'signoff', k)
 
     if kind in ('study', 'league', 'social', 'adobe'):
         plan = study_plan() if kind == 'study' else {}
         pool = study_pool(plan) if kind == 'study' else OPENERS[kind]
-        first = fill(draw(pool, FALLBACK_OPEN), plan)
-        second = draw(SECONDS[kind], FALLBACK_SECOND)
+        first = fill(once(pool, 'open-' + kind, turn, FALLBACK_OPEN), plan)
+        second = once(SECONDS[kind], 'second-' + kind, turn, FALLBACK_SECOND)
         where = ' at Adobe Kava' if kind == 'adobe' else ''
         parts = [first, second]
         if chance(3):
-            aside = draw(ASIDES['adobe' if kind == 'adobe' else 'home'])
+            aside = once(ASIDES['adobe' if kind == 'adobe' else 'home'], 'aside', k)
             if aside:
                 parts.append(aside)
         if chance(2):
             # one thing worth knowing, different every day: a fact, or one of his opinions
-            parts.append('🤓 ' + L.knowledge(day.toordinal()))
+            parts.append('🤓 ' + L.knowledge(day, L.TONIGHT))
         parts.append('Starts at %s%s. %s' % (when, where, bye))
         nudge = countdown(day, events) if chance(3) else None
         if nudge:
@@ -432,6 +443,22 @@ def last_posted():
 
 def last_missed():
     return _ledger().get('missed', '')
+
+
+def posted_on_main(day):
+    """Whether another run has already posted today and pushed its record to main.
+
+    A run that waits for 3pm holds the copy of the repository it started with, and a run
+    queued behind it starts from the commit it was triggered at. On 1 Nov 2026 two runs both
+    read "not posted yet" and both posted. So look at main itself, just before sending."""
+    try:
+        subprocess.run(['git', 'fetch', '-q', 'origin', 'main'], cwd=OUT, check=True, timeout=60)
+        out = subprocess.run(['git', 'show', 'origin/main:tonight-posted.json'], cwd=OUT, check=True,
+                             capture_output=True, timeout=30).stdout
+        return json.loads(out or b'{}').get('last') == day.isoformat()
+    except Exception as e:
+        print('Could not read the record on main (%s); going by the local copy.' % e)
+        return False
 
 
 def remember(day, key='last'):
@@ -524,6 +551,9 @@ def main(argv):
         return 0
     if not hook.startswith(('https://discord.com/api/webhooks/', 'https://discordapp.com/api/webhooks/')):
         print('The secret does not look like a Discord webhook URL; nothing posted.')
+        return 0
+    if not force and posted_on_main(day):
+        print('Already posted for %s (recorded on main by another run).' % day.isoformat())
         return 0
     send(hook, text)
     remember(day)

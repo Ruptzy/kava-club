@@ -30,7 +30,7 @@ The standard piece values are pawn 1, knight 3, bishop 3, rook 5, queen 9. The k
 A knight always lands on the opposite colour from the square it left.
 A knight's tour visits all 64 squares exactly once. Euler studied it in the 1700s.
 Counting direction, there are 26,534,728,821,064 closed knight's tours on a chessboard.
-Chess960 has exactly 960 starting positions.
+Chess960 has exactly 960 legal starting positions. Bobby Fischer proposed it in 1996.
 The number of legal chess positions is estimated at about 4.8 x 10^44.
 In the wheat and chessboard story, doubling one grain across 64 squares gives more than 18 quintillion grains.
 The longest forced mate found in seven-piece endgame tablebases takes 549 moves.
@@ -139,9 +139,7 @@ Magnus Carlsen became a grandmaster at 13.
 Magnus Carlsen held the world title from 2013 to 2023.
 Magnus Carlsen went 125 classical games without a loss, from 2018 to 2020.
 Magnus Carlsen's peak classical rating of 2882 is the highest ever recorded.
-Ding Liren became world champion in 2023.
 Gukesh Dommaraju became the youngest world champion in history in 2024, at 18.
-Vera Menchik became the first women's world champion in 1927.
 Nona Gaprindashvili became the first woman awarded the grandmaster title, in 1978.
 Judit Polgár became a grandmaster at 15, breaking Bobby Fischer's record.
 Judit Polgár reached number eight in the world, the highest any woman has ever been ranked.
@@ -150,7 +148,6 @@ Abhimanyu Mishra became the youngest grandmaster in history in 2021, at 12 years
 Sergey Karjakin held the record for youngest grandmaster for 19 years.
 FIDE, the world chess federation, was founded in Paris in 1924.
 FIDE's motto is "Gens una sumus": we are one family.
-FIDE first awarded the grandmaster title in 1950.
 The first official Chess Olympiad was held in London in 1927.
 International Chess Day is July 20, the date FIDE was founded.
 The Elo rating system is named after Arpad Elo, a physics professor.
@@ -174,7 +171,6 @@ Chessboxing is a real sport. Its first event was held in 2003.
 The longest world championship game is game 6 of Carlsen against Nepomniachtchi in 2021. It ran 136 moves.
 The longest tournament game on record is Nikolić against Arsović, Belgrade 1989: 269 moves, drawn.
 Armenia teaches chess as a compulsory subject in primary school.
-The International Olympic Committee recognises chess as a sport.
 The World Chess Hall of Fame is in St. Louis, Missouri.
 In 1999 Garry Kasparov played a game against "the World", with the public voting on each move. He won in 62 moves.
 Timur Gareyev played 48 games at once, blindfolded, in 2016.

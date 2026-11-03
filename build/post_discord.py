@@ -22,7 +22,6 @@ import hashlib
 import json
 import os
 import random
-import re
 import sys
 import time
 import urllib.error
@@ -45,7 +44,8 @@ UA = 'KavaSocialChessClub-recaps (https://kavasocialchessclub.com, 1.0)'
 # Lenny, the club's resident know-it-all, introduces every recap. His lines sit above
 # the card; the card itself is still the recap exactly as it reads on the site.
 #
-# His lines live in build/lenny/*.txt and are read by lenny_bank.py: about a thousand of them.
+# His lines live in build/lenny/*.txt and are read by lenny_bank.py: over 1,500 of them, more
+# than 1,000 of them facts and takes that share one never-repeating pool with the 3pm post.
 # A given recap always gets the same Lenny, so an edited recap keeps its joke, and his lines
 # are kept out of the fingerprint so they can never make an old message look "changed".
 #
@@ -61,20 +61,16 @@ import lenny_bank as L  # noqa: E402
 def lenny_says(n):
     """Lenny's introduction to one recap.
 
-    Each pool is walked in a fixed shuffled order, one step per club night, so nothing
-    repeats until its whole pool has been used. The same night always gets the same Lenny.
+    Each pool is walked in a fixed shuffled order by the recap's date, so nothing repeats
+    until its whole pool has been used. The fact or take takes the date's recap slot, so it
+    can never be the one the 3pm post used. The same recap always gets the same Lenny.
     """
     when = B.when(n)
     news = bool(n.get('venue'))
     no = B.night_number(when)
-    # club news has no night number of its own, so it steps by the calendar instead
-    k = datetime.strptime(when, '%Y-%m-%d').toordinal() if news else no
-    text = ' '.join([B.loc(n, 'title', False), B.loc(n, 'line', False), B.loc(n, 'commentary', False)]).lower()
-    topical = [f for key, f in L.TOPICAL if re.search(r'\b%s\b' % re.escape(key.lower()), text)]
-    if topical and k % 2 == 0:
-        middle = '%s %s' % (L.pick(L.FACT_LEADS, 'fact-lead', k), L.pick(topical, 'topical', k // 2))
-    else:
-        middle = L.knowledge(k)
+    filed = datetime.strptime(n['date'], '%Y-%m-%d').date()     # one recap per date
+    k = filed.toordinal()
+    middle = L.knowledge(filed, L.RECAP)
     values = {'no': no, 'type': B.night_type(n, False), 'date': B.long_date(when, False), 'n': n.get('played') or 0}
     if news:
         record = L.pick(L.NEWS, 'news', k)

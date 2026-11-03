@@ -1,0 +1,167 @@
+# Lenny's facts, second shelf: world champions, players and history.
+# Same rules as facts.txt: real and checkable, no opinions, nothing about club members.
+
+# --- the world champions, in order
+Wilhelm Steinitz was born in Prague in 1836.
+Steinitz held the world title until 1894, when Emanuel Lasker took it from him.
+Steinitz lost a rematch to Lasker in Moscow in 1896-97.
+Emanuel Lasker was 25 when he became world champion.
+Lasker lost the title to Capablanca in Havana in 1921 without winning a single game.
+Emanuel Lasker earned a doctorate in mathematics in 1900.
+Albert Einstein wrote the foreword to a biography of Emanuel Lasker. They were friends.
+José Raúl Capablanca was born in Havana in 1888.
+The story goes that Capablanca learned chess at four, by watching his father play.
+Capablanca worked as a diplomat for Cuba while he was world champion.
+Capablanca lost the title to Alexander Alekhine in Buenos Aires in 1927.
+The 1927 Capablanca-Alekhine match lasted 34 games, and 25 of them were draws.
+Capablanca and Alekhine never played a rematch.
+Alekhine lost the title to Max Euwe in 1935 and took it back in 1937.
+Alexander Alekhine died in Estoril, Portugal, in 1946, still world champion.
+After Alekhine's death, FIDE held a five-player match tournament in 1948 to crown a new champion. Mikhail Botvinnik won it.
+Max Euwe was president of FIDE from 1970 to 1978.
+Mikhail Botvinnik lost the title twice and won it back twice, in rematches against Smyslov and Tal.
+Vasily Smyslov was world champion from 1957 to 1958.
+Vasily Smyslov trained as an opera baritone and auditioned for the Bolshoi Theatre in 1950.
+Vasily Smyslov reached the Candidates final in 1984, in his sixties.
+Mikhail Tal held the world title for one year, from 1960 to 1961.
+Mikhail Tal was born in Riga, Latvia. His nickname was "the Magician from Riga".
+Tigran Petrosian took the title from Botvinnik in 1963.
+Tigran Petrosian was nicknamed "Iron Tigran" for how hard he was to beat.
+Petrosian held the world title until 1969, when Boris Spassky beat him.
+Boris Spassky was world champion from 1969 to 1972.
+Bobby Fischer lost the first game of the 1972 match and forfeited the second, then won the title anyway.
+Bobby Fischer was the first American-born world champion.
+On his way to the 1972 title, Fischer beat Mark Taimanov and Bent Larsen 6-0 each in Candidates matches.
+Bobby Fischer won the US Championship all eight times he played in it.
+Bobby Fischer became US champion at 14.
+Fischer and Spassky played a rematch in Yugoslavia in 1992, twenty years after Reykjavik.
+Bobby Fischer spent his last years in Iceland and is buried there.
+Bobby Fischer died in 2008 at the age of 64, one year for every square on the board.
+Garry Kasparov and Anatoly Karpov played five world championship matches between 1984 and 1990.
+Kasparov and Karpov played 144 world championship games against each other.
+Garry Kasparov was born Garik Weinstein, in Baku.
+Kasparov split from FIDE in 1993 to play Nigel Short for a title of his own.
+From 1993 to 2006 there were two world champions: FIDE's, and the "classical" line from Steinitz.
+Vladimir Kramnik reunified the world title in 2006 by beating Veselin Topalov.
+The 2006 Kramnik-Topalov match had a forfeited game over a dispute about bathroom breaks.
+Viswanathan Anand won the world title in 2007, in a tournament in Mexico City.
+Anand defended his title against Kramnik in 2008, Topalov in 2010 and Gelfand in 2012.
+Anand lost the world title to Magnus Carlsen in 2013, in Chennai, his home city.
+Viswanathan Anand was nicknamed "the Lightning Kid" for how fast he played.
+Magnus Carlsen defended his title against Anand, Karjakin, Caruana and Nepomniachtchi.
+All twelve classical games of the 2018 Carlsen-Caruana match were drawn. Rapid tiebreaks decided it.
+Magnus Carlsen chose not to defend his world title in 2023.
+Magnus Carlsen became world number one in January 2010, at 19.
+Ding Liren beat Ian Nepomniachtchi in rapid tiebreaks in 2023 to become world champion.
+Ding Liren is the first player from China to hold the open world title.
+Gukesh Dommaraju beat Ding Liren 7.5-6.5 in Singapore in 2024.
+Gukesh won the 2024 Candidates tournament at 17, the youngest player ever to do it.
+Gukesh became a grandmaster at 12 years and 7 months.
+Botvinnik ran a chess school whose pupils included Karpov, Kasparov and Kramnik.
+Anatoly Karpov is credited with more than 160 tournament victories.
+Garry Kasparov retired from professional chess in 2005.
+Garry Kasparov was world number one for most of the 21 years from 1984 to 2005.
+The Candidates tournament decides who gets to challenge the world champion.
+
+# --- women's world champions and pioneers
+Vera Menchik held the women's world title from 1927 until her death in 1944.
+Male masters who lost to Vera Menchik were jokingly enrolled in the "Menchik Club".
+Lyudmila Rudenko became the second women's world champion in 1950.
+Nona Gaprindashvili held the women's world title from 1962 to 1978.
+Maia Chiburdanidze became women's world champion in 1978, at 17.
+Maia Chiburdanidze and Nona Gaprindashvili are both from Georgia, which dominated women's chess for decades.
+Susan Polgár won the women's world championship in 1996.
+László Polgár taught his three daughters chess at home to prove that geniuses are made, not born.
+Sofia Polgár scored 8.5 out of 9 at a tournament in Rome in 1989, at the age of 14.
+Judit Polgár beat Garry Kasparov in a rapid game in 2002.
+Judit Polgár never played in the women's world championship. She played in the open events instead.
+Hou Yifan won the women's world championship four times.
+Ju Wenjun first became women's world champion in 2018.
+The first Women's Chess Olympiad was held in 1957.
+
+# --- prodigies and records
+Rameshbabu Praggnanandhaa became a grandmaster at 12 years and 10 months.
+Hikaru Nakamura became a grandmaster at 15, breaking Bobby Fischer's American record.
+Alireza Firouzja became the youngest player ever to pass a 2800 rating, at 18.
+Abhimanyu Mishra, the youngest grandmaster ever, is from New Jersey.
+Paul Morphy played eight blindfold games at once in Paris in 1858.
+Paul Morphy was from New Orleans.
+Paul Morphy finished law school before he was old enough to practise law.
+Paul Morphy offered pawn-and-move odds to any player in the world. Nobody took him up on it.
+George Koltanowski played 34 blindfold games at once in Edinburgh in 1937.
+Miguel Najdorf played 45 blindfold games at once in São Paulo in 1947.
+Miguel Najdorf was in Argentina for the 1939 Olympiad when the Second World War began, and he stayed for good.
+In 2011 Ehsan Ghaem Maghami played 604 opponents at once, a world record at the time.
+Adolf Anderssen, winner of London 1851, was a mathematics teacher.
+Steinitz is the one who named Anderssen's 1852 win "the Evergreen Game".
+Hikaru Nakamura is one of the most-watched chess streamers in the world.
+Magnus Carlsen has won the World Rapid and World Blitz championships many times between them.
+
+# --- older history
+Chaturanga's four kinds of pieces stood for the four divisions of an Indian army: infantry, cavalry, elephants and chariots.
+In shatranj the queen's ancestor, the fers, could only step one square diagonally.
+In shatranj the bishop's ancestor, the alfil, jumped exactly two squares diagonally.
+Chess reached Europe through Moorish Spain and Sicily, by around the 10th century.
+Some medieval players rolled dice to decide which piece to move.
+The pawn's two-square first move became standard in Europe at about the same time as the powerful new queen.
+Castling rules differed from country to country until the 1800s.
+For a time in England, stalemating your opponent counted as a loss for the player who did it.
+In shatranj, stalemating your opponent counted as a win.
+Medieval Europeans called chess a game for kings, and it was popular at royal courts.
+The English word "chess" comes from the Old French "esches", the plural of "eschec", meaning check.
+The English treasury is called the Exchequer after a chequered cloth used for counting money, like a chessboard.
+Howard Staunton beat Pierre Saint-Amant in a match in Paris in 1843, regarded as an unofficial world championship.
+Howard Staunton also edited a complete edition of Shakespeare.
+The Café de la Régence in Paris was Europe's chess capital for more than a century. Philidor and Morphy both played there.
+Philidor gave blindfold exhibitions in London in the 1780s, and newspapers treated them as a marvel.
+The first newspaper chess column appeared in the Liverpool Mercury in 1813.
+The Edinburgh-London correspondence match of the 1820s took four years to finish.
+The codebreakers at Bletchley Park included the chess masters Hugh Alexander, Stuart Milner-Barry and Harry Golombek.
+The 1939 Chess Olympiad in Buenos Aires was still being played when the Second World War broke out.
+The Soviet Union won 18 of the 19 Chess Olympiads it entered from 1952 to 1990.
+Hungary won the 1978 Olympiad, the only one the Soviet Union lost between 1952 and 1990.
+The United States won four Chess Olympiads in a row in the 1930s.
+The United States won the Chess Olympiad in 2016.
+India won both the open and the women's gold medals at the 2024 Olympiad in Budapest.
+Iran banned chess after its 1979 revolution and lifted the ban in 1988.
+Napoleon loved chess. By most accounts he was not very good at it.
+The Mechanical Turk is said to have played both Napoleon and Benjamin Franklin.
+El Ajedrecista, built in Spain in 1912 by Leonardo Torres Quevedo, could play king and rook against king on its own.
+Arabic players were composing chess problems, called mansubat, more than a thousand years ago.
+The Swiss system was first used at a tournament in Zürich in 1895.
+The Hastings Chess Congress has been held over Christmas and New Year almost every year since 1920.
+The Tata Steel tournament in Wijk aan Zee has been held since 1938. Players call it the Wimbledon of chess.
+The Saint Louis Chess Club opened in 2008. Rex Sinquefield founded it.
+The Sinquefield Cup in St. Louis was first held in 2013.
+Chess was a medal event at the Asian Games in 2006, 2010 and 2022.
+The 1972 Fischer-Spassky match was played in Reykjavik's Laugardalshöll sports hall.
+
+# --- famous games and moments
+The "Game of the Century" was played by a 13-year-old Bobby Fischer against Donald Byrne in 1956.
+In the Game of the Century, Fischer gave up his queen on move 17 and won.
+Kasparov's win over Veselin Topalov at Wijk aan Zee in 1999 is often called Kasparov's Immortal.
+Legend says spectators showered the board with gold coins after Frank Marshall's queen move Qg3 in 1912.
+Marshall's Qg3 against Levitsky in 1912 left his queen attackable three ways, and every capture lost.
+Game 6 of the 1972 match was so good that Spassky applauded it along with the audience.
+Deep Blue's win in game 1 of 1996 was the first time a computer beat a reigning world champion in a game with classical time controls.
+In game 2 of their 1997 match, Kasparov resigned against Deep Blue in a position that was later shown to be a draw.
+Carlsen and Nepomniachtchi's 136-move game in 2021 lasted almost eight hours.
+The "Peruvian Immortal" was played in 1934 by Esteban Canal, who gave up his queen and both rooks.
+Rotlewi against Rubinstein, Łódź 1907, is famous as "Rubinstein's Immortal".
+Paul Morphy's Opera Game ended in mate on move 17.
+In 1834 Louis de la Bourdonnais and Alexander McDonnell played 85 games against each other in London.
+Fischer's 20-game winning streak in 1970 and 1971 included two 6-0 match wins over top grandmasters.
+
+# --- the Elo and titles
+Arpad Elo was born in Hungary and moved to the United States as a child.
+The Woman Grandmaster title, WGM, was introduced in 1976.
+FIDE awarded its first 27 grandmaster titles in 1950.
+The Candidate Master title, CM, requires a FIDE rating of 2200.
+FIDE titles are awarded at the FIDE Congress, usually once or twice a year.
+A FIDE rating starts at 1400 at the bottom of the scale.
+US Chess ratings and FIDE ratings are separate. The same player usually has two different numbers.
+US Chess ratings start at 100. Nobody can go lower.
+In US Chess, Class B is 1600 to 1799, Class C is 1400 to 1599 and Class D is 1200 to 1399.
+In US Chess, a Senior Master is rated 2400 or higher.
+The Glicko system adds a "ratings deviation" that says how sure the system is about your number.
+A provisional rating moves faster because the system does not know you yet.
