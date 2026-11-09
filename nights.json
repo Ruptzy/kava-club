@@ -201,9 +201,26 @@
      "🏁 Then the Season 10 finale, Sunday 22 November. The Halloween bracket doesn’t count toward the season, so it all comes down to that night."
     ],
     "also": 1,
-    "notes": "booked"
+    "notes": "booked",
+    "poster": {
+     "img": "img/nights/2026-11-08-bftb2.jpg",
+     "alt": "Battle for the Bay 2 flyer: Kava Social Chess Club vs Tampa Knights Chess Club, Bradenton vs Tampa, one night, every board counts. Sunday Nov 15, 7:00 PM, Kava Social Club, 540 13th St W, Bradenton. Swiss-style team battle in 4 sections; prizes $100, $60, $40 and $30, a trophy for every section winner and a Best Female Player trophy. Register at chess67.com/club/kava-social-chess-club. All levels welcome, 21+.",
+     "url": "https://chess67.com/club/kava-social-chess-club",
+     "button": "Register for Battle for the Bay 2"
+    }
    },
-   "updated": "2026-11-09"
+   "updated": "2026-11-09",
+   "gallery": [
+    {
+     "img": "img/nights/2026-11-08-bftb2.jpg",
+     "w": 1122,
+     "h": 1402,
+     "alt": "Battle for the Bay 2 flyer: Kava Social Chess Club vs Tampa Knights Chess Club, Bradenton vs Tampa, one night, every board counts. Sunday Nov 15, 7:00 PM, Kava Social Club, 540 13th St W, Bradenton. Swiss-style team battle in 4 sections; prizes $100, $60, $40 and $30, a trophy for every section winner and a Best Female Player trophy. Register at chess67.com/club/kava-social-chess-club. All levels welcome, 21+.",
+     "alt_es": "Cartel del Battle for the Bay 2: Kava Social Chess Club contra Tampa Knights Chess Club, Bradenton contra Tampa, una noche, cada tablero cuenta. Domingo 15 de noviembre, 7:00 PM, Kava Social Club, 540 13th St W, Bradenton. Batalla por equipos tipo suizo en 4 secciones; premios de $100, $60, $40 y $30, un trofeo para cada ganador de sección y un trofeo a la Mejor Jugadora. Inscríbete en chess67.com/club/kava-social-chess-club. Todos los niveles, 21+.",
+     "caption": "Battle for the Bay 2: Sunday 15 November, 7 PM. Register on Chess67.",
+     "caption_es": "Battle for the Bay 2: domingo 15 de noviembre, 7 PM. Inscríbete en Chess67."
+    }
+   ]
   },
   {
    "date": "2026-11-02",

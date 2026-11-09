@@ -30,7 +30,8 @@ Why it is built the way it is
   paragraphs) and button replace what would otherwise be taken from the recap; also (how many other
   recaps to list, 3 by default) and comeback ({label, title, text, button}) trim and reword the rest;
   intro "" drops the opening paragraph, and notes "booked" keeps calendar notes only for one-off events;
-  press ([{source, title, url, note}]) adds a small "In the press" item under the standings.
+  press ([{source, title, url, note}]) adds a small "In the press" item under the standings, and
+  poster ({img, alt, url, button}) adds a flyer card, the picture and one button, above the standings.
 """
 import html
 import json
@@ -352,6 +353,12 @@ def build(send_day, out_dir):
     said = list(mail.get('body') or [])
     if said:
         P.append(card(''.join(text(t, 16, INK2, '0' if i == 0 else '10px 0 0') for i, t in enumerate(said))))
+    # a flyer for what is coming up: the picture, linked, and one button under it
+    if mail.get('poster'):
+        po = mail['poster']
+        P.append(card(btn(po.get('button') or 'Register', po['url']), pad='16px 20px 20px',
+                      top='<tr><td style="padding:0"><a href="%s"><img src="%s" width="600" alt="%s" style="display:block;width:100%%;max-width:600px;'
+                          'height:auto;border:0;border-radius:15px 15px 0 0"></a></td></tr>' % (esc(po['url']), esc(SITE + po['img']), esc(po.get('alt', '')))))
     P.append(leaders(lead, campaign))
     # the club in the paper: one linked headline per piece, nothing more
     if mail.get('press'):
