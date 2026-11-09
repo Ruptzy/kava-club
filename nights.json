@@ -1,7 +1,210 @@
 {
  "_comment": "One entry per club night, newest first. Written by the admin console (Post a night) or by hand. build/build_nights.py turns these into /nights/<date>/ pages, the archive, the RSS feed and the sitemap. 'line' is Harold's own sentence about the night; 'commentary' is the write-up of the numbers.",
- "updated": "2026-11-03",
+ "updated": "2026-11-09",
  "nights": [
+  {
+   "date": "2026-11-08",
+   "type": "league",
+   "played": 19,
+   "rounds": 5,
+   "season": 10,
+   "title": "Full table, one night left",
+   "title_es": "Mesa llena, queda una noche",
+   "line": "Nineteen players, two first-timers, Scott at 27 straight, and three races going to the final night.",
+   "line_es": "Diecinueve jugadores, dos debutantes, Scott con 27 seguidas y tres carreras que se deciden en la última noche.",
+   "commentary": "Full table again. 🔥 Nineteen players, five rounds, forty-five games, and the last league night before the Season 10 finale. That's three Sundays in a row at nineteen or more.\nWelcome to Dave S. and \"White Knight\" 🤺, both on their first night, and welcome back, Sean M., on your second. 👋\nScott swept again: 5 from 5, through Joe, Brett, Brian O, Gabriel and Bob, with a new personal best of 1942. That's 27 wins in a row. He has not lost a league game all season. Somebody stop him. 🧹\nUpset of the night: Bob over Harold at 34%. ⚡ Their rivalry is now dead level, 3 wins each and 2 draws in eight games. Bob finished on 4 with a new best of 1475. And Sam held Josh to a draw at 11%, the first time Sam has taken anything off Josh in seven games.\nThe close ones: Harold over Gabriel was a 52-48 coin flip, Sam over Joe went to the underdog at 44%, and Harold over Brett was 58-42. Jenny won Under 1400 on 4 and joined the 25 club. Sam took Under 1000 on 2½, half a point clear of five players on 2. Biggest climb: Bella, +116. 📈\nNow the race. 🏁 One league night left, Sunday 22 November. The Halloween bracket was a one-off and doesn't count toward the season finish.\nOver 1400 ($100): Scott on 1942, 308 clear of Benji. Benji needs a miracle. Under 1400 ($75): Gabriel on 1540, 194 clear of Derek, and the season's most improved at +187. But he has to play the finale to qualify, and if he misses it, the gift card is wide open. 👀\nUnder 1000 ($50) is the real fight: Sam 1040, Anton 974, Diego 941. Sixty-six points from first to second, ninety-nine to third. One good night flips it. Regular of the season: Brian O and Harold, every night and 30 games each, dead level. Diego and Maddie haven't missed a night either.\nRivalries for the 22nd: Bob and Harold, all square. Gabriel and Josh, 2-0 with a draw to Gabriel. Anton and Omar Cruz, a win each this season. And Scott against the whole room. 🥊\nBut first: Battle for the Bay 2, this Sunday, 15 November. ⚔️ Tampa Knights cross the bay to our patio, and it starts at 7 PM, an hour earlier than a normal night. Round one was theirs. Round two is on our boards, under our lights. Every win is a point for Kava at every level, so you don't need to be strong to score. Section prizes of $100, $60, $40 and $30, a trophy for every section winner and a Best Female Player trophy. 21+. Register at https://chess67.com/club/kava-social-chess-club and bring everyone. 👊",
+   "commentary_es": "Mesa llena otra vez. 🔥 Diecinueve jugadores, cinco rondas, cuarenta y cinco partidas, y la última noche de liga antes de la final de la Temporada 10. Son tres domingos seguidos con diecinueve o más.\nBienvenidos Dave S. y \"White Knight\" 🤺, los dos en su primera noche, y bienvenido de vuelta, Sean M., en tu segunda. 👋\nScott arrasó otra vez: 5 de 5, contra Joe, Brett, Brian O, Gabriel y Bob, con un nuevo récord personal de 1942. Son 27 victorias seguidas. No ha perdido una partida de liga en toda la temporada. Que alguien lo pare. 🧹\nLa sorpresa de la noche: Bob sobre Harold con un 34%. ⚡ Su rivalidad queda empatada, 3 victorias cada uno y 2 tablas en ocho partidas. Bob terminó con 4 y un nuevo récord de 1475. Y Sam le sacó tablas a Josh con un 11%, la primera vez que Sam le quita algo a Josh en siete partidas.\nLas ajustadas: Harold sobre Gabriel fue un 52-48, una moneda al aire; Sam sobre Joe fue para el que tenía menos opciones, con un 44%; y Harold sobre Brett fue 58-42. Jenny ganó Menos de 1400 con 4 y entró al club de las 25. Sam se llevó Menos de 1000 con 2½, medio punto por delante de cinco jugadores con 2. La mayor subida: Bella, +116. 📈\nAhora la carrera. 🏁 Queda una noche de liga, el domingo 22 de noviembre. El bracket de Halloween fue algo especial y no cuenta para el final de la temporada.\nMás de 1400 ($100): Scott con 1942, 308 por delante de Benji. Benji necesita un milagro. Menos de 1400 ($75): Gabriel con 1540, 194 por delante de Derek, y el que más ha mejorado en la temporada, +187. Pero tiene que jugar la final para clasificar, y si falta, la tarjeta de regalo queda abierta. 👀\nMenos de 1000 ($50) es la pelea de verdad: Sam 1040, Anton 974, Diego 941. Sesenta y seis puntos del primero al segundo, noventa y nueve al tercero. Una buena noche lo cambia todo. El más fiel de la temporada: Brian O y Harold, todas las noches y 30 partidas cada uno, empatados. Diego y Maddie tampoco han faltado ni una noche.\nRivalidades para el 22: Bob y Harold, empatados. Gabriel y Josh, 2-0 y unas tablas para Gabriel. Anton y Omar Cruz, una victoria cada uno esta temporada. Y Scott contra toda la sala. 🥊\nPero antes: Battle for the Bay 2, este domingo, 15 de noviembre. ⚔️ Los Tampa Knights cruzan la bahía hasta nuestro patio, y empieza a las 7 PM, una hora antes que una noche normal. La primera ronda fue suya. La segunda es en nuestros tableros, bajo nuestras luces. Cada victoria es un punto para Kava en todos los niveles, así que no hace falta ser fuerte para sumar. Premios por sección de $100, $60, $40 y $30, un trofeo para cada ganador de sección y un trofeo a la Mejor Jugadora. 21+. Inscríbete en https://chess67.com/club/kava-social-chess-club y trae a todos. 👊",
+   "photo": "img/nights/2026-11-08.jpg",
+   "whole": true,
+   "focus": 55,
+   "photo_alt": "The long league-night table on the patio under purple and red lights, nineteen players turning to the camera from their boards",
+   "photo_alt_es": "La mesa larga de la noche de liga en el patio bajo luces moradas y rojas, diecinueve jugadores girándose a la cámara desde sus tableros",
+   "standings": [
+    {
+     "bracket": "Over 1400",
+     "bracket_es": "Más de 1400",
+     "rows": [
+      {
+       "name": "Scott",
+       "pts": 5,
+       "rec": "5-0-0",
+       "place": 1
+      },
+      {
+       "name": "Harold",
+       "pts": 4,
+       "rec": "4-0-1",
+       "place": 2
+      },
+      {
+       "name": "Bob",
+       "pts": 4,
+       "rec": "4-0-1",
+       "place": 2
+      },
+      {
+       "name": "Josh",
+       "pts": 3.5,
+       "rec": "3-1-1",
+       "place": 4
+      },
+      {
+       "name": "Brett",
+       "pts": 3,
+       "rec": "3-0-2",
+       "place": 5
+      }
+     ]
+    },
+    {
+     "bracket": "Under 1400",
+     "bracket_es": "Menos de 1400",
+     "rows": [
+      {
+       "name": "Jenny",
+       "pts": 4,
+       "rec": "4-0-1",
+       "place": 1
+      },
+      {
+       "name": "Gabriel",
+       "pts": 3,
+       "rec": "3-0-2",
+       "place": 2
+      },
+      {
+       "name": "Brian O",
+       "pts": 2,
+       "rec": "2-0-3",
+       "place": 3
+      },
+      {
+       "name": "Omar Cruz",
+       "pts": 2,
+       "rec": "2-0-3",
+       "place": 3
+      }
+     ]
+    },
+    {
+     "bracket": "Under 1000",
+     "bracket_es": "Menos de 1000",
+     "rows": [
+      {
+       "name": "Sam",
+       "pts": 2.5,
+       "rec": "2-1-2",
+       "place": 1
+      },
+      {
+       "name": "Anton",
+       "pts": 2,
+       "rec": "2-0-3",
+       "place": 2
+      },
+      {
+       "name": "Bella",
+       "pts": 2,
+       "rec": "2-0-2",
+       "place": 2
+      },
+      {
+       "name": "Diego",
+       "pts": 2,
+       "rec": "2-0-3",
+       "place": 2
+      },
+      {
+       "name": "Joe",
+       "pts": 2,
+       "rec": "2-0-3",
+       "place": 2
+      },
+      {
+       "name": "Maddie",
+       "pts": 2,
+       "rec": "2-0-3",
+       "place": 2
+      },
+      {
+       "name": "Dave S.",
+       "pts": 1,
+       "rec": "1-0-4",
+       "place": 7
+      },
+      {
+       "name": "Sean M.",
+       "pts": 1,
+       "rec": "1-0-4",
+       "place": 7
+      },
+      {
+       "name": "\"White Knight\" 🤺",
+       "pts": 0,
+       "rec": "0-0-5",
+       "place": 9
+      },
+      {
+       "name": "Vinny",
+       "pts": 0,
+       "rec": "0-0-1",
+       "place": 9,
+       "note": "left early"
+      }
+     ]
+    }
+   ],
+   "upsets": [
+    [
+     "Bob",
+     "Harold",
+     "34%"
+    ]
+   ],
+   "email": {
+    "lead": true,
+    "subject": "🏁 One night left, three races alive",
+    "preheader": "Bob takes Harold, two first-timers, and Battle for the Bay 2 starts at 7 PM this Sunday.",
+    "title": "Full table, one night left",
+    "intro": "Nineteen players again 🔥 three Sundays in a row at nineteen or more. Welcome to Dave S. and \"White Knight\" 🤺 on their first night!",
+    "wins_emoji": "🏁",
+    "wins_label": "The race, one night left",
+    "wins": [
+     [
+      "Over 1400 · $100",
+      "Scott",
+      "1942 and 27 wins in a row. 308 clear of Benji. Somebody stop him. 🧹"
+     ],
+     [
+      "Under 1400 · $75",
+      "Gabriel",
+      "1540, 194 clear of Derek. Has to play the finale to qualify. 👀"
+     ],
+     [
+      "Under 1000 · $50",
+      "Sam",
+      "1040. Anton is 66 back, Diego 99. The real fight. 🥊"
+     ],
+     [
+      "Regular of the season",
+      "Brian O and Harold",
+      "Every night, 30 games each. Dead level."
+     ],
+     [
+      "⚡ Upset of the night",
+      "Bob",
+      "Over Harold at 34%. Their rivalry: 3-3 with 2 draws."
+     ]
+    ],
+    "body": [
+     "⚔️ Battle for the Bay 2 is this Sunday, 15 November, and it starts at 7 PM, an hour early. Tampa Knights come to our patio. Round one was theirs; round two is on our boards. Every win scores for Kava at every level. Register on Chess67 and bring everyone.",
+     "🏁 Then the Season 10 finale, Sunday 22 November. The Halloween bracket doesn’t count toward the season, so it all comes down to that night."
+    ],
+    "also": 1,
+    "notes": "booked"
+   },
+   "updated": "2026-11-09"
+  },
   {
    "date": "2026-11-02",
    "type": "challenge",
@@ -30,8 +233,8 @@
    "title_es": "Truco o jaque mate",
    "line": "Twenty-one players in costume, a sweep from Scott, and a costume crown for Arabella and Joey.",
    "line_es": "Veintiún jugadores disfrazados, un pleno de Scott y la corona de disfraces para Arabella y Joey.",
-   "commentary": "The Halloween bracket was a hit. 🎃 Twenty-one players, fifty games, and a patio full of knights, ghosts, prisoners and one very suspicious pizza delivery. Thank you to everyone who dressed up.\nCostume contest: congratulations to Arabella and Joey, our winners, with a cop and robber routine nobody could top. 🚓 And welcome back, Arabella, one of the OGs.\nThe bracket: Scott swept Over 1400, 5 from 5, with a personal-best 1932. Gabe took Under 1400 on 4 with a new high of 1549, and Joe won Under 1000 on 3. The winners took home Chess Trading Cards from @chesstradingcards. 🃏\nUpsets of the night: Harold over Benji and Diego over Anton, both at 36%. ⚡ Bob held Benji to a draw at 25% and finished on 3.5.\nNew on the ladder: Charlie, Bella, Shawn A and Joey G. Milestones: Benji passed 200 games, Bob 50 and Gabe 25. 🌱\nNext up: Battle for the Bay 2, Sunday 15 November at 7 PM, on our patio. Tampa Knights come to us. Register at https://chess67.com/club/kava-social-chess-club ⚔️",
-   "commentary_es": "El bracket de Halloween fue un éxito. 🎃 Veintiún jugadores, cincuenta partidas, y un patio lleno de caballeros, fantasmas, presos y un repartidor de pizza muy sospechoso. Gracias a todos los que se disfrazaron.\nConcurso de disfraces: felicidades a Arabella y Joey, nuestros ganadores, con una rutina de policía y ladrón que nadie pudo superar. 🚓 Y bienvenida de vuelta, Arabella, una de las veteranas del club.\nEl bracket: Scott arrasó en Más de 1400, 5 de 5, con su mejor rating personal, 1932. Gabe ganó Menos de 1400 con 4 y un nuevo récord de 1549, y Joe ganó Menos de 1000 con 3. Los ganadores se llevaron cartas de Chess Trading Cards, de @chesstradingcards. 🃏\nLas sorpresas de la noche: Harold sobre Benji y Diego sobre Anton, ambas con un 36%. ⚡ Bob le sacó tablas a Benji con un 25% y terminó con 3.5.\nNuevos en la escalera: Charlie, Bella, Shawn A y Joey G. Hitos: Benji pasó las 200 partidas, Bob las 50 y Gabe las 25. 🌱\nLo que viene: Battle for the Bay 2, domingo 15 de noviembre a las 7 PM, en nuestro patio. Los Tampa Knights vienen a nosotros. Inscríbete en https://chess67.com/club/kava-social-chess-club ⚔️",
+   "commentary": "The Halloween bracket was a hit. 🎃 Twenty-one players, fifty games, and a patio full of knights, ghosts, prisoners and one very suspicious pizza delivery. Thank you to everyone who dressed up.\nCostume contest: congratulations to Arabella and Joey, our winners, with a cop and robber routine nobody could top. 🚓 And welcome back, Arabella, one of the OGs.\nThe bracket: Scott swept Over 1400, 5 from 5, with a personal-best 1932. Gabriel took Under 1400 on 4 with a new high of 1549, and Joe won Under 1000 on 3. The winners took home Chess Trading Cards from @chesstradingcards. 🃏\nUpsets of the night: Harold over Benji and Diego over Anton, both at 36%. ⚡ Bob held Benji to a draw at 25% and finished on 3.5.\nNew on the ladder: Charlie, Bella, Shawn A and Joey G. Milestones: Benji passed 200 games, Bob 50 and Gabriel 25. 🌱\nNext up: Battle for the Bay 2, Sunday 15 November at 7 PM, on our patio. Tampa Knights come to us. Register at https://chess67.com/club/kava-social-chess-club ⚔️",
+   "commentary_es": "El bracket de Halloween fue un éxito. 🎃 Veintiún jugadores, cincuenta partidas, y un patio lleno de caballeros, fantasmas, presos y un repartidor de pizza muy sospechoso. Gracias a todos los que se disfrazaron.\nConcurso de disfraces: felicidades a Arabella y Joey, nuestros ganadores, con una rutina de policía y ladrón que nadie pudo superar. 🚓 Y bienvenida de vuelta, Arabella, una de las veteranas del club.\nEl bracket: Scott arrasó en Más de 1400, 5 de 5, con su mejor rating personal, 1932. Gabriel ganó Menos de 1400 con 4 y un nuevo récord de 1549, y Joe ganó Menos de 1000 con 3. Los ganadores se llevaron cartas de Chess Trading Cards, de @chesstradingcards. 🃏\nLas sorpresas de la noche: Harold sobre Benji y Diego sobre Anton, ambas con un 36%. ⚡ Bob le sacó tablas a Benji con un 25% y terminó con 3.5.\nNuevos en la escalera: Charlie, Bella, Shawn A y Joey G. Hitos: Benji pasó las 200 partidas, Bob las 50 y Gabriel las 25. 🌱\nLo que viene: Battle for the Bay 2, domingo 15 de noviembre a las 7 PM, en nuestro patio. Los Tampa Knights vienen a nosotros. Inscríbete en https://chess67.com/club/kava-social-chess-club ⚔️",
    "photo": "img/nights/2026-11-01.jpg",
    "whole": true,
    "focus": 30,
@@ -135,7 +338,7 @@
      "bracket_es": "Menos de 1400",
      "rows": [
       {
-       "name": "Gabe",
+       "name": "Gabriel",
        "pts": 4,
        "rec": "4-0-1",
        "place": 1
@@ -336,8 +539,8 @@
    "title_es": "Cinco sorpresas y una baraja de cartas",
    "line": "Nineteen players, five upsets, two perfect nights, and trading cards for the top three.",
    "line_es": "Diecinueve jugadores, cinco sorpresas, dos noches perfectas y cartas coleccionables para los tres primeros.",
-   "commentary": "Full house again: nineteen players, five rounds, forty-three games, and league night four of Season 10. 🔥\nTwo perfect nights. Benji and Gabe both went 5 from 5 in Over 1400, and Gabe's sweep came with a personal-best rating of 1504 and the biggest climb of the night, +151. 🧹\nThen the upsets, all five of them. ⚡ Vinny over Jenny at 5%, a 536-point gap and the upset of the night. Diego over Toska at 7%. Joe over Josh at 8%. Anton over Omar Cruz at 26%. And Vinny again, over Maddie at 35%. Under 1000 came to fight.\nJoe (+135) and Anton both climbed past 1000 on the night. Welcome to Brett and Dustin on their first night, with Brett going 3-0-2 straight into Over 1400. 🌱\nNew tonight: official Chess Trading Cards, from @chesstradingcards (https://www.instagram.com/chesstradingcards/). 🃏 The top three in each section took cards home, and there are more to earn at study nights, bracket nights and for attendance. Collect them all, trade them, or play for keeps.\nNext Sunday is Costume Chess Night, then Battle for the Bay 2 on 15 November. 🎃⚔️",
-   "commentary_es": "Lleno total otra vez: diecinueve jugadores, cinco rondas, cuarenta y tres partidas, y la cuarta noche de liga de la Temporada 10. 🔥\nDos noches perfectas. Benji y Gabe hicieron 5 de 5 en Más de 1400, y el pleno de Gabe vino con su mejor rating personal, 1504, y la mayor subida de la noche, +151. 🧹\nLuego las sorpresas, las cinco. ⚡ Vinny sobre Jenny con un 5%, una diferencia de 536 puntos y la sorpresa de la noche. Diego sobre Toska con un 7%. Joe sobre Josh con un 8%. Anton sobre Omar Cruz con un 26%. Y Vinny otra vez, sobre Maddie con un 35%. Menos de 1000 vino a pelear.\nJoe (+135) y Anton pasaron los 1000 en la noche. Bienvenidos Brett y Dustin en su primera noche, con Brett haciendo 3-0-2 directo en Más de 1400. 🌱\nNuevo esta noche: cartas oficiales de Chess Trading Cards, de @chesstradingcards (https://www.instagram.com/chesstradingcards/). 🃏 Los tres primeros de cada sección se llevaron cartas, y hay más para ganar en las noches de estudio, las noches de bracket y por asistencia. Colecciónalas todas, cámbialas o juega por ellas.\nEl próximo domingo es la Noche de ajedrez con disfraces, y luego el Battle for the Bay 2 el 15 de noviembre. 🎃⚔️",
+   "commentary": "Full house again: nineteen players, five rounds, forty-three games, and league night four of Season 10. 🔥\nTwo perfect nights. Benji and Gabriel both went 5 from 5 in Over 1400, and Gabriel's sweep came with a personal-best rating of 1504 and the biggest climb of the night, +151. 🧹\nThen the upsets, all five of them. ⚡ Vinny over Jenny at 5%, a 536-point gap and the upset of the night. Diego over Toska at 7%. Joe over Josh at 8%. Anton over Omar Cruz at 26%. And Vinny again, over Maddie at 35%. Under 1000 came to fight.\nJoe (+135) and Anton both climbed past 1000 on the night. Welcome to Brett and Dustin on their first night, with Brett going 3-0-2 straight into Over 1400. 🌱\nNew tonight: official Chess Trading Cards, from @chesstradingcards (https://www.instagram.com/chesstradingcards/). 🃏 The top three in each section took cards home, and there are more to earn at study nights, bracket nights and for attendance. Collect them all, trade them, or play for keeps.\nNext Sunday is Costume Chess Night, then Battle for the Bay 2 on 15 November. 🎃⚔️",
+   "commentary_es": "Lleno total otra vez: diecinueve jugadores, cinco rondas, cuarenta y tres partidas, y la cuarta noche de liga de la Temporada 10. 🔥\nDos noches perfectas. Benji y Gabriel hicieron 5 de 5 en Más de 1400, y el pleno de Gabriel vino con su mejor rating personal, 1504, y la mayor subida de la noche, +151. 🧹\nLuego las sorpresas, las cinco. ⚡ Vinny sobre Jenny con un 5%, una diferencia de 536 puntos y la sorpresa de la noche. Diego sobre Toska con un 7%. Joe sobre Josh con un 8%. Anton sobre Omar Cruz con un 26%. Y Vinny otra vez, sobre Maddie con un 35%. Menos de 1000 vino a pelear.\nJoe (+135) y Anton pasaron los 1000 en la noche. Bienvenidos Brett y Dustin en su primera noche, con Brett haciendo 3-0-2 directo en Más de 1400. 🌱\nNuevo esta noche: cartas oficiales de Chess Trading Cards, de @chesstradingcards (https://www.instagram.com/chesstradingcards/). 🃏 Los tres primeros de cada sección se llevaron cartas, y hay más para ganar en las noches de estudio, las noches de bracket y por asistencia. Colecciónalas todas, cámbialas o juega por ellas.\nEl próximo domingo es la Noche de ajedrez con disfraces, y luego el Battle for the Bay 2 el 15 de noviembre. 🎃⚔️",
    "photo": "img/nights/2026-10-25.jpg",
    "whole": true,
    "photo_alt": "Eleven club members under the tiki holding up their new Chess Trading Cards",
@@ -365,7 +568,7 @@
        "place": 1
       },
       {
-       "name": "Gabe",
+       "name": "Gabriel",
        "pts": 5,
        "rec": "5-0-0",
        "place": 1
