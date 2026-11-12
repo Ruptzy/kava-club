@@ -398,20 +398,20 @@ def message(day, on, events=()):
         nudge = countdown(day, events) if chance(3) else None
         if nudge:
             # tonight's start time first, then the other event, then the goodbye
-            parts.append('Tonight starts at %s%s.' % (when, where))
-            parts.append(nudge + ' ' + bye)
+            parts.append('🕒 Tonight starts at %s%s.' % (when, where))
+            parts.append('📅 ' + nudge + ' ' + bye)
         else:
-            parts.append('Starts at %s%s. %s' % (when, where, bye))
+            parts.append('🕒 Starts at %s%s. %s' % (when, where, bye))
     else:
         # booked in the calendar: let the listing speak, it is what people need
         title = e.get('title') or 'Club event'
         note = ' '.join((e.get('note') or '').split())
         if len(note) > 260:
             note = note[:260].rsplit(' ', 1)[0] + '\u2026'
-        parts = ['**%s** tonight!' % title]
+        parts = ['⭐ **%s** tonight!' % title]
         if note:
             parts.append(note)
-        parts.append('Kicks off at %s at %s. %s' % (when, e.get('venue') or 'Kava Social Club', bye))
+        parts.append('🕒 Kicks off at %s at %s. %s' % (when, e.get('venue') or 'Kava Social Club', bye))
     return hello + '\n\n' + '\n\n'.join(parts)
 
 
