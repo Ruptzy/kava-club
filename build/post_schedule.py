@@ -53,7 +53,7 @@ MONTHS = ['January', 'February', 'March', 'April', 'May', 'June',
 def stamp(d, hour, minute=0, style='f'):
     """A Discord timestamp: shown in each reader's own timezone, relative time on hover."""
     dt = datetime(d.year, d.month, d.day, hour, minute, tzinfo=TZ) if TZ else datetime(d.year, d.month, d.day, hour, minute)
-    return '<t:%d:%s>' % (int(dt.timestamp()), style)
+    return '**<t:%d:%s>**' % (int(dt.timestamp()), style)   # dates and times go out in bold
 
 
 def league_sunday(d):
@@ -112,7 +112,7 @@ def sunday_line(d):
     if d in taken:
         e = taken[d]
         h, m = start_of(e)
-        note = '' if (h, m) == (20, 0) else ' · starts %s, not 8PM' % (e.get('time') or '').replace(':00 ', '').replace(' ', '')
+        note = '' if (h, m) == (20, 0) else ' · **starts %s, not 8PM**' % (e.get('time') or '').replace(':00 ', '').replace(' ', '')
         return '%s — ★ %s%s' % (stamp(d, h, m), e.get('title', 'Event'), note)
     return '%s — %s' % (stamp(d, 20), 'League night' if league_sunday(d) else 'Social Sunday')
 

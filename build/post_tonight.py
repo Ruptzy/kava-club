@@ -350,12 +350,12 @@ def countdown(day, events):
     days = (date(*(int(x) for x in ahead[0].split('-'))) - day).days
     if days > 21:
         return None
-    when = 'tomorrow' if days == 1 else 'in %d days' % days
+    when = '**tomorrow**' if days == 1 else '**in %d days**' % days
     title = nxt.get('title') or 'our next event'
     # spell out the other event's own day, time and place, so it never reads as tonight's
     # (Battle for the Bay at 7pm Sunday next to a 7pm Thursday at Adobe Kava, say)
     d = date(*(int(x) for x in ahead[0].split('-')))
-    at = '%s %d %s at %s, %s' % (d.strftime('%A'), d.day, d.strftime('%B'), time_words(nxt.get('time')),
+    at = '**%s %d %s at %s**, %s' % (d.strftime('%A'), d.day, d.strftime('%B'), time_words(nxt.get('time')),
                                  'at ' + nxt['venue'] if nxt.get('venue') else 'on the Kava Social patio')
     shapes = ['Separate thing, %s: %s, %s.' % (when, title, at),
               'Not tonight, but %s: %s, %s.' % (when, title, at),
@@ -374,7 +374,7 @@ def message(day, on, events=()):
     """The post, as Discord will see it. Every part is drawn on its own."""
     e = on[0]
     kind = e.get('type', '')
-    when = time_words(e.get('time'))
+    when = '**%s**' % time_words(e.get('time'))   # times and dates go out in bold
     # each part steps once per post of its kind: greetings daily, a night's own lines weekly
     # (league and social alternate Sundays, so fortnightly)
     k = day.toordinal()
