@@ -89,12 +89,39 @@ try:
 except Exception as ex:
     print('events.json unreadable, carrying on without booked events:', ex)
 
+def start_of(e):
+    """The (hour, minute) an event starts, from a '7:00 PM' style time; 8pm when unreadable."""
+    t = (e.get('time') or '').strip().upper().replace('.', '')
+    try:
+        head = t.split('–')[0].split('-')[0].strip()
+        hm = head.replace('AM', '').replace('PM', '').strip()
+        hour = int(hm.split(':')[0]); minute = int(hm.split(':')[1]) if ':' in hm else 0
+        if 'PM' in head and hour < 12:
+            hour += 12
+        return hour, minute
+    except Exception:
+        return 20, 0
+
+
+# a booked event that takes over a club night (Battle for the Bay on a social Sunday) is
+# listed in that night's place at its own start time, never as the usual 8pm night
+taken = {d: e for d, e in booked if e.get('replaces')}
+
+
+def sunday_line(d):
+    if d in taken:
+        e = taken[d]
+        h, m = start_of(e)
+        note = '' if (h, m) == (20, 0) else ' · starts %s, not 8PM' % (e.get('time') or '').replace(':00 ', '').replace(' ', '')
+        return '%s — ★ %s%s' % (stamp(d, h, m), e.get('title', 'Event'), note)
+    return '%s — %s' % (stamp(d, 20), 'League night' if league_sunday(d) else 'Social Sunday')
+
+
 fields = []
 if sundays:
     fields.append({
         'name': 'Sundays · 8PM to midnight',
-        'value': '\n'.join('%s — %s' % (stamp(d, 20), 'League night' if league_sunday(d) else 'Social Sunday')
-                           for d in sundays)[:1024],
+        'value': '\n'.join(sunday_line(d) for d in sundays)[:1024],
         'inline': False})
 if tuesdays:
     fields.append({
@@ -108,19 +135,7 @@ if thursdays:
                   + '\nMessage Harold first — this one is not a drop-in.')[:1024],
         'inline': False})
 for d, e in booked:
-    hour, minute = 20, 0
-    t = (e.get('time') or '').strip().upper().replace('.', '')
-    try:
-        if t:
-            head = t.split('–')[0].split('-')[0].strip()
-            pm = 'PM' in head
-            hm = head.replace('AM', '').replace('PM', '').strip()
-            hour = int(hm.split(':')[0]); minute = int(hm.split(':')[1]) if ':' in hm else 0
-            if pm and hour < 12:
-                hour += 12
-    except Exception:
-        pass
-    body = [stamp(d, hour, minute)]
+    body = [stamp(d, *start_of(e))]
     if e.get('venue'):
         body.append(e['venue'] + (' · ' + e['addr'].split(', ', 1)[1] if e.get('addr') and ', ' in e['addr'] else ''))
     if e.get('note'):

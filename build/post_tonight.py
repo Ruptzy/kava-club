@@ -352,10 +352,15 @@ def countdown(day, events):
         return None
     when = 'tomorrow' if days == 1 else 'in %d days' % days
     title = nxt.get('title') or 'our next event'
-    shapes = ['%s is %s, by the way.' % (title, when),
-              'Heads up: %s is %s.' % (title, when),
-              "Don't forget %s, %s." % (title, when),
-              '%s %s. Get ready.' % (title, 'is ' + when if days > 1 else 'is tomorrow')]
+    # spell out the other event's own day, time and place, so it never reads as tonight's
+    # (Battle for the Bay at 7pm Sunday next to a 7pm Thursday at Adobe Kava, say)
+    d = date(*(int(x) for x in ahead[0].split('-')))
+    at = '%s %d %s at %s, %s' % (d.strftime('%A'), d.day, d.strftime('%B'), time_words(nxt.get('time')),
+                                 'at ' + nxt['venue'] if nxt.get('venue') else 'on the Kava Social patio')
+    shapes = ['Separate thing, %s: %s, %s.' % (when, title, at),
+              'Not tonight, but %s: %s, %s.' % (when, title, at),
+              "Also on the calendar, %s: %s, %s. Don't forget." % (when, title, at),
+              'Looking ahead (%s): %s, %s. Get ready.' % (when, title, at)]
     return draw(shapes)
 
 
@@ -390,10 +395,13 @@ def message(day, on, events=()):
         if chance(2):
             # one thing worth knowing, different every day: a fact, or one of his opinions
             parts.append('🤓 ' + L.knowledge(day, L.TONIGHT))
-        parts.append('Starts at %s%s. %s' % (when, where, bye))
         nudge = countdown(day, events) if chance(3) else None
         if nudge:
-            parts.insert(len(parts) - 1, nudge)
+            # tonight's start time first, then the other event, then the goodbye
+            parts.append('Tonight starts at %s%s.' % (when, where))
+            parts.append(nudge + ' ' + bye)
+        else:
+            parts.append('Starts at %s%s. %s' % (when, where, bye))
     else:
         # booked in the calendar: let the listing speak, it is what people need
         title = e.get('title') or 'Club event'

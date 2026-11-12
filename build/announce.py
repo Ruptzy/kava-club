@@ -13,7 +13,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import post_tonight as T          # noqa: E402
 
-text = os.environ.get('ANNOUNCE', '').replace('\n', '\n').strip()
+text = os.environ.get('ANNOUNCE', '').replace('\\n', '\n').strip()   # the workflow box is one line, so \n is typed literally
 hook = os.environ.get('CLUB_SCHEDULE', '').strip()
 if not text:
     sys.exit('No announcement text given.')
