@@ -289,6 +289,9 @@ def study_plan():
     book = (d.get('book') or '').strip()
     if not book:
         return {}
+    # a finished book is not announced again; choosing a new one on the admin page resets 'started'
+    if d.get('finished') and d['finished'] >= (d.get('started') or ''):
+        return {}
     plan = {'book': book, 'unit': (d.get('unit') or 'chapter').strip().lower()}
     try:
         n = int(d.get('number'))

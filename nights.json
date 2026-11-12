@@ -1,7 +1,28 @@
 {
  "_comment": "One entry per club night, newest first. Written by the admin console (Post a night) or by hand. build/build_nights.py turns these into /nights/<date>/ pages, the archive, the RSS feed and the sitemap. 'line' is Harold's own sentence about the night; 'commentary' is the write-up of the numbers.",
- "updated": "2026-11-09",
+ "updated": "2026-11-12",
  "nights": [
+  {
+   "date": "2026-11-10",
+   "type": "study",
+   "title": "Forty lessons, finished",
+   "title_es": "Cuarenta lecciones, terminadas",
+   "line": "40 Lessons for the Club Player, done cover to cover, and Battle for the Bay 2 this Sunday at 7 PM.",
+   "line_es": "40 Lessons for the Club Player, terminado de principio a fin, y Battle for the Bay 2 este domingo a las 7 PM.",
+   "commentary": "We did it. 📚🏆 Last Tuesday the study table turned the final page of 40 Lessons for the Club Player. Forty chapters, started on 15 September, finished on 10 November.\nTwo months of Tuesdays: outposts, space, the seventh rank, slow positional squeezes, and a sparring position every week argued over until Stockfish settled it. Nobody skipped ahead and nobody got left behind. 💪\nThank you to everyone who sat at that table, read along, pushed back and brought the next idea. A book finished together sticks better than one read alone, and this one belongs to all of us now. 🙌 What comes next on Tuesdays will be announced in the Discord.\nOne more study night before the big one: Intermediate+ at Adobe Kava, Thursday 12 November, 7 to 11 PM. It's not a drop-in, so message Harold first. 🧠\nThen it's Battle for the Bay 2, this Sunday, 15 November, at 7 PM, an hour earlier than a normal night. ⚔️ Game two of the six-month Battle for the Bay series: Tampa Knights cross the bay to our patio. Round one was theirs. Round two is on our boards, under our lights.\nThe format: a five-round Swiss, 15 minutes a side with a 5-second delay, not USCF rated. Four sections by rating, Open 1800+, U1800, U1400 and U1000, and every individual win scores a point for your club. You can play up a section, never down. 🏆\nPrizes: $100 for the Open section winner, $60 for U1800, $40 for U1400 and $30 for U1000, a trophy for every section winner, and a Best Female Player trophy.\nTo play you need a USCF rating, or an online account (Chess.com or Lichess) with more than 30 games; report your highest rating. Entry is $20 if you register online, $25 at the door. 21+. Register here: https://chess67.com/club/kava-social-chess-club/events/battle-for-the-bay-2-20261115 👊\nEvery board counts the same, so you don't need to be strong to score for Kava. Bring your best, bring a friend, and let's take the bay back. 🔥",
+   "commentary_es": "Lo logramos. 📚🏆 El martes pasado la mesa de estudio pasó la última página de 40 Lessons for the Club Player. Cuarenta capítulos, empezados el 15 de septiembre y terminados el 10 de noviembre.\nDos meses de martes: puestos avanzados, espacio, la séptima fila, maniobras posicionales lentas y cada semana una posición de práctica discutida hasta que Stockfish dio el veredicto. Nadie se adelantó y nadie se quedó atrás. 💪\nGracias a todos los que se sentaron a esa mesa, leyeron con nosotros, debatieron y trajeron la siguiente idea. Un libro terminado en grupo se queda mejor que uno leído a solas, y este ya es de todos. 🙌 Lo que viene los martes se anunciará en el Discord.\nUna noche de estudio más antes del gran evento: Intermedio+ en Adobe Kava, el jueves 12 de noviembre, de 7 a 11 PM. No es para llegar sin avisar, así que escríbele a Harold antes. 🧠\nY luego llega Battle for the Bay 2, este domingo 15 de noviembre a las 7 PM, una hora antes que una noche normal. ⚔️ Es el segundo encuentro de la serie Battle for the Bay de seis meses: los Tampa Knights cruzan la bahía hasta nuestro patio. La primera ronda fue suya. La segunda es en nuestros tableros, bajo nuestras luces.\nEl formato: suizo a cinco rondas, 15 minutos por jugador con 5 segundos de retraso, sin rating USCF. Cuatro secciones por rating, Open 1800+, Sub-1800, Sub-1400 y Sub-1000, y cada victoria individual suma un punto para tu club. Puedes jugar en una sección superior, nunca en una inferior. 🏆\nPremios: $100 para el ganador de la sección Open, $60 para Sub-1800, $40 para Sub-1400 y $30 para Sub-1000, un trofeo para cada ganador de sección y un trofeo a la Mejor Jugadora.\nPara jugar necesitas un rating USCF, o una cuenta en línea (Chess.com o Lichess) con más de 30 partidas; reporta tu rating más alto. La inscripción cuesta $20 en línea y $25 en la puerta. 21+. Inscríbete aquí: https://chess67.com/club/kava-social-chess-club/events/battle-for-the-bay-2-20261115 👊\nCada tablero cuenta igual, así que no hace falta ser fuerte para sumar por Kava. Trae lo mejor que tengas, trae a un amigo, y recuperemos la bahía. 🔥",
+   "photo": "img/nights/2026-11-10.jpg",
+   "focus": 40,
+   "photo_alt": "Tuesday study night on the patio: two games in progress while one player reads from a chess book and others look on",
+   "photo_alt_es": "Noche de estudio del martes en el patio: dos partidas en juego mientras un jugador lee un libro de ajedrez y otros observan",
+   "email": {
+    "subject": "📚 40 lessons down: the book is finished",
+    "title": "Forty lessons, finished",
+    "preheader": "Two months of Tuesdays, one book, cover to cover.",
+    "intro": "We did it 📚🏆 The study table finished 40 Lessons for the Club Player: forty chapters, from 15 September to 10 November. Thank you to everyone who read along!"
+   },
+   "updated": "2026-11-12"
+  },
   {
    "date": "2026-11-08",
    "type": "league",
