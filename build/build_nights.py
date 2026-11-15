@@ -438,7 +438,8 @@ def night_ld(n, es):
           "location": {"@type": "Place", "name": "Adobe Kava" if n.get('type') == 'adobe' else "Kava Social Club",
                        "address": "1302 13th Ave W, Bradenton, FL 34205" if n.get('type') == 'adobe' else "540 13th St W, Bradenton, FL 34205"},
           "organizer": {"@id": URL + "#club"}, "typicalAgeRange": "21-",
-          "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock"}}
+          "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock",
+                     "url": URL + ('es/principiantes/' if es else 'beginners/')}}   # Google wants a url on every offer
     if n.get('photo'):
         ev["image"] = URL + n['photo']
     crumbs = {"@type": "BreadcrumbList", "itemListElement": [
