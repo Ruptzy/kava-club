@@ -25,7 +25,7 @@ import post_tonight as T          # noqa: E402
 OUT = E.OUT
 LEDGER = os.path.join(OUT, 'special-sent.json')
 esc = E.esc
-# landscape photos only, so the email grid is even without cutting anyone out
+# landscape photos only, each fitted whole into an even grid
 GRID_PHOTOS = 6
 
 
@@ -40,16 +40,11 @@ def email_grid_photos(g):
         if p['w'] / p['h'] < 1.3:          # portraits would make the rows uneven
             continue
         im = Image.open(os.path.join(OUT, p['img'])).convert('RGB')
-        w, h = im.size
-        th = round(w * 2 / 3)               # 3:2, trimmed only from a photo that is wider than that
-        if th < h:
-            top = round((h - th) / 2)
-            im = im.crop((0, top, w, top + th))
-        elif th > h:
-            tw = round(h * 3 / 2)
-            left = round((w - tw) / 2)
-            im = im.crop((left, 0, left + tw, h))
-        im = im.resize((600, 400), Image.LANCZOS)
+        # fitted whole inside a 3:2 tile on the card's own colour: nothing is ever cut off
+        im.thumbnail((600, 400), Image.LANCZOS)
+        tile = Image.new('RGB', (600, 400), E.PANEL)
+        tile.paste(im, ((600 - im.width) // 2, (400 - im.height) // 2))
+        im = tile
         name = 'img/email/%s-%d.jpg' % (g['id'], len(out) + 1)
         im.save(os.path.join(OUT, name), 'JPEG', quality=70, optimize=True, progressive=True)
         out.append((E.SITE + name, p['alt']))
