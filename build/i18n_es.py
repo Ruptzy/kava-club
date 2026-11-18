@@ -294,6 +294,10 @@ TEXT = {
     "View our listing on uschess.org &rarr;": "Ver nuestro registro en uschess.org &rarr;",
     "Harold Gonzalez &mdash; club director. 2nd U1600 at the 2026 World Open; 1st U1400 Southern Class. Math teacher, Data Science MSc student. Over the board in Bradenton &amp; Sarasota, online elsewhere, in English or Spanish.":
         "Harold Gonzalez &mdash; director del club. 2.º U1600 en el World Open 2026; 1.º U1400 Southern Class. Profesor de matemáticas, maestría en Ciencia de Datos. Presencial en Bradenton y Sarasota, en línea en otros lugares, en español o inglés.",
+    "Special event photos": "Fotos de evento especial",
+    "Battle for the Bay 2: the gallery is up": "Battle for the Bay 2: ya está la galería",
+    "69 photos by Ava Grace from the night Kava took the win.": "69 fotos de Ava Grace de la noche en que Kava se llevó la victoria.",
+    "See the photos": "Ver las fotos",
     "New: the Battle for the Bay 2 photos &rarr;": "Nuevo: las fotos de Battle for the Bay 2 &rarr;",
     "Club nights, tournaments and road trips &mdash; all of it us. Click any photo to see them all.": "Noches de club, torneos y viajes &mdash; todo somos nosotros. Toca cualquier foto para verlas todas.",
     "Kava Social Club, 540 13th St W. Open 24/7. There is no chess club without them.": "Kava Social Club, 540 13th St W. Abierto 24/7. Sin ellos no hay club de ajedrez.",

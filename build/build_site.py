@@ -251,8 +251,10 @@ def photos(es):
         has_recap = os.path.exists(os.path.join(OUT, 'nights', g['date'], 'index.html'))
         secs.append(
             '<section class="evgal" id="%s">'
-            '<figure class="evcover"><img src="%s" alt="%s" width="2000" height="1125" decoding="async" fetchpriority="high"></figure>'
-            '<div class="evhead"><div class="m lbl">%s</div><h2 class="d">%s</h2><p class="body lead">%s</p>'
+            '<figure class="evcover"><img src="%s" alt="%s" width="2000" height="1125" decoding="async" fetchpriority="high">'
+            '<figcaption class="evover"><h2 class="d">%s</h2><div class="m evdate">%s</div>'
+            '<a class="evmark m" href="%s" target="_blank" rel="noopener">%s%s %s</a></figcaption></figure>'
+            '<div class="evhead"><p class="body lead">%s</p>'
             '<p class="evcredit m">%s <a href="%s" target="_blank" rel="noopener">%s</a></p>%s</div>'
             '<div class="gal">%s\n    </div>'
             '<div class="galfoot"><p class="cap">%s</p><button type="button" class="btn btn-s galmore">%s%s</button></div>'
@@ -261,15 +263,18 @@ def photos(es):
             '<button type="button" class="prev" aria-label="%s">&#8249;</button><img alt="">'
             '<button type="button" class="next" aria-label="%s">&#8250;</button><div class="cap evlbcap"><span class="lbt"></span><b class="lbc"></b></div></div>'
             '</section>'
-            % (e(g['id']), g['cover'], e(g['cover_alt_es'] if es else g['cover_alt']), when, e(g['title_es'] if es else g['title']),
+            % (e(g['id']), g['cover'], e(g['cover_alt_es'] if es else g['cover_alt']),
+               e(g['title_es'] if es else g['title']), when, e(g['credit_url']),
+               ('<img class="evav" src="%s" alt="" width="88" height="88">' % g['credit_logo']) if g.get('credit_logo') else '',
+               t('Photos by', 'Fotos de'), e(g['credit']),
                e(g['dek_es'] if es else g['dek']), t('📸 Photos by', '📸 Fotos de'), e(g['credit_url']), e(g['credit']),
                ('<p class="evrecap"><a class="btn btn-s" href="%s">%s%s</a></p>' % (recap, t('Read the recap', 'Leer la crónica'), arrow)) if has_recap else '',
                tiles, t('Tap any photo to see it full size, then swipe or use the arrows.', 'Toca cualquier foto para verla en grande y desliza o usa las flechas.'),
                t('Show all %d photos', 'Ver las %d fotos') % len(g['photos']), arrow,
                t('Photo viewer', 'Visor de fotos'), t('Close', 'Cerrar'), t('Previous', 'Anterior'), t('Next', 'Siguiente')))
     style = ('<style>.photos .evgal{margin-top:56px}.photos .evgal+.evgal{margin-top:96px;padding-top:48px;border-top:1px solid var(--rule-2)}'
-             '.evcover{margin:0}.evcover img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:4px}'
-             '.evhead{margin-top:32px;max-width:52rem}.evhead h2{font-size:clamp(34px,4.4vw,60px);margin-top:14px}'
+             '.evcover{margin:0;position:relative}.evcover::after{content:"";position:absolute;inset:0;border-radius:4px;background:radial-gradient(ellipse at center,rgba(8,8,9,.5),rgba(8,8,9,.25) 60%,rgba(8,8,9,.55));pointer-events:none}.evover{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.5)}.evover h2{font-size:clamp(30px,5.4vw,78px);color:#fff;margin:0}.evdate{margin-top:14px;color:#fff;letter-spacing:.24em}.evmark{position:absolute;left:0;right:0;bottom:clamp(14px,3vw,34px);display:flex;flex-direction:column;align-items:center;gap:10px;color:#fff;letter-spacing:.22em;font-size:12px}.evmark:hover{color:var(--cream)}.evav{width:44px;height:44px;border-radius:6px;object-fit:cover;display:block}@media (max-width:600px){.evcover img{aspect-ratio:4/3}.evdate{margin-top:8px;font-size:11px}.evmark{font-size:10px;bottom:12px}}.evcover img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:4px}'
+             '.evhead{margin-top:28px;max-width:52rem}.evhead h2{font-size:clamp(34px,4.4vw,60px);margin-top:14px}'
              '.evhead .lead{margin-top:18px;font-size:21px;color:var(--ink);line-height:1.55}'
              '.evcredit{margin-top:18px;color:var(--ink-2)}.evcredit a{color:var(--cream);border-bottom:2px solid var(--scarlet)}'
              '.evcredit a:hover{color:var(--scarlet)}.evrecap{margin-top:22px}.evlbcap{display:flex;flex-direction:column;gap:6px;padding:0 70px}.evlbcap .lbt{font-family:var(--fs);font-size:17px;letter-spacing:0;color:var(--cream)}.evgal .gal img[hidden]{display:none}.evgal .galmore[hidden]{display:none}'
