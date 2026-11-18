@@ -170,7 +170,7 @@ GAL_SCRIPT = r'''<script>
   document.querySelectorAll(".evgal").forEach(function(sec){
   var gal=sec.querySelector(".gal"), imgs=[].slice.call(gal.querySelectorAll("img")), more=sec.querySelector(".galmore");
   function shown(){ return imgs.filter(function(im){ return !im.hidden && !im.dataset.trim; }); }
-  // the same justified rows as the photos on the home page: one height per row, widths follow the shape
+  // justified rows like the home page, but every row is sized to fit its photos exactly, so none is stretched or cut
   function layout(){
     var W=gal.clientWidth, G=4, rowIdx=0;
     function tgt(i){ return W<600?(i?178:215):(W<900?(i?180:280):(i?220:380)); }
@@ -191,7 +191,7 @@ GAL_SCRIPT = r'''<script>
       var ar=parseFloat(im.getAttribute("data-ar"))||1.5;
       row.push(im); sum+=ar;
       var target=tgt(rowIdx), h=(W-G*(row.length-1))/sum;
-      if(rowIdx===0){ if(row.length===2){ flush(Math.min(h,target*1.2),false); } else if(idx===vis.length-1){ flush(Math.min(h,target),true); } return; }
+      if(rowIdx===0){ if(row.length===2){ flush(h,false); } else if(idx===vis.length-1){ flush(Math.min(h,target),true); } return; }
       if(h<=target){ flush(h,false); }
       else if(idx===vis.length-1){
         if(trimming && row.length<3){ row.forEach(function(r){ r.dataset.trim="1"; r.style.display="none"; }); row=[]; sum=0; }
