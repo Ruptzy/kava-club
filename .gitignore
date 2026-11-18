@@ -4,3 +4,4 @@ __pycache__/
 build/out-email/
 # a local checking page, not part of the site
 _sweep.html
+build/out-special/

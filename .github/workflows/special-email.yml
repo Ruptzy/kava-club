@@ -1,0 +1,54 @@
+name: Special email
+
+# A one-off member email for a special event's photo gallery (galleries.json), outside the
+# weekly Monday email. Start it from the Actions tab: test first (the Brevo account owner
+# only), then send. special-sent.json stops the same gallery going to everyone twice.
+on:
+  workflow_dispatch:
+    inputs:
+      gallery:
+        description: "Gallery id from galleries.json"
+        default: battle-for-the-bay-2
+        type: string
+      mode:
+        description: "dry = build only | test = send to the Brevo account owner only | send = send to the member list now"
+        default: dry
+        type: choice
+        options: [dry, test, send]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: special-email
+  cancel-in-progress: false
+
+jobs:
+  email:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Pillow
+        run: pip install --quiet pillow
+      - name: Build, and test or send
+        env:
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          REPLY_TO: ${{ secrets.REPLY_TO }}
+        run: python build/special_email.py --id="${{ inputs.gallery }}" --${{ inputs.mode }}
+      - name: Record the send
+        if: inputs.mode == 'send'
+        run: |
+          if [ -n "$(git status --porcelain special-sent.json)" ]; then
+            git config user.name "nights-bot"
+            git config user.email "nights-bot@users.noreply.github.com"
+            git add special-sent.json
+            git commit -m "Special email sent: ${{ inputs.gallery }}"
+            git pull --rebase --quiet origin main
+            git push
+          fi
