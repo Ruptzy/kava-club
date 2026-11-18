@@ -165,7 +165,124 @@ def hall(es):
                t('See the next league night', 'Ver la próxima noche de liga')))
 
 
-TEMPLATE = open(os.path.join(HERE, 'template.html'), encoding='utf-8').read()
+GAL_SCRIPT = r'''<script>
+(function(){
+  document.querySelectorAll(".evgal").forEach(function(sec){
+  var gal=sec.querySelector(".gal"), imgs=[].slice.call(gal.querySelectorAll("img")), more=sec.querySelector(".galmore");
+  function shown(){ return imgs.filter(function(im){ return !im.hidden && !im.dataset.trim; }); }
+  // the same justified rows as the photos on the home page: one height per row, widths follow the shape
+  function layout(){
+    var W=gal.clientWidth, G=4, rowIdx=0;
+    function tgt(i){ return W<600?(i?178:215):(W<900?(i?180:280):(i?220:380)); }
+    if(!W) return;
+    var row=[], sum=0;
+    function flush(h,last){
+      var used=0;
+      row.forEach(function(im,i){
+        var ar=parseFloat(im.getAttribute("data-ar"))||1.5;
+        var w=(i===row.length-1&&!last)?(W-G*(row.length-1)-used):Math.floor(ar*h);
+        used+=w; im.style.width=w+"px"; im.style.height=Math.round(h)+"px";
+      });
+      row=[]; sum=0; rowIdx++;
+    }
+    imgs.forEach(function(im){ delete im.dataset.trim; im.style.display=""; });
+    var vis=shown(), trimming=more&&!more.hidden;
+    vis.forEach(function(im,idx){
+      var ar=parseFloat(im.getAttribute("data-ar"))||1.5;
+      row.push(im); sum+=ar;
+      var target=tgt(rowIdx), h=(W-G*(row.length-1))/sum;
+      if(rowIdx===0){ if(row.length===2){ flush(Math.min(h,target*1.2),false); } else if(idx===vis.length-1){ flush(Math.min(h,target),true); } return; }
+      if(h<=target){ flush(h,false); }
+      else if(idx===vis.length-1){
+        if(trimming && row.length<3){ row.forEach(function(r){ r.dataset.trim="1"; r.style.display="none"; }); row=[]; sum=0; }
+        else flush(Math.min(h,target*1.15),true);
+      }
+    });
+  }
+  var raf=null;
+  function relayout(){ cancelAnimationFrame(raf); raf=requestAnimationFrame(layout); }
+  window.addEventListener("resize",relayout); window.addEventListener("load",relayout);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(relayout);
+  if(window.ResizeObserver) new ResizeObserver(relayout).observe(gal);
+  layout();
+  if(more){ if(!imgs.some(function(im){return im.hidden;})) more.hidden=true;
+    more.addEventListener("click",function(){ imgs.forEach(function(im){ im.hidden=false; delete im.dataset.trim; im.style.display=""; }); more.hidden=true; relayout(); }); }
+  [60,250,800,2000].forEach(function(t){ setTimeout(relayout,t); });
+  // the viewer shows the full-size copy, not the grid thumbnail
+  var lb=sec.querySelector(".lb"), lbImg=lb.querySelector("img"), lbCount=lb.querySelector(".lbc"), lbCap=lb.querySelector(".lbt"), at=0;
+  function show(i){ at=(i+imgs.length)%imgs.length; lbImg.src=imgs[at].getAttribute("data-full")||imgs[at].currentSrc||imgs[at].src; lbImg.alt=imgs[at].alt; lbCap.textContent=imgs[at].alt; lbCount.textContent=(at+1)+" / "+imgs.length; }
+  function open(i){ show(i); lb.classList.add("open"); document.body.style.overflow="hidden"; }
+  function close(){ lb.classList.remove("open"); document.body.style.overflow=""; }
+  gal.addEventListener("click",function(e){ var im=e.target.closest("img"); if(im) open(imgs.indexOf(im)); });
+  lb.querySelector(".close").addEventListener("click",close);
+  lb.querySelector(".prev").addEventListener("click",function(){show(at-1);});
+  lb.querySelector(".next").addEventListener("click",function(){show(at+1);});
+  lb.addEventListener("click",function(e){ if(e.target===lb) close(); });
+  document.addEventListener("keydown",function(e){ if(!lb.classList.contains("open")) return; if(e.key==="Escape") close(); else if(e.key==="ArrowLeft") show(at-1); else if(e.key==="ArrowRight") show(at+1); });
+  var tx=null;
+  lb.addEventListener("touchstart",function(e){tx=e.touches[0].clientX;},{passive:true});
+  lb.addEventListener("touchend",function(e){ if(tx===null) return; var dx=e.changedTouches[0].clientX-tx; tx=null; if(Math.abs(dx)>40) show(dx<0?at+1:at-1); },{passive:true});
+  });
+})();
+</script>'''
+GAL_OPEN = 18      # photos shown before the show-all button
+
+
+def photos(es):
+    """The event photo galleries, from galleries.json, laid out like the home page's photos."""
+    import html as _h
+    e = lambda s: _h.escape(s or '', quote=True)
+    t = (lambda en, sp: sp) if es else (lambda en, sp: en)
+    doc = json.load(open(os.path.join(OUT, 'galleries.json'), encoding='utf-8'))
+    MON = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre']
+    MON_EN = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    arrow = ('<i class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" '
+             'stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></i>')
+    secs = []
+    for g in doc['galleries']:
+        y, m, d = (int(x) for x in g['date'].split('-'))
+        when = ('%d de %s de %d' % (d, MON[m - 1], y)) if es else ('%d %s %d' % (d, MON_EN[m - 1], y))
+        tiles = ''.join(
+            '\n      <img src="%s" data-full="/%s" alt="%s" data-ar="%s" width="%d" height="%d"%s%s>'
+            % (p['thumb'], p['img'], e(p['alt_es'] if es else p['alt']), round(p['tw'] / p['th'], 4), p['tw'], p['th'],
+               '' if i < 8 else ' loading="lazy"', ' hidden' if i >= GAL_OPEN else '')
+            for i, p in enumerate(g['photos']))
+        recap = '/%s/%s/' % ('es/noches' if es else 'nights', g['date'])
+        has_recap = os.path.exists(os.path.join(OUT, 'nights', g['date'], 'index.html'))
+        secs.append(
+            '<section class="evgal" id="%s">'
+            '<figure class="evcover"><img src="%s" alt="%s" width="2000" height="1125" decoding="async" fetchpriority="high"></figure>'
+            '<div class="evhead"><div class="m lbl">%s</div><h2 class="d">%s</h2><p class="body lead">%s</p>'
+            '<p class="evcredit m">%s <a href="%s" target="_blank" rel="noopener">%s</a></p>%s</div>'
+            '<div class="gal">%s\n    </div>'
+            '<div class="galfoot"><p class="cap">%s</p><button type="button" class="btn btn-s galmore">%s%s</button></div>'
+            '<div class="lb" role="dialog" aria-modal="true" aria-label="%s">'
+            '<button type="button" class="close" aria-label="%s">&#10005;</button>'
+            '<button type="button" class="prev" aria-label="%s">&#8249;</button><img alt="">'
+            '<button type="button" class="next" aria-label="%s">&#8250;</button><div class="cap evlbcap"><span class="lbt"></span><b class="lbc"></b></div></div>'
+            '</section>'
+            % (e(g['id']), g['cover'], e(g['cover_alt_es'] if es else g['cover_alt']), when, e(g['title_es'] if es else g['title']),
+               e(g['dek_es'] if es else g['dek']), t('📸 Photos by', '📸 Fotos de'), e(g['credit_url']), e(g['credit']),
+               ('<p class="evrecap"><a class="btn btn-s" href="%s">%s%s</a></p>' % (recap, t('Read the recap', 'Leer la crónica'), arrow)) if has_recap else '',
+               tiles, t('Tap any photo to see it full size, then swipe or use the arrows.', 'Toca cualquier foto para verla en grande y desliza o usa las flechas.'),
+               t('Show all %d photos', 'Ver las %d fotos') % len(g['photos']), arrow,
+               t('Photo viewer', 'Visor de fotos'), t('Close', 'Cerrar'), t('Previous', 'Anterior'), t('Next', 'Siguiente')))
+    style = ('<style>.photos .evgal{margin-top:56px}.photos .evgal+.evgal{margin-top:96px;padding-top:48px;border-top:1px solid var(--rule-2)}'
+             '.evcover{margin:0}.evcover img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:4px}'
+             '.evhead{margin-top:32px;max-width:52rem}.evhead h2{font-size:clamp(34px,4.4vw,60px);margin-top:14px}'
+             '.evhead .lead{margin-top:18px;font-size:21px;color:var(--ink);line-height:1.55}'
+             '.evcredit{margin-top:18px;color:var(--ink-2)}.evcredit a{color:var(--cream);border-bottom:2px solid var(--scarlet)}'
+             '.evcredit a:hover{color:var(--scarlet)}.evrecap{margin-top:22px}.evlbcap{display:flex;flex-direction:column;gap:6px;padding:0 70px}.evlbcap .lbt{font-family:var(--fs);font-size:17px;letter-spacing:0;color:var(--cream)}.evgal .gal img[hidden]{display:none}.evgal .galmore[hidden]{display:none}'
+             '</style>')
+    return ('<main class="wrap page photos">%s<div class="phead"><div class="m lbl">%s</div><h1 class="d">%s</h1>'
+            '<p class="body lead">%s</p></div>%s</main>%s'
+            % (style, t('Photos', 'Fotos'), t('Event photos', 'Fotos de eventos'),
+               t('Club battles, tournaments and big nights, shot by the photographers who were there. Every photo stays credited to them.',
+                 'Batallas entre clubes, torneos y noches grandes, fotografiadas por quienes estuvieron ahí. Cada foto lleva el crédito de su fotógrafo.'),
+               ''.join(secs), GAL_SCRIPT))
+
+
+TEMPLATE =open(os.path.join(HERE, 'template.html'), encoding='utf-8').read()
 # the sub-pages: English slug -> (Spanish slug, body file)
 PAGES = {
     'code-of-conduct': ('es/codigo-de-conducta', 'conduct.html'),
@@ -176,6 +293,7 @@ PAGES = {
     'alcohol-free-night-out': ('es/noche-sin-alcohol', 'nightout.html'),
     'parking': ('es/estacionamiento', 'parking.html'),
     'hall-of-fame': ('es/salon-de-la-fama', None),   # written by hall() from champions.json
+    'photos': ('es/fotos', None),   # written by photos() from galleries.json
 }
 # /nights/ and /es/noches/ come from build_nights.py; they are listed here so the language switch and sitemap know them
 PAGES_ALL = dict(PAGES, nights='es/noches')
@@ -323,7 +441,7 @@ def build_subpage(lang, slug_en, meta):
     depth = '../../' if es else '../'
     page_url = URL + slug + '/'
     home = '/es/' if es else '/'
-    page = (hall(es) if slug_en == 'hall-of-fame' else
+    page = (hall(es) if slug_en == 'hall-of-fame' else photos(es) if slug_en == 'photos' else
             open(os.path.join(HERE, body_file), encoding='utf-8').read() if body_file else CAL)
 
     body = MAST + page + FOOT
@@ -445,6 +563,15 @@ SUBPAGES = {
         'desc_es': ('Aprende ajedrez en Bradenton con adultos que enseñan. ¿Nunca has jugado, o no desde la escuela? Ven cualquier '
                     'domingo o martes después de las 8, pide una bebida y di que es tu primera noche. Gratis, todos los niveles.'),
         'image': 'img/first-night.jpg',
+    },
+    'photos': {
+        'title': 'Event photos — Battle for the Bay 2 and more | Kava Social Chess Club',
+        'title_es': 'Fotos de eventos — Battle for the Bay 2 y más | Kava Social Chess Club',
+        'desc': ('Photo galleries from Kava Social Chess Club events in Bradenton. Battle for the Bay 2: Tampa Knights on our patio, '
+                 'and Kava took the win. Photos by Ava Grace.'),
+        'desc_es': ('Galerías de fotos de los eventos del Kava Social Chess Club en Bradenton. Battle for the Bay 2: los Tampa Knights en '
+                    'nuestro patio, y Kava se llevó la victoria. Fotos de Ava Grace.'),
+        'image': 'img/photos/bftb2/cover.jpg',
     },
     'lessons': {
         'title': 'Private chess lessons in Bradenton & Sarasota — Kava Social Chess Club',

@@ -1,0 +1,720 @@
+{
+ "_comment": "Event photo galleries for /photos/ (es: /es/fotos/). Newest first. Each photo has a 720px thumb for the grid and a 1600px copy for the viewer. Photos are the photographer's: always keep the credit.",
+ "galleries": [
+  {
+   "id": "battle-for-the-bay-2",
+   "date": "2026-11-15",
+   "title": "Battle for the Bay 2",
+   "title_es": "Battle for the Bay 2",
+   "dek": "Tampa Knights came to our patio for round two of the Battle for the Bay series, and Kava Social took the win. Kudos to Tampa: a hard-fought night, and their strongest players ran the top section.",
+   "dek_es": "Los Tampa Knights vinieron a nuestro patio para la segunda ronda de la serie Battle for the Bay, y Kava Social se llevó la victoria. Mérito para Tampa: una noche muy peleada, y sus jugadores más fuertes dominaron la sección más alta.",
+   "cover": "img/photos/bftb2/cover.jpg",
+   "cover_alt": "A wooden tournament board and a red DGT clock at Battle for the Bay 2",
+   "cover_alt_es": "Un tablero de madera de torneo y un reloj DGT rojo en Battle for the Bay 2",
+   "credit": "Ava Grace",
+   "credit_url": "https://photosbyavagrace.mypixieset.com/",
+   "photos": [
+    {
+     "img": "img/photos/bftb2/01.jpg",
+     "thumb": "img/photos/bftb2/t/01.jpg",
+     "w": 1067,
+     "h": 1600,
+     "tw": 480,
+     "th": 720,
+     "alt": "Wood, glass and a red DGT clock: the stage is set.",
+     "alt_es": "Madera, vidrio y un reloj DGT rojo: el escenario está listo."
+    },
+    {
+     "img": "img/photos/bftb2/02.jpg",
+     "thumb": "img/photos/bftb2/t/02.jpg",
+     "w": 1105,
+     "h": 1600,
+     "tw": 497,
+     "th": 720,
+     "alt": "Arms crossed, eyes on the wood. Round one begins.",
+     "alt_es": "Brazos cruzados, ojos en la madera. Empieza la primera ronda."
+    },
+    {
+     "img": "img/photos/bftb2/03.jpg",
+     "thumb": "img/photos/bftb2/t/03.jpg",
+     "w": 1146,
+     "h": 1600,
+     "tw": 515,
+     "th": 720,
+     "alt": "Headphones on, half a smile. She's seen something.",
+     "alt_es": "Audífonos puestos, media sonrisa. Algo vio."
+    },
+    {
+     "img": "img/photos/bftb2/04.jpg",
+     "thumb": "img/photos/bftb2/t/04.jpg",
+     "w": 1067,
+     "h": 1600,
+     "tw": 480,
+     "th": 720,
+     "alt": "Fuel on the table, calculation in progress.",
+     "alt_es": "Energía en la mesa, cálculo en marcha."
+    },
+    {
+     "img": "img/photos/bftb2/05.jpg",
+     "thumb": "img/photos/bftb2/t/05.jpg",
+     "w": 1067,
+     "h": 1600,
+     "tw": 480,
+     "th": 720,
+     "alt": "Hood up, glasses on, nothing gets past him.",
+     "alt_es": "Capucha puesta, lentes puestos, no se le escapa nada."
+    },
+    {
+     "img": "img/photos/bftb2/06.jpg",
+     "thumb": "img/photos/bftb2/t/06.jpg",
+     "w": 1333,
+     "h": 1600,
+     "tw": 600,
+     "th": 720,
+     "alt": "Red cap, red shirt, white pieces. Steady hands.",
+     "alt_es": "Gorra roja, camisa roja, piezas blancas. Manos firmes."
+    },
+    {
+     "img": "img/photos/bftb2/07.jpg",
+     "thumb": "img/photos/bftb2/t/07.jpg",
+     "w": 1067,
+     "h": 1600,
+     "tw": 480,
+     "th": 720,
+     "alt": "A long think across from an old hand.",
+     "alt_es": "Una larga pensada frente a un veterano."
+    },
+    {
+     "img": "img/photos/bftb2/08.jpg",
+     "thumb": "img/photos/bftb2/t/08.jpg",
+     "w": 1067,
+     "h": 1600,
+     "tw": 480,
+     "th": 720,
+     "alt": "Hand on chin: the universal sign of a deep line.",
+     "alt_es": "Mano en la barbilla: la señal universal de una variante profunda."
+    },
+    {
+     "img": "img/photos/bftb2/09.jpg",
+     "thumb": "img/photos/bftb2/t/09.jpg",
+     "w": 1067,
+     "h": 1600,
+     "tw": 480,
+     "th": 720,
+     "alt": "Chin on fist, every piece accounted for.",
+     "alt_es": "Barbilla en el puño, cada pieza bajo control."
+    },
+    {
+     "img": "img/photos/bftb2/10.jpg",
+     "thumb": "img/photos/bftb2/t/10.jpg",
+     "w": 1067,
+     "h": 1600,
+     "tw": 480,
+     "th": 720,
+     "alt": "Quiet focus over a crowded middlegame.",
+     "alt_es": "Concentración silenciosa en un medio juego lleno de piezas."
+    },
+    {
+     "img": "img/photos/bftb2/11.jpg",
+     "thumb": "img/photos/bftb2/t/11.jpg",
+     "w": 1067,
+     "h": 1600,
+     "tw": 480,
+     "th": 720,
+     "alt": "Somewhere in there is the right move.",
+     "alt_es": "En algún lugar ahí está la jugada correcta."
+    },
+    {
+     "img": "img/photos/bftb2/12.jpg",
+     "thumb": "img/photos/bftb2/t/12.jpg",
+     "w": 1067,
+     "h": 1600,
+     "tw": 480,
+     "th": 720,
+     "alt": "Cap low, can in hand, mind on the board.",
+     "alt_es": "Gorra baja, lata en mano, la mente en el tablero."
+    },
+    {
+     "img": "img/photos/bftb2/13.jpg",
+     "thumb": "img/photos/bftb2/t/13.jpg",
+     "w": 1067,
+     "h": 1600,
+     "tw": 480,
+     "th": 720,
+     "alt": "The classic how-did-I-miss-that pose.",
+     "alt_es": "La clásica pose de ¿cómo no lo vi?"
+    },
+    {
+     "img": "img/photos/bftb2/14.jpg",
+     "thumb": "img/photos/bftb2/t/14.jpg",
+     "w": 1067,
+     "h": 1600,
+     "tw": 480,
+     "th": 720,
+     "alt": "Lit by the patio lights, lost in thought.",
+     "alt_es": "Bajo las luces del patio, perdido en sus pensamientos."
+    },
+    {
+     "img": "img/photos/bftb2/15.jpg",
+     "thumb": "img/photos/bftb2/t/15.jpg",
+     "w": 1203,
+     "h": 1600,
+     "tw": 542,
+     "th": 720,
+     "alt": "Arms folded. Your move.",
+     "alt_es": "Brazos cruzados. Te toca."
+    },
+    {
+     "img": "img/photos/bftb2/16.jpg",
+     "thumb": "img/photos/bftb2/t/16.jpg",
+     "w": 1011,
+     "h": 1600,
+     "tw": 455,
+     "th": 720,
+     "alt": "A move this big gets both hands' worth of thinking.",
+     "alt_es": "Una jugada así de grande merece pensarla con las dos manos."
+    },
+    {
+     "img": "img/photos/bftb2/17.jpg",
+     "thumb": "img/photos/bftb2/t/17.jpg",
+     "w": 1333,
+     "h": 1600,
+     "tw": 600,
+     "th": 720,
+     "alt": "Leaning in over a wide-open board.",
+     "alt_es": "Inclinado sobre un tablero totalmente abierto."
+    },
+    {
+     "img": "img/photos/bftb2/18.jpg",
+     "thumb": "img/photos/bftb2/t/18.jpg",
+     "w": 1442,
+     "h": 1600,
+     "tw": 649,
+     "th": 720,
+     "alt": "Head in hand. The position is talking back.",
+     "alt_es": "Cabeza en la mano. La posición le está respondiendo."
+    },
+    {
+     "img": "img/photos/bftb2/19.jpg",
+     "thumb": "img/photos/bftb2/t/19.jpg",
+     "w": 1067,
+     "h": 1600,
+     "tw": 480,
+     "th": 720,
+     "alt": "Chin on fist, white army fully deployed.",
+     "alt_es": "Barbilla en el puño, el ejército blanco desplegado."
+    },
+    {
+     "img": "img/photos/bftb2/20.jpg",
+     "thumb": "img/photos/bftb2/t/20.jpg",
+     "w": 1600,
+     "h": 1320,
+     "tw": 720,
+     "th": 594,
+     "alt": "Hand on the piece. Commitment.",
+     "alt_es": "Mano en la pieza. Ya no hay vuelta atrás."
+    },
+    {
+     "img": "img/photos/bftb2/21.jpg",
+     "thumb": "img/photos/bftb2/t/21.jpg",
+     "w": 1600,
+     "h": 1355,
+     "tw": 720,
+     "th": 610,
+     "alt": "Precise hand, fresh can, no hesitation.",
+     "alt_es": "Mano precisa, lata fresca, sin dudar."
+    },
+    {
+     "img": "img/photos/bftb2/22.jpg",
+     "thumb": "img/photos/bftb2/t/22.jpg",
+     "w": 1403,
+     "h": 1600,
+     "tw": 632,
+     "th": 720,
+     "alt": "Decades of chess, arms crossed, unbothered.",
+     "alt_es": "Décadas de ajedrez, brazos cruzados, imperturbable."
+    },
+    {
+     "img": "img/photos/bftb2/23.jpg",
+     "thumb": "img/photos/bftb2/t/23.jpg",
+     "w": 1422,
+     "h": 1600,
+     "tw": 640,
+     "th": 720,
+     "alt": "Club colours on, chin in hand.",
+     "alt_es": "Con los colores del club, la barbilla en la mano."
+    },
+    {
+     "img": "img/photos/bftb2/24.jpg",
+     "thumb": "img/photos/bftb2/t/24.jpg",
+     "w": 1368,
+     "h": 1600,
+     "tw": 615,
+     "th": 720,
+     "alt": "The shirt says Catalyst. So did the opening.",
+     "alt_es": "La camisa dice Catalyst. La apertura también."
+    },
+    {
+     "img": "img/photos/bftb2/25.jpg",
+     "thumb": "img/photos/bftb2/t/25.jpg",
+     "w": 1600,
+     "h": 1136,
+     "tw": 720,
+     "th": 511,
+     "alt": "Hands folded, plan loading.",
+     "alt_es": "Manos juntas, plan cargando."
+    },
+    {
+     "img": "img/photos/bftb2/26.jpg",
+     "thumb": "img/photos/bftb2/t/26.jpg",
+     "w": 1600,
+     "h": 1200,
+     "tw": 720,
+     "th": 540,
+     "alt": "A smile that says the trap worked.",
+     "alt_es": "Una sonrisa que dice que la trampa funcionó."
+    },
+    {
+     "img": "img/photos/bftb2/27.jpg",
+     "thumb": "img/photos/bftb2/t/27.jpg",
+     "w": 1600,
+     "h": 1440,
+     "tw": 720,
+     "th": 648,
+     "alt": "Ring on, hand up, calculating.",
+     "alt_es": "Anillo puesto, mano arriba, calculando."
+    },
+    {
+     "img": "img/photos/bftb2/28.jpg",
+     "thumb": "img/photos/bftb2/t/28.jpg",
+     "w": 1600,
+     "h": 1067,
+     "tw": 720,
+     "th": 480,
+     "alt": "A full row, every head down.",
+     "alt_es": "Una fila completa, todas las cabezas abajo."
+    },
+    {
+     "img": "img/photos/bftb2/29.jpg",
+     "thumb": "img/photos/bftb2/t/29.jpg",
+     "w": 1280,
+     "h": 1600,
+     "tw": 576,
+     "th": 720,
+     "alt": "The long table: one battle, a dozen boards.",
+     "alt_es": "La mesa larga: una batalla, una docena de tableros."
+    },
+    {
+     "img": "img/photos/bftb2/30.jpg",
+     "thumb": "img/photos/bftb2/t/30.jpg",
+     "w": 1600,
+     "h": 1067,
+     "tw": 720,
+     "th": 480,
+     "alt": "Under the tiki, both clubs, every chair taken.",
+     "alt_es": "Bajo el tiki, los dos clubes, todas las sillas ocupadas."
+    },
+    {
+     "img": "img/photos/bftb2/31.jpg",
+     "thumb": "img/photos/bftb2/t/31.jpg",
+     "w": 1229,
+     "h": 1600,
+     "tw": 553,
+     "th": 720,
+     "alt": "The handshake that ends it. Respect either way.",
+     "alt_es": "El apretón de manos que lo termina. Respeto, gane quien gane."
+    },
+    {
+     "img": "img/photos/bftb2/32.jpg",
+     "thumb": "img/photos/bftb2/t/32.jpg",
+     "w": 1539,
+     "h": 1600,
+     "tw": 693,
+     "th": 720,
+     "alt": "Wood pieces, red clock, a late-round grind.",
+     "alt_es": "Piezas de madera, reloj rojo, una ronda final de desgaste."
+    },
+    {
+     "img": "img/photos/bftb2/33.jpg",
+     "thumb": "img/photos/bftb2/t/33.jpg",
+     "w": 1242,
+     "h": 1600,
+     "tw": 559,
+     "th": 720,
+     "alt": "One move on the wood set while the hall plays on.",
+     "alt_es": "Una jugada en el tablero de madera mientras el resto sigue jugando."
+    },
+    {
+     "img": "img/photos/bftb2/34.jpg",
+     "thumb": "img/photos/bftb2/t/34.jpg",
+     "w": 1221,
+     "h": 1600,
+     "tw": 549,
+     "th": 720,
+     "alt": "The reply comes fast.",
+     "alt_es": "La respuesta llega rápido."
+    },
+    {
+     "img": "img/photos/bftb2/35.jpg",
+     "thumb": "img/photos/bftb2/t/35.jpg",
+     "w": 1600,
+     "h": 1067,
+     "tw": 720,
+     "th": 480,
+     "alt": "Between rounds, the post-mortem draws a crowd.",
+     "alt_es": "Entre rondas, el análisis de la partida junta a un grupo."
+    },
+    {
+     "img": "img/photos/bftb2/36.jpg",
+     "thumb": "img/photos/bftb2/t/36.jpg",
+     "w": 1600,
+     "h": 870,
+     "tw": 720,
+     "th": 392,
+     "alt": "The hardware, lined up and waiting.",
+     "alt_es": "Los trofeos, en fila y esperando."
+    },
+    {
+     "img": "img/photos/bftb2/37.jpg",
+     "thumb": "img/photos/bftb2/t/37.jpg",
+     "w": 1067,
+     "h": 1600,
+     "tw": 480,
+     "th": 720,
+     "alt": "A gold first-place trophy for a section winner.",
+     "alt_es": "Un trofeo dorado de primer lugar para un ganador de sección."
+    },
+    {
+     "img": "img/photos/bftb2/38.jpg",
+     "thumb": "img/photos/bftb2/t/38.jpg",
+     "w": 1067,
+     "h": 1600,
+     "tw": 480,
+     "th": 720,
+     "alt": "The Queen's Crown, for the night's best female player.",
+     "alt_es": "La Corona de la Reina, para la mejor jugadora de la noche."
+    },
+    {
+     "img": "img/photos/bftb2/39.jpg",
+     "thumb": "img/photos/bftb2/t/39.jpg",
+     "w": 1456,
+     "h": 1600,
+     "tw": 655,
+     "th": 720,
+     "alt": "Crystal for the Open section champion.",
+     "alt_es": "Cristal para el campeón de la sección Open."
+    },
+    {
+     "img": "img/photos/bftb2/40.jpg",
+     "thumb": "img/photos/bftb2/t/40.jpg",
+     "w": 1024,
+     "h": 1600,
+     "tw": 461,
+     "th": 720,
+     "alt": "A gold knight, waiting for its owner.",
+     "alt_es": "Un caballo dorado, esperando a su dueño."
+    },
+    {
+     "img": "img/photos/bftb2/41.jpg",
+     "thumb": "img/photos/bftb2/t/41.jpg",
+     "w": 1067,
+     "h": 1600,
+     "tw": 480,
+     "th": 720,
+     "alt": "The king's trophy, still unclaimed.",
+     "alt_es": "El trofeo del rey, todavía sin dueño."
+    },
+    {
+     "img": "img/photos/bftb2/42.jpg",
+     "thumb": "img/photos/bftb2/t/42.jpg",
+     "w": 1067,
+     "h": 1600,
+     "tw": 480,
+     "th": 720,
+     "alt": "Every table under the thatch has a game on it.",
+     "alt_es": "Cada mesa bajo el techo de palma tiene una partida."
+    },
+    {
+     "img": "img/photos/bftb2/43.jpg",
+     "thumb": "img/photos/bftb2/t/43.jpg",
+     "w": 1067,
+     "h": 1600,
+     "tw": 480,
+     "th": 720,
+     "alt": "A quick capture by the green wall.",
+     "alt_es": "Una captura rápida junto a la pared verde."
+    },
+    {
+     "img": "img/photos/bftb2/44.jpg",
+     "thumb": "img/photos/bftb2/t/44.jpg",
+     "w": 1600,
+     "h": 1320,
+     "tw": 720,
+     "th": 594,
+     "alt": "Grinning mid-game. Somebody's having a good night.",
+     "alt_es": "Sonriendo a mitad de partida. Alguien está teniendo una gran noche."
+    },
+    {
+     "img": "img/photos/bftb2/45.jpg",
+     "thumb": "img/photos/bftb2/t/45.jpg",
+     "w": 1600,
+     "h": 1111,
+     "tw": 720,
+     "th": 500,
+     "alt": "Coaches, captains and kibitzers, all gathered round.",
+     "alt_es": "Entrenadores, capitanes y mirones, todos alrededor."
+    },
+    {
+     "img": "img/photos/bftb2/46.jpg",
+     "thumb": "img/photos/bftb2/t/46.jpg",
+     "w": 1600,
+     "h": 1067,
+     "tw": 720,
+     "th": 480,
+     "alt": "Hanging out between rounds by the menu board.",
+     "alt_es": "Pasando el rato entre rondas junto al menú."
+    },
+    {
+     "img": "img/photos/bftb2/47.jpg",
+     "thumb": "img/photos/bftb2/t/47.jpg",
+     "w": 1127,
+     "h": 1600,
+     "tw": 507,
+     "th": 720,
+     "alt": "A crowd forms behind a tense board.",
+     "alt_es": "Se forma un grupo detrás de un tablero tenso."
+    },
+    {
+     "img": "img/photos/bftb2/48.jpg",
+     "thumb": "img/photos/bftb2/t/48.jpg",
+     "w": 1600,
+     "h": 885,
+     "tw": 720,
+     "th": 398,
+     "alt": "The best part of chess night: the laugh after the move.",
+     "alt_es": "Lo mejor de la noche de ajedrez: la risa después de la jugada."
+    },
+    {
+     "img": "img/photos/bftb2/49.jpg",
+     "thumb": "img/photos/bftb2/t/49.jpg",
+     "w": 1067,
+     "h": 1600,
+     "tw": 480,
+     "th": 720,
+     "alt": "A wooden set mid-battle, opponents eye to eye.",
+     "alt_es": "Un tablero de madera en plena batalla, rivales cara a cara."
+    },
+    {
+     "img": "img/photos/bftb2/50.jpg",
+     "thumb": "img/photos/bftb2/t/50.jpg",
+     "w": 1174,
+     "h": 1600,
+     "tw": 528,
+     "th": 720,
+     "alt": "Wooden sets down the line, every clock running.",
+     "alt_es": "Tableros de madera en fila, todos los relojes corriendo."
+    },
+    {
+     "img": "img/photos/bftb2/51.jpg",
+     "thumb": "img/photos/bftb2/t/51.jpg",
+     "w": 1600,
+     "h": 1067,
+     "tw": 720,
+     "th": 480,
+     "alt": "Elbows on the table, deep in the late rounds.",
+     "alt_es": "Codos en la mesa, metidos en las últimas rondas."
+    },
+    {
+     "img": "img/photos/bftb2/52.jpg",
+     "thumb": "img/photos/bftb2/t/52.jpg",
+     "w": 1600,
+     "h": 1067,
+     "tw": 720,
+     "th": 480,
+     "alt": "The whole patio, end to end, playing.",
+     "alt_es": "Todo el patio, de punta a punta, jugando."
+    },
+    {
+     "img": "img/photos/bftb2/53.jpg",
+     "thumb": "img/photos/bftb2/t/53.jpg",
+     "w": 1600,
+     "h": 1067,
+     "tw": 720,
+     "th": 480,
+     "alt": "Full tables from the bar to the back wall.",
+     "alt_es": "Mesas llenas desde la barra hasta la pared del fondo."
+    },
+    {
+     "img": "img/photos/bftb2/54.jpg",
+     "thumb": "img/photos/bftb2/t/54.jpg",
+     "w": 1229,
+     "h": 1600,
+     "tw": 553,
+     "th": 720,
+     "alt": "The top boards draw the watchers.",
+     "alt_es": "Los primeros tableros atraen a los mirones."
+    },
+    {
+     "img": "img/photos/bftb2/55.jpg",
+     "thumb": "img/photos/bftb2/t/55.jpg",
+     "w": 1524,
+     "h": 1600,
+     "tw": 686,
+     "th": 720,
+     "alt": "The face of a hard position.",
+     "alt_es": "La cara de una posición difícil."
+    },
+    {
+     "img": "img/photos/bftb2/56.jpg",
+     "thumb": "img/photos/bftb2/t/56.jpg",
+     "w": 1361,
+     "h": 1600,
+     "tw": 612,
+     "th": 720,
+     "alt": "A smile across the board. Good game coming.",
+     "alt_es": "Una sonrisa al otro lado del tablero. Viene una buena partida."
+    },
+    {
+     "img": "img/photos/bftb2/57.jpg",
+     "thumb": "img/photos/bftb2/t/57.jpg",
+     "w": 1600,
+     "h": 1117,
+     "tw": 720,
+     "th": 503,
+     "alt": "Mid-game, mid-clock, all to play for.",
+     "alt_es": "Medio juego, medio reloj, todo por jugarse."
+    },
+    {
+     "img": "img/photos/bftb2/58.jpg",
+     "thumb": "img/photos/bftb2/t/58.jpg",
+     "w": 1600,
+     "h": 1127,
+     "tw": 720,
+     "th": 507,
+     "alt": "Board after board, the battle at full tilt.",
+     "alt_es": "Tablero tras tablero, la batalla a todo dar."
+    },
+    {
+     "img": "img/photos/bftb2/59.jpg",
+     "thumb": "img/photos/bftb2/t/59.jpg",
+     "w": 1067,
+     "h": 1600,
+     "tw": 480,
+     "th": 720,
+     "alt": "The final push.",
+     "alt_es": "El empujón final."
+    },
+    {
+     "img": "img/photos/bftb2/60.jpg",
+     "thumb": "img/photos/bftb2/t/60.jpg",
+     "w": 1067,
+     "h": 1600,
+     "tw": 480,
+     "th": 720,
+     "alt": "Old rivals, new handshake.",
+     "alt_es": "Viejos rivales, nuevo apretón de manos."
+    },
+    {
+     "img": "img/photos/bftb2/61.jpg",
+     "thumb": "img/photos/bftb2/t/61.jpg",
+     "w": 1067,
+     "h": 1600,
+     "tw": 480,
+     "th": 720,
+     "alt": "The last game still going.",
+     "alt_es": "La última partida todavía en juego."
+    },
+    {
+     "img": "img/photos/bftb2/62.jpg",
+     "thumb": "img/photos/bftb2/t/62.jpg",
+     "w": 1600,
+     "h": 948,
+     "tw": 720,
+     "th": 426,
+     "alt": "Everyone gathers for the final game.",
+     "alt_es": "Todos se juntan para la última partida."
+    },
+    {
+     "img": "img/photos/bftb2/63.jpg",
+     "thumb": "img/photos/bftb2/t/63.jpg",
+     "w": 1600,
+     "h": 1360,
+     "tw": 720,
+     "th": 612,
+     "alt": "Trophy and prize in hand.",
+     "alt_es": "Trofeo y premio en mano."
+    },
+    {
+     "img": "img/photos/bftb2/64.jpg",
+     "thumb": "img/photos/bftb2/t/64.jpg",
+     "w": 1600,
+     "h": 1308,
+     "tw": 720,
+     "th": 589,
+     "alt": "Two section winners, one big grin.",
+     "alt_es": "Dos ganadores de sección, una gran sonrisa."
+    },
+    {
+     "img": "img/photos/bftb2/65.jpg",
+     "thumb": "img/photos/bftb2/t/65.jpg",
+     "w": 1600,
+     "h": 1340,
+     "tw": 720,
+     "th": 603,
+     "alt": "Trophy secured, pose perfected.",
+     "alt_es": "Trofeo asegurado, pose perfeccionada."
+    },
+    {
+     "img": "img/photos/bftb2/66.jpg",
+     "thumb": "img/photos/bftb2/t/66.jpg",
+     "w": 1422,
+     "h": 1600,
+     "tw": 640,
+     "th": 720,
+     "alt": "A section title for Kava.",
+     "alt_es": "Un título de sección para Kava."
+    },
+    {
+     "img": "img/photos/bftb2/67.jpg",
+     "thumb": "img/photos/bftb2/t/67.jpg",
+     "w": 1600,
+     "h": 1504,
+     "tw": 720,
+     "th": 677,
+     "alt": "All smiles with the hardware.",
+     "alt_es": "Todo sonrisas con el trofeo."
+    },
+    {
+     "img": "img/photos/bftb2/68.jpg",
+     "thumb": "img/photos/bftb2/t/68.jpg",
+     "w": 1600,
+     "h": 1417,
+     "tw": 720,
+     "th": 638,
+     "alt": "Trophy in hand and a hug for the camera.",
+     "alt_es": "Trofeo en mano y un abrazo para la cámara."
+    },
+    {
+     "img": "img/photos/bftb2/69.jpg",
+     "thumb": "img/photos/bftb2/t/69.jpg",
+     "w": 1600,
+     "h": 861,
+     "tw": 720,
+     "th": 387,
+     "alt": "The winners' row.",
+     "alt_es": "La fila de los ganadores."
+    },
+    {
+     "img": "img/photos/bftb2/70.jpg",
+     "thumb": "img/photos/bftb2/t/70.jpg",
+     "w": 1600,
+     "h": 759,
+     "tw": 720,
+     "th": 342,
+     "alt": "Both clubs, one photo. Until round three.",
+     "alt_es": "Los dos clubes, una foto. Hasta la tercera ronda."
+    }
+   ]
+  }
+ ]
+}
