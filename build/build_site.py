@@ -576,7 +576,7 @@ SUBPAGES = {
                  'and Kava took the win. Photos by Ava Grace.'),
         'desc_es': ('Galerías de fotos de los eventos del Kava Social Chess Club en Bradenton. Battle for the Bay 2: los Tampa Knights en '
                     'nuestro patio, y Kava se llevó la victoria. Fotos de Ava Grace.'),
-        'image': 'img/photos/bftb2/cover.jpg',
+        'image': 'img/photos/bftb2/cover-fa91c8.jpg',
     },
     'lessons': {
         'title': 'Private chess lessons in Bradenton & Sarasota — Kava Social Chess Club',
