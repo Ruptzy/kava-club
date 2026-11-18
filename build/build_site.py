@@ -242,9 +242,10 @@ def photos(es):
     for g in doc['galleries']:
         y, m, d = (int(x) for x in g['date'].split('-'))
         when = ('%d de %s de %d' % (d, MON[m - 1], y)) if es else ('%d %s %d' % (d, MON_EN[m - 1], y))
+        # the opening pair is shown large, so it loads the full-size copies; the rest are thumbnails
         tiles = ''.join(
             '\n      <img src="%s" data-full="/%s" alt="%s" data-ar="%s" width="%d" height="%d"%s%s>'
-            % (p['thumb'], p['img'], e(p['alt_es'] if es else p['alt']), round(p['tw'] / p['th'], 4), p['tw'], p['th'],
+            % (p['img'] if i < 2 else p['thumb'], p['img'], e(p['alt_es'] if es else p['alt']), round(p['tw'] / p['th'], 4), p['tw'], p['th'],
                '' if i < 8 else ' loading="lazy"', ' hidden' if i >= GAL_OPEN else '')
             for i, p in enumerate(g['photos']))
         recap = '/%s/%s/' % ('es/noches' if es else 'nights', g['date'])
