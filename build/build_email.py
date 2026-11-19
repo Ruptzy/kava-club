@@ -122,18 +122,15 @@ def whole_sentences(text, limit):
 
 
 def email_photo(n):
-    """A 3:2 photo sized for email, cut from the recap's own picture. Returns its public URL."""
+    """The recap's own photo, whole, sized for email. Returns its public URL."""
     src = os.path.join(OUT, n['photo'])
     if not os.path.exists(src):
         return None
     from PIL import Image
     im = Image.open(src).convert('RGB')
+    # the whole photo at its own shape: nobody is cut out of the weekly email either
     w, h = im.size
-    th = round(w * 2 / 3)
-    if th < h:
-        top = round((h - th) * 0.42)
-        im = im.crop((0, top, w, top + th))
-    im = im.resize((1200, 800), Image.LANCZOS)
+    im = im.resize((1200, round(h * 1200 / w)), Image.LANCZOS)
     os.makedirs(os.path.join(OUT, 'img', 'email'), exist_ok=True)
     name = 'img/email/%s.jpg' % n['date']
     im.save(os.path.join(OUT, name), 'JPEG', quality=70, optimize=True, progressive=True)

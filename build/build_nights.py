@@ -369,8 +369,9 @@ def night_body(n, es, prev_n, next_n):
                esc((g.get('caption_es') if es else None) or g.get('caption', '')))
             for g in n['gallery']) + '</div>'
     comm += poll_html(n, es)
-    photo = ('<figure class="nphoto%s"><img src="%s" alt="%s" width="1600" height="1600" decoding="async" fetchpriority="high"%s></figure>'
-             % (' whole' if n.get('whole') else '', esc(n['photo']), esc(loc(n, 'photo_alt', es)), focus_style(n))) if n.get('photo') else ''
+    # always the whole photo, at its own shape (no crop, so no focus line needed)
+    photo = ('<figure class="nphoto"><img src="%s" alt="%s" decoding="async" fetchpriority="high"></figure>'
+             % (esc(n['photo']), esc(loc(n, 'photo_alt', es)))) if n.get('photo') else ''
     facts_block = ('<div class="nfacts">%s</div>' % ''.join(facts)) if facts else ''
     standings = standings_html(n, es)
     st_block = ('<h2 class="d sub">%s</h2><div class="nstand stg">%s</div><p class="cap">%s</p>'
@@ -474,7 +475,9 @@ def archive_body(nights, es):
         line = loc(n, 'line', es) or loc(n, 'commentary', es)
         if len(line) > 180:
             line = line[:177].rsplit(' ', 1)[0] + '…'
-        img = ('<img src="%s" alt="" loading="lazy" decoding="async"%s>' % (esc(n['photo']), focus_style(n))) if n.get('photo') else '<div class="noimg"></div>'
+        # the whole photo in an even frame, over a blurred copy of itself: nothing is cut off
+        img = ('<span class="nimg" style="--bg:url(/%s)"><img src="%s" alt="" loading="lazy" decoding="async"></span>'
+               % (esc(n['photo']), esc(n['photo']))) if n.get('photo') else '<div class="noimg"></div>'
         meta = ' &middot; '.join(x for x in [esc(t), ('%d %s' % (n['played'], 'jugadores' if es else 'players')) if n.get('played') else '',
                                               ('%d %s' % (n['rounds'], 'rondas' if es else 'rounds')) if n.get('rounds') else ''] if x)
         cards.append('<a class="ncard" style="--i:%d" href="/%s/">%s<div class="nc"><div class="m">%s &middot; %s</div><h2 class="d">%s</h2>'
