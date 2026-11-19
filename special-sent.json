@@ -1,0 +1,9 @@
+{
+ "_comment": "Special one-off emails already sent, by gallery id. Written by build/special_email.py.",
+ "sent": {
+  "battle-for-the-bay-2": {
+   "at": "2026-11-18T19:26:54-05:00",
+   "id": 17
+  }
+ }
+}
