@@ -35,16 +35,6 @@
      "alt_es": "Los trofeos, en fila y esperando."
     },
     {
-     "img": "img/photos/bftb2/02-cc9682.jpg",
-     "thumb": "img/photos/bftb2/t/02-cc9682.jpg",
-     "w": 1864,
-     "h": 2048,
-     "tw": 983,
-     "th": 1080,
-     "alt": "Crystal for the Open section champion.",
-     "alt_es": "Cristal para el campeón de la sección Open."
-    },
-    {
      "img": "img/photos/bftb2/03-3acdc8.jpg",
      "thumb": "img/photos/bftb2/t/03-3acdc8.jpg",
      "w": 1415,
@@ -413,6 +403,16 @@
      "th": 1080,
      "alt": "The Queen's Crown, for the night's best female player.",
      "alt_es": "La Corona de la Reina, para la mejor jugadora de la noche."
+    },
+    {
+     "img": "img/photos/bftb2/02-cc9682.jpg",
+     "thumb": "img/photos/bftb2/t/02-cc9682.jpg",
+     "w": 1864,
+     "h": 2048,
+     "tw": 983,
+     "th": 1080,
+     "alt": "Crystal for the Open section champion.",
+     "alt_es": "Cristal para el campeón de la sección Open."
     },
     {
      "img": "img/photos/bftb2/41-cc5038.jpg",
