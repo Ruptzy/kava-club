@@ -513,7 +513,7 @@ RAW = [
     ('alt="Three members laughing over a board on a club night"', 'alt="Tres miembros riendo sobre un tablero en una noche de club"'),
     ('alt="Two members mid-game on a club night, one with his head in his hands, both grinning"', 'alt="Dos miembros en plena partida en una noche de club, uno con la cabeza entre las manos, los dos sonriendo"'),
     ('alt="Boards set up and waiting under the string lights before a club night"', 'alt="Tableros listos bajo las luces antes de una noche de club"'),
-    ('alt="A full Sunday club night"', 'alt="Una noche de club de domingo llena"'),
+    ('alt="A full Sunday on the Kava Social patio: every table under the tiki taken during Battle for the Bay 2"', 'alt="Un domingo lleno en el patio de Kava Social: todas las mesas bajo el tiki ocupadas durante Battle for the Bay 2"'),
     ('alt="Study night: a member reading at the board"', 'alt="Noche de estudio: un miembro leyendo junto al tablero"'),
     ('alt="This season\'s players gathered behind the boards on league night"', 'alt="Los jugadores de esta temporada detrás de los tableros en noche de liga"'),
     ('alt="Harold Gonzalez at the board"', 'alt="Harold Gonzalez frente al tablero"'),

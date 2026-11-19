@@ -44,7 +44,7 @@ M = {'LOGO': png(LOGO_SRC, 224, 'logo.png', square=True)}
 hero = [('HERO', os.path.join(LG, 'hero-crop.jpg'), 1000, 76, 'hero.jpg'), ('SOCIAL', 'Kava social chess girls.png', 1100, 80, 'social.jpg'), ('SOCIAL2', 'chrome_6xZgOTnRDj.png', 1100, 80, 'social2.jpg'),
         ('STUDY', 'chrome_GRnR26LSto.png', 1100, 80, 'study.jpg'), ('COACH', 'chrome_q4UzvZj71T.png', 1100, 80, 'coach.jpg'),
         ('COACH2', 'Tournament Harold.jpg', 1100, 80, 'coach2.jpg'), ('SEASON', 'IMG_8373.jpg', 1200, 78, 'season.jpg'),
-        ('SETUP', 'Kava social venue.png', 1400, 78, 'setup.jpg'), ('NIGHTPIC', 'Kava social group 3.png', 1000, 78, 'sunday.jpg')]
+        ('SETUP', 'Kava social venue.png', 1400, 78, 'setup.jpg'), ('NIGHTPIC', r'D:\Pictures\Kava\Battle for the Bay 2 (2026-11-15)\originals\IMG_5437.jpg', 1400, 82, 'sunday-bftb2.jpg')]   # Sunday card: the patio at Battle for the Bay 2, photo by Ava Grace
 used = set()
 for k, f, w, q, name in hero:
     M[k], _ = jpg(f if os.path.isabs(f) else os.path.join(SRC, f), w, q, name); used.add(f)
@@ -173,7 +173,7 @@ GAL_SCRIPT = r'''<script>
   // justified rows like the home page, but every row is sized to fit its photos exactly, so none is stretched or cut
   function layout(){
     var W=gal.clientWidth, G=4, rowIdx=0;
-    function tgt(i){ return W<600?(i?178:215):(W<900?(i?180:280):(i?220:380)); }
+    function tgt(i){ return W<600?(i?200:240):(W<900?(i?240:320):(i?300:430)); }   // taller than the home page: these photos are the point of the page
     if(!W) return;
     var row=[], sum=0;
     function flush(h,last){
@@ -577,7 +577,7 @@ SUBPAGES = {
                  'and Kava took the win. Photos by Ava Grace.'),
         'desc_es': ('Galerías de fotos de los eventos del Kava Social Chess Club en Bradenton. Battle for the Bay 2: los Tampa Knights en '
                     'nuestro patio, y Kava se llevó la victoria. Fotos de Ava Grace.'),
-        'image': 'img/photos/bftb2/cover-fa91c8.jpg',
+        'image': 'img/photos/bftb2/cover-1b5c63.jpg',
     },
     'lessons': {
         'title': 'Private chess lessons in Bradenton & Sarasota — Kava Social Chess Club',
