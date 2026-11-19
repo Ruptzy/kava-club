@@ -25,30 +25,24 @@ import post_tonight as T          # noqa: E402
 OUT = E.OUT
 LEDGER = os.path.join(OUT, 'special-sent.json')
 esc = E.esc
-# landscape photos only, each fitted whole into an even grid
-GRID_PHOTOS = 6
 
 
 def email_grid_photos(g):
-    """Up to six wide shots from the gallery, saved at email size beside the weekly photos."""
+    """The email's photos: email "wide" (shown at its own shape) and four "tiles" that are 3:2
+    already, so the grid is even with no bars and no cropping. Saved beside the weekly photos."""
     from PIL import Image
-    out = []
+    mail = g.get('email') or {}
+    by = {p['img']: p for p in g['photos']}
     os.makedirs(os.path.join(OUT, 'img', 'email'), exist_ok=True)
-    for p in g['photos']:
-        if len(out) == GRID_PHOTOS:
-            break
-        if p['w'] / p['h'] < 1.3:          # portraits would make the rows uneven
-            continue
-        im = Image.open(os.path.join(OUT, p['img'])).convert('RGB')
-        # fitted whole inside a 3:2 tile on the card's own colour: nothing is ever cut off
-        im.thumbnail((600, 400), Image.LANCZOS)
-        tile = Image.new('RGB', (600, 400), E.PANEL)
-        tile.paste(im, ((600 - im.width) // 2, (400 - im.height) // 2))
-        im = tile
-        name = 'img/email/%s-%d.jpg' % (g['id'], len(out) + 1)
-        im.save(os.path.join(OUT, name), 'JPEG', quality=70, optimize=True, progressive=True)
-        out.append((E.SITE + name, p['alt']))
-    return out
+    def save(path, n, width):
+        im = Image.open(os.path.join(OUT, path)).convert('RGB')
+        im = im.resize((width, round(im.height * width / im.width)), Image.LANCZOS)
+        name = 'img/email/%s-%d.jpg' % (g['id'], n)
+        im.save(os.path.join(OUT, name), 'JPEG', quality=72, optimize=True, progressive=True)
+        return E.SITE + name, by[path]['alt'], im.size
+    wide = save(mail['wide'], 1, 1120) if mail.get('wide') else None
+    tiles = [save(t, k + 2, 600) for k, t in enumerate(mail.get('tiles') or [])]
+    return wide, tiles
 
 
 def build(gid, out_dir):
@@ -63,17 +57,20 @@ def build(gid, out_dir):
     subject = mail.get('subject') or '%s: the photos are in' % g['title']
     preheader = mail.get('preheader') or '%d photos by %s.' % (n, g['credit'])
 
-    from PIL import Image
-    cover = Image.open(os.path.join(OUT, g['cover'])).convert('RGB')
-    w, h = cover.size
-    th = round(w * 2 / 3)
-    if th < h:
-        cover = cover.crop((0, round((h - th) / 2), w, round((h - th) / 2) + th))
-    cover = cover.resize((1200, 800), Image.LANCZOS)
-    cname = 'img/email/%s-cover.jpg' % gid
-    os.makedirs(os.path.join(OUT, 'img', 'email'), exist_ok=True)
-    cover.save(os.path.join(OUT, cname), 'JPEG', quality=70, optimize=True, progressive=True)
-    hero_url = E.SITE + cname
+    if mail.get('hero'):
+        hero_url = E.SITE + mail['hero']          # the website's cover, title and credit included, as one picture
+    else:
+        from PIL import Image
+        cover = Image.open(os.path.join(OUT, g['cover'])).convert('RGB')
+        w, h = cover.size
+        th = round(w * 2 / 3)
+        if th < h:
+            cover = cover.crop((0, round((h - th) / 2), w, round((h - th) / 2) + th))
+        cover = cover.resize((1200, 800), Image.LANCZOS)
+        cname = 'img/email/%s-cover.jpg' % gid
+        os.makedirs(os.path.join(OUT, 'img', 'email'), exist_ok=True)
+        cover.save(os.path.join(OUT, cname), 'JPEG', quality=70, optimize=True, progressive=True)
+        hero_url = E.SITE + cname
     shots = email_grid_photos(g)
 
     P = []
@@ -97,19 +94,21 @@ def build(gid, out_dir):
         '<div style="padding-top:16px">%s</div>' % E.btn(mail.get('button') or 'See all %d photos' % n, page),
         top=hero))
 
-    if shots:
-        cells = []
-        for i in range(0, len(shots), 2):
-            pair = shots[i:i + 2]
-            tds = []
-            for j, (src, alt) in enumerate(pair):
-                if j:
-                    tds.append('<td width="8" style="font-size:0;line-height:0">&nbsp;</td>')
-                tds.append('<td width="50%%" valign="top"><a href="%s"><img src="%s" width="280" alt="%s" '
-                           'style="display:block;width:100%%;height:auto;border:0;border-radius:10px"></a></td>' % (esc(page), esc(src), esc(alt)))
-            cells.append('<tr>%s</tr>' % ''.join(tds) + ('<tr><td colspan="3" style="height:8px;font-size:0;line-height:0">&nbsp;</td></tr>'))
-        P.append(E.card(E.heading('\U0001F5BC️', mail.get('grid_title') or 'A few from the night') +
-                        '<div style="padding-top:14px">' + E.GRID + ''.join(cells) + '</table></div>' +
+    wide, tiles = shots
+    if wide or tiles:
+        img = lambda src, alt, w: ('<a href="%s"><img src="%s" width="%d" alt="%s" style="display:block;width:100%%;height:auto;border:0;'
+                                   'border-radius:10px"></a>' % (esc(page), esc(src), w, esc(alt)))
+        rows = []
+        if wide:
+            rows.append('<tr><td colspan="3" style="padding:0 0 8px">%s</td></tr>' % img(wide[0], wide[1], 560))
+        for k in range(0, len(tiles), 2):
+            a, b = tiles[k], tiles[k + 1] if k + 1 < len(tiles) else None
+            rows.append('<tr><td width="276" valign="top" style="width:49%%;padding:0 0 8px">%s</td>'
+                        '<td width="8" style="width:2%%;font-size:0;line-height:0">&nbsp;</td>'
+                        '<td width="276" valign="top" style="width:49%%;padding:0 0 8px">%s</td></tr>'
+                        % (img(a[0], a[1], 276), img(b[0], b[1], 276) if b else ''))
+        P.append(E.card(E.heading('🖼️', mail.get('grid_title') or 'A few from the night') +
+                        '<div style="padding-top:14px">' + E.GRID + ''.join(rows) + '</table></div>' +
                         '<div style="padding-top:6px">%s</div>' % E.btn('Open the gallery', page, primary=False)))
 
     for para in mail.get('body') or []:
@@ -150,7 +149,7 @@ def build(gid, out_dir):
     os.makedirs(out_dir, exist_ok=True)
     open(os.path.join(out_dir, 'email.html'), 'w', encoding='utf-8').write(html)
     meta = {'subject': subject, 'preheader': preheader, 'campaign': campaign, 'from_name': 'Kava Social Chess Club',
-            'bytes': size, 'photos': [hero_url] + [s[0] for s in shots]}
+            'bytes': size, 'photos': [hero_url] + ([shots[0][0]] if shots[0] else []) + [t[0] for t in shots[1]]}
     json.dump(meta, open(os.path.join(out_dir, 'meta.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     print('subject   (%d chars) %s' % (len(subject), subject))
     print('preheader (%d chars) %s' % (len(preheader), preheader))
