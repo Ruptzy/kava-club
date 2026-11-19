@@ -225,7 +225,7 @@ GAL_SCRIPT = r'''<script>
   });
 })();
 </script>'''
-GAL_OPEN = 18      # photos shown before the show-all button
+GAL_OPEN = 10 ** 6   # every photo shows at once; no show-all button (Harold, 2026-11-18)
 
 
 def photos(es):
