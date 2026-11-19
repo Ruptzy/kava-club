@@ -28,7 +28,7 @@ esc = E.esc
 
 
 def email_grid_photos(g):
-    """The email's photos: email "wide" (shown at its own shape) and four "tiles" that are 3:2
+    """The email's photos: email "wide", one or more (each shown at its own shape) and four "tiles" that are 3:2
     already, so the grid is even with no bars and no cropping. Saved beside the weekly photos."""
     from PIL import Image
     mail = g.get('email') or {}
@@ -40,8 +40,10 @@ def email_grid_photos(g):
         name = 'img/email/%s-%d.jpg' % (g['id'], n)
         im.save(os.path.join(OUT, name), 'JPEG', quality=72, optimize=True, progressive=True)
         return E.SITE + name, by[path]['alt'], im.size
-    wide = save(mail['wide'], 1, 1120) if mail.get('wide') else None
-    tiles = [save(t, k + 2, 600) for k, t in enumerate(mail.get('tiles') or [])]
+    wides = mail.get('wide') or []
+    wides = [wides] if isinstance(wides, str) else wides
+    wide = [save(w, k + 1, 1120) for k, w in enumerate(wides)]
+    tiles = [save(t, len(wide) + k + 1, 600) for k, t in enumerate(mail.get('tiles') or [])]
     return wide, tiles
 
 
@@ -99,8 +101,8 @@ def build(gid, out_dir):
         img = lambda src, alt, w: ('<a href="%s"><img src="%s" width="%d" alt="%s" style="display:block;width:100%%;height:auto;border:0;'
                                    'border-radius:10px"></a>' % (esc(page), esc(src), w, esc(alt)))
         rows = []
-        if wide:
-            rows.append('<tr><td colspan="3" style="padding:0 0 8px">%s</td></tr>' % img(wide[0], wide[1], 560))
+        for w in wide:
+            rows.append('<tr><td colspan="3" style="padding:0 0 8px">%s</td></tr>' % img(w[0], w[1], 560))
         for k in range(0, len(tiles), 2):
             a, b = tiles[k], tiles[k + 1] if k + 1 < len(tiles) else None
             rows.append('<tr><td width="276" valign="top" style="width:49%%;padding:0 0 8px">%s</td>'
@@ -149,7 +151,7 @@ def build(gid, out_dir):
     os.makedirs(out_dir, exist_ok=True)
     open(os.path.join(out_dir, 'email.html'), 'w', encoding='utf-8').write(html)
     meta = {'subject': subject, 'preheader': preheader, 'campaign': campaign, 'from_name': 'Kava Social Chess Club',
-            'bytes': size, 'photos': [hero_url] + ([shots[0][0]] if shots[0] else []) + [t[0] for t in shots[1]]}
+            'bytes': size, 'photos': [hero_url] + [w[0] for w in shots[0]] + [t[0] for t in shots[1]]}
     json.dump(meta, open(os.path.join(out_dir, 'meta.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     print('subject   (%d chars) %s' % (len(subject), subject))
     print('preheader (%d chars) %s' % (len(preheader), preheader))
