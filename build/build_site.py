@@ -191,6 +191,7 @@ GAL_SCRIPT = r'''<script>
       var ar=parseFloat(im.getAttribute("data-ar"))||1.5;
       row.push(im); sum+=ar;
       var target=tgt(rowIdx), h=(W-G*(row.length-1))/sum;
+      if(W<600 && idx<2){ flush(h,false); return; }   // phones: the opening pair each get a full-width row
       if(rowIdx===0){ if(row.length===2){ flush(h,false); } else if(idx===vis.length-1){ flush(Math.min(h,target),true); } return; }
       if(h<=target){ flush(h,false); }
       else if(idx===vis.length-1){
@@ -274,11 +275,17 @@ def photos(es):
                t('Show all %d photos', 'Ver las %d fotos') % len(g['photos']), arrow,
                t('Photo viewer', 'Visor de fotos'), t('Close', 'Cerrar'), t('Previous', 'Anterior'), t('Next', 'Siguiente')))
     style = ('<style>.photos .evgal{margin-top:56px}.photos .evgal+.evgal{margin-top:96px;padding-top:48px;border-top:1px solid var(--rule-2)}'
-             '.evcover{margin:0;position:relative}.evcover::after{content:"";position:absolute;inset:0;border-radius:4px;background:radial-gradient(ellipse at center,rgba(8,8,9,.5),rgba(8,8,9,.25) 60%,rgba(8,8,9,.55));pointer-events:none}.evover{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.5)}.evover h2{font-size:clamp(30px,5.4vw,78px);color:#fff;margin:0}.evdate{margin-top:14px;color:#fff;letter-spacing:.24em}.evmark{position:absolute;left:0;right:0;bottom:clamp(14px,3vw,34px);display:flex;flex-direction:column;align-items:center;gap:12px;color:#fff;letter-spacing:.22em;font-size:12px}.evmark:hover{color:var(--cream)}.evcover .evav{width:clamp(36px,3.6vw,52px);height:clamp(36px,3.6vw,52px);aspect-ratio:1;max-width:none;border-radius:22%;object-fit:cover;display:block;box-shadow:0 0 0 1px rgba(255,255,255,.35),0 4px 14px rgba(0,0,0,.35)}@media (max-width:600px){.evcover img{aspect-ratio:4/3}.evdate{margin-top:8px;font-size:11px}.evmark{font-size:10px;bottom:12px}}.evcover img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:4px}'
+             '.evcover{margin:0;position:relative}.evcover::after{content:"";position:absolute;inset:0;border-radius:4px;background:radial-gradient(ellipse at center,rgba(8,8,9,.5),rgba(8,8,9,.25) 60%,rgba(8,8,9,.55));pointer-events:none}.evover{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.5)}.evover h2{font-size:clamp(30px,5.4vw,78px);color:#fff;margin:0}.evdate{margin-top:14px;color:#fff;letter-spacing:.24em}.evmark{position:absolute;left:0;right:0;bottom:clamp(14px,3vw,34px);display:flex;flex-direction:column;align-items:center;gap:12px;color:#fff;letter-spacing:.22em;font-size:12px}.evmark:hover{color:var(--cream)}.evcover .evav{width:clamp(36px,3.6vw,52px);height:clamp(36px,3.6vw,52px);aspect-ratio:1;max-width:none;border-radius:22%;object-fit:cover;display:block;box-shadow:0 0 0 1px rgba(255,255,255,.35),0 4px 14px rgba(0,0,0,.35)}.evcover img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:4px}'
              '.evhead{margin-top:28px;max-width:52rem}.evhead h2{font-size:clamp(34px,4.4vw,60px);margin-top:14px}'
              '.evhead .lead{margin-top:18px;font-size:21px;color:var(--ink);line-height:1.55}'
              '.evcredit{margin-top:18px;color:var(--ink-2)}.evcredit a{color:var(--cream);border-bottom:2px solid var(--scarlet)}'
              '.evcredit a:hover{color:var(--scarlet)}.evrecap{margin-top:22px}.evlbcap{display:flex;flex-direction:column;gap:6px;padding:0 70px}.evlbcap .lbt{font-family:var(--fs);font-size:17px;letter-spacing:0;color:var(--cream)}.evgal .gal img[hidden]{display:none}.evgal .galmore[hidden]{display:none}'
+             '.evgal .gal img{height:170px;width:auto}'
+             # phones: a portrait cover, so the title, the date and the credit each have their own room (last, so it wins)
+             '@media (max-width:600px){.evcover img{aspect-ratio:4/5}.evover{justify-content:flex-start;padding-top:22%}'
+             '.evover h2{font-size:clamp(30px,10vw,46px);line-height:1}.evdate{margin-top:12px;font-size:11px;letter-spacing:.2em}'
+             '.evmark{font-size:10px;letter-spacing:.2em;bottom:22px;gap:10px}.evcover .evav{width:44px;height:44px}'
+             '.evlbcap{padding:0 16px}}'
              '</style>')
     return ('<main class="wrap page photos">%s<div class="phead"><div class="m lbl">%s</div><h1 class="d">%s</h1>'
             '<p class="body lead">%s</p></div>%s</main>%s'
