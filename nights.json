@@ -1,7 +1,105 @@
 {
  "_comment": "One entry per club night, newest first. Written by the admin console (Post a night) or by hand. build/build_nights.py turns these into /nights/<date>/ pages, the archive, the RSS feed and the sitemap. 'line' is Harold's own sentence about the night; 'commentary' is the write-up of the numbers.",
- "updated": "2026-11-12",
+ "updated": "2026-11-18",
  "nights": [
+  {
+   "date": "2026-11-15",
+   "type": "battle",
+   "title": "Battle for the Bay 2: Kava takes round two",
+   "title_es": "Battle for the Bay 2: Kava se lleva la segunda ronda",
+   "line": "Tampa came to our patio and brought a real fight. Round two is ours, and the series is level.",
+   "line_es": "Tampa vino a nuestro patio y trajo una pelea de verdad. La segunda ronda es nuestra y la serie está empatada.",
+   "commentary": "Round two, on our patio, and this one is ours. 🏆 Tampa Knights crossed the bay on Sunday 15 November for game two of the six-month Battle for the Bay series, and Kava Social took the match.\nAn hour early, every table under the tiki full, four sections, five rounds of G/15 d5, and every board counting the same for your club. ⚔️ Round one in Tampa was theirs. Round two was settled on our boards, under our lights.\nHuge respect to Tampa. 🤝 It was a hard-fought night from the first round to the last, and their strongest players ran the top section. Thank you for making the drive and bringing a real fight.\nTrophies and prize money went to every section winner, plus the Queen's Crown for the night's Best Female Player. 👑\nAva Grace photographed the whole night, and the full gallery is up now: 69 photos of every board, every handshake and every trophy. 📸 See them all at kavasocialchessclub.com/photos/ and find more of her work at photosbyavagrace.mypixieset.com.\nThe series is level and the rematch is coming. Round three date to follow. 🔥",
+   "commentary_es": "Segunda ronda, en nuestro patio, y esta es nuestra. 🏆 Los Tampa Knights cruzaron la bahía el domingo 15 de noviembre para el segundo encuentro de la serie Battle for the Bay de seis meses, y Kava Social se llevó el match.\nUna hora antes, todas las mesas bajo el tiki llenas, cuatro secciones, cinco rondas de G/15 d5 y cada tablero contando igual para tu club. ⚔️ La primera ronda en Tampa fue suya. La segunda se decidió en nuestros tableros, bajo nuestras luces.\nTodo el respeto para Tampa. 🤝 Fue una noche muy peleada de la primera ronda a la última, y sus jugadores más fuertes dominaron la sección más alta. Gracias por hacer el viaje y traer una pelea de verdad.\nHubo trofeos y premios en efectivo para cada ganador de sección, además de la Corona de la Reina para la Mejor Jugadora de la noche. 👑\nAva Grace fotografió toda la noche y la galería completa ya está publicada: 69 fotos de cada tablero, cada apretón de manos y cada trofeo. 📸 Míralas todas en kavasocialchessclub.com/es/fotos/ y encuentra más de su trabajo en photosbyavagrace.mypixieset.com.\nLa serie está empatada y la revancha viene. Fecha de la tercera ronda por confirmar. 🔥",
+   "photo": "img/nights/2026-11-15.jpg",
+   "whole": true,
+   "photo_alt": "Both clubs together on the Kava Social patio after Battle for the Bay 2, photo by Ava Grace",
+   "photo_alt_es": "Los dos clubes juntos en el patio de Kava Social después de Battle for the Bay 2, foto de Ava Grace",
+   "gallery": [
+    {
+     "img": "img/photos/bftb2/t/38-df7b79.jpg",
+     "w": 1080,
+     "h": 587,
+     "alt": "The hardware, lined up and waiting.",
+     "alt_es": "Los trofeos, en fila y esperando.",
+     "caption": "The hardware, lined up and waiting.",
+     "caption_es": "Los trofeos, en fila y esperando."
+    },
+    {
+     "img": "img/photos/bftb2/t/31-0b8bce.jpg",
+     "w": 864,
+     "h": 1080,
+     "alt": "The long table: one battle, a dozen boards.",
+     "alt_es": "La mesa larga: una batalla, una docena de tableros.",
+     "caption": "The long table: one battle, a dozen boards.",
+     "caption_es": "La mesa larga: una batalla, una docena de tableros."
+    },
+    {
+     "img": "img/photos/bftb2/t/32-f8f7ca.jpg",
+     "w": 1080,
+     "h": 720,
+     "alt": "Under the tiki, both clubs, every chair taken.",
+     "alt_es": "Bajo el tiki, los dos clubes, todas las sillas ocupadas.",
+     "caption": "Under the tiki, both clubs, every chair taken.",
+     "caption_es": "Bajo el tiki, los dos clubes, todas las sillas ocupadas."
+    },
+    {
+     "img": "img/photos/bftb2/t/33-65c974.jpg",
+     "w": 830,
+     "h": 1080,
+     "alt": "The handshake that ends it. Respect either way.",
+     "alt_es": "El apretón de manos que lo termina. Respeto, gane quien gane.",
+     "caption": "The handshake that ends it. Respect either way.",
+     "caption_es": "El apretón de manos que lo termina. Respeto, gane quien gane."
+    },
+    {
+     "img": "img/photos/bftb2/t/49-7a5f5a.jpg",
+     "w": 1080,
+     "h": 540,
+     "alt": "The best part of chess night: the laugh after the move.",
+     "alt_es": "Lo mejor de la noche de ajedrez: la risa después de la jugada.",
+     "caption": "The best part of chess night: the laugh after the move.",
+     "caption_es": "Lo mejor de la noche de ajedrez: la risa después de la jugada."
+    },
+    {
+     "img": "img/photos/bftb2/t/19-3afa5a.jpg",
+     "w": 923,
+     "h": 1080,
+     "alt": "Head in hand. The position is talking back.",
+     "alt_es": "Cabeza en la mano. La posición le está respondiendo.",
+     "caption": "Head in hand. The position is talking back.",
+     "caption_es": "Cabeza en la mano. La posición le está respondiendo."
+    },
+    {
+     "img": "img/photos/bftb2/t/37-ba58d4.jpg",
+     "w": 1080,
+     "h": 720,
+     "alt": "Between rounds, the post-mortem draws a crowd.",
+     "alt_es": "Entre rondas, el análisis de la partida junta a un grupo.",
+     "caption": "Between rounds, the post-mortem draws a crowd.",
+     "caption_es": "Entre rondas, el análisis de la partida junta a un grupo."
+    },
+    {
+     "img": "img/photos/bftb2/t/56-603b9c.jpg",
+     "w": 1029,
+     "h": 1080,
+     "alt": "The face of a hard position.",
+     "alt_es": "La cara de una posición difícil.",
+     "caption": "The face of a hard position.",
+     "caption_es": "La cara de una posición difícil."
+    },
+    {
+     "img": "img/photos/bftb2/t/69-643bc8.jpg",
+     "w": 1080,
+     "h": 581,
+     "alt": "The winners' row.",
+     "alt_es": "La fila de los ganadores.",
+     "caption": "The winners' row.",
+     "caption_es": "La fila de los ganadores."
+    }
+   ],
+   "updated": "2026-11-18"
+  },
   {
    "date": "2026-11-10",
    "type": "study",
