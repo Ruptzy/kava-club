@@ -53,10 +53,10 @@ a.tile{display:block;color:inherit;transition:transform .35s var(--ease)}a.tile:
 .plate{transition:transform .5s var(--ease),filter .5s ease;filter:brightness(.94)}.plate:hover{transform:translateY(-3px);filter:brightness(1.06)}
 .pair{display:grid;gap:24px;align-items:start}
 /* ---------- masthead ---------- */
-.mast{padding:14px 0 0;position:relative}
-.mast .top{display:flex;align-items:center;justify-content:center;gap:18px;padding:0 var(--pad) 14px}
-.mast .top img{width:clamp(48px,4.6vw,68px);height:auto;border-radius:50%}html.js .mast .top a:hover img{animation:knight .5s var(--ease)}@keyframes knight{0%{transform:none}42%{transform:translateY(-9px)}68%{transform:translate(6px,-9px)}100%{transform:none}}
-.mast .wm{font-size:clamp(18px,2.4vw,32px);font-variation-settings:"wdth" 116;letter-spacing:.02em;line-height:.9;white-space:nowrap}
+.mast{padding:28px 0 0;position:relative}
+.mast .top{display:flex;align-items:center;justify-content:center;gap:32px;padding:0 var(--pad) 28px}
+.mast .top img{width:clamp(88px,14.6vw,210px);height:auto;border-radius:50%}html.js .mast .top a:hover img{animation:knight .5s var(--ease)}@keyframes knight{0%{transform:none}42%{transform:translateY(-9px)}68%{transform:translate(6px,-9px)}100%{transform:none}}
+.mast .wm{font-size:clamp(22px,5.3vw,76px);font-variation-settings:"wdth" 116;letter-spacing:.02em;line-height:.9;white-space:nowrap}
 #burger{display:none;position:absolute;right:20px;top:16px;width:46px;height:46px;border:1px solid var(--rule-3);border-radius:999px;background:none;place-items:center;z-index:31}
 #burger i{display:block;width:18px;height:2px;background:var(--cream);position:relative}#burger i::before,#burger i::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--cream)}#burger i::before{top:-7px}#burger i::after{top:7px}
 #navbar{position:sticky;top:0;z-index:20;background:rgba(12,13,14,.94);border-top:3px solid var(--cream);border-bottom:1px solid var(--rule-2);transition:box-shadow .3s ease}
