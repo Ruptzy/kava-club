@@ -25,21 +25,8 @@ import webp
 for d in ['img', 'img/gallery', 'img/logos', 'media', 'es']:
     os.makedirs(os.path.join(OUT, d), exist_ok=True)
 
-def grade(im):
-    """The house look, so every photo on the page reads as one set: the patio's purple-pink cast is
-    taken out where it is strong, then one gentle tone curve for everything."""
-    from PIL import ImageEnhance
-    sys.path.insert(0, os.path.join(OUT, 'tools'))
-    from decast import decast
-    hsv = im.copy(); hsv.thumbnail((200, 200)); hsv = hsv.convert('HSV')
-    px = list(hsv.getdata())
-    magenta = sum(1 for h, sat, v in px if 190 <= h <= 235 and sat > 90 and v > 40) / max(1, len(px))
-    if magenta > 0.15:                 # heavy purple: the full correction
-        im = decast(im, strength=0.75, magenta_keep=0.35, green_keep=0.6)
-    elif magenta > 0.08:               # a tint: a lighter touch
-        im = decast(im, strength=0.45, magenta_keep=0.55, green_keep=0.6)
-    im = ImageEnhance.Contrast(im).enhance(1.05)
-    return ImageEnhance.Color(im).enhance(0.94)
+sys.path.insert(0, os.path.join(OUT, 'tools'))
+from grade import grade   # the house look, shared with the recap photos (tools/grade.py)
 
 
 def jpg(src, w, q, name):
