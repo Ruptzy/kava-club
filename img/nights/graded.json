@@ -1,5 +1,5 @@
 {
- "_comment": "Recap photos already given the house grade (tools/grade.py), so a re-run never grades one twice. Flyers and posters are never graded.",
+ "_comment": "Recap photos given the house grade and sharpening (tools/grade.py), always from the original file, so nothing is processed twice. Flyers and posters are never touched.",
  "graded": [
   "img/nights/2026-09-13.jpg",
   "img/nights/2026-09-15.jpg",

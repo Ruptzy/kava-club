@@ -298,6 +298,7 @@ TEXT = {
     "Battle for the Bay 2: the gallery is up": "Battle for the Bay 2: ya está la galería",
     "69 photos by Ava Grace from the night Kava took the win.": "69 fotos de Ava Grace de la noche en que Kava se llevó la victoria.",
     "See the photos": "Ver las fotos",
+    "Losing, and enjoying it. Lessons help with the first part.": "Perdiendo, y disfrutándolo. Las clases ayudan con lo primero.",
     "New: the Battle for the Bay 2 photos &rarr;": "Nuevo: las fotos de Battle for the Bay 2 &rarr;",
     "Club nights, tournaments and road trips &mdash; all of it us. Click any photo to see them all.": "Noches de club, torneos y viajes &mdash; todo somos nosotros. Toca cualquier foto para verlas todas.",
     "Kava Social Club, 540 13th St W. Open 24/7. There is no chess club without them.": "Kava Social Club, 540 13th St W. Abierto 24/7. Sin ellos no hay club de ajedrez.",
@@ -511,6 +512,7 @@ RAW = [
     # alt text
     ('alt="The club patio at Kava Social in downtown Bradenton, full on a tournament day"', 'alt="El patio del club en Kava Social, centro de Bradenton, lleno en un día de torneo"'),
     ('alt="Three members laughing over a board on a club night"', 'alt="Tres miembros riendo sobre un tablero en una noche de club"'),
+    ('alt="Two members mid-game on a club night, one with his head in his hands, both grinning"', 'alt="Dos miembros a mitad de partida en una noche de club, uno con la cabeza entre las manos, los dos sonriendo"'),
     ('alt="Three players laughing over the board at Battle for the Bay 2, photo by Ava Grace"', 'alt=\"Tres jugadores riéndose sobre el tablero en Battle for the Bay 2, foto de Ava Grace\"'),
     ('alt="Boards set up and waiting under the string lights before a club night"', 'alt="Tableros listos bajo las luces antes de una noche de club"'),
     ('alt="A full Sunday on the Kava Social patio: every table under the tiki taken during Battle for the Bay 2"', 'alt="Un domingo lleno en el patio de Kava Social: todas las mesas bajo el tiki ocupadas durante Battle for the Bay 2"'),

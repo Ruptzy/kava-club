@@ -26,13 +26,13 @@ for d in ['img', 'img/gallery', 'img/logos', 'media', 'es']:
     os.makedirs(os.path.join(OUT, d), exist_ok=True)
 
 sys.path.insert(0, os.path.join(OUT, 'tools'))
-from grade import grade   # the house look, shared with the recap photos (tools/grade.py)
+from grade import grade, sharpen   # the house look, shared with the recap photos (tools/grade.py)
 
 
 def jpg(src, w, q, name):
     im = ImageOps.exif_transpose(Image.open(src)).convert('RGB')
     if im.width > w: im = im.resize((w, round(im.height * w / im.width)), Image.LANCZOS)
-    im = grade(im)
+    im = sharpen(grade(im))
     im.save(os.path.join(OUT, 'img', name), 'JPEG', quality=q, optimize=True, progressive=True)
     webp.emit(im, os.path.join(OUT, 'img', name))
     return 'img/' + name, im.width / im.height
@@ -49,7 +49,7 @@ M = {'LOGO': png(LOGO_SRC, 224, 'logo.png', square=True)}
 hero = [('HERO', os.path.join(LG, 'hero-crop.jpg'), 1000, 76, 'hero.jpg'), ('SOCIAL', 'Kava social chess girls.png', 1100, 80, 'social.jpg'), ('SOCIAL2', r'D:\Pictures\Kava\Battle for the Bay 2 (2026-11-15)\cropped\IMG_5554.jpg', 1100, 82, 'social2-bftb2.jpg'),
         ('STUDY', 'chrome_GRnR26LSto.png', 1100, 80, 'study.jpg'), ('COACH', 'chrome_q4UzvZj71T.png', 1100, 80, 'coach.jpg'),
         ('COACH2', 'Tournament Harold.jpg', 1100, 80, 'coach2.jpg'), ('SEASON', 'IMG_8373.jpg', 1200, 78, 'season.jpg'),
-        ('SETUP', 'Kava social venue.png', 1400, 78, 'setup.jpg'), ('NIGHTPIC', r'D:\Pictures\Kava\Battle for the Bay 2 (2026-11-15)\cropped\IMG_5437-sunday-card.jpg', 1000, 82, 'sunday-bftb2.jpg')]   # Sunday card: the patio at Battle for the Bay 2, photo by Ava Grace
+        ('SETUP', 'Kava social venue.png', 1400, 78, 'setup.jpg'), ('COACHGOOF', 'chrome_6xZgOTnRDj.png', 900, 82, 'coach-goof.jpg'), ('NIGHTPIC', r'D:\Pictures\Kava\Battle for the Bay 2 (2026-11-15)\cropped\IMG_5437-sunday-card.jpg', 1000, 82, 'sunday-bftb2.jpg')]   # Sunday card: the patio at Battle for the Bay 2, photo by Ava Grace
 used = set()
 for k, f, w, q, name in hero:
     M[k], _ = jpg(f if os.path.isabs(f) else os.path.join(SRC, f), w, q, name); used.add(f)
