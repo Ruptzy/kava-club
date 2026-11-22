@@ -21,15 +21,15 @@ def grade(im):
 
 
 def sharpen(im):
-    """Adaptive sharpening for web copies: the softer the photo, the stronger the lift. A threshold
-    keeps grain and smooth walls from turning into noise. Out-of-focus shots get crisper, not perfect."""
+    """Light, adaptive sharpening for web copies. Only soft photos get a small lift; photos that are
+    already sharp are left alone. Kept gentle on purpose: the stronger version (2.2px at 140%) left
+    halos and a crunchy "glaze" on every photo (Harold, 2026-11-22)."""
     import numpy as np
     from PIL import ImageFilter
     g = im.convert('L'); g.thumbnail((800, 800))
     soft = float(np.asarray(g.filter(ImageFilter.FIND_EDGES), dtype=float).var())
     if soft < 1200:
-        im = im.filter(ImageFilter.UnsharpMask(radius=2.2, percent=140, threshold=3))
-        return im.filter(ImageFilter.UnsharpMask(radius=0.8, percent=60, threshold=3))
+        return im.filter(ImageFilter.UnsharpMask(radius=1.0, percent=55, threshold=4))
     if soft < 2500:
-        return im.filter(ImageFilter.UnsharpMask(radius=1.6, percent=100, threshold=3))
-    return im.filter(ImageFilter.UnsharpMask(radius=1.0, percent=50, threshold=3))
+        return im.filter(ImageFilter.UnsharpMask(radius=0.8, percent=35, threshold=4))
+    return im
