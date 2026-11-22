@@ -1,8 +1,8 @@
 {
  "_comment": "The last weekly email handed to Brevo. Written by build/send_email.py.",
- "confirmed": true,
- "id": 16,
- "last": "weekly-2026-11-16",
- "mark": "00229e1c4e48ec31",
- "scheduled": "2026-11-16T15:00:00-05:00"
+ "confirmed": false,
+ "id": 18,
+ "last": "weekly-2026-11-23",
+ "mark": "35c2656905806eea",
+ "scheduled": "2026-11-23T15:00:00-05:00"
 }
