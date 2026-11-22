@@ -1,7 +1,32 @@
 {
  "_comment": "One entry per club night, newest first. Written by the admin console (Post a night) or by hand. build/build_nights.py turns these into /nights/<date>/ pages, the archive, the RSS feed and the sitemap. 'line' is Harold's own sentence about the night; 'commentary' is the write-up of the numbers.",
- "updated": "2026-11-18",
+ "updated": "2026-11-22",
  "nights": [
+  {
+   "date": "2026-11-19",
+   "type": "adobe",
+   "title": "A new book, and the finale is tonight",
+   "title_es": "Un libro nuevo, y la final es esta noche",
+   "line": "Averbakh's Chess Tactics for Advanced Players, from the ground up. Then a sparring position full of pins, three days before the Season 10 finale.",
+   "line_es": "Chess Tactics for Advanced Players de Averbakh, desde la base. Luego una posición de práctica llena de clavadas, tres días antes de la final de la Temporada 10.",
+   "commentary": "New book, new hunger. 📚 Thursday at Adobe Kava the Intermediate+ table opened Chess Tactics for Advanced Players by Grandmaster Yuri Averbakh, the Bobby Fischer Memorial Edition, with Byrne vs Fischer 1956, the Game of the Century, right on the cover.\nWe're starting from the ground up: the fundamental ideas behind every tactic, broken down one at a time, so the patterns stick and the calculation gets sharper week by week. A strong tactical base is what everything else gets built on. 🧠\nThen we sparred it out over the board: a tactical position full of open files, open lines and pins, argued move by move until the ideas were clear. ⚔️ Exactly the kind of sharpening you want three days before a finale.\nBecause tonight is the Season 10 finale. 🏁 Sunday 22 November, 8 PM, Kava Social patio. The last league night of the season, and three prize races still on the table.\nOver 1400 ($100): Scott on 1942 and 27 straight wins. He hasn't lost a league game all season. Can anyone end the streak on the last night? 🧹\nUnder 1400 ($75): Gabriel on 1540, 194 clear of Derek, but he has to play tonight to qualify. Miss it and the prize is wide open. 👀\nUnder 1000 ($50) is the knife fight: Sam 1040, Anton 974, Diego 941. Sixty-six points from first to second, ninety-nine to third. One good night flips it. 🔥\nMatchups to watch if the pairings land them: Bob and Harold, dead level at 3 wins each and 2 draws. Gabriel and Josh, 2-0 with a draw to Gabriel. Anton and Omar Cruz, a win each this season. And Scott against the whole room. 🥊\nEvery game counts tonight. Come early, bring your best, and let's finish Season 10 properly. ♟️",
+   "commentary_es": "Libro nuevo, hambre nueva. 📚 El jueves en Adobe Kava la mesa Intermedio+ abrió Chess Tactics for Advanced Players del Gran Maestro Yuri Averbakh, la edición en memoria de Bobby Fischer, con Byrne contra Fischer 1956, la Partida del Siglo, en la portada.\nEmpezamos desde la base: las ideas fundamentales detrás de cada táctica, desglosadas una por una, para que los patrones se queden y el cálculo se afile semana a semana. Una base táctica fuerte es sobre lo que se construye todo lo demás. 🧠\nLuego lo peleamos en el tablero: una posición táctica llena de columnas abiertas, líneas abiertas y clavadas, discutida jugada por jugada hasta que las ideas quedaron claras. ⚔️ Justo el tipo de preparación que quieres tres días antes de una final.\nPorque esta noche es la final de la Temporada 10. 🏁 Domingo 22 de noviembre, 8 PM, en el patio de Kava Social. La última noche de liga de la temporada, y tres carreras por premio todavía abiertas.\nMás de 1400 ($100): Scott con 1942 y 27 victorias seguidas. No ha perdido una partida de liga en toda la temporada. ¿Alguien puede cortar la racha en la última noche? 🧹\nMenos de 1400 ($75): Gabriel con 1540, 194 por delante de Derek, pero tiene que jugar esta noche para calificar. Si falta, el premio queda abierto. 👀\nMenos de 1000 ($50) es la pelea más cerrada: Sam 1040, Anton 974, Diego 941. Sesenta y seis puntos del primero al segundo, noventa y nueve al tercero. Una buena noche lo cambia todo. 🔥\nDuelos a seguir si el emparejamiento los junta: Bob y Harold, empatados con 3 victorias cada uno y 2 tablas. Gabriel y Josh, 2-0 con unas tablas para Gabriel. Anton y Omar Cruz, una victoria cada uno esta temporada. Y Scott contra todo el salón. 🥊\nCada partida cuenta esta noche. Llega temprano, trae lo mejor de ti y cerremos bien la Temporada 10. ♟️",
+   "photo": "img/nights/2026-11-19.jpg",
+   "photo_alt": "Thursday study night at Adobe Kava: two games in progress under the umbrella, with a lantern lighting the far table",
+   "photo_alt_es": "Noche de estudio del jueves en Adobe Kava: dos partidas en juego bajo la sombrilla, con un farol iluminando la mesa del fondo",
+   "gallery": [
+    {
+     "img": "img/nights/2026-11-19-book.jpg",
+     "w": 1200,
+     "h": 1600,
+     "alt": "The new book: Chess Tactics for Advanced Players by Grandmaster Yuri Averbakh, Bobby Fischer Memorial Edition, with Byrne vs Fischer 1956 on the cover",
+     "alt_es": "El libro nuevo: Chess Tactics for Advanced Players del Gran Maestro Yuri Averbakh, edición en memoria de Bobby Fischer, con Byrne contra Fischer 1956 en la portada",
+     "caption": "The new book. 17...Be6!! on the cover, the Game of the Century.",
+     "caption_es": "El libro nuevo. 17...Ae6!! en la portada, la Partida del Siglo."
+    }
+   ],
+   "updated": "2026-11-22"
+  },
   {
    "date": "2026-11-15",
    "type": "battle",
