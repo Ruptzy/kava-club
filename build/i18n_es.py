@@ -12,7 +12,7 @@ TEXT = {
     "Come": "Vuelve", " back to": " al", " the board.": " tablero.",
     "Some of us walked in after years away from the game. Some of us play rated every month. There's a space here for every level &mdash; casual, intermediate, or full-on sweats.":
         "Algunos entramos después de años sin jugar. Otros jugamos torneos con rating cada mes. Aquí hay lugar para todos los niveles &mdash; casual, intermedio, o los que se lo toman muy en serio.",
-    "Girls' night chess study.": "Noche de estudio de las chicas.", "Losing, and enjoying it.": "Perdiendo, y disfrutándolo.",
+    "Girls' night chess study.": "Noche de estudio de las chicas.", "Round three, still laughing.": "Tercera ronda, y siguen riéndose.",
     "&ldquo;Come in after eight, order something, and head to the back patio. Say it's your first night &mdash; someone will get you a game.&rdquo;":
         "&ldquo;Llega después de las ocho, pide algo y pasa al patio de atrás. Di que es tu primera noche &mdash; alguien te consigue una partida.&rdquo;",
     "Club director": "Director del club",
@@ -90,7 +90,7 @@ TEXT = {
     "Age": "Edad",
     "Beginners": "Principiantes", "Beginner's guide": "Guía para principiantes", "Private lessons": "Clases privadas", "Pages": "Páginas",
     "Every other Sunday is league night, and a season runs three months. Players sit in brackets &mdash; over 1400, under 1400, under 1000 &mdash; so you're matched with people around your own strength. The standard is respect, sportsmanship, and a handshake either way.": "Un domingo sí y otro no es noche de liga, y una temporada dura tres meses. Los jugadores se agrupan en brackets &mdash; más de 1400, menos de 1400, menos de 1000 &mdash; para que juegues con gente de tu nivel. La norma es respeto, deportividad y un apretón de manos pase lo que pase.",
-    "Club nights are free coaching and always will be. Lessons are the optional one-on-one version &mdash; over the board in Bradenton and Sarasota, or online, in English or Spanish. All ages.": "Las noches de club son entrenamiento gratis y siempre lo serán. Las clases son la versión opcional, uno a uno &mdash; presencial en Bradenton y Sarasota, o en línea, en inglés o español. Todas las edades.",
+    "Club nights are where most of the coaching happens, and always will be. Lessons are the optional one-on-one version &mdash; over the board in Bradenton and Sarasota, or online, in English or Spanish. All ages.": "En las noches de club es donde ocurre la mayor parte del entrenamiento, y siempre será así. Las clases son la versión opcional, uno a uno &mdash; presencial en Bradenton y Sarasota, o en línea, en inglés o español. Todas las edades.",
     "See lessons": "Ver las clases",
     "Book on Chess67": "Reservar en Chess67",
     "USCF Tournament": "Torneo USCF",
@@ -186,7 +186,7 @@ TEXT = {
     "See the calendar": "Ver el calendario",
     "Text or call (786) 250-8993": "Texto o llamada (786) 250-8993",
     "One-on-one coaching, at the level you're at": "Entrenamiento uno a uno, al nivel en el que estás",
-    "Club nights are free coaching and always will be. Lessons are for people who want structured work between nights &mdash; over the board in Bradenton and Sarasota, or online anywhere, in English or Spanish.": "Las noches de club son entrenamiento gratis y siempre lo serán. Las clases son para quien quiere trabajo estructurado entre noche y noche &mdash; presencial en Bradenton y Sarasota, o en línea desde donde sea, en inglés o español.",
+    "Club nights are where most of the coaching happens, and always will be. Lessons are for people who want structured work between nights &mdash; over the board in Bradenton and Sarasota, or online anywhere, in English or Spanish.": "En las noches de club es donde ocurre la mayor parte del entrenamiento, y siempre será así. Las clases son para quien quiere trabajo estructurado entre noche y noche &mdash; presencial en Bradenton y Sarasota, o en línea desde donde sea, en inglés o español.",
     "For new and casual players. How the pieces move, the rules that trip people up, basic tactics, opening principles, simple endgames. Practice games with feedback.": "Para jugadores nuevos y casuales. Cómo se mueven las piezas, las reglas que confunden, táctica básica, principios de apertura, finales sencillos. Partidas de práctica con comentarios.",
     "For rated and aspiring tournament players. Game review, classical training games, an opening repertoire that suits you, a study plan, and the psychology of time pressure.": "Para jugadores de torneo, con rating o con ganas de tenerlo. Análisis de partidas, partidas de entrenamiento clásicas, un repertorio de aperturas a tu medida, un plan de estudio y la psicología del apuro de tiempo.",
     "How it works": "Cómo funciona",
@@ -384,8 +384,8 @@ TEXT = {
     "Results submitted to US Chess after every event": "Los resultados se envían a US Chess después de cada evento",
     # lessons
     "Private lessons": "Clases particulares", "Structured coaching, if you want it": "Entrenamiento estructurado, si lo quieres",
-    "Club nights are free coaching and always will be. Private lessons are a separate, optional thing for people who want structured work between nights.":
-        "Las noches de club son enseñanza gratuita y siempre lo serán. Las clases particulares son algo aparte y opcional, para quien quiera trabajo estructurado entre noche y noche.",
+    "Club nights are where most of the coaching happens, and always will be. Private lessons are a separate, optional thing for people who want structured work between nights.":
+        "En las noches de club es donde ocurre la mayor parte del entrenamiento, y siempre será así. Las clases particulares son algo aparte y opcional, para quien quiera trabajo estructurado entre noche y noche.",
     "Harold Gonzalez, club director": "Harold Gonzalez, director del club", "2nd, U1600 &mdash; 2026 World Open": "2.º, U1600 &mdash; World Open 2026",
     "1st, U1400 &mdash; Southern Class": "1.º, U1400 &mdash; Southern Class", "Math teacher; Data Science MSc student": "Profesor de matemáticas; maestría en Ciencia de Datos",
     "Over the board in Bradenton &amp; Sarasota": "Presencial en Bradenton y Sarasota", "Online elsewhere &middot; English &amp; Spanish": "En línea en otros lugares &middot; Español e inglés",
