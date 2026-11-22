@@ -25,9 +25,27 @@ import webp
 for d in ['img', 'img/gallery', 'img/logos', 'media', 'es']:
     os.makedirs(os.path.join(OUT, d), exist_ok=True)
 
+def grade(im):
+    """The house look, so every photo on the page reads as one set: the patio's purple-pink cast is
+    taken out where it is strong, then one gentle tone curve for everything."""
+    from PIL import ImageEnhance
+    sys.path.insert(0, os.path.join(OUT, 'tools'))
+    from decast import decast
+    hsv = im.copy(); hsv.thumbnail((200, 200)); hsv = hsv.convert('HSV')
+    px = list(hsv.getdata())
+    magenta = sum(1 for h, sat, v in px if 190 <= h <= 235 and sat > 90 and v > 40) / max(1, len(px))
+    if magenta > 0.15:                 # heavy purple: the full correction
+        im = decast(im, strength=0.75, magenta_keep=0.35, green_keep=0.6)
+    elif magenta > 0.08:               # a tint: a lighter touch
+        im = decast(im, strength=0.45, magenta_keep=0.55, green_keep=0.6)
+    im = ImageEnhance.Contrast(im).enhance(1.05)
+    return ImageEnhance.Color(im).enhance(0.94)
+
+
 def jpg(src, w, q, name):
     im = ImageOps.exif_transpose(Image.open(src)).convert('RGB')
     if im.width > w: im = im.resize((w, round(im.height * w / im.width)), Image.LANCZOS)
+    im = grade(im)
     im.save(os.path.join(OUT, 'img', name), 'JPEG', quality=q, optimize=True, progressive=True)
     webp.emit(im, os.path.join(OUT, 'img', name))
     return 'img/' + name, im.width / im.height
@@ -41,7 +59,7 @@ def png(src, w, name, square=False):
 
 # ---------------- assets (written once, shared by both languages) ----------------
 M = {'LOGO': png(LOGO_SRC, 224, 'logo.png', square=True)}
-hero = [('HERO', os.path.join(LG, 'hero-crop.jpg'), 1000, 76, 'hero.jpg'), ('SOCIAL', 'Kava social chess girls.png', 1100, 80, 'social.jpg'), ('SOCIAL2', 'chrome_6xZgOTnRDj.png', 1100, 80, 'social2.jpg'),
+hero = [('HERO', os.path.join(LG, 'hero-crop.jpg'), 1000, 76, 'hero.jpg'), ('SOCIAL', 'Kava social chess girls.png', 1100, 80, 'social.jpg'), ('SOCIAL2', r'D:\Pictures\Kava\Battle for the Bay 2 (2026-11-15)\cropped\IMG_5554.jpg', 1100, 82, 'social2-bftb2.jpg'),
         ('STUDY', 'chrome_GRnR26LSto.png', 1100, 80, 'study.jpg'), ('COACH', 'chrome_q4UzvZj71T.png', 1100, 80, 'coach.jpg'),
         ('COACH2', 'Tournament Harold.jpg', 1100, 80, 'coach2.jpg'), ('SEASON', 'IMG_8373.jpg', 1200, 78, 'season.jpg'),
         ('SETUP', 'Kava social venue.png', 1400, 78, 'setup.jpg'), ('NIGHTPIC', r'D:\Pictures\Kava\Battle for the Bay 2 (2026-11-15)\cropped\IMG_5437-sunday-card.jpg', 1000, 82, 'sunday-bftb2.jpg')]   # Sunday card: the patio at Battle for the Bay 2, photo by Ava Grace
@@ -67,7 +85,7 @@ M['CROSS'] = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke
 M['CHECK'] = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" '
               'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>')
 M['BG'], _ = jpg(os.path.join(LG, 'bg.jpg'), 1086, 66, 'bg.jpg')
-M['VPOSTER'], _ = jpg(COVER, 1080, 82, 'promo-poster.jpg')
+M['VPOSTER'], _ = jpg(r'D:\Pictures\Kava\Battle for the Bay 2 (2026-11-15)\cropped\IMG_5437-square.jpg', 1080, 82, 'promo-poster-patio.jpg')   # the patio under the tiki, photo by Ava Grace
 for key, fn, out in [('L_MANASOTA', 'manasota.png', 'manasota.png'), ('L_TAMPA', 'tampa.png', 'tampa.png'), ('L_ORCA', 'orca.png', 'orca.png'),
                      ('L_ORLANDO', 'orlandocc.png', 'orlando.png'), ('L_STPETE', 'stpete.png', 'stpete.png'), ('L_OCA', 'orlandoassoc.png', 'orlando-assoc.png'), ('L_KSC', 'ksc1.png', 'kava-social-club.png'),
                      ('L_CLB', 'coachmate.png', 'coachmate.png'), ('L_BVILA', 'bvila.png', 'brandon-vila.png')]:
