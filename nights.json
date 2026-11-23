@@ -1,7 +1,305 @@
 {
  "_comment": "One entry per club night, newest first. Written by the admin console (Post a night) or by hand. build/build_nights.py turns these into /nights/<date>/ pages, the archive, the RSS feed and the sitemap. 'line' is Harold's own sentence about the night; 'commentary' is the write-up of the numbers.",
- "updated": "2026-11-22",
+ "updated": "2026-11-23",
  "nights": [
+  {
+   "date": "2026-11-22",
+   "type": "league",
+   "played": 23,
+   "rounds": 5,
+   "season": 10,
+   "title": "Season 10 is over, and the streak fell on the last game",
+   "title_es": "Se acabó la Temporada 10, y la racha cayó en la última partida",
+   "line": "Season 10 is officially over. A huge finale, upsets everywhere, visitors from Texas and a lot of new faces for the new season. Let's go!",
+   "line_es": "La Temporada 10 terminó oficialmente. Una final enorme, sorpresas por todos lados, visitas desde Texas y muchas caras nuevas para la nueva temporada. ¡Vamos!",
+   "commentary": "Season 10 is officially over, and it went out loud. 🏁 Twenty-three players, the biggest league night since May 2023 (the season opened with sixteen). Scott's 31-game streak snapped in the very last game, upsets on every table, and three champions crowned.\nWelcome to Jacob T., Jeff and John, all on their first night. 👋 We had visitors from Texas on the patio, and John sat down for all five rounds, beating Diego and Omar Cruz. Jacob T. took the biggest climb of the night, +115. Texas, come back any Sunday.\nThe moment of the season came in the very last round. ⚡ Scott walked in on 27 straight wins and beat Joe, Bob, John and Benji to make it 31. Then came Harold, who won it at 11%, Scott's first league loss of the whole season, on the season's final game. Harold finished 5 from 5, the only sweep of the night.\nAnd the upsets didn't stop there. 🔥 Sam over John at 8%, the longest shot of the night. Anton over Toska at 14%. Sean M. over Bella at 24%. Bob over Benji at 29%, on his way to 4 points and a new best of 1504. Diego held Jenny to a draw at 21% and beat Joe at 36%, and Vinny drew Diego at 22% and climbed 39 points.\nOn the night: Harold won Over 1400 on 5, with Bob and Scott on 4. Gabriel won Under 1400 on 4, Jenny next on 3½. Sam and Anton shared Under 1000 on 3, Vinny third on 2½. 📊\nYour Season 10 champions. 🏆 Over 1400 ($100): Scott, 1924, with 24 wins, no draws and one loss all season. Under 1400 ($75): Gabriel, who had to play the finale to qualify, showed up, went 4 from 5 and finished on a new best of 1550. Under 1000 ($50): Sam on 1050, holding off Joe (1020) and Anton (1003), on Sam's 50th club night. Regular of the season: Brian O, Harold and Omar Cruz, every night and 30 games each. 🪑\nSeason 10 by the numbers: 42 different players, 305 games and 16 first-timers across seven nights. 📈\nSeason 11 starts Sunday 6 December. 🚀 Brackets are set on your first night, ratings carry over, and the gift cards reset: $100, $75 and $50, for anyone who makes half the nights. With this many new faces, it's going to be the deepest field we've had. Before then: social Sunday on 29 November, Tuesday study nights, and the Intermediate+ table at Adobe Kava on Thursdays with the new Averbakh book. Sharpen up. ♟️",
+   "commentary_es": "La Temporada 10 terminó oficialmente, y se despidió a lo grande. 🏁 Veintitrés jugadores, la noche de liga más grande desde mayo de 2023 (la temporada empezó con dieciséis). La racha de 31 victorias de Scott cayó en la última partida, sorpresas en todas las mesas y tres campeones coronados.\nBienvenidos Jacob T., Jeff y John, los tres en su primera noche. 👋 Tuvimos visitas desde Texas en el patio, y John jugó las cinco rondas, con victorias sobre Diego y Omar Cruz. Jacob T. tuvo la mayor subida de la noche, +115. Texas, vuelvan cualquier domingo.\nEl momento de la temporada llegó en la última ronda. ⚡ Scott llegó con 27 victorias seguidas y le ganó a Joe, Bob, John y Benji para llegar a 31. Luego le tocó Harold, que ganó con un 11%: la primera derrota de liga de Scott en toda la temporada, en la última partida de la temporada. Harold terminó 5 de 5, el único pleno de la noche.\nY las sorpresas no pararon ahí. 🔥 Sam sobre John con un 8%, la más improbable de la noche. Anton sobre Toska con un 14%. Sean M. sobre Bella con un 24%. Bob sobre Benji con un 29%, camino a 4 puntos y un nuevo récord de 1504. Diego le sacó tablas a Jenny con un 21% y le ganó a Joe con un 36%, y Vinny empató con Diego con un 22% y subió 39 puntos.\nEn la noche: Harold ganó Más de 1400 con 5, con Bob y Scott en 4. Gabriel ganó Menos de 1400 con 4, seguido de Jenny con 3½. Sam y Anton compartieron Menos de 1000 con 3, Vinny tercero con 2½. 📊\nLos campeones de la Temporada 10. 🏆 Más de 1400 ($100): Scott, 1924, con 24 victorias, ninguna tablas y una sola derrota en toda la temporada. Menos de 1400 ($75): Gabriel, que tenía que jugar la final para clasificar, vino, hizo 4 de 5 y terminó con un nuevo récord de 1550. Menos de 1000 ($50): Sam con 1050, por delante de Joe (1020) y Anton (1003), en la noche en que jugó su noche de club número 50. El fijo de la temporada: Brian O, Harold y Omar Cruz, todas las noches y 30 partidas cada uno. 🪑\nLa Temporada 10 en números: 42 jugadores distintos, 305 partidas y 16 debutantes en siete noches. 📈\nLa Temporada 11 empieza el domingo 6 de diciembre. 🚀 Los brackets se fijan en tu primera noche, las puntuaciones se mantienen y las tarjetas de regalo vuelven a cero: $100, $75 y $50, para quien juegue la mitad de las noches. Con tantas caras nuevas, va a ser el grupo más fuerte que hemos tenido. Antes de eso: domingo social el 29 de noviembre, noches de estudio los martes y la mesa Intermedio+ en Adobe Kava los jueves con el libro nuevo de Averbakh. A afilarse. ♟️",
+   "photo": "img/nights/2026-11-22.jpg",
+   "whole": true,
+   "photo_alt": "The Season 10 finale: the long league table on the Kava Social patio under purple lights, players turned to smile at the camera",
+   "photo_alt_es": "La final de la Temporada 10: la mesa larga de la liga en el patio de Kava Social bajo luces moradas, con los jugadores sonriendo a la cámara",
+   "standings": [
+    {
+     "bracket": "Over 1400",
+     "bracket_es": "Más de 1400",
+     "rows": [
+      {
+       "name": "Harold",
+       "pts": 5,
+       "rec": "5-0-0",
+       "place": 1
+      },
+      {
+       "name": "Bob",
+       "pts": 4,
+       "rec": "4-0-1",
+       "place": 2
+      },
+      {
+       "name": "Scott",
+       "pts": 4,
+       "rec": "4-0-1",
+       "place": 2
+      },
+      {
+       "name": "Benji",
+       "pts": 3,
+       "rec": "3-0-2",
+       "place": 4
+      },
+      {
+       "name": "Toska",
+       "pts": 2,
+       "rec": "2-0-3",
+       "place": 5
+      }
+     ]
+    },
+    {
+     "bracket": "Under 1400",
+     "bracket_es": "Menos de 1400",
+     "rows": [
+      {
+       "name": "Gabriel",
+       "pts": 4,
+       "rec": "4-0-1",
+       "place": 1
+      },
+      {
+       "name": "Jenny",
+       "pts": 3.5,
+       "rec": "3-1-1",
+       "place": 2
+      },
+      {
+       "name": "Brian O",
+       "pts": 3,
+       "rec": "3-0-2",
+       "place": 3
+      },
+      {
+       "name": "Zack",
+       "pts": 3,
+       "rec": "3-0-2",
+       "place": 3
+      },
+      {
+       "name": "Omar Cruz",
+       "pts": 2,
+       "rec": "2-0-3",
+       "place": 5
+      },
+      {
+       "name": "John (Texas)",
+       "pts": 2,
+       "rec": "2-0-3",
+       "place": 5
+      }
+     ]
+    },
+    {
+     "bracket": "Under 1000",
+     "bracket_es": "Menos de 1000",
+     "rows": [
+      {
+       "name": "Sam",
+       "pts": 3,
+       "rec": "3-0-2",
+       "place": 1
+      },
+      {
+       "name": "Anton",
+       "pts": 3,
+       "rec": "3-0-2",
+       "place": 1
+      },
+      {
+       "name": "Vinny",
+       "pts": 2.5,
+       "rec": "2-1-2",
+       "place": 3
+      },
+      {
+       "name": "Maddie",
+       "pts": 2,
+       "rec": "2-0-3",
+       "place": 4
+      },
+      {
+       "name": "Joe",
+       "pts": 2,
+       "rec": "2-0-3",
+       "place": 4
+      },
+      {
+       "name": "Jacob T.",
+       "pts": 2,
+       "rec": "2-0-3",
+       "place": 4
+      },
+      {
+       "name": "Diego",
+       "pts": 2,
+       "rec": "1-2-2",
+       "place": 7
+      },
+      {
+       "name": "Sean M.",
+       "pts": 2,
+       "rec": "1-0-3",
+       "place": 7,
+       "note": "plus a bye"
+      },
+      {
+       "name": "Bella",
+       "pts": 1,
+       "rec": "1-0-4",
+       "place": 9
+      },
+      {
+       "name": "Jeff",
+       "pts": 1,
+       "rec": "1-0-4",
+       "place": 9
+      },
+      {
+       "name": "Joey G",
+       "pts": 0,
+       "rec": "0-0-5",
+       "place": 11
+      },
+      {
+       "name": "Thomas",
+       "pts": 0,
+       "rec": "0-0-1",
+       "place": 11,
+       "note": "left early"
+      }
+     ]
+    }
+   ],
+   "upsets": [
+    [
+     "Harold",
+     "Scott",
+     "11%"
+    ],
+    [
+     "Sam",
+     "John (Texas)",
+     "8%"
+    ],
+    [
+     "Anton",
+     "Toska",
+     "14%"
+    ],
+    [
+     "Sean M.",
+     "Bella",
+     "24%"
+    ],
+    [
+     "Bob",
+     "Benji",
+     "29%"
+    ],
+    [
+     "Diego",
+     "Joe",
+     "36%"
+    ]
+   ],
+   "gallery": [
+    {
+     "img": "img/nights/2026-11-22-2.jpg",
+     "w": 1600,
+     "h": 1200,
+     "alt": "The whole patio on finale night: the long table down the bamboo fence and more games under the tiki",
+     "alt_es": "Todo el patio en la noche de la final: la mesa larga junto a la cerca de bambú y más partidas bajo el tiki",
+     "caption": "Finale night. Every table taken, all the way to the tiki.",
+     "caption_es": "Noche de final. Todas las mesas ocupadas, hasta el tiki."
+    },
+    {
+     "img": "img/nights/2026-11-22-3.jpg",
+     "w": 1600,
+     "h": 1200,
+     "alt": "Four boards from above, players deep in thought under the pink light",
+     "alt_es": "Cuatro tableros desde arriba, jugadores concentrados bajo la luz rosa",
+     "caption": "Four boards, zero talking.",
+     "caption_es": "Cuatro tableros, cero palabras."
+    },
+    {
+     "img": "img/nights/2026-11-22-4.jpg",
+     "w": 1600,
+     "h": 1200,
+     "alt": "A player with headphones around the neck, chin in hand, studying the board",
+     "alt_es": "Alguien con audífonos al cuello, la barbilla en la mano, estudiando el tablero",
+     "caption": "Headphones off. This one needs full attention.",
+     "caption_es": "Audífonos fuera. Esta necesita toda la atención."
+    },
+    {
+     "img": "img/nights/2026-11-22-5.jpg",
+     "w": 1600,
+     "h": 1200,
+     "alt": "Two players face off over a full board in the middlegame on the patio",
+     "alt_es": "Dos jugadores frente a frente con el tablero lleno en el medio juego, en el patio",
+     "caption": "Middlegame, every piece still on. Nobody blinks.",
+     "caption_es": "Medio juego, todas las piezas en el tablero. Nadie parpadea."
+    },
+    {
+     "img": "img/nights/2026-11-22-6.jpg",
+     "w": 1600,
+     "h": 1200,
+     "alt": "Wooden sets along the bamboo wall, lit purple and pink",
+     "alt_es": "Juegos de madera junto a la pared de bambú, con luz morada y rosa",
+     "caption": "The wooden sets came out for the last night.",
+     "caption_es": "Los juegos de madera salieron para la última noche."
+    }
+   ],
+   "email": {
+    "lead": true,
+    "subject": "🏆 Scott, Gabriel and Sam take Season 10",
+    "preheader": "Harold ends Scott's 31-game streak on the last game, Sam's 8% upset, and Season 11 starts 6 December.",
+    "title": "Season 10 is over, and the streak fell on the last game",
+    "intro": "Twenty-three players 🔥 the biggest league night since May 2023. Welcome to Jacob T., Jeff and John, and to our visitors from Texas!",
+    "wins_emoji": "🏆",
+    "wins_label": "Your Season 10 champions",
+    "wins": [
+     [
+      "Over 1400 · $100",
+      "Scott",
+      "1924. 24 wins, one loss all season."
+     ],
+     [
+      "Under 1400 · $75",
+      "Gabriel",
+      "Played the finale, went 4 from 5, new best of 1550."
+     ],
+     [
+      "Under 1000 · $50",
+      "Sam",
+      "1050, ahead of Joe and Anton, on a 50th club night."
+     ],
+     [
+      "Regular of the season",
+      "Brian O, Harold and Omar Cruz",
+      "Every night, 30 games each."
+     ],
+     [
+      "⚡ Upset of the season",
+      "Harold",
+      "Over Scott at 11% in the last round, ending a 31-game streak."
+     ]
+    ],
+    "body": [
+     "🔥 More upsets: Sam over John at 8%, Anton over Toska at 14%, Bob over Benji at 29% for a new best of 1504.",
+     "🚀 Season 11 starts Sunday 6 December. Brackets are set on your first night and the gift cards reset. Come build your season from night one."
+    ],
+    "also": 1
+   },
+   "updated": "2026-11-23"
+  },
   {
    "date": "2026-11-19",
    "type": "adobe",
