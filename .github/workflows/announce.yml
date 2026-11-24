@@ -9,6 +9,12 @@ on:
         description: "The announcement. Use \n for a new line."
         required: true
         type: string
+      channel:
+        description: "Where it goes: schedule (the 3pm channel) or recaps (the night recaps channel)"
+        required: false
+        type: choice
+        options: [schedule, recaps]
+        default: schedule
       embeds:
         description: "Optional: a JSON list of cards, each {title, description, image} (image = a URL on the site). Up to 10."
         required: false
@@ -26,7 +32,7 @@ jobs:
           python-version: "3.12"
       - name: Post it
         env:
-          CLUB_SCHEDULE: ${{ secrets.SCHEDULE_FOR_DAY }}
+          CLUB_SCHEDULE: ${{ inputs.channel == 'recaps' && secrets.NIGHT_RECAPS || secrets.SCHEDULE_FOR_DAY }}
           ANNOUNCE: ${{ inputs.text }}
           EMBEDS: ${{ inputs.embeds }}
         run: python build/announce.py
