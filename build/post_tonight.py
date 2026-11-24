@@ -265,14 +265,15 @@ FALLBACK_SECOND = "Come play."
 _UNIT_IN_TEXT = re.compile(r'\b(chapter|lesson)\s+(\d+)\b', re.I)
 
 
-def latest_study_reference():
-    """Where the room got to, read out of the most recent study recap."""
+def latest_study_reference(since=''):
+    """Where the room got to, read out of the most recent study recap. Recaps from before the
+    current book was started are about the old book, so they never count (`since`)."""
     try:
         nights = json.load(open(os.path.join(OUT, 'nights.json'), encoding='utf-8')).get('nights', [])
     except Exception:
         return {}
     for n in sorted(nights, key=lambda x: x.get('date', ''), reverse=True):
-        if n.get('type') not in ('study', 'adobe'):
+        if n.get('type') not in ('study', 'adobe') or (n.get('date') or '') < since:
             continue
         m = _UNIT_IN_TEXT.search('%s %s' % (n.get('title') or '', n.get('commentary') or ''))
         if m:
@@ -300,7 +301,7 @@ def study_plan():
     except (TypeError, ValueError):
         pass
     if 'number' not in plan:
-        ref = latest_study_reference()
+        ref = latest_study_reference(d.get('started') or '')
         if ref:
             plan.update(number=ref['number'], unit=ref['unit'], source='recap')
     return plan
