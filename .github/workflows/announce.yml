@@ -9,6 +9,11 @@ on:
         description: "The announcement. Use \n for a new line."
         required: true
         type: string
+      embeds:
+        description: "Optional: a JSON list of cards, each {title, description, image} (image = a URL on the site). Up to 10."
+        required: false
+        type: string
+        default: ""
 
 jobs:
   post:
@@ -23,4 +28,5 @@ jobs:
         env:
           CLUB_SCHEDULE: ${{ secrets.SCHEDULE_FOR_DAY }}
           ANNOUNCE: ${{ inputs.text }}
+          EMBEDS: ${{ inputs.embeds }}
         run: python build/announce.py

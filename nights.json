@@ -424,6 +424,412 @@
    "updated": "2026-11-18"
   },
   {
+   "date": "2026-11-14",
+   "type": "battle",
+   "venue": "Online · chess.com",
+   "venue_es": "En línea · chess.com",
+   "title": "18 to 8: Kava wins its first chess.com club battle",
+   "title_es": "18 a 8: Kava gana su primera batalla de clubes en chess.com",
+   "played": 13,
+   "line": "Our first club battle online, and we took it 18 to 8. Proud of all thirteen of you.",
+   "line_es": "Nuestra primera batalla de clubes en línea, y la ganamos 18 a 8. Orgulloso de los trece.",
+   "commentary": "Kava Social Chess Club 18, Orlando Chess Association 8. 🏆 Our first ever chess.com club battle is over, and it was not close. Thirteen boards, twenty-six daily games, six weeks of one move a day, and six of our thirteen won both of their games.\nWe ran every game through the engine, looking for anything special. There was plenty. ♟️\nOn board 1, Mike swept a 1604 with a knight sequence worth framing. 27…Ne4! looked like it hung the queen, and when White took it, 29…Ne2+ came first: a check in between, then the knight took the queen back, a piece up. 🐴\nOn board 5, Harold pushed 28.g6!, giving up a pawn to pry the king open. The knight then went Ne6+, Ng5+ and Nxh7 and came back with a whole bishop. ⚔️\nOn board 12, Toska played 20.Rxc7! and let a knight take a bishop, because the rook was heading for c8 with check. The black king got chased up to e6, and 26.f5+ was a pawn check that won the queen. 👑\nOn board 4, Brandon found 21…e4!, one pawn attacking a bishop and a knight at once, and played the most accurate chess on our side by the engine's count. On board 3, Derek took en passant on f3, then finished with 33…Ra2+ and 34…Ng4+, a knight check that also hit the rook. White resigned. 🔥\nNot every board went our way. Orlando took boards 10 and 13, and two of our games got away late from winning positions. That is daily chess: one move can undo six weeks. Respect to Orlando for playing it all the way out. 🤝\nEvery game is below, board by board. Tap any of them to replay it move by move in CoachMate, with the engine review built in. Want in on the next battle? Join the club on chess.com and you are on the roster: https://www.chess.com/club/kava-social-chess-club/join ✅",
+   "commentary_es": "Kava Social Chess Club 18, Orlando Chess Association 8. 🏆 Terminó nuestra primera batalla de clubes en chess.com, y no estuvo reñida. Trece tableros, veintiséis partidas diarias, seis semanas de una jugada al día, y seis de nuestros trece ganaron sus dos partidas.\nPasamos cada partida por el motor buscando algo especial. Hubo de sobra. ♟️\nEn el tablero 1, Mike barrió a un 1604 con una secuencia de caballo para enmarcar. 27…Ce4! parecía dejar la dama colgada, y cuando las blancas la tomaron, primero vino 29…Ce2+: un jaque intermedio, y luego el caballo recuperó la dama con una pieza de más. 🐴\nEn el tablero 5, Harold jugó 28.g6!, entregando un peón para abrir al rey. Luego el caballo fue Ce6+, Cg5+ y Cxh7 y volvió con un alfil entero. ⚔️\nEn el tablero 12, Toska jugó 20.Txc7! y dejó que un caballo se comiera un alfil, porque la torre iba a c8 con jaque. El rey negro terminó perseguido hasta e6, y 26.f5+ fue un jaque de peón que ganó la dama. 👑\nEn el tablero 4, Brandon encontró 21…e4!, un peón atacando a la vez un alfil y un caballo, y jugó el ajedrez más preciso de nuestro lado según el motor. En el tablero 3, Derek capturó al paso en f3 y remató con 33…Ta2+ y 34…Cg4+, un jaque de caballo que además atacaba la torre. Las blancas abandonaron. 🔥\nNo todos los tableros salieron a nuestro favor. Orlando se llevó los tableros 10 y 13, y dos de nuestras partidas se escaparon tarde desde posiciones ganadas. Así es el ajedrez diario: una jugada puede deshacer seis semanas. Respeto a Orlando por jugarlo todo hasta el final. 🤝\nTodas las partidas están abajo, tablero por tablero. Toca cualquiera para verla jugada a jugada en CoachMate, con la revisión del motor incluida. ¿Quieres estar en la próxima batalla? Únete al club en chess.com y entras en la lista: https://www.chess.com/club/kava-social-chess-club/join ✅",
+   "photo": "img/nights/2026-11-14.jpg",
+   "photo_alt": "Final scoreboard on chess.com: Kava Social Chess Club 18, Orlando Chess Association 8, all thirteen boards with both results",
+   "photo_alt_es": "Marcador final en chess.com: Kava Social Chess Club 18, Orlando Chess Association 8, los trece tableros con ambos resultados",
+   "gallery": [
+    {
+     "img": "img/nights/2026-11-14-board1.png",
+     "w": 800,
+     "h": 800,
+     "alt": "Chess diagram, board 1, Black to move: an arrow shows the knight from f6 to e4",
+     "alt_es": "Diagrama de ajedrez, tablero 1, juegan negras: una flecha muestra el caballo de f6 a e4",
+     "caption": "Board 1, Mike (Black) vs KenSolomon. Mike to move: 27…Ne4! 28.Qxd5 Nxf4 29.Qxd6 Ne2+! 30.Kh1 Nxd6, and Mike comes out a piece up.",
+     "caption_es": "Tablero 1, Mike (negras) vs KenSolomon. Juega Mike: 27…Ce4! 28.Dxd5 Cxf4 29.Dxd6 Ce2+! 30.Rh1 Cxd6, y Mike sale con una pieza de más."
+    },
+    {
+     "img": "img/nights/2026-11-14-board5.png",
+     "w": 800,
+     "h": 800,
+     "alt": "Chess diagram, board 5, White to move: an arrow shows the pawn from g5 to g6",
+     "alt_es": "Diagrama de ajedrez, tablero 5, juegan blancas: una flecha muestra el peón de g5 a g6",
+     "caption": "Board 5, Harold (White) vs ishbukid. Harold to move: 28.g6! fxg6 29.Ne6+ Kc8 30.Ng5+ Kb8 31.Nxh7, and the knight wins the bishop.",
+     "caption_es": "Tablero 5, Harold (blancas) vs ishbukid. Juega Harold: 28.g6! fxg6 29.Ce6+ Rc8 30.Cg5+ Rb8 31.Cxh7, y el caballo gana el alfil."
+    },
+    {
+     "img": "img/nights/2026-11-14-board12.png",
+     "w": 800,
+     "h": 800,
+     "alt": "Chess diagram, board 12, White to move: an arrow shows the rook from c1 to c7",
+     "alt_es": "Diagrama de ajedrez, tablero 12, juegan blancas: una flecha muestra la torre de c1 a c7",
+     "caption": "Board 12, Toska (White) vs DaultonZ. Toska to move: 20.Rxc7! Nxb2 21.Qc3 Nd3 22.Rc8+ Ke7 23.Qc7+ Ke6 24.Rxa8 Rxa8 25.f4 h3 26.f5+, and the pawn wins the queen.",
+     "caption_es": "Tablero 12, Toska (blancas) vs DaultonZ. Juega Toska: 20.Txc7! Cxb2 21.Dc3 Cd3 22.Tc8+ Re7 23.Dc7+ Re6 24.Txa8 Txa8 25.f4 h3 26.f5+, y el peón gana la dama."
+    },
+    {
+     "img": "img/nights/2026-11-14-board4.png",
+     "w": 800,
+     "h": 800,
+     "alt": "Chess diagram, board 4, Black to move: an arrow shows the pawn from e5 to e4",
+     "alt_es": "Diagrama de ajedrez, tablero 4, juegan negras: una flecha muestra el peón de e5 a e4",
+     "caption": "Board 4, Brandon (Black) vs Josef_C87. Brandon to move: 21…e4! forks the bishop and the knight. 22.Re1 exd3, and a piece is gone.",
+     "caption_es": "Tablero 4, Brandon (negras) vs Josef_C87. Juega Brandon: 21…e4! ataca a la vez el alfil y el caballo. 22.Te1 exd3, y cae una pieza."
+    },
+    {
+     "img": "img/nights/2026-11-14-board3.png",
+     "w": 800,
+     "h": 800,
+     "alt": "Chess diagram, board 3, Black to move: an arrow shows the rook from a7 to a2",
+     "alt_es": "Diagrama de ajedrez, tablero 3, juegan negras: una flecha muestra la torre de a7 a a2",
+     "caption": "Board 3, Derek (Black) vs laracuba88. Derek to move: 33…Ra2+ 34.Be2 Ng4+, a knight check that also hits the rook on e3. White resigned.",
+     "caption_es": "Tablero 3, Derek (negras) vs laracuba88. Juega Derek: 33…Ta2+ 34.Ae2 Cg4+, un jaque de caballo que además ataca la torre de e3. Las blancas abandonaron."
+    }
+   ],
+   "games": [
+    {
+     "board": 1,
+     "ours": "Mike",
+     "handle": "Some_Dumb_Username",
+     "theirs": "KenSolomon",
+     "games": [
+      {
+       "color": "White",
+       "color_es": "Blancas",
+       "result": "Win",
+       "result_es": "Victoria",
+       "url": "https://www.coachmatechess.com/a/cc/daily-1037575688/w",
+       "note": "Replay",
+       "note_es": "Ver"
+      },
+      {
+       "color": "Black",
+       "color_es": "Negras",
+       "result": "Win",
+       "result_es": "Victoria",
+       "url": "https://www.coachmatechess.com/a/cc/daily-1038390758/b",
+       "note": "Replay",
+       "note_es": "Ver"
+      }
+     ]
+    },
+    {
+     "board": 2,
+     "ours": "Brian",
+     "handle": "SBBrian",
+     "theirs": "RiddimAndChess",
+     "games": [
+      {
+       "color": "White",
+       "color_es": "Blancas",
+       "result": "Win",
+       "result_es": "Victoria",
+       "url": "https://www.chess.com/game/daily/1040321542",
+       "note": "No moves",
+       "note_es": "Sin jugadas"
+      },
+      {
+       "color": "Black",
+       "color_es": "Negras",
+       "result": "Win",
+       "result_es": "Victoria",
+       "url": "https://www.coachmatechess.com/a/cc/daily-1037575680/b",
+       "note": "Replay",
+       "note_es": "Ver"
+      }
+     ]
+    },
+    {
+     "board": 3,
+     "ours": "Derek",
+     "handle": "ZugzwangZingers",
+     "theirs": "laracuba88",
+     "games": [
+      {
+       "color": "White",
+       "color_es": "Blancas",
+       "result": "Draw",
+       "result_es": "Tablas",
+       "url": "https://www.coachmatechess.com/a/cc/daily-1037575684/w",
+       "note": "Replay",
+       "note_es": "Ver"
+      },
+      {
+       "color": "Black",
+       "color_es": "Negras",
+       "result": "Win",
+       "result_es": "Victoria",
+       "url": "https://www.coachmatechess.com/a/cc/daily-1041677118/b",
+       "note": "Replay",
+       "note_es": "Ver"
+      }
+     ]
+    },
+    {
+     "board": 4,
+     "ours": "Brandon",
+     "handle": "brandonvila_chess",
+     "theirs": "Josef_C87",
+     "games": [
+      {
+       "color": "White",
+       "color_es": "Blancas",
+       "result": "Win",
+       "result_es": "Victoria",
+       "url": "https://www.coachmatechess.com/a/cc/daily-1044955752/w",
+       "note": "Replay",
+       "note_es": "Ver"
+      },
+      {
+       "color": "Black",
+       "color_es": "Negras",
+       "result": "Win",
+       "result_es": "Victoria",
+       "url": "https://www.coachmatechess.com/a/cc/daily-1037575682/b",
+       "note": "Replay",
+       "note_es": "Ver"
+      }
+     ]
+    },
+    {
+     "board": 5,
+     "ours": "Harold",
+     "handle": "Ruptzy_EXE",
+     "theirs": "ishbukid",
+     "games": [
+      {
+       "color": "White",
+       "color_es": "Blancas",
+       "result": "Win",
+       "result_es": "Victoria",
+       "url": "https://www.coachmatechess.com/a/cc/daily-1037575686/w",
+       "note": "Replay",
+       "note_es": "Ver"
+      },
+      {
+       "color": "Black",
+       "color_es": "Negras",
+       "result": "Draw",
+       "result_es": "Tablas",
+       "url": "https://www.chess.com/game/daily/1048754714",
+       "note": "No moves",
+       "note_es": "Sin jugadas"
+      }
+     ]
+    },
+    {
+     "board": 6,
+     "ours": "Thomas Knight",
+     "handle": "thomasmartinknight",
+     "theirs": "ViviAVo",
+     "games": [
+      {
+       "color": "White",
+       "color_es": "Blancas",
+       "result": "Win",
+       "result_es": "Victoria",
+       "url": "https://www.coachmatechess.com/a/cc/daily-1043652892/w",
+       "note": "Replay",
+       "note_es": "Ver"
+      },
+      {
+       "color": "Black",
+       "color_es": "Negras",
+       "result": "Loss",
+       "result_es": "Derrota",
+       "url": "https://www.coachmatechess.com/a/cc/daily-1037575696/b",
+       "note": "Replay",
+       "note_es": "Ver"
+      }
+     ]
+    },
+    {
+     "board": 7,
+     "ours": "Mr. Brian",
+     "handle": "Florida_Knight",
+     "theirs": "teej91",
+     "games": [
+      {
+       "color": "White",
+       "color_es": "Blancas",
+       "result": "Loss",
+       "result_es": "Derrota",
+       "url": "https://www.coachmatechess.com/a/cc/daily-1037575692/w",
+       "note": "Replay",
+       "note_es": "Ver"
+      },
+      {
+       "color": "Black",
+       "color_es": "Negras",
+       "result": "Win",
+       "result_es": "Victoria",
+       "url": "https://www.coachmatechess.com/a/cc/daily-1046320380/b",
+       "note": "Replay",
+       "note_es": "Ver"
+      }
+     ]
+    },
+    {
+     "board": 8,
+     "ours": "Jenny",
+     "handle": "Jennstegs",
+     "theirs": "hal97",
+     "games": [
+      {
+       "color": "White",
+       "color_es": "Blancas",
+       "result": "Loss",
+       "result_es": "Derrota",
+       "url": "https://www.coachmatechess.com/a/cc/daily-1045032758/w",
+       "note": "Replay",
+       "note_es": "Ver"
+      },
+      {
+       "color": "Black",
+       "color_es": "Negras",
+       "result": "Win",
+       "result_es": "Victoria",
+       "url": "https://www.coachmatechess.com/a/cc/daily-1037575694/b",
+       "note": "Replay",
+       "note_es": "Ver"
+      }
+     ]
+    },
+    {
+     "board": 9,
+     "ours": "Sam",
+     "handle": "bapplesauuce",
+     "theirs": "JOTHA_BKNY",
+     "games": [
+      {
+       "color": "White",
+       "color_es": "Blancas",
+       "result": "Win",
+       "result_es": "Victoria",
+       "url": "https://www.coachmatechess.com/a/cc/daily-1037575700/w",
+       "note": "Replay",
+       "note_es": "Ver"
+      },
+      {
+       "color": "Black",
+       "color_es": "Negras",
+       "result": "Win",
+       "result_es": "Victoria",
+       "url": "https://www.chess.com/game/daily/1042148862",
+       "note": "No moves",
+       "note_es": "Sin jugadas"
+      }
+     ]
+    },
+    {
+     "board": 10,
+     "ours": "Omar",
+     "handle": "R3o3se",
+     "theirs": "StephenKing67",
+     "games": [
+      {
+       "color": "White",
+       "color_es": "Blancas",
+       "result": "Loss",
+       "result_es": "Derrota",
+       "url": "https://www.chess.com/game/daily/1043614784",
+       "note": "No moves",
+       "note_es": "Sin jugadas"
+      },
+      {
+       "color": "Black",
+       "color_es": "Negras",
+       "result": "Loss",
+       "result_es": "Derrota",
+       "url": "https://www.coachmatechess.com/a/cc/daily-1037575698/b",
+       "note": "Replay",
+       "note_es": "Ver"
+      }
+     ]
+    },
+    {
+     "board": 11,
+     "ours": "Sonny",
+     "handle": "sonnygrapples",
+     "theirs": "DJOLLYED",
+     "games": [
+      {
+       "color": "White",
+       "color_es": "Blancas",
+       "result": "Win",
+       "result_es": "Victoria",
+       "url": "https://www.coachmatechess.com/a/cc/daily-1037575706/w",
+       "note": "Replay",
+       "note_es": "Ver"
+      },
+      {
+       "color": "Black",
+       "color_es": "Negras",
+       "result": "Win",
+       "result_es": "Victoria",
+       "url": "https://www.coachmatechess.com/a/cc/daily-1041651308/b",
+       "note": "Replay",
+       "note_es": "Ver"
+      }
+     ]
+    },
+    {
+     "board": 12,
+     "ours": "Toska",
+     "handle": "xoTOSKAox",
+     "theirs": "DaultonZ",
+     "games": [
+      {
+       "color": "White",
+       "color_es": "Blancas",
+       "result": "Win",
+       "result_es": "Victoria",
+       "url": "https://www.coachmatechess.com/a/cc/daily-1042028272/w",
+       "note": "Replay",
+       "note_es": "Ver"
+      },
+      {
+       "color": "Black",
+       "color_es": "Negras",
+       "result": "Win",
+       "result_es": "Victoria",
+       "url": "https://www.coachmatechess.com/a/cc/daily-1037575702/b",
+       "note": "Replay",
+       "note_es": "Ver"
+      }
+     ]
+    },
+    {
+     "board": 13,
+     "ours": "Cade",
+     "handle": "Cbbchess13",
+     "theirs": "CastleLater3",
+     "games": [
+      {
+       "color": "White",
+       "color_es": "Blancas",
+       "result": "Loss",
+       "result_es": "Derrota",
+       "url": "https://www.coachmatechess.com/a/cc/daily-1037575704/w",
+       "note": "Replay",
+       "note_es": "Ver"
+      },
+      {
+       "color": "Black",
+       "color_es": "Negras",
+       "result": "Loss",
+       "result_es": "Derrota",
+       "url": "https://www.coachmatechess.com/a/cc/daily-1041866570/b",
+       "note": "Replay",
+       "note_es": "Ver"
+      }
+     ]
+    }
+   ],
+   "games_note": "Kava player first. Each button is one game: our colour, our result. Replay opens it in CoachMate.",
+   "games_note_es": "Primero el jugador de Kava. Cada botón es una partida: nuestro color y nuestro resultado. Ver la abre en CoachMate.",
+   "updated": "2026-11-24"
+  },
+  {
    "date": "2026-11-10",
    "type": "study",
    "title": "Forty lessons, finished",

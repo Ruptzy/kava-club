@@ -427,9 +427,11 @@ def combinations():
     return out
 
 
-def send(hook, text):
+def send(hook, text, embeds=None):
     payload = {'content': text, 'allowed_mentions': {'parse': ['everyone']},
                'avatar_url': AVATAR, 'username': 'Lenny'}
+    if embeds:
+        payload['embeds'] = embeds
     req = urllib.request.Request(hook.split('?')[0] + '?wait=true',
                                  data=json.dumps(payload, ensure_ascii=False).encode('utf-8'),
                                  method='POST')

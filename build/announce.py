@@ -21,5 +21,16 @@ if not hook.startswith(('https://discord.com/api/webhooks/', 'https://discordapp
     sys.exit('The SCHEDULE_FOR_DAY secret is missing or is not a Discord webhook.')
 if len(text) > 1900:
     sys.exit('Too long for one Discord message (%d characters).' % len(text))
-msg = T.send(hook, text)
+cards = []
+raw = os.environ.get('EMBEDS', '').strip()
+if raw:
+    import json
+    for c in json.loads(raw)[:10]:   # a board image per card, with the line written under it
+        e = {'color': 0xFE273A}
+        if c.get('title'): e['title'] = str(c['title'])[:256]
+        if c.get('description'): e['description'] = str(c['description']).replace('\\n', '\n')[:4000]
+        if c.get('url'): e['url'] = str(c['url'])
+        if c.get('image'): e['image'] = {'url': str(c['image'])}
+        cards.append(e)
+msg = T.send(hook, text, cards)
 print('Posted announcement, message %s.' % msg.get('id'))

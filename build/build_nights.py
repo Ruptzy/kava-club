@@ -368,6 +368,21 @@ def night_body(n, es, prev_n, next_n):
                esc((g.get('alt_es') if es else None) or g.get('alt', '')), g.get('w', 1600), g.get('h', 1200),
                esc((g.get('caption_es') if es else None) or g.get('caption', '')))
             for g in n['gallery']) + '</div>'
+    # a club battle can list every game, each one opening in CoachMate's replay and engine review
+    if n.get('games'):
+        rows = []
+        for gm in n['games']:
+            cells = ''.join('<a class="ngm" href="%s" target="_blank" rel="noopener"><span class="gc m">%s</span>'
+                            '<span class="gr">%s</span><span class="go m">%s</span></a>'
+                            % (esc(x['url']), esc((x.get('color_es') if es else None) or x.get('color', '')), esc((x.get('result_es') if es else None) or x.get('result', '')),
+                               esc((x.get('note_es') if es else None) or x.get('note', '') or ('Ver' if es else 'Replay')))
+                            for x in gm.get('games', []))
+            handle = (' <i class="gh">%s</i>' % esc(gm['handle'])) if gm.get('handle') and gm['handle'] != gm.get('ours') else ''
+            rows.append('<li><div class="gb m">%s %s</div><div class="gp"><b>%s</b>%s <span>vs</span> %s</div><div class="gs">%s</div></li>'
+                        % ('Tablero' if es else 'Board', esc(str(gm.get('board', ''))), esc(gm.get('ours', '')), handle, esc(gm.get('theirs', '')), cells))
+        comm += ('<h2 class="d sub">%s</h2><p class="body">%s</p><ol class="ngames">%s</ol>'
+                 % ('Todas las partidas' if es else 'Every game',
+                    esc((n.get('games_note_es') if es else None) or n.get('games_note', '')), ''.join(rows)))
     comm += poll_html(n, es)
     # always the whole photo, at its own shape (no crop, so no focus line needed)
     photo = ('<figure class="nphoto"><img src="%s" alt="%s" decoding="async" fetchpriority="high"></figure>'
