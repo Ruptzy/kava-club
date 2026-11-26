@@ -435,7 +435,7 @@ def booked_ld(es):
     today = datetime.date.today().isoformat()
     out = []
     for e in BOOKED:
-        if e.get('date', '') < today:
+        if e.get('date', '') < today or e.get('type') == 'closed':
             continue
         name = (e.get('title_es') if es else None) or e.get('title', '')
         note = (e.get('note_es') if es else None) or e.get('note', '')
@@ -629,7 +629,7 @@ def ics():
     def moved(kind):
         # a booked entry of a regular night's own kind stands in for it that day,
         # so the repeating event has to skip that date
-        return [e['date'].replace('-', '') + 'T200000' for e in BOOKED if e.get('type') == kind]
+        return [e['date'].replace('-', '') + 'T200000' for e in BOOKED if e.get('type') == kind or e.get('replaces') == kind]
 
     def vevent(uid, summary, start, end, where, desc, rrule=None, skip=()):
         L.extend(['BEGIN:VEVENT', 'UID:' + uid + '@kavasocialchessclub.com', 'DTSTAMP:20260910T000000Z',
@@ -648,6 +648,8 @@ def ics():
            'Every Tuesday. The room works through books, puzzles and grandmaster games together. 21+.', 'FREQ=WEEKLY;BYDAY=TU', moved('study'))
     # Thursday is not in the feed on purpose: it is not a drop-in night, people contact Harold first
     for e in BOOKED:
+        if e.get('type') == 'closed':
+            continue
         d = e['date'].replace('-', '')
         m = re.match(r'(\d{1,2}):(\d{2}) ?(AM|PM)', e.get('time', '') or '')
         hh, mm = 20, 0

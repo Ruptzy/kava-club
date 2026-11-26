@@ -1,6 +1,6 @@
 {
- "_comment": "Booked one-off events. The recurring club nights are generated in the page itself, not listed here; an entry here of a regular night's own type (league, social, study, adobe) replaces that night on that date. Types and their colours: battle = club against club (violet) | outing = the club somewhere else, not chess at the club (gold) | theme = a club night with a theme, like costume night (pink) | tournament, lecture, simul, special (scarlet) | league | social | study | adobe.",
- "updated": "2026-09-29",
+ "_comment": "Booked one-off events. The recurring club nights are generated in the page itself, not listed here; an entry here of a regular night's own type (league, social, study, adobe) replaces that night on that date. Types and their colours: battle = club against club (violet) | outing = the club somewhere else, not chess at the club (gold) | theme = a club night with a theme, like costume night (pink) | tournament, lecture, simul, special (scarlet) | league | social | study | adobe | closed = no club that day (grey): give it \"replaces\" with the night it cancels, and Lenny, the email and the calendar feed skip that night.",
+ "updated": "2026-11-25",
  "events": [
   {
    "date": "2026-10-03",
@@ -56,6 +56,15 @@
    "note": "Round two, on our patio: Tampa Knights against Kava Social. A five-round Swiss team battle in four sections, G/15 d5, every win a point for your team. Section prizes of $100, $60, $40 and $30, a trophy for every section winner and a Best Female Player trophy. Entry $20 online, $25 at the door. All levels welcome, 21+.",
    "note_es": "Segunda ronda, en nuestro patio: Tampa Knights contra Kava Social. Una batalla por equipos a cinco rondas en sistema suizo, en cuatro secciones, G/15 d5, cada victoria un punto para tu equipo. Premios por sección de $100, $60, $40 y $30, un trofeo para cada ganador de sección y un trofeo a la Mejor Jugadora. Inscripción $20 en línea, $25 en la puerta. Todos los niveles son bienvenidos, 21+.",
    "url": "https://chess67.com/club/kava-social-chess-club/events/battle-for-the-bay-2-20261115"
+  },
+  {
+   "date": "2026-11-26",
+   "type": "closed",
+   "replaces": "adobe",
+   "title": "No club tonight: Happy Thanksgiving",
+   "title_es": "Hoy no hay club: feliz Día de Acción de Gracias",
+   "note": "Adobe Kava night is off for Thanksgiving. Enjoy your family and friends. We're back Sunday, Nov 29 at 8:00 PM.",
+   "note_es": "La noche en Adobe Kava se cancela por Acción de Gracias. Disfruta con tu familia y amigos. Volvemos el domingo 29 de noviembre a las 8:00 PM."
   }
  ],
  "_comment_marks": "Month-long challenges. Every day from \"from\" to \"to\" gets a tiny pawn on the calendar; tapping a day shows \"Day N of M\" with the note and links.",

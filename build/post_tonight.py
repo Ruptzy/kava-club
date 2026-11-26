@@ -53,7 +53,8 @@ def whats_on(day, events):
     """Everything happening on this date, the booked event first if there is one."""
     booked = [e for e in events if e.get('date') == day.isoformat()]
     if booked:
-        return booked
+        # a "closed" entry (Thanksgiving) cancels the night it replaces and is not itself an event
+        return [e for e in booked if e.get('type') != 'closed']
     wd = day.weekday()                              # Monday is 0
     if wd == 6:
         league = ((day - ANCHOR).days // 7) % 2 == 0

@@ -1,0 +1,43 @@
+name: Scheduled posts
+
+# Lenny's one-off messages that go out at a set time (scheduled-posts.json). A scheduled
+# task on Harold's PC dispatches this at the minute; the cron below is only a backstop,
+# since GitHub runs schedules late or not at all. Posted entries are marked and committed,
+# so the PC run and a backstop run can never both post the same message.
+on:
+  schedule:
+    - cron: "7,37 13-23 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: scheduled-posts
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Post what is due
+        env:
+          CLUB_SCHEDULE: ${{ secrets.SCHEDULE_FOR_DAY }}
+          NIGHT_RECAPS: ${{ secrets.NIGHT_RECAPS }}
+        run: python build/post_scheduled.py
+      - name: Record what was posted
+        run: |
+          if ! git diff --quiet scheduled-posts.json; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+            git add scheduled-posts.json
+            git commit -m "Scheduled post sent"
+            git pull --rebase -q && git push
+          fi
